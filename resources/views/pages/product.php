@@ -118,7 +118,8 @@ $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}"
               <span class="badge badge--best" style="margin-bottom: 4px;">Выгоднее всего</span>
               <div class="font-bold"><?= e(ucfirst($bestOffer['shop'])) ?> &bull; <?= formatPrice($bestOffer['landed']) ?></div>
             </div>
-            <a href="/go/<?= $id ?>/<?= urlencode($bestOffer['k']) ?>" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent">
+            <?php $bestTargetUrl = !empty($bestOffer['url']) ? $bestOffer['url'] : ("/go/{$id}/" . urlencode($bestOffer['k'])); ?>
+            <a href="<?= e($bestTargetUrl) ?>" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent">
               В магазин &rarr;
             </a>
           </div>

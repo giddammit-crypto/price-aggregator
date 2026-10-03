@@ -56,11 +56,15 @@ class GoController
         );
 
         // Build target affiliate URL
-        $searchUrl = str_replace('{q}', urlencode($product['title']), $shop['search_url_template'] ?? 'https://google.com');
-        $targetUrl = $searchUrl;
+        if (!empty($targetOffer['url'])) {
+            $targetUrl = $targetOffer['url'];
+        } else {
+            $searchUrl = str_replace('{q}', urlencode($product['title']), $shop['search_url_template'] ?? 'https://www.google.com/search?q=' . urlencode($product['title']));
+            $targetUrl = $searchUrl;
 
-        if (!empty($shop['affiliate_template'])) {
-            $targetUrl = str_replace('{url}', urlencode($searchUrl), $shop['affiliate_template']);
+            if (!empty($shop['affiliate_template'])) {
+                $targetUrl = str_replace('{url}', urlencode($searchUrl), $shop['affiliate_template']);
+            }
         }
 
         return Response::redirect($targetUrl, 302, [

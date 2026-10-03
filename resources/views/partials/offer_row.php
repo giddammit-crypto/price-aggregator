@@ -16,9 +16,10 @@ $seller = $offer['seller'] ?? null;
 $price = $offer['price'] ?? null;
 $landed = $offer['landed'] ?? $price;
 $origin = $offer['origin'] ?? 'RU';
-$isBestOffer = !empty($isBest);
 $offerKey = urlencode($offer['k']);
+$donorUrl = !empty($offer['url']) ? $offer['url'] : '';
 $goUrl = $isLinkOnly ? "/go/search/{$shopId}?q=" . urlencode($productTitle ?? '') : "/go/{$productId}/{$offerKey}";
+$directUrl = !empty($donorUrl) ? $donorUrl : $goUrl;
 ?>
 <div class="offer-row <?= $isBestOffer ? 'offer-row--best' : '' ?>">
   <div class="offer-shop">
@@ -64,12 +65,12 @@ $goUrl = $isLinkOnly ? "/go/search/{$shopId}?q=" . urlencode($productTitle ?? ''
 
   <div>
     <?php if ($isLinkOnly): ?>
-      <a href="<?= e($goUrl) ?>" target="_blank" rel="sponsored nofollow noopener" class="btn btn--outline btn--sm">
+      <a href="<?= e($directUrl) ?>" target="_blank" rel="sponsored nofollow noopener" class="btn btn--outline btn--sm">
         Искать на <?= e($shopDef['name']) ?>
         <svg class="icon icon-sm"><use href="/assets/icons/sprite.svg#arrow-up-right"></use></svg>
       </a>
     <?php else: ?>
-      <a href="<?= e($goUrl) ?>" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
+      <a href="<?= e($directUrl) ?>" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
         В магазин
         <svg class="icon icon-sm"><use href="/assets/icons/sprite.svg#arrow-up-right"></use></svg>
       </a>

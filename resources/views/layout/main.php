@@ -105,11 +105,11 @@ $cspNonce = App\Core\Response::getCspNonce();
             <span class="header-action-btn__label">Избранное</span>
           </a>
 
-          <a href="/admin" class="header-action-btn" title="Управление">
+          <a href="/ui-kit" class="header-action-btn" title="UI Kit & Дизайн-система">
             <div class="header-action-btn__icon">
-              <svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#user"></use></svg>
+              <svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#grid"></use></svg>
             </div>
-            <span class="header-action-btn__label">Кабинет</span>
+            <span class="header-action-btn__label">UI Kit</span>
           </a>
         </div>
       </div>

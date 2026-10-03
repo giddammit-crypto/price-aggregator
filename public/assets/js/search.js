@@ -22,10 +22,36 @@ export function initSearch() {
 
     debounceTimer = setTimeout(async () => {
       try {
-        const res = await fetch(`/api/suggest?q=${encodeURIComponent(query)}`);
-        if (!res.ok) return;
-        const data = await res.json();
-        renderSuggestions(data.suggestions || [], data.products || []);
+        const prefix = window.location.pathname.startsWith('/price-aggregator') ? '/price-aggregator' : '';
+        let terms = [];
+        let products = [];
+
+        try {
+          const res = await fetch(`${prefix}/api/suggest?q=${encodeURIComponent(query)}`);
+          if (res.ok) {
+            const data = await res.json();
+            terms = data.suggestions || [];
+            products = data.products || [];
+          }
+        } catch (e) {}
+
+        if (!terms.length && !products.length) {
+          // Fallback to static suggest.json for GitHub Pages
+          if (!window._cachedSuggest) {
+            const staticRes = await fetch(`${prefix}/api/suggest.json`);
+            if (staticRes.ok) window._cachedSuggest = await staticRes.json();
+          }
+          if (window._cachedSuggest) {
+            const q = query.toLowerCase();
+            const matched = window._cachedSuggest.filter(item => 
+              item.title.toLowerCase().includes(q) || (item.brand && item.brand.toLowerCase().includes(q))
+            );
+            terms = matched.slice(0, 5).map(m => m.title);
+            products = matched.slice(0, 4);
+          }
+        }
+
+        renderSuggestions(terms, products);
       } catch (err) {
         console.error("Search suggest failed", err);
       }
@@ -65,18 +91,20 @@ export function initSearch() {
       return;
     }
 
+    const prefix = window.location.pathname.startsWith('/price-aggregator') ? '/price-aggregator' : '';
     let html = '';
     terms.slice(0, 5).forEach(term => {
-      html += `<div class="suggest-item" data-type="term" onclick="location.href='/search?q=${encodeURIComponent(term)}'">
-        <span><svg class="icon icon-sm" style="margin-right:6px;"><use href="/assets/icons/sprite.svg#search"></use></svg>${escapeHtml(term)}</span>
+      html += `<div class="suggest-item" data-type="term" onclick="location.href='${prefix}/search?q=${encodeURIComponent(term)}'">
+        <span><svg class="icon icon-sm" style="margin-right:6px;"><use href="${prefix}/assets/icons/sprite.svg#search"></use></svg>${escapeHtml(term)}</span>
         <span class="text-muted" style="font-size:12px;">поиск</span>
       </div>`;
     });
 
     products.slice(0, 4).forEach(p => {
-      html += `<div class="suggest-item" data-type="product" onclick="location.href='/p/${p.slug}-${p.id}'">
+      const pUrl = p.url || `${prefix}/p/${p.slug}-${p.id}`;
+      html += `<div class="suggest-item" data-type="product" onclick="location.href='${pUrl}'">
         <span><strong>${escapeHtml(p.title)}</strong></span>
-        <span class="font-bold" style="color:var(--c-accent);">${p.price} ₽</span>
+        <span class="font-bold" style="color:var(--c-accent);">${Number(p.price).toLocaleString('ru-RU')} ₽</span>
       </div>`;
     });
 

@@ -90,6 +90,9 @@ savePage($exportDir . '/compare', 'index.html', $compare->getContent(), $basePre
 $favorites = $compareController->favorites(new Request('GET', '/favorites'));
 savePage($exportDir . '/favorites', 'index.html', $favorites->getContent(), $basePrefix);
 
+$err404 = View::make('errors/404', ['pageTitle' => '404 — Страница не найдена'], 'layout/main');
+savePage($exportDir, '404.html', $err404, $basePrefix);
+
 echo "3. Exporting Catalog Categories...\n";
 $catController = new \App\Controllers\CatalogController();
 $categories = Snapshot::loadArray('categories.php', []);
@@ -132,7 +135,9 @@ foreach ($categories as $cat) {
             'price' => $p['agg']['min'] ?? 0,
             'offers' => $p['agg']['cnt'] ?? 0,
             'url' => "{$basePrefix}/p/{$slug}-{$pid}/",
-            'image' => "{$basePrefix}/assets/img/p/" . ($p['cat'] ?? 10) . ".svg"
+            'image' => "{$basePrefix}/assets/img/p/" . ($p['cat'] ?? 10) . ".svg",
+            'specs' => $p['specs'] ?? [],
+            'attrs' => $p['attrs'] ?? []
         ];
 
         $suggestIndex[] = [

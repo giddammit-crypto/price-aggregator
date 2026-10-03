@@ -22,8 +22,8 @@ declare(strict_types=1);
     <a href="/catalog/smartphones" class="btn btn--accent">В каталог товаров</a>
   </div>
 
-  <?php if (!empty($products)): ?>
-    <div class="product-grid">
+  <div class="product-grid" id="favoritesGrid" <?= empty($products) ? 'style="display:none;"' : '' ?>>
+    <?php if (!empty($products)): ?>
       <?php foreach ($products as $p): ?>
         <?= $view->partial('partials/product_card', [
           'p' => [
@@ -42,21 +42,67 @@ declare(strict_types=1);
           ]
         ]) ?>
       <?php endforeach; ?>
-    </div>
-  <?php endif; ?>
+    <?php endif; ?>
+  </div>
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const ids = urlParams.get('ids');
-  if (!ids) {
-    try {
-      const stored = JSON.parse(localStorage.getItem('favorites')) || [];
-      if (stored.length > 0) {
+  const emptyState = document.getElementById('favEmptyState');
+  const grid = document.getElementById('favoritesGrid');
+  let stored = [];
+  try {
+    stored = JSON.parse(localStorage.getItem('favorites')) || [];
+  } catch (e) {}
+
+  if (stored.length === 0) {
+    if (grid) grid.style.display = 'none';
+    if (emptyState) emptyState.hidden = false;
+    return;
+  }
+
+  // If server already rendered products for these IDs, nothing more needed
+  if (grid && grid.children.length > 0) {
+    return;
+  }
+
+  // On static GitHub Pages or direct navigation, hydrate from api/search_index.json
+  const prefix = window.location.pathname.startsWith('/price-aggregator') ? '/price-aggregator' : '';
+  fetch(prefix + '/api/search_index.json')
+    .then(r => r.json())
+    .then(items => {
+      const favItems = items.filter(item => stored.includes(item.id));
+      if (favItems.length > 0 && grid) {
+        grid.innerHTML = favItems.map(p => `
+          <article class="product-card" data-product-id="${p.id}">
+            <button type="button" class="product-card__fav is-active" data-fav-id="${p.id}" title="В избранное">
+              <svg class="icon icon-sm"><use href="${prefix}/assets/icons/sprite.svg#heart"></use></svg>
+            </button>
+            <a href="${p.url}" class="product-card__img-wrap" tabindex="-1">
+              <img src="${p.image}" alt="${p.title}" class="product-card__img" loading="lazy" width="180" height="180">
+            </a>
+            <div class="product-card__brand">${p.brand}</div>
+            <a href="${p.url}" class="product-card__title" title="${p.title}">${p.title}</a>
+            <div class="product-card__footer">
+              <div class="product-card__price-wrap">
+                <span class="product-card__price-label">от</span>
+                <span class="product-card__price">${(p.price || 0).toLocaleString('ru-RU')} ₽</span>
+                <span class="product-card__shops-cnt">${p.offers} предложений</span>
+              </div>
+              <button type="button" class="btn btn--sm btn--secondary" data-compare-id="${p.id}" title="Сравнить">
+                <svg class="icon icon-sm"><use href="${prefix}/assets/icons/sprite.svg#scale"></use></svg>
+              </button>
+            </div>
+          </article>
+        `).join('');
+        grid.style.display = 'grid';
+        if (emptyState) emptyState.hidden = true;
+      }
+    })
+    .catch(() => {
+      if (!window.location.search.includes('ids=')) {
         window.location.replace('/favorites?ids=' + stored.join(','));
       }
-    } catch (e) {}
-  }
+    });
 });
 </script>

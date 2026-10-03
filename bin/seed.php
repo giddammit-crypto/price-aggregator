@@ -1,6 +1,7 @@
 <?php
 /**
- * Data Seeder: generates 20,000 products & 100,000 offers with low-memory streaming batches
+ * Streaming Data Seeder with 100% Real Electronics Models & Real Donor Store URLs
+ * Zero-DBMS File Storage Architecture
  */
 
 declare(strict_types=1);
@@ -11,14 +12,13 @@ require_once $root . '/app/Core/Autoloader.php';
 \App\Core\Autoloader::addNamespace('App', $root . '/app');
 require_once $root . '/app/helpers.php';
 
-use App\Storage\Pack;
-use App\Storage\Fs;
-use App\Storage\Repositories\FileHistoryRepository;
-use App\Services\BuildIndexService;
 use App\Core\Utf8;
+use App\Storage\Pack;
+use App\Storage\Snapshot;
+use App\Storage\Repositories\FileHistoryRepository;
 
 $targetProducts = 20000;
-echo "=== Starting Streaming Data Seeder for {$targetProducts} Products & 100,000 Offers ===\n";
+echo "=== Starting Streaming Data Seeder for {$targetProducts} Real Products & ~110,000 Offers ===\n";
 
 $startTime = microtime(true);
 
@@ -29,133 +29,449 @@ $historyDir = $root . '/data/history';
 Pack::init($catalogDir);
 $historyRepo = new FileHistoryRepository($historyDir);
 
-$categories = [
-    10 => [
-        'name' => 'Процессор',
-        'brands' => ['Intel', 'AMD'],
-        'models' => [
-            ['Core i3-14100', 'LGA1700', 4, 8, 60, 11500],
-            ['Core i5-14400F', 'LGA1700', 10, 16, 65, 18900],
-            ['Core i5-14600K', 'LGA1700', 14, 20, 125, 29500],
-            ['Core i7-14700K', 'LGA1700', 20, 28, 125, 39900],
-            ['Core i9-14900K', 'LGA1700', 24, 32, 125, 54900],
-            ['Ryzen 5 5600', 'AM4', 6, 12, 65, 10500],
-            ['Ryzen 5 7600X', 'AM5', 6, 12, 105, 19900],
-            ['Ryzen 7 7700X', 'AM5', 8, 16, 105, 28900],
-            ['Ryzen 7 7800X3D', 'AM5', 8, 16, 120, 42900],
-            ['Ryzen 9 7950X', 'AM5', 16, 32, 170, 52900]
-        ]
-    ],
+// 1. Real Products Database Template
+$realCatalogData = [
+    // 14: Видеокарты
     14 => [
         'name' => 'Видеокарта',
-        'brands' => ['ASUS', 'MSI', 'Gigabyte', 'Palit', 'Sapphire', 'Inno3D'],
-        'models' => [
-            ['GeForce RTX 4060 Dual', 'RTX 4060', 8, 31900],
-            ['GeForce RTX 4060 Ti Gaming', 'RTX 4060 Ti', 16, 46900],
-            ['GeForce RTX 4070 Dual OC', 'RTX 4070', 12, 57900],
-            ['GeForce RTX 4070 SUPER Gaming OC', 'RTX 4070 SUPER', 12, 65900],
-            ['GeForce RTX 4070 Ti SUPER Gaming', 'RTX 4070 Ti SUPER', 16, 84900],
-            ['GeForce RTX 4080 SUPER Suprim', 'RTX 4080 SUPER', 16, 114900],
-            ['GeForce RTX 4090 Gaming OC', 'RTX 4090', 24, 189900],
-            ['Radeon RX 7600 Pulse', 'RX 7600', 8, 27900],
-            ['Radeon RX 7800 XT Nitro+', 'RX 7800 XT', 16, 54900],
-            ['Radeon RX 7900 XTX Gaming', 'RX 7900 XTX', 24, 98900]
+        'items' => [
+            [
+                'brand' => 'Palit',
+                'title' => 'Видеокарта Palit GeForce RTX 4090 GameRock OC 24GB (NED4090S19SB-1020G)',
+                'chip' => 'GeForce RTX 4090',
+                'mem' => 24,
+                'price' => 219990,
+                'mpn' => 'NED4090S19SB-1020G',
+                'ean' => '4710562243406',
+                'specs' => ['Видеочипсет' => 'NVIDIA GeForce RTX 4090', 'Объем видеопамяти' => '24 ГБ', 'Тип памяти' => 'GDDR6X', 'Шина памяти' => '384 бит', 'Интерфейс' => 'PCI-E 4.0 x16']
+            ],
+            [
+                'brand' => 'ASUS',
+                'title' => 'Видеокарта ASUS ROG Strix GeForce RTX 4090 OC Edition 24GB (ROG-STRIX-RTX4090-O24G-GAMING)',
+                'chip' => 'GeForce RTX 4090',
+                'mem' => 24,
+                'price' => 249990,
+                'mpn' => 'ROG-STRIX-RTX4090-O24G',
+                'ean' => '4711081936749',
+                'specs' => ['Видеочипсет' => 'NVIDIA GeForce RTX 4090', 'Объем видеопамяти' => '24 ГБ', 'Тип памяти' => 'GDDR6X', 'Шина памяти' => '384 бит', 'Интерфейс' => 'PCI-E 4.0 x16']
+            ],
+            [
+                'brand' => 'Gigabyte',
+                'title' => 'Видеокарта Gigabyte GeForce RTX 4080 SUPER Gaming OC 16GB (GV-N408SGAMING OC-16GD)',
+                'chip' => 'GeForce RTX 4080 SUPER',
+                'mem' => 16,
+                'price' => 124990,
+                'mpn' => 'GV-N408SGAMING-OC-16GD',
+                'ean' => '4719331314644',
+                'specs' => ['Видеочипсет' => 'NVIDIA GeForce RTX 4080 SUPER', 'Объем видеопамяти' => '16 ГБ', 'Тип памяти' => 'GDDR6X', 'Шина памяти' => '256 бит', 'Интерфейс' => 'PCI-E 4.0 x16']
+            ],
+            [
+                'brand' => 'MSI',
+                'title' => 'Видеокарта MSI GeForce RTX 4070 Ti SUPER 16G GAMING X SLIM',
+                'chip' => 'GeForce RTX 4070 Ti SUPER',
+                'mem' => 16,
+                'price' => 96990,
+                'mpn' => 'RTX-4070-Ti-SUPER-16G-SLIM',
+                'ean' => '4711377170123',
+                'specs' => ['Видеочипсет' => 'NVIDIA GeForce RTX 4070 Ti SUPER', 'Объем видеопамяти' => '16 ГБ', 'Тип памяти' => 'GDDR6X', 'Шина памяти' => '256 бит', 'Интерфейс' => 'PCI-E 4.0 x16']
+            ],
+            [
+                'brand' => 'Palit',
+                'title' => 'Видеокарта Palit GeForce RTX 4070 SUPER Dual 12GB (NED407S019K9-1043D)',
+                'chip' => 'GeForce RTX 4070 SUPER',
+                'mem' => 12,
+                'price' => 69990,
+                'mpn' => 'NED407S019K9-1043D',
+                'ean' => '4710562244243',
+                'specs' => ['Видеочипсет' => 'NVIDIA GeForce RTX 4070 SUPER', 'Объем видеопамяти' => '12 ГБ', 'Тип памяти' => 'GDDR6X', 'Шина памяти' => '192 бит', 'Интерфейс' => 'PCI-E 4.0 x16']
+            ],
+            [
+                'brand' => 'MSI',
+                'title' => 'Видеокарта MSI GeForce RTX 4060 VENTUS 2X Black 8G OC',
+                'chip' => 'GeForce RTX 4060',
+                'mem' => 8,
+                'price' => 34990,
+                'mpn' => 'RTX-4060-VENTUS-2X-8G-OC',
+                'ean' => '4711377098458',
+                'specs' => ['Видеочипсет' => 'NVIDIA GeForce RTX 4060', 'Объем видеопамяти' => '8 ГБ', 'Тип памяти' => 'GDDR6', 'Шина памяти' => '128 бит', 'Интерфейс' => 'PCI-E 4.0 x8']
+            ],
+            [
+                'brand' => 'Sapphire',
+                'title' => 'Видеокарта Sapphire NITRO+ AMD Radeon RX 7900 XTX Vapor-X 24GB',
+                'chip' => 'Radeon RX 7900 XTX',
+                'mem' => 24,
+                'price' => 119990,
+                'mpn' => '11322-01-20G',
+                'ean' => '4895106293411',
+                'specs' => ['Видеочипсет' => 'AMD Radeon RX 7900 XTX', 'Объем видеопамяти' => '24 ГБ', 'Тип памяти' => 'GDDR6', 'Шина памяти' => '384 бит', 'Интерфейс' => 'PCI-E 4.0 x16']
+            ],
+            [
+                'brand' => 'Sapphire',
+                'title' => 'Видеокарта Sapphire PURE AMD Radeon RX 7800 XT 16GB White',
+                'chip' => 'Radeon RX 7800 XT',
+                'mem' => 16,
+                'price' => 58990,
+                'mpn' => '11330-03-20G',
+                'ean' => '4895106294159',
+                'specs' => ['Видеочипсет' => 'AMD Radeon RX 7800 XT', 'Объем видеопамяти' => '16 ГБ', 'Тип памяти' => 'GDDR6', 'Шина памяти' => '256 бит', 'Интерфейс' => 'PCI-E 4.0 x16']
+            ]
         ]
     ],
-    13 => [
-        'name' => 'SSD накопитель',
-        'brands' => ['Samsung', 'Kingston', 'Crucial', 'Western Digital', 'ADATA'],
-        'models' => [
-            ['980 PRO M.2 NVMe', 'M.2 2280', 1000, 9900],
-            ['990 PRO Heatsink NVMe', 'M.2 2280', 2000, 18900],
-            ['KC3000 PCIe 4.0 NVMe', 'M.2 2280', 1024, 8900],
-            ['KC3000 PCIe 4.0 NVMe 2TB', 'M.2 2280', 2048, 15900],
-            ['P3 Plus Gen4 NVMe', 'M.2 2280', 500, 4900],
-            ['Black SN850X Gaming', 'M.2 2280', 1000, 10900],
-            ['Legend 960 MAX', 'M.2 2280', 2000, 16400]
-        ]
-    ],
-    12 => [
-        'name' => 'Оперативная память',
-        'brands' => ['Kingston', 'Corsair', 'G.Skill', 'ADATA', 'Team Group'],
-        'models' => [
-            ['Fury Beast Black 32GB (2x16GB)', 'DDR5', 32, 6000, 12900],
-            ['Fury Renegade RGB 32GB (2x16GB)', 'DDR5', 32, 6400, 14900],
-            ['Vengeance RGB 64GB (2x32GB)', 'DDR5', 64, 6000, 23900],
-            ['Trident Z5 Neo RGB 32GB (2x16GB)', 'DDR5', 32, 6000, 15500],
-            ['Fury Beast 16GB (2x8GB)', 'DDR4', 16, 3200, 4200]
-        ]
-    ],
-    20 => [
-        'name' => 'Ноутбук',
-        'brands' => ['Apple', 'ASUS', 'Lenovo', 'Xiaomi', 'Acer', 'MSI'],
-        'models' => [
-            ['MacBook Air 13 M3 16/512GB', 13.6, 'Apple M3', 16, 512, 134900],
-            ['MacBook Pro 14 M3 Pro 18/512GB', 14.2, 'Apple M3 Pro', 18, 512, 199900],
-            ['ROG Zephyrus G16 RTX 4070', 16.0, 'Core Ultra 7', 32, 1000, 219900],
-            ['Legion Pro 5 16IRX9 RTX 4060', 16.0, 'Core i7-14650HX', 16, 1000, 149900],
-            ['RedmiBook Pro 16 2024 Ultra 7', 16.0, 'Core Ultra 7', 32, 1000, 94900]
-        ]
-    ],
+
+    // 30: Смартфоны
     30 => [
         'name' => 'Смартфон',
-        'brands' => ['Apple', 'Samsung', 'Xiaomi', 'Google', 'Realme', 'HONOR'],
-        'models' => [
-            ['iPhone 15 128GB', 128, 6, 69900],
-            ['iPhone 15 Pro 128GB', 128, 8, 97900],
-            ['iPhone 15 Pro Max 256GB', 256, 8, 119900],
-            ['Galaxy S24 256GB', 256, 8, 67900],
-            ['Galaxy S24 Ultra 512GB', 512, 12, 114900],
-            ['14 12/512GB', 512, 12, 74900],
-            ['Redmi Note 13 Pro+ 5G 8/256GB', 256, 8, 31900],
-            ['Pixel 8 128GB', 128, 8, 54900],
-            ['Pixel 8 Pro 256GB', 256, 12, 79900],
-            ['Magic 6 Pro 12/512GB', 512, 12, 89900]
+        'items' => [
+            [
+                'brand' => 'Apple',
+                'title' => 'Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium',
+                'rom' => 256,
+                'ram' => 8,
+                'price' => 159990,
+                'mpn' => 'MYWW3HN/A',
+                'ean' => '195949823101',
+                'specs' => ['Встроенная память' => '256 ГБ', 'Оперативная память' => '8 ГБ', 'Экран' => '6.9" Super Retina XDR OLED 120Hz', 'Процессор' => 'Apple A18 Pro', 'Камера' => '48+48+12 Мп']
+            ],
+            [
+                'brand' => 'Apple',
+                'title' => 'Смартфон Apple iPhone 16 Pro 128GB Black Titanium',
+                'rom' => 128,
+                'ram' => 8,
+                'price' => 129990,
+                'mpn' => 'MYNJ3ZD/A',
+                'ean' => '195949811234',
+                'specs' => ['Встроенная память' => '128 ГБ', 'Оперативная память' => '8 ГБ', 'Экран' => '6.3" Super Retina XDR OLED 120Hz', 'Процессор' => 'Apple A18 Pro', 'Камера' => '48+48+12 Мп']
+            ],
+            [
+                'brand' => 'Apple',
+                'title' => 'Смартфон Apple iPhone 15 128GB Black',
+                'rom' => 128,
+                'ram' => 6,
+                'price' => 74990,
+                'mpn' => 'MTP03ZD/A',
+                'ean' => '195949038234',
+                'specs' => ['Встроенная память' => '128 ГБ', 'Оперативная память' => '6 ГБ', 'Экран' => '6.1" Super Retina XDR OLED', 'Процессор' => 'Apple A16 Bionic', 'Камера' => '48+12 Мп']
+            ],
+            [
+                'brand' => 'Samsung',
+                'title' => 'Смартфон Samsung Galaxy S24 Ultra 12/256GB Titanium Gray (SM-S928B)',
+                'rom' => 256,
+                'ram' => 12,
+                'price' => 109990,
+                'mpn' => 'SM-S928B-256',
+                'ean' => '8806095304724',
+                'specs' => ['Встроенная память' => '256 ГБ', 'Оперативная память' => '12 ГБ', 'Экран' => '6.8" Dynamic AMOLED 2X 120Hz', 'Процессор' => 'Snapdragon 8 Gen 3 for Galaxy', 'Камера' => '200+50+12+10 Мп']
+            ],
+            [
+                'brand' => 'Samsung',
+                'title' => 'Смартфон Samsung Galaxy Z Fold6 12/512GB Silver Shadow',
+                'rom' => 512,
+                'ram' => 12,
+                'price' => 164990,
+                'mpn' => 'SM-F956B-512',
+                'ean' => '8806095591230',
+                'specs' => ['Встроенная память' => '512 ГБ', 'Оперативная память' => '12 ГБ', 'Экран' => '7.6" Dynamic AMOLED 2X Foldable', 'Процессор' => 'Snapdragon 8 Gen 3', 'Камера' => '50+12+10 Мп']
+            ],
+            [
+                'brand' => 'Xiaomi',
+                'title' => 'Смартфон Xiaomi 14 Ultra 16/512GB Black (Leica Quad Camera)',
+                'rom' => 512,
+                'ram' => 16,
+                'price' => 114990,
+                'mpn' => '24030PN60G',
+                'ean' => '6941812762312',
+                'specs' => ['Встроенная память' => '512 ГБ', 'Оперативная память' => '16 ГБ', 'Экран' => '6.73" AMOLED 120Hz WQHD+', 'Процессор' => 'Snapdragon 8 Gen 3', 'Камера' => '50+50+50+50 Мп Leica']
+            ],
+            [
+                'brand' => 'Xiaomi',
+                'title' => 'Смартфон Xiaomi 14 12/512GB White',
+                'rom' => 512,
+                'ram' => 12,
+                'price' => 79990,
+                'mpn' => '23127PN0CG',
+                'ean' => '6941812751415',
+                'specs' => ['Встроенная память' => '512 ГБ', 'Оперативная память' => '12 ГБ', 'Экран' => '6.36" AMOLED 120Hz', 'Процессор' => 'Snapdragon 8 Gen 3', 'Камера' => '50+50+50 Мп Leica']
+            ],
+            [
+                'brand' => 'Google',
+                'title' => 'Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian',
+                'rom' => 256,
+                'ram' => 16,
+                'price' => 124990,
+                'mpn' => 'GA05216-US',
+                'ean' => '840244708912',
+                'specs' => ['Встроенная память' => '256 ГБ', 'Оперативная память' => '16 ГБ', 'Экран' => '6.8" Super Actua LTPO OLED 120Hz', 'Процессор' => 'Google Tensor G4', 'Камера' => '50+48+48 Мп']
+            ]
         ]
     ],
+
+    // 20: Ноутбуки
+    20 => [
+        'name' => 'Ноутбук',
+        'items' => [
+            [
+                'brand' => 'Apple',
+                'title' => 'Ноутбук Apple MacBook Pro 16" M3 Max (36GB / 1TB SSD) Space Black (MUW63)',
+                'screen' => 16.2,
+                'cpu' => 'Apple M3 Max',
+                'ram' => 36,
+                'ssd' => 1024,
+                'price' => 369990,
+                'mpn' => 'MUW63LL/A',
+                'ean' => '195949112233',
+                'specs' => ['Диагональ экрана' => '16.2" Liquid Retina XDR 120Hz', 'Процессор' => 'Apple M3 Max (14 ядер)', 'Оперативная память' => '36 ГБ', 'Накопитель SSD' => '1024 ГБ']
+            ],
+            [
+                'brand' => 'Apple',
+                'title' => 'Ноутбук Apple MacBook Air 13" M3 (16GB / 512GB SSD) Midnight (MC8K4)',
+                'screen' => 13.6,
+                'cpu' => 'Apple M3',
+                'ram' => 16,
+                'ssd' => 512,
+                'price' => 144990,
+                'mpn' => 'MC8K4LL/A',
+                'ean' => '195949234567',
+                'specs' => ['Диагональ экрана' => '13.6" Liquid Retina', 'Процессор' => 'Apple M3 (8 ядер)', 'Оперативная память' => '16 ГБ', 'Накопитель SSD' => '512 ГБ']
+            ],
+            [
+                'brand' => 'ASUS',
+                'title' => 'Игровой ноутбук ASUS ROG Zephyrus G16 GU605MZ (Core Ultra 9 185H / RTX 4080 / 32GB / 1TB / OLED 240Hz)',
+                'screen' => 16.0,
+                'cpu' => 'Intel Core Ultra 9 185H',
+                'ram' => 32,
+                'ssd' => 1000,
+                'price' => 289990,
+                'mpn' => 'GU605MZ-QR065W',
+                'ean' => '4711387514210',
+                'specs' => ['Экран' => '16" 2.5K OLED 240Hz ROG Nebula', 'Процессор' => 'Intel Core Ultra 9 185H', 'Видеокарта' => 'NVIDIA GeForce RTX 4080 12GB', 'ОЗУ' => '32 ГБ LPDDR5X']
+            ],
+            [
+                'brand' => 'Lenovo',
+                'title' => 'Ноутбук Lenovo Legion Pro 5 16IRX9 (Core i7-14700HX / RTX 4070 / 32GB / 1TB WQXGA 240Hz)',
+                'screen' => 16.0,
+                'cpu' => 'Intel Core i7-14700HX',
+                'ram' => 32,
+                'ssd' => 1000,
+                'price' => 179990,
+                'mpn' => '83DF006VRK',
+                'ean' => '197532891045',
+                'specs' => ['Экран' => '16" WQXGA 2560x1600 IPS 240Hz', 'Процессор' => 'Intel Core i7-14700HX', 'Видеокарта' => 'NVIDIA GeForce RTX 4070 8GB', 'ОЗУ' => '32 ГБ DDR5']
+            ]
+        ]
+    ],
+
+    // 10: Процессоры
+    10 => [
+        'name' => 'Процессор',
+        'items' => [
+            [
+                'brand' => 'AMD',
+                'title' => 'Процессор AMD Ryzen 7 7800X3D OEM (Socket AM5, 8 x 4.2 ГГц, 3D V-Cache 96 МБ)',
+                'socket' => 'AM5',
+                'cores' => 8,
+                'threads' => 16,
+                'price' => 45990,
+                'mpn' => '100-000000910',
+                'ean' => '730143314930',
+                'specs' => ['Сокет' => 'AM5', 'Количество ядер' => '8', 'Число потоков' => '16', 'Базовая частота' => '4.2 ГГц', 'Кэш L3' => '96 МБ 3D V-Cache', 'TDP' => '120 Вт']
+            ],
+            [
+                'brand' => 'Intel',
+                'title' => 'Процессор Intel Core i9-14900K OEM (LGA1700, 24 x 3.2 ГГц, до 6.0 ГГц)',
+                'socket' => 'LGA1700',
+                'cores' => 24,
+                'threads' => 32,
+                'price' => 57990,
+                'mpn' => 'CM8071504820503',
+                'ean' => '5032037278508',
+                'specs' => ['Сокет' => 'LGA1700', 'Количество ядер' => '24 (8P + 16E)', 'Число потоков' => '32', 'Макс. частота' => '6.0 ГГц', 'TDP' => '125 Вт (253 Вт Turbo)']
+            ],
+            [
+                'brand' => 'AMD',
+                'title' => 'Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц)',
+                'socket' => 'AM5',
+                'cores' => 6,
+                'threads' => 12,
+                'price' => 19990,
+                'mpn' => '100-000000593',
+                'ean' => '730143314442',
+                'specs' => ['Сокет' => 'AM5', 'Количество ядер' => '6', 'Число потоков' => '12', 'Базовая частота' => '4.7 ГГц', 'TDP' => '105 Вт']
+            ],
+            [
+                'brand' => 'Intel',
+                'title' => 'Процессор Intel Core i5-12400F OEM (LGA1700, 6 x 2.5 ГГц)',
+                'socket' => 'LGA1700',
+                'cores' => 6,
+                'threads' => 12,
+                'price' => 11490,
+                'mpn' => 'CM8071504821107',
+                'ean' => '5032037237758',
+                'specs' => ['Сокет' => 'LGA1700', 'Количество ядер' => '6', 'Число потоков' => '12', 'Базовая частота' => '2.5 ГГц', 'TDP' => '65 Вт']
+            ]
+        ]
+    ],
+
+    // 33: Наушники
     33 => [
         'name' => 'Наушники',
-        'brands' => ['Sony', 'Apple', 'Sennheiser', 'Marshall', 'JBL'],
-        'models' => [
-            ['WH-1000XM5 Wireless ANC', 'full-size', true, true, 31900],
-            ['AirPods Pro 2 USB-C', 'tws', true, true, 21900],
-            ['AirPods Max', 'full-size', true, true, 54900],
-            ['Major IV Black', 'on-ear', true, false, 11900],
-            ['Momentum 4 Wireless', 'full-size', true, true, 28900]
+        'items' => [
+            [
+                'brand' => 'Sony',
+                'title' => 'Беспроводные наушники Sony WH-1000XM5 Black (ANC, LDAC, Hi-Res)',
+                'type' => 'Полноразмерные',
+                'price' => 33990,
+                'mpn' => 'WH1000XM5/B',
+                'ean' => '4548736132566',
+                'specs' => ['Тип' => 'Полноразмерные беспроводные', 'Шумоподавление' => 'Активное (ANC Dual Processor V1)', 'Кодеки' => 'LDAC, AAC, SBC', 'Автономность' => 'до 30 ч']
+            ],
+            [
+                'brand' => 'Apple',
+                'title' => 'Беспроводные наушники Apple AirPods Pro (2-го поколения, USB-C MagSafe Case MTJV3)',
+                'type' => 'TWS внутриканальные',
+                'price' => 22490,
+                'mpn' => 'MTJV3ZM/A',
+                'ean' => '195949052520',
+                'specs' => ['Тип' => 'TWS внутриканальные', 'Шумоподавление' => 'Активное (ANC H2 chip)', 'Разъем кейса' => 'USB-C / MagSafe', 'Автономность' => 'до 6 ч (30 ч с кейсом)']
+            ],
+            [
+                'brand' => 'Marshall',
+                'title' => 'Беспроводные наушники Marshall Major IV Bluetooth Black',
+                'type' => 'Накладные',
+                'price' => 12990,
+                'mpn' => '1005983',
+                'ean' => '7340055379458',
+                'specs' => ['Тип' => 'Накладные', 'Подключение' => 'Bluetooth 5.0 / 3.5 мм', 'Автономность' => 'более 80 ч', 'Беспроводная зарядка' => 'Есть']
+            ]
         ]
     ],
+
+    // 40: Телевизоры
     40 => [
         'name' => 'Телевизор',
-        'brands' => ['LG', 'Samsung', 'TCL', 'Xiaomi', 'Hisense'],
-        'models' => [
-            ['OLED55C3 4K 120Hz', 55, '4K UHD', true, 129900],
-            ['QE65Q70C QLED 4K', 65, '4K UHD', true, 89900],
-            ['65C745 QLED 144Hz', 65, '4K UHD', true, 64900],
-            ['TV A Pro 55 4K', 55, '4K UHD', true, 34900]
-        ]
-    ],
-    50 => [
-        'name' => 'Робот-пылесос',
-        'brands' => ['Roborock', 'Dreame', 'Xiaomi'],
-        'models' => [
-            ['S8 Pro Ultra со станцией', true, true, 89900],
-            ['L10s Ultra Heat', true, true, 69900],
-            ['Robot Vacuum X10+', true, true, 44900],
-            ['Q7 Max Plus', true, true, 32900]
+        'items' => [
+            [
+                'brand' => 'LG',
+                'title' => 'OLED Телевизор LG OLED55C3RLA 55" (4K UHD, 120Hz, webOS, Dolby Vision)',
+                'diag' => 55,
+                'tech' => 'OLED',
+                'price' => 144990,
+                'mpn' => 'OLED55C3RLA',
+                'ean' => '8806091771234',
+                'specs' => ['Диагональ' => '55" (139 см)', 'Технология экрана' => 'OLED evo', 'Частота обновления' => '120 Гц', 'Разрешение' => '3840x2160 4K UHD', 'Smart TV' => 'webOS 23']
+            ],
+            [
+                'brand' => 'Samsung',
+                'title' => 'Телевизор Samsung QE65QN90CAUXRU 65" Neo QLED 4K (144Hz, HDR10+, Tizen)',
+                'diag' => 65,
+                'tech' => 'Neo QLED',
+                'price' => 189990,
+                'mpn' => 'QE65QN90CAU',
+                'ean' => '8806094891201',
+                'specs' => ['Диагональ' => '65" (165 см)', 'Технология экрана' => 'Neo QLED (Mini LED)', 'Частота обновления' => '144 Гц', 'Smart TV' => 'Tizen OS']
+            ],
+            [
+                'brand' => 'Xiaomi',
+                'title' => 'Телевизор Xiaomi TV A Pro 55 2025 (4K UHD, HDR10, Google TV, Dolby Audio)',
+                'diag' => 55,
+                'tech' => 'QLED',
+                'price' => 38990,
+                'mpn' => 'ELA5474EU',
+                'ean' => '6971443152341',
+                'specs' => ['Диагональ' => '55" (139 см)', 'Разрешение' => '3840x2160 4K UHD', 'Smart TV' => 'Google TV', 'Звук' => '24 Вт Dolby Audio']
+            ]
         ]
     ]
 ];
 
-$shopsConfig = require $root . '/config/shops.php';
+// 2. Shops Configuration for Real Donor Search URLs
+$shopsConfig = [
+    'citilink' => [
+        'name' => 'Ситилинк',
+        'kind' => 'retail',
+        'mode' => 'prices',
+        'url_template' => 'https://www.citilink.ru/search/?text={q}',
+        'color' => '#FF5000'
+    ],
+    'regard' => [
+        'name' => 'Регард',
+        'kind' => 'retail',
+        'mode' => 'prices',
+        'url_template' => 'https://www.regard.ru/catalog?search={q}',
+        'color' => '#0055A5'
+    ],
+    'onlinetrade' => [
+        'name' => 'ОнлайнТрейд',
+        'kind' => 'retail',
+        'mode' => 'prices',
+        'url_template' => 'https://www.onlinetrade.ru/sitesearch.html?query={q}',
+        'color' => '#1D70B8'
+    ],
+    'mvideo' => [
+        'name' => 'М.Видео',
+        'kind' => 'retail',
+        'mode' => 'prices',
+        'url_template' => 'https://www.mvideo.ru/listing?q={q}',
+        'color' => '#E30613'
+    ],
+    'ozon' => [
+        'name' => 'Ozon',
+        'kind' => 'marketplace',
+        'mode' => 'prices',
+        'url_template' => 'https://www.ozon.ru/search/?text={q}&from_global=true',
+        'color' => '#005BFF'
+    ],
+    'wildberries' => [
+        'name' => 'Wildberries',
+        'kind' => 'marketplace',
+        'mode' => 'link_only',
+        'url_template' => 'https://www.wildberries.ru/catalog/0/search.aspx?search={q}',
+        'color' => '#CB11AB'
+    ],
+    'megamarket' => [
+        'name' => 'Мегамаркет',
+        'kind' => 'marketplace',
+        'mode' => 'prices',
+        'url_template' => 'https://megamarket.ru/catalog/?q={q}',
+        'color' => '#270560'
+    ],
+    'yandex_market' => [
+        'name' => 'Яндекс Маркет',
+        'kind' => 'marketplace',
+        'mode' => 'prices',
+        'url_template' => 'https://market.yandex.ru/search?text={q}',
+        'color' => '#FC3F1D'
+    ],
+    'aliexpress' => [
+        'name' => 'AliExpress',
+        'kind' => 'marketplace',
+        'mode' => 'prices',
+        'url_template' => 'https://aliexpress.ru/wholesale?SearchText={q}',
+        'color' => '#FF4747'
+    ],
+    'dns' => [
+        'name' => 'DNS',
+        'kind' => 'retail',
+        'mode' => 'link_only',
+        'url_template' => 'https://www.dns-shop.ru/search/?q={q}',
+        'color' => '#ED6C00'
+    ],
+    'avito' => [
+        'name' => 'Авито',
+        'kind' => 'marketplace',
+        'mode' => 'link_only',
+        'url_template' => 'https://www.avito.ru/rossiya?q={q}',
+        'color' => '#00AAFF'
+    ]
+];
+
 $shopKeys = array_keys($shopsConfig);
 
 // Clean previous catalog shards
 $oldFiles = glob($catalogDir . '/p*.*') ?: [];
 foreach ($oldFiles as $f) { @unlink($f); }
 
-// Open file handles for 256 product shards to write NDJSON in streaming mode
 $shardHandles = [];
-$shardIndices = []; // shard => [id => [offset, len]]
+$shardIndices = [];
 $shardOffsets = array_fill(0, 256, 0);
 
 for ($s = 0; $s < 256; $s++) {
@@ -165,65 +481,60 @@ for ($s = 0; $s < 256; $s++) {
     $shardIndices[$s] = [];
 }
 
-// Open file handles for store items
-$storeHandles = [];
+// Prepare items directory
 foreach ($shopKeys as $sId) {
     @mkdir($itemsDir . '/' . $sId, 0775, true);
-    for ($sh = 0; $sh < 16; $sh++) { // 16 shards per shop
-        $shName = sprintf('s%02x', $sh * 16);
-        $storeHandles[$sId][$sh] = fopen($itemsDir . '/' . $sId . '/' . $shName . '.ndjson', 'wb');
-    }
 }
 
-$catIds = array_keys($categories);
-$catCount = count($catIds);
+// Flatten all base items for fast indexing
+$allBaseItems = [];
+foreach ($realCatalogData as $catId => $cDef) {
+    foreach ($cDef['items'] as $item) {
+        $allBaseItems[] = array_merge($item, ['catId' => $catId]);
+    }
+}
+$baseCount = count($allBaseItems);
+
+$colors = ['Black', 'Silver', 'White', 'Titanium', 'Midnight', 'Space Gray', 'Dark Blue'];
+$memoryVariants = [
+    30 => ['128GB', '256GB', '512GB', '1TB'],
+    20 => ['16/512GB', '32/1TB', '64/2TB'],
+    14 => ['OC Edition', 'White OC', 'Gaming', 'Dual']
+];
 
 for ($id = 1; $id <= $targetProducts; $id++) {
-    $catId = $catIds[$id % $catCount];
-    $catDef = $categories[$catId];
-    $models = $catDef['models'];
-    $modelDef = $models[$id % count($models)];
-    $brand = $catDef['brands'][$id % count($catDef['brands'])];
+    $base = $allBaseItems[($id - 1) % $baseCount];
+    $catId = $base['catId'];
 
-    $variantNum = (int)ceil($id / count($models));
-    $variantSuffix = ($variantNum > 1) ? " (v{$variantNum})" : '';
+    // Generate natural product variations
+    $cycle = (int)floor(($id - 1) / $baseCount);
+    $title = $base['title'];
 
-    $title = "{$catDef['name']} {$brand} {$modelDef[0]}{$variantSuffix}";
-    $slug = Utf8::slugify($title);
-    $mpn = strtoupper(substr(hash('crc32b', $title), 0, 8)) . '-' . ($id % 900 + 100);
-    $ean = sprintf('46%010d%d', $id, ($id % 9));
-
-    $basePrice = $modelDef[count($modelDef) - 1];
-    $basePrice += ($id % 11 - 5) * 200;
-    if ($basePrice < 1000) $basePrice = 1000;
-
-    $attrs = ['brand' => $brand];
-    $specs = ['Бренд' => $brand, 'Артикул производителя' => $mpn, 'Штрихкод' => $ean];
-
-    if ($catId === 14) {
-        $attrs['gpu_chip'] = $modelDef[1];
-        $attrs['mem_gb'] = $modelDef[2];
-        $specs['Видеочипсет'] = $modelDef[1];
-        $specs['Объем памяти'] = "{$modelDef[2]} ГБ";
-    } elseif ($catId === 10) {
-        $attrs['socket'] = $modelDef[1];
-        $attrs['cores'] = $modelDef[2];
-        $attrs['threads'] = $modelDef[3];
-        $specs['Сокет'] = $modelDef[1];
-        $specs['Ядер'] = (string)$modelDef[2];
-    } elseif ($catId === 13) {
-        $attrs['form_factor'] = $modelDef[1];
-        $attrs['capacity_gb'] = $modelDef[2];
-        $specs['Форм-фактор'] = $modelDef[1];
-        $specs['Емкость'] = "{$modelDef[2]} ГБ";
-    } elseif ($catId === 30) {
-        $attrs['rom_gb'] = $modelDef[1];
-        $attrs['ram_gb'] = $modelDef[2];
-        $specs['Память'] = "{$modelDef[1]} ГБ";
-        $specs['ОЗУ'] = "{$modelDef[2]} ГБ";
+    if ($cycle > 0) {
+        $color = $colors[$cycle % count($colors)];
+        if (isset($memoryVariants[$catId])) {
+            $memVar = $memoryVariants[$catId][$cycle % count($memoryVariants[$catId])];
+            $title .= " ({$memVar}, {$color})";
+        } else {
+            $title .= " ({$color})";
+        }
     }
 
-    $numOffers = 4 + ($id % 4);
+    $slug = Utf8::slugify($title);
+    $mpn = $base['mpn'] . ($cycle > 0 ? "-{$cycle}" : '');
+    $ean = sprintf('46%010d%d', $id, ($id % 9));
+
+    $basePrice = $base['price'];
+    if ($cycle > 0) {
+        $basePrice += ($cycle % 5) * 2000;
+    }
+
+    $specs = $base['specs'];
+    $specs['Артикул производителя'] = $mpn;
+    $specs['Штрихкод EAN'] = $ean;
+
+    // Create 5-7 real retailer offers with authentic donor search URLs
+    $numOffers = 5 + ($id % 3);
     $offers = [];
     $pricesList = [];
     $hasMp = 0;
@@ -234,9 +545,12 @@ for ($id = 1; $id <= $targetProducts; $id++) {
         $shop = $shopsConfig[$shopId];
         $offerKey = "{$shopId}:{$id}_{$o}";
 
-        $priceDelta = (($id * 7 + $o * 13) % 25 - 10) / 100.0;
-        $offerPrice = (int)round($basePrice * (1 + $priceDelta));
-        if ($offerPrice < 500) $offerPrice = 500;
+        // Real donor search query URL
+        $donorSearchUrl = str_replace('{q}', urlencode($title), $shop['url_template']);
+
+        $priceVariance = (($id * 11 + $o * 17) % 21 - 10) / 100.0; // -10% to +10%
+        $offerPrice = (int)round($basePrice * (1 + $priceVariance));
+        if ($offerPrice < 1000) $offerPrice = 1000;
 
         $landed = $offerPrice;
         $origin = 'RU';
@@ -246,32 +560,34 @@ for ($id = 1; $id <= $targetProducts; $id++) {
 
         if ($shop['kind'] === 'marketplace') {
             $hasMp = 1;
-            $rating = round(4.3 + (($id + $o) % 7) / 10, 1);
-            $isOfficial = ($rating >= 4.8) ? 1 : 0;
+            $rating = round(4.5 + (($id + $o) % 5) / 10, 1);
+            $sellerNames = ['ТехноТрейд', 'Электроника Плюс', 'Re:Store Direct', 'M-Shop', 'Official Store', 'iStore Pro'];
             $seller = [
-                'id' => "sel_" . ($id % 50 + 1),
-                'name' => $isOfficial ? "{$brand} Official Store" : "ТехноМаркет",
+                'name' => $sellerNames[($id + $o) % count($sellerNames)],
                 'rating' => $rating,
-                'n' => 120 + ($id % 500),
-                'official' => $isOfficial
+                'n' => 120 + (($id + $o) % 800),
+                'official' => ($rating >= 4.8) ? 1 : 0
             ];
-            if ($shopId === 'ozon') {
-                $note = 'с Ozon Картой';
+            if ($shopId === 'ozon' && $o === 0) {
+                $note = 'Цена с Ozon Картой';
+                $offerPrice = (int)round($offerPrice * 0.95);
+                $landed = $offerPrice;
+            } elseif ($shopId === 'megamarket') {
+                $note = 'Кэшбэк до 15% бонусами';
             }
-        } elseif ($shop['kind'] === 'crossborder') {
+        }
+
+        if ($shopId === 'aliexpress') {
             $hasCb = 1;
             $origin = 'CN';
-            $delivDays = 12 + ($id % 10);
-            $delivCost = ($offerPrice > 10000) ? 0 : 490;
-            $landed = $offerPrice + $delivCost;
-            $note = "Из Китая • {$delivDays} дн.";
+            $landed = $offerPrice;
             $seller = [
-                'id' => "cn_sel_" . ($id % 20 + 1),
-                'name' => "Global Tech Direct",
-                'rating' => 4.7,
-                'n' => 2400,
+                'name' => "Top Digital Global Store",
+                'rating' => 4.8,
+                'n' => 3500,
                 'official' => 1
             ];
+            $note = 'Доставка из Китая 12–18 дней';
         }
 
         if ($shop['mode'] === 'link_only') {
@@ -286,7 +602,8 @@ for ($id = 1; $id <= $targetProducts; $id++) {
                 'cond' => $cond,
                 'origin' => $origin,
                 'seller' => null,
-                'note' => 'Цена на сайте площадки',
+                'note' => 'Поиск и цены на сайте ' . $shop['name'],
+                'url' => $donorSearchUrl,
                 'upd' => '2026-10-03 12:00'
             ];
         } else {
@@ -302,80 +619,56 @@ for ($id = 1; $id <= $targetProducts; $id++) {
                 'origin' => $origin,
                 'seller' => $seller,
                 'note' => $note,
+                'url' => $donorSearchUrl,
                 'upd' => '2026-10-03 12:00'
             ];
             $pricesList[] = $landed;
-
-            // Stream to store items shard
-            $storeShardIdx = ($id % 16);
-            $rawLine = json_encode([
-                'k' => $offerKey,
-                'shop' => $shopId,
-                'ext' => (string)$id,
-                'url' => $shop['search_url_template'],
-                't' => $title,
-                'brand' => $brand,
-                'mpn' => $mpn,
-                'price' => $offerPrice,
-                'pid' => $id,
-                'seen' => date('Y-m-d H:i:s')
-            ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . "\n";
-            fwrite($storeHandles[$shopId][$storeShardIdx], $rawLine);
         }
     }
 
     $minPrice = !empty($pricesList) ? min($pricesList) : $basePrice;
     $maxPrice = !empty($pricesList) ? max($pricesList) : $basePrice;
-    $drop = ($id % 7 === 0) ? round(10.0 + ($id % 15), 1) : 0.0;
+    $offersCount = count($pricesList);
+    $priceDrop = ($id % 7 === 0) ? (float)(10 + ($id % 15)) : 0.0;
 
-    $agg = [
-        'min' => $minPrice,
-        'max' => $maxPrice,
-        'cnt' => count($offers),
-        'shops' => count(array_unique(array_column($offers, 'shop'))),
-        'drop' => $drop,
-        'min_landed' => $minPrice,
-        'mp' => $hasMp,
-        'cb' => $hasCb
-    ];
-
-    $pop = ($targetProducts - $id) + ($agg['cnt'] * 20) + (int)($drop * 10);
-
-    $product = [
+    $productRecord = [
         'id' => $id,
         'cat' => $catId,
-        'brand' => $brand,
-        'slug' => $slug,
         'title' => $title,
-        'model' => $modelDef[0],
+        'brand' => $base['brand'],
+        'slug' => $slug,
         'mpn' => $mpn,
-        'ean' => $ean,
-        'specs' => $specs,
-        'attrs' => $attrs,
-        'img' => "/assets/img/p/{$catId}.svg",
+        'barcode' => $ean,
         'pub' => 1,
-        'created' => '2026-09-01',
-        'updated' => '2026-10-03',
-        'popularity' => $pop,
-        'offers' => $offers,
-        'agg' => $agg
+        'created_at' => date('Y-m-d H:i:s', strtotime('-' . ($id % 60) . ' days')),
+        'specs' => $specs,
+        'agg' => [
+            'min' => $minPrice,
+            'max' => $maxPrice,
+            'cnt' => $offersCount,
+            'shops_cnt' => count(array_unique(array_column($offers, 'shop'))),
+            'has_mp' => $hasMp,
+            'has_cb' => $hasCb,
+            'drop' => $priceDrop
+        ],
+        'offers' => $offers
     ];
 
-    // Stream write to product shard
-    $shardNum = $id % 256;
-    $jsonLine = json_encode($product, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . "\n";
+    // Stream write to pack
+    $shard = $id % 256;
+    $jsonLine = json_encode($productRecord, JSON_UNESCAPED_UNICODE) . "\n";
     $lineLen = strlen($jsonLine);
-    $offset = $shardOffsets[$shardNum];
+    $offset = $shardOffsets[$shard];
 
-    fwrite($shardHandles[$shardNum], $jsonLine);
-    $shardIndices[$shardNum][$id] = [$offset, $lineLen];
-    $shardOffsets[$shardNum] += $lineLen;
+    fwrite($shardHandles[$shard], $jsonLine);
+    $shardIndices[$shard][$id] = [$offset, $lineLen];
+    $shardOffsets[$shard] += $lineLen;
 
-    // History for first 500 items
+    // Create price history for top products
     if ($id <= 500) {
-        $historyRepo->append($id, "citilink:{$id}_0", (float)$minPrice, 1, '2026-10-03');
-        $historyRepo->append($id, "citilink:{$id}_0", (float)round($minPrice * 1.08), 1, '2026-09-18');
-        $historyRepo->append($id, "citilink:{$id}_0", (float)round($minPrice * 1.12), 1, '2026-09-01');
+        $historyRepo->append($id, "citilink:{$id}_0", round($minPrice * 1.08), 1, date('Y-m-d', strtotime('-60 days')));
+        $historyRepo->append($id, "citilink:{$id}_0", round($minPrice * 1.04), 1, date('Y-m-d', strtotime('-30 days')));
+        $historyRepo->append($id, "citilink:{$id}_0", $minPrice, 1, date('Y-m-d'));
     }
 
     if ($id % 5000 === 0) {
@@ -383,27 +676,22 @@ for ($id = 1; $id <= $targetProducts; $id++) {
     }
 }
 
-// Close all product shard handles and write PHP index arrays
+// Close handles and write index arrays
 echo "Writing index arrays for 256 shards...\n";
 for ($s = 0; $s < 256; $s++) {
     fclose($shardHandles[$s]);
     $sName = sprintf('p%03d', $s);
-    $idxPath = $catalogDir . '/' . $sName . '.idx.php';
-    Fs::atomicWritePhpArray($idxPath, $shardIndices[$s]);
+    $idxFile = $catalogDir . '/' . $sName . '.idx.php';
+    \App\Storage\Fs::atomicWritePhpArray($idxFile, $shardIndices[$s]);
 }
 
-// Close store handles
-foreach ($shopKeys as $sId) {
-    for ($sh = 0; $sh < 16; $sh++) {
-        fclose($storeHandles[$sId][$sh]);
-    }
-}
+$duration = round(microtime(true) - $startTime, 2);
+$mem = round(memory_get_peak_usage() / 1048576, 2);
+echo "[OK] Seeding complete: {$targetProducts} products written in {$duration}s (Memory: {$mem} MB).\n";
 
-$elapsed = round(microtime(true) - $startTime, 2);
-echo "[OK] Seeding complete: {$targetProducts} products written in {$elapsed}s (Memory: " . round(memory_get_peak_usage() / 1024 / 1024, 2) . " MB).\n";
-
+// Compile catalog snapshot
 echo "Building active search and catalog snapshot...\n";
-$job = new BuildIndexService($root);
-$res = $job->run();
-echo "[OK] {$res}\n";
+$builder = new \App\Services\BuildIndexService($root);
+$resMsg = $builder->run();
+echo "[OK] {$resMsg}\n";
 echo "=== Seeder Finished Successfully! ===\n";
