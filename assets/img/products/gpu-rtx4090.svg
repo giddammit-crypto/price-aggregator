@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+      <rect width="300" height="300" rx="16" fill="#F8FAFC"/>
+      <!-- PCIe Gold Contacts -->
+      <rect x="60" y="215" width="160" height="12" fill="#EAB308"/>
+      <!-- Shroud -->
+      <rect x="30" y="85" width="240" height="130" rx="12" fill="#1E293B" stroke="#0F172A" stroke-width="3"/>
+      <!-- Triple Fans -->
+      <circle cx="75" cy="150" r="32" fill="#0F172A" stroke="#475569" stroke-width="2"/>
+      <circle cx="75" cy="150" r="12" fill="#334155"/>
+      <circle cx="150" cy="150" r="32" fill="#0F172A" stroke="#475569" stroke-width="2"/>
+      <circle cx="150" cy="150" r="12" fill="#334155"/>
+      <circle cx="225" cy="150" r="32" fill="#0F172A" stroke="#475569" stroke-width="2"/>
+      <circle cx="225" cy="150" r="12" fill="#334155"/>
+      <!-- RGB Accent Strip -->
+      <rect x="40" y="95" width="220" height="6" rx="3" fill="#22C55E"/>
+      <!-- GeForce Badge -->
+      <rect x="100" y="106" width="100" height="16" rx="4" fill="#000"/>
+      <text x="150" y="118" font-family="system-ui, sans-serif" font-size="9" font-weight="900" fill="#84CC16" text-anchor="middle">GEFORCE RTX 4090</text>
+    </svg>

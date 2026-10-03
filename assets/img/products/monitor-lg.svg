@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+      <rect width="300" height="300" rx="16" fill="#F8FAFC"/>
+      <!-- Monitor Screen Frame -->
+      <rect x="35" y="45" width="230" height="145" rx="6" fill="#0F172A" stroke="#334155" stroke-width="3"/>
+      <!-- Display Area -->
+      <rect x="40" y="50" width="220" height="135" rx="2" fill="#020617"/>
+      <polygon points="40,185 260,185 260,90 40,140" fill="#1E1B4B" opacity="0.5"/>
+      <circle cx="150" cy="115" r="25" fill="#EF4444" opacity="0.6"/>
+      <!-- Stand Stem -->
+      <rect x="144" y="190" width="12" height="45" fill="#475569"/>
+      <!-- Stand Base V-Shape -->
+      <polygon points="100,245 150,230 200,245 190,250 150,237 110,250" fill="#334155"/>
+      <!-- Gaming Badge -->
+      <text x="150" y="180" font-family="system-ui, sans-serif" font-size="7" font-weight="800" fill="#FFF" text-anchor="middle">UltraGear 165Hz</text>
+    </svg>
