@@ -98,11 +98,23 @@ class BuildIndexService
 
                 $catProducts[$catId][] = $row;
 
+                $parentId = $this->categories[$catId]['parent_id'] ?? null;
+                if ($parentId !== null) {
+                    $catProducts[$parentId][] = $row;
+                }
+
                 // Facets
                 if (!isset($catFacets[$catId]['brand'][$brand])) {
                     $catFacets[$catId]['brand'][$brand] = 0;
                 }
                 $catFacets[$catId]['brand'][$brand]++;
+
+                if ($parentId !== null) {
+                    if (!isset($catFacets[$parentId]['brand'][$brand])) {
+                        $catFacets[$parentId]['brand'][$brand] = 0;
+                    }
+                    $catFacets[$parentId]['brand'][$brand]++;
+                }
 
                 foreach ($attrs as $attrKey => $attrVal) {
                     if (is_scalar($attrVal)) {
@@ -111,6 +123,13 @@ class BuildIndexService
                             $catFacets[$catId][$attrKey][$vStr] = 0;
                         }
                         $catFacets[$catId][$attrKey][$vStr]++;
+
+                        if ($parentId !== null) {
+                            if (!isset($catFacets[$parentId][$attrKey][$vStr])) {
+                                $catFacets[$parentId][$attrKey][$vStr] = 0;
+                            }
+                            $catFacets[$parentId][$attrKey][$vStr]++;
+                        }
                     }
                 }
 

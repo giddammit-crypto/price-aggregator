@@ -47,7 +47,7 @@ return [
         'parent_id' => 1,
         'name' => 'Видеокарты',
         'slug' => 'graphics-cards',
-        'icon' => 'tv',
+        'icon' => 'gpu',
         'facets' => ['brand', 'gpu_chip', 'mem_gb', 'interface']
     ],
     15 => [

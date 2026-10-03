@@ -10,7 +10,7 @@ use App\Storage\Snapshot;
 
 class CatalogController
 {
-    private const PER_PAGE = 24;
+    private const PER_PAGE = 36;
 
     public function category(Request $request, array $params): Response
     {

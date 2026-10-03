@@ -44,9 +44,27 @@ class ProductController
             ];
         }
 
-        // Similar products from same category
+        // Similar products from same category and Next/Previous navigation
         $catRows = Snapshot::loadArray("cat/{$product['cat']}.php", []);
         $similar = [];
+        $prevProduct = null;
+        $nextProduct = null;
+        $currIndex = -1;
+
+        foreach ($catRows as $idx => $row) {
+            if ($row['id'] === $id) {
+                $currIndex = $idx;
+                break;
+            }
+        }
+
+        if ($currIndex > 0) {
+            $prevProduct = $catRows[$currIndex - 1] ?? null;
+        }
+        if ($currIndex >= 0 && isset($catRows[$currIndex + 1])) {
+            $nextProduct = $catRows[$currIndex + 1];
+        }
+
         foreach ($catRows as $row) {
             if ($row['id'] !== $id) {
                 $similar[] = $row;
@@ -62,6 +80,8 @@ class ProductController
             'groupedOffers' => $groupedOffers,
             'historyPoints' => $historyPoints,
             'similar' => $similar,
+            'prevProduct' => $prevProduct,
+            'nextProduct' => $nextProduct,
             'pageTitle' => "{$product['title']} — сравнить цены от " . formatPrice($product['agg']['min'] ?? null),
             'pageDesc' => "Купить {$product['title']} по лучшей цене в магазинах и маркетплейсах. Характеристики, история изменения цен, отзывы и динамика скидок."
         ]);

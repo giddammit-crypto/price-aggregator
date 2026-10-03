@@ -17,8 +17,10 @@ $attrs = $p['attrs'] ?? [];
 $isMp = !empty($p['mp']);
 $isCb = !empty($p['cb']);
 $url = "/p/{$slug}-{$id}";
+$pop = (int)($p['pop'] ?? 0);
+$seller = $isCb ? 'crossborder' : ($isMp ? 'marketplace' : 'retail');
 ?>
-<article class="product-card" data-product-id="<?= $id ?>">
+<article class="product-card" data-product-id="<?= $id ?>" data-price="<?= $minPrice ?>" data-drop="<?= $drop ?>" data-pop="<?= $pop ?>" data-brand="<?= e(mb_strtolower((string)$brand)) ?>" data-seller="<?= $seller ?>">
   <div class="product-card__badges">
     <?php if ($drop >= 8.0): ?>
       <span class="badge badge--drop">−<?= round($drop) ?>%</span>

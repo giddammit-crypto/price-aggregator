@@ -47,13 +47,31 @@ $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}"
 </script>
 
 <div class="container">
-  <!-- Breadcrumbs -->
-  <nav class="mb-4 text-muted" style="font-size: var(--fs-xs);" aria-label="Хлебные крошки">
-    <a href="/">Главная</a> &rarr; 
-    <a href="/catalog/<?= e($category['slug']) ?>"><?= e($category['name']) ?></a> &rarr; 
-    <span class="font-bold" style="color: var(--c-ink);"><?= e($brand) ?></span> &rarr; 
-    <span><?= e($title) ?></span>
-  </nav>
+  <!-- Breadcrumbs & Product Pager -->
+  <div class="d-flex justify-between align-center flex-wrap gap-2 mb-4">
+    <nav class="text-muted" style="font-size: var(--fs-xs);" aria-label="Хлебные крошки">
+      <a href="/">Главная</a> &rarr; 
+      <a href="/catalog/<?= e($category['slug']) ?>"><?= e($category['name']) ?></a> &rarr; 
+      <span class="font-bold" style="color: var(--c-ink);"><?= e($brand) ?></span> &rarr; 
+      <span><?= e($title) ?></span>
+    </nav>
+
+    <!-- Product Pager (навигация по товарам категории) -->
+    <div class="product-pager d-flex align-center gap-2">
+      <?php if (!empty($prevProduct)): ?>
+        <a href="/p/<?= e($prevProduct['slug']) ?>-<?= $prevProduct['id'] ?>" class="btn btn--secondary btn--sm" title="<?= e($prevProduct['title']) ?>">
+          <svg class="icon icon-sm"><use href="/assets/icons/sprite.svg#chevron-right" style="transform: rotate(180deg);"></use></svg>
+          <span>Предыдущий товар</span>
+        </a>
+      <?php endif; ?>
+      <?php if (!empty($nextProduct)): ?>
+        <a href="/p/<?= e($nextProduct['slug']) ?>-<?= $nextProduct['id'] ?>" class="btn btn--secondary btn--sm" title="<?= e($nextProduct['title']) ?>">
+          <span>Следующий товар</span>
+          <svg class="icon icon-sm"><use href="/assets/icons/sprite.svg#chevron-right"></use></svg>
+        </a>
+      <?php endif; ?>
+    </div>
+  </div>
 
   <!-- Product Hero: Image + Quick Info Box -->
   <div style="display: grid; grid-template-columns: minmax(300px, 440px) 1fr; gap: var(--sp-6); margin-bottom: var(--sp-8); background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-6);">
