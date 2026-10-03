@@ -2,6 +2,8 @@
 
 > Высокопроизводительный агрегатор цен для **обычного виртуального хостинга** на чистом **PHP 8.1+**, работающий **без СУБД** (MySQL/PostgreSQL) и без Node/Vite-сборок. Хранение организовано в шардированных NDJSON-паках с O(1) чтением через **OPcache** и атомарной сменой неизменяемых снимков (`snapshots`).
 
+🌐 **Живой сайт (Демо на GitHub Pages):** [https://giddammit-crypto.github.io/price-aggregator/](https://giddammit-crypto.github.io/price-aggregator/)
+
 Включает дизайн-систему, интегрированную через **Google Stitch MCP** (проект «TechRadar DNS Aggregator» / «ТехноПульс»), оптимизированную под мобильные устройства и десктоп в фирменном стиле DNS / techno-retail.
 
 ---
