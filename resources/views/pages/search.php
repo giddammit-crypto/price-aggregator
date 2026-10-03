@@ -15,7 +15,7 @@ declare(strict_types=1);
       Поиск по запросу «<?= e($query) ?>»
     </h1>
     <p id="searchCount" class="text-muted" style="font-size: var(--fs-sm);">
-      Найдено <?= count($results) ?> товаров за <?= $durationMs ?> мс
+      Найдено <?= count($results) ?> товаров
     </p>
   </div>
 
@@ -81,8 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         (p.cat && p.cat.toLowerCase().includes(qLower))
       );
 
-      const duration = Math.round(performance.now() - startTime);
-      if (countEl) countEl.textContent = `Найдено ${matched.length} товаров за ${duration} мс`;
+      if (countEl) countEl.textContent = `Найдено ${matched.length} товаров`;
 
       if (matched.length > 0 && grid) {
         grid.innerHTML = matched.map(p => `

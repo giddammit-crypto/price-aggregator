@@ -104,18 +104,11 @@ $cspNonce = App\Core\Response::getCspNonce();
             </div>
             <span class="header-action-btn__label">Избранное</span>
           </a>
-
-          <a href="/ui-kit" class="header-action-btn" title="UI Kit & Дизайн-система">
-            <div class="header-action-btn__icon">
-              <svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#grid"></use></svg>
-            </div>
-            <span class="header-action-btn__label">UI Kit</span>
-          </a>
         </div>
       </div>
     </div>
 
-    <!-- Category Subheader Strip (Stitch Design) -->
+    <!-- Category Subheader Strip -->
     <div style="background: var(--c-dark-2); border-top: 1px solid rgba(255,255,255,0.08); overflow-x: auto; white-space: nowrap;">
       <div class="container d-flex align-center gap-2" style="height: 40px; font-size: var(--fs-xs); font-weight: 600;">
         <a href="/catalog/smartphones" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Смартфоны и гаджеты</a>
@@ -128,7 +121,8 @@ $cspNonce = App\Core\Response::getCspNonce();
       </div>
     </div>
 
-    <!-- Mega Menu Container -->
+    <!-- Mega Menu Backdrop & Container -->
+    <div class="mega-menu-backdrop" id="megaMenuBackdrop" hidden></div>
     <nav class="mega-menu" id="megaMenu" hidden aria-label="Каталог категорий">
       <div class="container mega-menu__inner" id="megaMenuContent">
         <?= $view->partial('partials/mega_menu') ?>
@@ -150,7 +144,7 @@ $cspNonce = App\Core\Response::getCspNonce();
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Дизайн синхронизирован с Google Stitch Design System. Цены пересчитываются по курсу ЦБ РФ ежедневно.</p>
+          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
         </div>
 
         <div class="footer-col">

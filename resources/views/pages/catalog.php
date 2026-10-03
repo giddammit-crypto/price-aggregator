@@ -158,27 +158,64 @@ $brands = $facets['brand'] ?? [];
         <?php endforeach; ?>
       </div>
 
-      <!-- Pagination Component -->
-      <nav id="catalogPagination" class="d-flex justify-between align-center flex-wrap gap-2 mt-4" style="padding-top: var(--sp-4); border-top: 1px solid var(--c-line);">
-        <button type="button" id="prevPageBtn" class="btn btn--secondary btn--sm" <?= ($page <= 1) ? 'disabled' : '' ?>>
-          &larr; Назад
-        </button>
+      <!-- Top-Tier Pagination Component -->
+      <nav id="catalogPagination" class="catalog-pagination" aria-label="Пагинация каталога">
+        <div class="pagination-controls">
+          <button type="button" id="prevPageBtn" class="pagination-btn-nav" <?= ($page <= 1) ? 'disabled' : '' ?>>
+            &larr; Назад
+          </button>
 
-        <div class="d-flex align-center gap-1 flex-wrap" id="paginationPagesList">
-          <?php for ($pNum = 1; $pNum <= max(1, $totalPages); $pNum++): ?>
-            <button type="button" class="btn btn--sm <?= ($pNum === $page) ? 'btn--accent' : 'btn--secondary' ?> page-num-btn" data-page="<?= $pNum ?>">
-              <?= $pNum ?>
-            </button>
-          <?php endfor; ?>
+          <div class="pagination-pages" id="paginationPagesList">
+            <?php 
+            $tot = max(1, $totalPages);
+            $cur = min(max(1, $page), $tot);
+            if ($tot <= 7):
+              for ($pNum = 1; $pNum <= $tot; $pNum++):
+            ?>
+              <button type="button" class="page-num-btn <?= ($pNum === $cur) ? 'is-active btn--accent' : '' ?>" data-page="<?= $pNum ?>" aria-label="Страница <?= $pNum ?>" <?= ($pNum === $cur) ? 'aria-current="page"' : '' ?>>
+                <?= $pNum ?>
+              </button>
+            <?php 
+              endfor;
+            else:
+              // Sliding window with ellipsis
+            ?>
+              <button type="button" class="page-num-btn <?= (1 === $cur) ? 'is-active btn--accent' : '' ?>" data-page="1" aria-label="Страница 1" <?= (1 === $cur) ? 'aria-current="page"' : '' ?>>
+                1
+              </button>
+              <?php
+              $startP = ($cur <= 4) ? 2 : (($cur >= $tot - 3) ? $tot - 4 : $cur - 1);
+              $endP = ($cur <= 4) ? 5 : (($cur >= $tot - 3) ? $tot - 1 : $cur + 1);
+
+              if ($startP > 2):
+              ?>
+                <span class="pagination-ellipsis">…</span>
+              <?php endif; ?>
+
+              <?php for ($pNum = $startP; $pNum <= $endP; $pNum++): ?>
+                <button type="button" class="page-num-btn <?= ($pNum === $cur) ? 'is-active btn--accent' : '' ?>" data-page="<?= $pNum ?>" aria-label="Страница <?= $pNum ?>" <?= ($pNum === $cur) ? 'aria-current="page"' : '' ?>>
+                  <?= $pNum ?>
+                </button>
+              <?php endfor; ?>
+
+              <?php if ($endP < $tot - 1): ?>
+                <span class="pagination-ellipsis">…</span>
+              <?php endif; ?>
+
+              <button type="button" class="page-num-btn <?= ($tot === $cur) ? 'is-active btn--accent' : '' ?>" data-page="<?= $tot ?>" aria-label="Страница <?= $tot ?>" <?= ($tot === $cur) ? 'aria-current="page"' : '' ?>>
+                <?= $tot ?>
+              </button>
+            <?php endif; ?>
+          </div>
+
+          <button type="button" id="nextPageBtn" class="pagination-btn-nav" <?= ($page >= $totalPages) ? 'disabled' : '' ?>>
+            Вперед &rarr;
+          </button>
         </div>
 
-        <span class="text-muted" id="paginationSummary" style="font-size: var(--fs-sm);">
+        <div class="pagination-summary" id="paginationSummary">
           Страница <strong id="currentPageLabel"><?= $page ?></strong> из <strong id="totalPagesLabel"><?= max(1, $totalPages) ?></strong>
-        </span>
-
-        <button type="button" id="nextPageBtn" class="btn btn--secondary btn--sm" <?= ($page >= $totalPages) ? 'disabled' : '' ?>>
-          Вперед &rarr;
-        </button>
+        </div>
       </nav>
     </main>
   </div>
@@ -199,15 +236,21 @@ $brands = $facets['brand'] ?? [];
 <script>
 (function() {
   function initCatalogFallback() {
+    // If ES module filters already initialized, skip fallback
+    if (window.PriceHubFiltersInitialized) return;
+
     const sortSelect = document.getElementById('sortSelect');
     const sortSelectTop = document.getElementById('sortSelectTop');
     const filterForm = document.getElementById('filterForm');
     const catalogGrid = document.getElementById('catalogProducts');
+    const paginationNav = document.getElementById('catalogPagination');
     if (!catalogGrid) return;
 
-    function applyFallbackSortFilter() {
+    let activeFallbackPage = 1;
+
+    function applyFallbackSortFilter(updateHistory, targetPage) {
       if (window.PriceHubApplyFilters && typeof window.PriceHubApplyFilters === 'function') {
-        window.PriceHubApplyFilters();
+        window.PriceHubApplyFilters(updateHistory !== false, targetPage);
         return;
       }
 
@@ -262,7 +305,9 @@ $brands = $facets['brand'] ?? [];
       const PAGE_SIZE = 12;
       const totalMatching = matchingCards.length;
       const totalPages = Math.max(1, Math.ceil(totalMatching / PAGE_SIZE));
-      const activePage = Math.min(Math.max(1, targetPage || 1), totalPages);
+      const reqPage = (targetPage !== null && targetPage !== undefined) ? parseInt(targetPage, 10) : activeFallbackPage;
+      const activePage = Math.min(Math.max(1, isNaN(reqPage) ? 1 : reqPage), totalPages);
+      activeFallbackPage = activePage;
 
       matchingCards.forEach((c, idx) => {
         const onPage = (idx >= (activePage - 1) * PAGE_SIZE && idx < activePage * PAGE_SIZE);
@@ -272,7 +317,6 @@ $brands = $facets['brand'] ?? [];
       const countEl = document.getElementById('filterCount');
       if (countEl) countEl.textContent = totalMatching;
 
-      const paginationNav = document.getElementById('catalogPagination');
       if (paginationNav) {
         if (totalMatching === 0 || totalPages <= 1) {
           paginationNav.style.display = 'none';
@@ -282,34 +326,76 @@ $brands = $facets['brand'] ?? [];
           const totLabel = document.getElementById('totalPagesLabel');
           const prevBtn = document.getElementById('prevPageBtn');
           const nextBtn = document.getElementById('nextPageBtn');
+          const pagesList = document.getElementById('paginationPagesList');
+
           if (curLabel) curLabel.textContent = String(activePage);
           if (totLabel) totLabel.textContent = String(totalPages);
           if (prevBtn) prevBtn.disabled = (activePage <= 1);
           if (nextBtn) nextBtn.disabled = (activePage >= totalPages);
+
+          if (pagesList) {
+            let html = '';
+            if (totalPages <= 7) {
+              for (let p = 1; p <= totalPages; p++) {
+                html += '<button type="button" class="page-num-btn ' + (p === activePage ? 'is-active btn--accent' : '') + '" data-page="' + p + '">' + p + '</button>';
+              }
+            } else {
+              html += '<button type="button" class="page-num-btn ' + (1 === activePage ? 'is-active btn--accent' : '') + '" data-page="1">1</button>';
+              let sP = (activePage <= 4) ? 2 : ((activePage >= totalPages - 3) ? totalPages - 4 : activePage - 1);
+              let eP = (activePage <= 4) ? 5 : ((activePage >= totalPages - 3) ? totalPages - 1 : activePage + 1);
+              if (sP > 2) html += '<span class="pagination-ellipsis">…</span>';
+              for (let p = sP; p <= eP; p++) {
+                html += '<button type="button" class="page-num-btn ' + (p === activePage ? 'is-active btn--accent' : '') + '" data-page="' + p + '">' + p + '</button>';
+              }
+              if (eP < totalPages - 1) html += '<span class="pagination-ellipsis">…</span>';
+              html += '<button type="button" class="page-num-btn ' + (totalPages === activePage ? 'is-active btn--accent' : '') + '" data-page="' + totalPages + '">' + totalPages + '</button>';
+            }
+            pagesList.innerHTML = html;
+          }
         }
       }
+    }
+
+    if (paginationNav) {
+      paginationNav.addEventListener('click', (e) => {
+        const pageBtn = e.target.closest('[data-page]');
+        const prevBtn = e.target.closest('#prevPageBtn');
+        const nextBtn = e.target.closest('#nextPageBtn');
+        if (!pageBtn && !prevBtn && !nextBtn) return;
+        e.preventDefault();
+
+        let t = activeFallbackPage;
+        if (pageBtn) t = parseInt(pageBtn.dataset.page, 10);
+        else if (prevBtn && !prevBtn.disabled) t = activeFallbackPage - 1;
+        else if (nextBtn && !nextBtn.disabled) t = activeFallbackPage + 1;
+
+        if (t >= 1 && t !== activeFallbackPage) {
+          applyFallbackSortFilter(true, t);
+          catalogGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
     }
 
     if (sortSelect) {
       sortSelect.addEventListener('change', () => {
         if (sortSelectTop) sortSelectTop.value = sortSelect.value;
-        applyFallbackSortFilter();
+        applyFallbackSortFilter(true, 1);
       });
     }
     if (sortSelectTop) {
       sortSelectTop.addEventListener('change', () => {
         if (sortSelect) sortSelect.value = sortSelectTop.value;
-        applyFallbackSortFilter();
+        applyFallbackSortFilter(true, 1);
       });
     }
     if (filterForm) {
       filterForm.addEventListener('change', (e) => {
         if (e.target === sortSelect) return;
-        applyFallbackSortFilter();
+        applyFallbackSortFilter(true, 1);
       });
       filterForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        applyFallbackSortFilter();
+        applyFallbackSortFilter(true, 1);
       });
     }
   }

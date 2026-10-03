@@ -1,0 +1,39 @@
+-- Supabase Seed Data for PriceHub Aggregator
+-- Generated: 2026-10-03 21:40:44
+
+-- 1. Categories
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (1, NULL, 'Комплектующие для ПК', 'pc-components', 'cpu', '[]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (10, 1, 'Процессоры', 'processors', 'cpu', '[\"brand\",\"socket\",\"cores\",\"threads\",\"tdp\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (11, 1, 'Материнские платы', 'motherboards', 'circuit-board', '[\"brand\",\"socket\",\"chipset\",\"form_factor\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (12, 1, 'Оперативная память', 'ram', 'layers', '[\"brand\",\"type\",\"capacity_gb\",\"frequency_mhz\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (13, 1, 'SSD и накопители', 'storage-ssd', 'hard-drive', '[\"brand\",\"form_factor\",\"capacity_gb\",\"interface\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (14, 1, 'Видеокарты', 'graphics-cards', 'gpu', '[\"brand\",\"gpu_chip\",\"mem_gb\",\"interface\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (15, 1, 'Блоки питания', 'power-supplies', 'zap', '[\"brand\",\"power_watt\",\"certificate\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (16, 1, 'Корпуса', 'cases', 'box', '[\"brand\",\"form_factor\",\"color\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (17, 1, 'Охлаждение ПК', 'cooling', 'wind', '[\"brand\",\"type\",\"socket\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (2, NULL, 'Ноутбуки и компьютеры', 'laptops-computers', 'laptop', '[]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (20, 2, 'Ноутбуки', 'laptops', 'laptop', '[\"brand\",\"screen_size\",\"cpu_type\",\"ram_gb\",\"ssd_gb\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (21, 2, 'Мониторы', 'monitors', 'monitor', '[\"brand\",\"diagonal\",\"resolution\",\"hz\",\"matrix\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (22, 2, 'Готовые ПК', 'desktop-pcs', 'server', '[\"brand\",\"cpu_type\",\"gpu_chip\",\"ram_gb\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (3, NULL, 'Смартфоны и гаджеты', 'smartphones-gadgets', 'smartphone', '[]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (30, 3, 'Смартфоны', 'smartphones', 'smartphone', '[\"brand\",\"rom_gb\",\"ram_gb\",\"color\",\"origin\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (31, 3, 'Планшеты', 'tablets', 'tablet', '[\"brand\",\"screen_size\",\"rom_gb\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (32, 3, 'Смарт-часы и браслеты', 'smartwatches', 'watch', '[\"brand\",\"color\",\"os\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (33, 3, 'Наушники и гарнитуры', 'headphones', 'headphones', '[\"brand\",\"type\",\"wireless\",\"anc\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (4, NULL, 'ТВ и умный дом', 'tv-smart-home', 'tv', '[]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (40, 4, 'Телевизоры', 'televisions', 'tv', '[\"brand\",\"diagonal\",\"resolution\",\"smart_tv\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+INSERT INTO public.categories (id, parent_id, name, slug, icon, facets) VALUES (50, 4, 'Роботы-пылесосы', 'robot-vacuums', 'disc', '[\"brand\",\"wet_cleaning\",\"station\"]'::jsonb) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, facets = EXCLUDED.facets;
+
+-- 2. Shops
+INSERT INTO public.shops (id, name, kind, mode, url_template, color) VALUES ('citilink', 'Ситилинк', 'retail', 'prices', 'https://www.citilink.ru/search/?text={q}', '#FF5000') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.shops (id, name, kind, mode, url_template, color) VALUES ('regard', 'Регард', 'retail', 'prices', 'https://www.regard.ru/catalog?search={q}', '#0055A5') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.shops (id, name, kind, mode, url_template, color) VALUES ('onlinetrade', 'ОнлайнТрейд', 'retail', 'prices', 'https://www.onlinetrade.ru/sitesearch.html?query={q}', '#1D70B8') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.shops (id, name, kind, mode, url_template, color) VALUES ('mvideo', 'М.Видео', 'retail', 'prices', 'https://www.mvideo.ru/listing?q={q}', '#E30613') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.shops (id, name, kind, mode, url_template, color) VALUES ('ozon', 'Ozon', 'marketplace', 'prices', 'https://www.ozon.ru/search/?text={q}', '#005BFF') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.shops (id, name, kind, mode, url_template, color) VALUES ('wildberries', 'Wildberries', 'marketplace', 'link_only', 'https://www.wildberries.ru/catalog/0/search.aspx?search={q}', '#CB11AB') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.shops (id, name, kind, mode, url_template, color) VALUES ('megamarket', 'Мегамаркет', 'marketplace', 'prices', 'https://megamarket.ru/catalog/?q={q}', '#270560') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.shops (id, name, kind, mode, url_template, color) VALUES ('yandex_market', 'Яндекс Маркет', 'marketplace', 'prices', 'https://market.yandex.ru/search?text={q}', '#FC3F1D') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.shops (id, name, kind, mode, url_template, color) VALUES ('aliexpress', 'AliExpress', 'crossborder', 'prices', 'https://aliexpress.ru/wholesale?SearchText={q}', '#FF4747') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.shops (id, name, kind, mode, url_template, color) VALUES ('dns', 'DNS', 'retail', 'link_only', 'https://www.dns-shop.ru/search/?q={q}', '#ED6C00') ON CONFLICT (id) DO NOTHING;
+INSERT INTO public.shops (id, name, kind, mode, url_template, color) VALUES ('avito', 'Авито', 'classifieds', 'link_only', 'https://www.avito.ru/rossiya?q={q}', '#00AAFF') ON CONFLICT (id) DO NOTHING;
+

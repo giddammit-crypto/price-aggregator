@@ -31,7 +31,7 @@ $featuredDrop = !empty($drops) ? $drops[0] : null;
               ✓ 20 000+ товаров проверено
             </span>
             <span class="badge" style="background: rgba(255,255,255,0.1); color: #FFF;">
-              Файловое хранилище (NDJSON + OPcache)
+              ⚡ Обновление цен 24/7
             </span>
           </div>
 

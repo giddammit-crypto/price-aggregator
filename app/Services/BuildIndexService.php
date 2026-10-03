@@ -92,8 +92,8 @@ class BuildIndexService
                     'img' => $img,
                     'slug' => $slug,
                     'attrs' => $attrs,
-                    'mp' => $agg['mp'] ?? 0,
-                    'cb' => $agg['cb'] ?? 0
+                    'mp' => $agg['mp'] ?? $agg['has_mp'] ?? 0,
+                    'cb' => $agg['cb'] ?? $agg['has_cb'] ?? 0
                 ];
 
                 $catProducts[$catId][] = $row;
