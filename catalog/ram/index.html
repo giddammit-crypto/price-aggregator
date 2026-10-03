@@ -24,18 +24,6 @@
   <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
   </head>
 <body class="site-body">
-  <!-- Service information: never present hard-coded counters as live measurements. -->
-  <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
-    <div class="container d-flex justify-between align-center flex-wrap gap-2">
-      <div class="d-flex align-center gap-2">
-        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
-      </div>
-      <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
-      </div>
-    </div>
-  </div>
-
   <!-- Desktop & Mobile Header -->
   <header class="site-header" id="siteHeader">
     <div class="header-main">
@@ -56,7 +44,7 @@
           <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск моделей в демонстрационном каталоге..."
+                     placeholder="Поиск товаров среди 100 000+ предложений..."
                      value="" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
@@ -676,265 +664,19 @@
       </div>
 
       <div class="product-grid" id="catalogProducts">
-                  <article class="product-card" data-product-id="3125" data-price="16480" data-drop="0" data-pop="110" data-brand="adata" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="3125" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-gold-3125/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">ADATA</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-gold-3125/" class="product-card__title" title="Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Gold)">    Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Gold)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>6000</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">16 480 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3125" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="2519" data-price="11767" data-drop="0" data-pop="110" data-brand="patriot" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="2519" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-white-2519/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Patriot</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-white-2519/" class="product-card__title" title="Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, White)">    Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, White)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>6400</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">11 767 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2519" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="2321" data-price="9891" data-drop="0" data-pop="109" data-brand="crucial" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="2321" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-crucial-pro-ddr5-32gb-2x16gb-5600mhz-32gb-silver-2321/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Crucial</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-crucial-pro-ddr5-32gb-2x16gb-5600mhz-32gb-silver-2321/" class="product-card__title" title="Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)">    Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>5600</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">9 891 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2321" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="3158" data-price="11691" data-drop="0" data-pop="109" data-brand="corsair" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="3158" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-midnight-3158/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Corsair</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-midnight-3158/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)">    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>5600</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">11 691 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3158" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="2651" data-price="19101" data-drop="0" data-pop="109" data-brand="teamgroup" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="2651" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-titanium-2651/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">TeamGroup</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-titanium-2651/" class="product-card__title" title="Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Titanium)">    Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Titanium)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>6000</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">19 101 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2651" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="2675" data-price="13041" data-drop="0" data-pop="109" data-brand="corsair" data-seller="crossborder">
+                  <article class="product-card" data-product-id="3104" data-price="10242" data-drop="0" data-pop="120" data-brand="adata" data-seller="crossborder">
   <div class="product-card__badges">
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="2675" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="3104" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-2675/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Corsair</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-2675/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)">    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>5600</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">13 041 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2675" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="3335" data-price="18591" data-drop="0" data-pop="108" data-brand="adata" data-seller="crossborder">
-  <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="3335" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-white-3335/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-space-gray-3104/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">ADATA</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-white-3335/" class="product-card__title" title="Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, White)">    Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, White)  </a>
+  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-space-gray-3104/" class="product-card__title" title="Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Space Gray)">    Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -953,154 +695,29 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">18 591 ₽</span>
+        <span class="product-card__price">10 242 ₽</span>
         <span class="product-card__shops-cnt">
-          6 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3335" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3104" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="2849" data-price="20451" data-drop="24" data-pop="108" data-brand="kingston" data-seller="marketplace">
-  <div class="product-card__badges">
-          <span class="badge badge--drop">−24%</span>
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="2849" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-space-gray-2849/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Kingston</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-space-gray-2849/" class="product-card__title" title="Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Space Gray)">    Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Space Gray)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>6000</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">20 451 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2849" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="3080" data-price="17661" data-drop="15" data-pop="107" data-brand="kingston" data-seller="marketplace">
-  <div class="product-card__badges">
-          <span class="badge badge--drop">−15%</span>
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="3080" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-white-3080/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Kingston</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-white-3080/" class="product-card__title" title="Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, White)">    Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, White)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>6000</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">17 661 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3080" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="2927" data-price="14391" data-drop="0" data-pop="107" data-brand="corsair" data-seller="marketplace">
+                  <article class="product-card" data-product-id="2123" data-price="15350" data-drop="0" data-pop="120" data-brand="g.skill" data-seller="marketplace">
   <div class="product-card__badges">
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="2927" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="2123" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-2927/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Corsair</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-2927/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)">    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>5600</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">14 391 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2927" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="2795" data-price="21376" data-drop="0" data-pop="107" data-brand="g.skill" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="2795" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-g-skill-trident-z5-rgb-ddr5-32gb-2x16gb-6400mhz-16gb-dark-blue-2795/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/operativnaya-pamyat-g-skill-trident-z5-rgb-ddr5-32gb-2x16gb-6400mhz-2123/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">G.Skill</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-g-skill-trident-z5-rgb-ddr5-32gb-2x16gb-6400mhz-16gb-dark-blue-2795/" class="product-card__title" title="Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (16GB, Dark Blue)">    Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (16GB, Dark Blue)  </a>
+  <a href="/price-aggregator/p/operativnaya-pamyat-g-skill-trident-z5-rgb-ddr5-32gb-2x16gb-6400mhz-2123/" class="product-card__title" title="Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz">    Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1119,399 +736,29 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">21 376 ₽</span>
+        <span class="product-card__price">15 350 ₽</span>
         <span class="product-card__shops-cnt">
-          6 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2795" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2123" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="2807" data-price="12081" data-drop="12" data-pop="107" data-brand="kingston" data-seller="crossborder">
+                  <article class="product-card" data-product-id="2390" data-price="13932" data-drop="0" data-pop="120" data-brand="adata" data-seller="crossborder">
   <div class="product-card__badges">
-          <span class="badge badge--drop">−12%</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="2807" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="2390" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-gold-2807/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Kingston</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-gold-2807/" class="product-card__title" title="Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Gold)">    Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Gold)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>6000</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">12 081 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2807" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="2717" data-price="11691" data-drop="0" data-pop="106" data-brand="corsair" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="2717" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-midnight-2717/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Corsair</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-midnight-2717/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)">    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>5600</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">11 691 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2717" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="2498" data-price="17287" data-drop="0" data-pop="106" data-brand="patriot" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="2498" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-gold-2498/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Patriot</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-gold-2498/" class="product-card__title" title="Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, Gold)">    Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, Gold)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>6400</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">17 287 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2498" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="3047" data-price="22741" data-drop="0" data-pop="105" data-brand="g.skill" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="3047" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-g-skill-trident-z5-rgb-ddr5-32gb-2x16gb-6400mhz-16gb-dark-blue-3047/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">G.Skill</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-g-skill-trident-z5-rgb-ddr5-32gb-2x16gb-6400mhz-16gb-dark-blue-3047/" class="product-card__title" title="Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (16GB, Dark Blue)">    Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (16GB, Dark Blue)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>6400</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">22 741 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3047" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="2300" data-price="15971" data-drop="0" data-pop="105" data-brand="crucial" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="2300" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-crucial-pro-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-2300/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Crucial</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-crucial-pro-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-2300/" class="product-card__title" title="Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)">    Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>5600</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">15 971 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2300" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="2420" data-price="12276" data-drop="0" data-pop="104" data-brand="teamgroup" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="2420" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-dark-blue-2420/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">TeamGroup</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-dark-blue-2420/" class="product-card__title" title="Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Dark Blue)">    Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Dark Blue)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>6000</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">12 276 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2420" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="3191" data-price="18667" data-drop="0" data-pop="104" data-brand="patriot" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="3191" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-gold-3191/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Patriot</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-gold-3191/" class="product-card__title" title="Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, Gold)">    Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, Gold)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>6400</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">18 667 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3191" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="2168" data-price="20466" data-drop="0" data-pop="103" data-brand="teamgroup" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="2168" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-dark-blue-2168/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">TeamGroup</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-dark-blue-2168/" class="product-card__title" title="Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Dark Blue)">    Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Dark Blue)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>6000</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">20 466 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2168" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="2189" data-price="15006" data-drop="0" data-pop="103" data-brand="teamgroup" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="2189" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-black-2189/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">TeamGroup</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-black-2189/" class="product-card__title" title="Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Black)">    Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Black)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>6000</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">15 006 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2189" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="2222" data-price="11616" data-drop="0" data-pop="103" data-brand="adata" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="2222" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-space-gray-2222/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-white-2390/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">ADATA</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-space-gray-2222/" class="product-card__title" title="Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Space Gray)">    Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Space Gray)  </a>
+  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-white-2390/" class="product-card__title" title="Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, White)">    Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1530,17 +777,99 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">11 616 ₽</span>
+        <span class="product-card__price">13 932 ₽</span>
         <span class="product-card__shops-cnt">
-          6 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2222" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2390" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="3146" data-price="19986" data-drop="0" data-pop="102" data-brand="adata" data-seller="marketplace">
+                  <article class="product-card" data-product-id="2819" data-price="12891" data-drop="0" data-pop="119" data-brand="teamgroup" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2819" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-black-2819/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">TeamGroup</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-black-2819/" class="product-card__title" title="Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Black)">    Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Black)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6000</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">12 891 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2819" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="2873" data-price="13321" data-drop="0" data-pop="119" data-brand="adata" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2873" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-gold-2873/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">ADATA</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-gold-2873/" class="product-card__title" title="Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Gold)">    Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Gold)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6000</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">13 321 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2873" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="3146" data-price="20845" data-drop="0" data-pop="119" data-brand="adata" data-seller="marketplace">
   <div class="product-card__badges">
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
@@ -1549,8 +878,8 @@
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-white-3146/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-white-3146/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">ADATA</div>
   <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-white-3146/" class="product-card__title" title="Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, White)">    Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, White)  </a>
   <div class="product-card__specs">
@@ -1571,9 +900,9 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">19 986 ₽</span>
+        <span class="product-card__price">20 845 ₽</span>
         <span class="product-card__shops-cnt">
-          6 предложений        </span>
+          7 предложений        </span>
           </div>
 
           <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3146" title="Сравнить" aria-label="Сравнить товар">
@@ -1581,60 +910,19 @@
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="2411" data-price="19986" data-drop="0" data-pop="102" data-brand="adata" data-seller="crossborder">
+                  <article class="product-card" data-product-id="2246" data-price="14524" data-drop="0" data-pop="119" data-brand="patriot" data-seller="crossborder">
   <div class="product-card__badges">
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="2411" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="2246" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-space-gray-2411/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">ADATA</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-space-gray-2411/" class="product-card__title" title="Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Space Gray)">    Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Space Gray)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>6000</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">19 986 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2411" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="3334" data-price="21141" data-drop="0" data-pop="100" data-brand="g.skill" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="3334" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-g-skill-trident-z5-rgb-ddr5-32gb-2x16gb-6400mhz-64gb-white-3334/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">G.Skill</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-g-skill-trident-z5-rgb-ddr5-32gb-2x16gb-6400mhz-64gb-white-3334/" class="product-card__title" title="Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (64GB, White)">    Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (64GB, White)  </a>
+  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-gold-2246/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Patriot</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-gold-2246/" class="product-card__title" title="Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, Gold)">    Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1653,30 +941,153 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">21 141 ₽</span>
+        <span class="product-card__price">14 524 ₽</span>
         <span class="product-card__shops-cnt">
-          5 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3334" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2246" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="2828" data-price="16266" data-drop="18" data-pop="100" data-brand="kingston" data-seller="marketplace">
+                  <article class="product-card" data-product-id="2522" data-price="14692" data-drop="0" data-pop="119" data-brand="g.skill" data-seller="crossborder">
   <div class="product-card__badges">
-          <span class="badge badge--drop">−18%</span>
-              <span class="badge badge--marketplace">Маркетплейс</span>
+              <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="2828" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="2522" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-white-2828/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/operativnaya-pamyat-g-skill-trident-z5-rgb-ddr5-32gb-2x16gb-6400mhz-16gb-titanium-2522/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (16GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">G.Skill</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-g-skill-trident-z5-rgb-ddr5-32gb-2x16gb-6400mhz-16gb-titanium-2522/" class="product-card__title" title="Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (16GB, Titanium)">    Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (16GB, Titanium)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6400</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">14 692 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2522" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="3092" data-price="20150" data-drop="0" data-pop="118" data-brand="teamgroup" data-seller="marketplace">
+  <div class="product-card__badges">
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="3092" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-titanium-3092/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">TeamGroup</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-titanium-3092/" class="product-card__title" title="Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Titanium)">    Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Titanium)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6000</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">20 150 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3092" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="2126" data-price="11197" data-drop="0" data-pop="118" data-brand="teamgroup" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2126" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-2126/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">TeamGroup</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-2126/" class="product-card__title" title="Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz">    Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6000</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">11 197 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2126" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="3290" data-price="21110" data-drop="15" data-pop="118" data-brand="kingston" data-seller="marketplace">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−15%</span>
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="3290" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-space-gray-3290/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">Kingston</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-white-2828/" class="product-card__title" title="Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, White)">    Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, White)  </a>
+  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-space-gray-3290/" class="product-card__title" title="Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Space Gray)">    Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1695,70 +1106,29 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">16 266 ₽</span>
+        <span class="product-card__price">21 110 ₽</span>
         <span class="product-card__shops-cnt">
-          6 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2828" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3290" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="2896" data-price="18891" data-drop="0" data-pop="100" data-brand="teamgroup" data-seller="crossborder">
-  <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="2896" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-64gb-white-2896/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">TeamGroup</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-64gb-white-2896/" class="product-card__title" title="Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (64GB, White)">    Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (64GB, White)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>6000</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">18 891 ₽</span>
-        <span class="product-card__shops-cnt">
-          5 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2896" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="2707" data-price="20241" data-drop="0" data-pop="100" data-brand="teamgroup" data-seller="marketplace">
+                  <article class="product-card" data-product-id="2222" data-price="12115" data-drop="0" data-pop="117" data-brand="adata" data-seller="marketplace">
   <div class="product-card__badges">
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="2707" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="2222" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-64gb-white-2707/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">TeamGroup</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-64gb-white-2707/" class="product-card__title" title="Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (64GB, White)">    Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (64GB, White)  </a>
+  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-space-gray-2222/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">ADATA</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-space-gray-2222/" class="product-card__title" title="Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Space Gray)">    Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1777,29 +1147,70 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">20 241 ₽</span>
+        <span class="product-card__price">12 115 ₽</span>
         <span class="product-card__shops-cnt">
-          5 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2707" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2222" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="2720" data-price="11241" data-drop="0" data-pop="100" data-brand="crucial" data-seller="crossborder">
+                  <article class="product-card" data-product-id="3071" data-price="13852" data-drop="0" data-pop="117" data-brand="teamgroup" data-seller="crossborder">
   <div class="product-card__badges">
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="2720" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="3071" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/operativnaya-pamyat-crucial-pro-ddr5-32gb-2x16gb-5600mhz-32gb-midnight-2720/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-black-3071/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">TeamGroup</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-black-3071/" class="product-card__title" title="Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Black)">    Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Black)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6000</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">13 852 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3071" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="2321" data-price="10550" data-drop="0" data-pop="116" data-brand="crucial" data-seller="marketplace">
+  <div class="product-card__badges">
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2321" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-crucial-pro-ddr5-32gb-2x16gb-5600mhz-32gb-silver-2321/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">Crucial</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-crucial-pro-ddr5-32gb-2x16gb-5600mhz-32gb-midnight-2720/" class="product-card__title" title="Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)">    Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)  </a>
+  <a href="/price-aggregator/p/operativnaya-pamyat-crucial-pro-ddr5-32gb-2x16gb-5600mhz-32gb-silver-2321/" class="product-card__title" title="Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)">    Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1818,29 +1229,29 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">11 241 ₽</span>
+        <span class="product-card__price">10 550 ₽</span>
         <span class="product-card__shops-cnt">
-          5 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2720" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2321" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="3242" data-price="18646" data-drop="0" data-pop="100" data-brand="corsair" data-seller="crossborder">
+                  <article class="product-card" data-product-id="3116" data-price="12027" data-drop="0" data-pop="116" data-brand="corsair" data-seller="crossborder">
   <div class="product-card__badges">
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="3242" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="3116" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-3242/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-3116/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">Corsair</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-3242/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)">    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)  </a>
+  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-3116/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)">    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1859,29 +1270,29 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">18 646 ₽</span>
+        <span class="product-card__price">12 027 ₽</span>
         <span class="product-card__shops-cnt">
-          5 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3242" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3116" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="2476" data-price="13491" data-drop="0" data-pop="100" data-brand="teamgroup" data-seller="marketplace">
+                  <article class="product-card" data-product-id="2453" data-price="19190" data-drop="0" data-pop="115" data-brand="adata" data-seller="marketplace">
   <div class="product-card__badges">
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="2476" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="2453" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-64gb-space-gray-2476/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">TeamGroup</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-64gb-space-gray-2476/" class="product-card__title" title="Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (64GB, Space Gray)">    Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (64GB, Space Gray)  </a>
+  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-white-2453/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">ADATA</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-white-2453/" class="product-card__title" title="Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, White)">    Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1900,71 +1311,30 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">13 491 ₽</span>
+        <span class="product-card__price">19 190 ₽</span>
         <span class="product-card__shops-cnt">
-          5 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2476" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2453" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="2255" data-price="17091" data-drop="0" data-pop="100" data-brand="corsair" data-seller="marketplace">
+                  <article class="product-card" data-product-id="2156" data-price="19466" data-drop="21" data-pop="113" data-brand="kingston" data-seller="marketplace">
   <div class="product-card__badges">
+          <span class="badge badge--drop">−21%</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="2255" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="2156" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-silver-2255/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Corsair</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-silver-2255/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)">    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>5600</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">17 091 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2255" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="2772" data-price="14391" data-drop="22" data-pop="100" data-brand="kingston" data-seller="marketplace">
-  <div class="product-card__badges">
-          <span class="badge badge--drop">−22%</span>
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="2772" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-16gb-titanium-2772/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-space-gray-2156/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">Kingston</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-16gb-titanium-2772/" class="product-card__title" title="Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (16GB, Titanium)">    Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (16GB, Titanium)  </a>
+  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-space-gray-2156/" class="product-card__title" title="Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Space Gray)">    Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1983,70 +1353,29 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">14 391 ₽</span>
+        <span class="product-card__price">19 466 ₽</span>
         <span class="product-card__shops-cnt">
-          5 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2772" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2156" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="2558" data-price="21705" data-drop="0" data-pop="100" data-brand="adata" data-seller="crossborder">
+                  <article class="product-card" data-product-id="3182" data-price="14272" data-drop="0" data-pop="113" data-brand="crucial" data-seller="crossborder">
   <div class="product-card__badges">
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="2558" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="3182" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-gold-2558/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">ADATA</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-gold-2558/" class="product-card__title" title="Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Gold)">    Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Gold)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>type:</span>
-        <strong>DDR5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>32</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>frequency_mhz:</span>
-        <strong>6000</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">21 705 ₽</span>
-        <span class="product-card__shops-cnt">
-          5 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2558" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="2885" data-price="15741" data-drop="0" data-pop="99" data-brand="corsair" data-seller="crossborder">
-  <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="2885" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-silver-2885/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Corsair</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-silver-2885/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)">    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)  </a>
+  <a href="/price-aggregator/p/operativnaya-pamyat-crucial-pro-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-3182/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Crucial</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-crucial-pro-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-3182/" class="product-card__title" title="Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)">    Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -2065,29 +1394,70 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">15 741 ₽</span>
+        <span class="product-card__price">14 272 ₽</span>
         <span class="product-card__shops-cnt">
-          5 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2885" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3182" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="2915" data-price="13011" data-drop="0" data-pop="99" data-brand="adata" data-seller="marketplace">
+                  <article class="product-card" data-product-id="2687" data-price="14524" data-drop="0" data-pop="113" data-brand="patriot" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2687" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-gold-2687/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Patriot</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-gold-2687/" class="product-card__title" title="Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, Gold)">    Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, Gold)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6400</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">14 524 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2687" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="3257" data-price="16616" data-drop="0" data-pop="113" data-brand="g.skill" data-seller="marketplace">
   <div class="product-card__badges">
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="2915" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="3257" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-space-gray-2915/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">ADATA</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-space-gray-2915/" class="product-card__title" title="Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Space Gray)">    Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Space Gray)  </a>
+  <a href="/price-aggregator/p/operativnaya-pamyat-g-skill-trident-z5-rgb-ddr5-32gb-2x16gb-6400mhz-16gb-black-3257/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (16GB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">G.Skill</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-g-skill-trident-z5-rgb-ddr5-32gb-2x16gb-6400mhz-16gb-black-3257/" class="product-card__title" title="Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (16GB, Black)">    Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (16GB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -2099,36 +1469,36 @@
       </div>
           <div class="product-card__spec-item">
         <span>frequency_mhz:</span>
-        <strong>6000</strong>
+        <strong>6400</strong>
       </div>
       </div>
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">13 011 ₽</span>
+        <span class="product-card__price">16 616 ₽</span>
         <span class="product-card__shops-cnt">
-          6 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2915" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3257" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="3011" data-price="11821" data-drop="0" data-pop="99" data-brand="corsair" data-seller="crossborder">
+                  <article class="product-card" data-product-id="3158" data-price="12470" data-drop="0" data-pop="112" data-brand="corsair" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
+              <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="3011" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="3158" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-silver-3011/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-midnight-3158/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">Corsair</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-silver-3011/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)">    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)  </a>
+  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-midnight-3158/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)">    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -2147,12 +1517,631 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">11 821 ₽</span>
+        <span class="product-card__price">12 470 ₽</span>
         <span class="product-card__shops-cnt">
-          5 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3011" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3158" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="2786" data-price="15762" data-drop="21" data-pop="112" data-brand="kingston" data-seller="crossborder">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−21%</span>
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2786" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-space-gray-2786/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Kingston</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-space-gray-2786/" class="product-card__title" title="Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Space Gray)">    Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Space Gray)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6000</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">15 762 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2786" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="2807" data-price="11042" data-drop="12" data-pop="112" data-brand="kingston" data-seller="crossborder">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−12%</span>
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2807" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-gold-2807/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Kingston</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-gold-2807/" class="product-card__title" title="Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Gold)">    Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Gold)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6000</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">11 042 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2807" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="2675" data-price="12027" data-drop="0" data-pop="111" data-brand="corsair" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2675" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-2675/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Corsair</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-2675/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)">    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>5600</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">12 027 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2675" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="2774" data-price="15572" data-drop="0" data-pop="111" data-brand="g.skill" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2774" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-g-skill-trident-z5-rgb-ddr5-32gb-2x16gb-6400mhz-16gb-titanium-2774/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (16GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">G.Skill</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-g-skill-trident-z5-rgb-ddr5-32gb-2x16gb-6400mhz-16gb-titanium-2774/" class="product-card__title" title="Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (16GB, Titanium)">    Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (16GB, Titanium)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6400</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">15 572 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2774" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="2837" data-price="21330" data-drop="0" data-pop="110" data-brand="g.skill" data-seller="marketplace">
+  <div class="product-card__badges">
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2837" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-g-skill-trident-z5-rgb-ddr5-32gb-2x16gb-6400mhz-16gb-titanium-2837/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (16GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">G.Skill</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-g-skill-trident-z5-rgb-ddr5-32gb-2x16gb-6400mhz-16gb-titanium-2837/" class="product-card__title" title="Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (16GB, Titanium)">    Оперативная память G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz (16GB, Titanium)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6400</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">21 330 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2837" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="2594" data-price="16141" data-drop="0" data-pop="110" data-brand="crucial" data-seller="marketplace">
+  <div class="product-card__badges">
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2594" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-crucial-pro-ddr5-32gb-2x16gb-5600mhz-32gb-midnight-2594/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Crucial</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-crucial-pro-ddr5-32gb-2x16gb-5600mhz-32gb-midnight-2594/" class="product-card__title" title="Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)">    Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>5600</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">16 141 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2594" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="2339" data-price="13112" data-drop="0" data-pop="110" data-brand="corsair" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2339" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-midnight-2339/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Corsair</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-midnight-2339/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)">    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>5600</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">13 112 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2339" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="2870" data-price="15350" data-drop="15" data-pop="110" data-brand="kingston" data-seller="marketplace">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−15%</span>
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2870" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-gold-2870/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Kingston</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-64gb-gold-2870/" class="product-card__title" title="Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Gold)">    Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (64GB, Gold)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6000</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">15 350 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2870" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="3148" data-price="21815" data-drop="0" data-pop="110" data-brand="teamgroup" data-seller="marketplace">
+  <div class="product-card__badges">
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="3148" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-64gb-white-3148/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (64GB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">TeamGroup</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-64gb-white-3148/" class="product-card__title" title="Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (64GB, White)">    Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (64GB, White)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6000</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">21 815 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3148" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="2129" data-price="10782" data-drop="0" data-pop="110" data-brand="corsair" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2129" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-silver-2129/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Corsair</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-silver-2129/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)">    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>5600</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">10 782 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2129" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="2918" data-price="12147" data-drop="0" data-pop="110" data-brand="patriot" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2918" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-space-gray-2918/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Patriot</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-space-gray-2918/" class="product-card__title" title="Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, Space Gray)">    Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, Space Gray)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6400</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">12 147 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2918" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="2191" data-price="16790" data-drop="11" data-pop="110" data-brand="kingston" data-seller="marketplace">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−11%</span>
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2191" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-32gb-silver-2191/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (32GB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Kingston</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-kingston-fury-beast-ddr5-32gb-2x16gb-6000mhz-32gb-silver-2191/" class="product-card__title" title="Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (32GB, Silver)">    Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz (32GB, Silver)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6000</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">16 790 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2191" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="2204" data-price="15972" data-drop="0" data-pop="110" data-brand="patriot" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2204" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-white-2204/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Patriot</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-white-2204/" class="product-card__title" title="Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, White)">    Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, White)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6400</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">15 972 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2204" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="3247" data-price="20918" data-drop="0" data-pop="110" data-brand="patriot" data-seller="marketplace">
+  <div class="product-card__badges">
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="3247" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-32gb-graphite-3247/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (32GB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Patriot</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-32gb-graphite-3247/" class="product-card__title" title="Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (32GB, Graphite)">    Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (32GB, Graphite)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>6400</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">20 918 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3247" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="2486" data-price="15510" data-drop="0" data-pop="110" data-brand="corsair" data-seller="marketplace">
+  <div class="product-card__badges">
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="2486" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-2486/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Фото Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Corsair</div>
+  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-2486/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)">    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>type:</span>
+        <strong>DDR5</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>32</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>frequency_mhz:</span>
+        <strong>5600</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">15 510 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2486" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>

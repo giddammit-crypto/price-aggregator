@@ -24,18 +24,6 @@
   <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
   </head>
 <body class="site-body">
-  <!-- Service information: never present hard-coded counters as live measurements. -->
-  <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
-    <div class="container d-flex justify-between align-center flex-wrap gap-2">
-      <div class="d-flex align-center gap-2">
-        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
-      </div>
-      <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
-      </div>
-    </div>
-  </div>
-
   <!-- Desktop & Mobile Header -->
   <header class="site-header" id="siteHeader">
     <div class="header-main">
@@ -56,7 +44,7 @@
           <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск моделей в демонстрационном каталоге..."
+                     placeholder="Поиск товаров среди 100 000+ предложений..."
                      value="" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
@@ -681,93 +669,56 @@
       </div>
 
       <div class="product-grid" id="catalogProducts">
-                  <article class="product-card" data-product-id="6491" data-price="22286" data-drop="0" data-pop="110" data-brand="corsair" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6491" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-midnight-6491/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Corsair</div>
-  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-midnight-6491/" class="product-card__title" title="Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)">    Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">22 286 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6491" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6722" data-price="20466" data-drop="0" data-pop="108" data-brand="thermaltake" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6722" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-space-gray-6722/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Thermaltake</div>
-  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-space-gray-6722/" class="product-card__title" title="Блок питания Thermaltake Toughpower GF3 850W Gold (Space Gray)">    Блок питания Thermaltake Toughpower GF3 850W Gold (Space Gray)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">20 466 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6722" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6800" data-price="11616" data-drop="0" data-pop="107" data-brand="cougar" data-seller="crossborder">
+                  <article class="product-card" data-product-id="6812" data-price="21412" data-drop="0" data-pop="120" data-brand="be quiet!" data-seller="crossborder">
   <div class="product-card__badges">
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="6800" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="6812" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-dark-blue-6800/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Cougar</div>
-  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-dark-blue-6800/" class="product-card__title" title="Блок питания Cougar GEX850 850W Gold Modular (Dark Blue)">    Блок питания Cougar GEX850 850W Gold Modular (Dark Blue)  </a>
+  <a href="/price-aggregator/p/blok-pitaniya-be-quiet-straight-power-12-850w-platinum-gold-6812/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания be quiet! Straight Power 12 850W Platinum (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">be quiet!</div>
+  <a href="/price-aggregator/p/blok-pitaniya-be-quiet-straight-power-12-850w-platinum-gold-6812/" class="product-card__title" title="Блок питания be quiet! Straight Power 12 850W Platinum (Gold)">    Блок питания be quiet! Straight Power 12 850W Platinum (Gold)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Platinum</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">21 412 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6812" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6866" data-price="15112" data-drop="0" data-pop="119" data-brand="thermaltake" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6866" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-space-gray-6866/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Thermaltake Toughpower GF3 850W Gold (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Thermaltake</div>
+  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-space-gray-6866/" class="product-card__title" title="Блок питания Thermaltake Toughpower GF3 850W Gold (Space Gray)">    Блок питания Thermaltake Toughpower GF3 850W Gold (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -782,17 +733,128 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">11 616 ₽</span>
+        <span class="product-card__price">15 112 ₽</span>
         <span class="product-card__shops-cnt">
-          6 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6800" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6866" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="6920" data-price="13151" data-drop="0" data-pop="106" data-brand="cougar" data-seller="marketplace">
+                  <article class="product-card" data-product-id="6185" data-price="12292" data-drop="0" data-pop="118" data-brand="montech" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6185" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-silver-6185/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Montech Titan Gold 850W ATX 3.0 (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Montech</div>
+  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-silver-6185/" class="product-card__title" title="Блок питания Montech Titan Gold 850W ATX 3.0 (Silver)">    Блок питания Montech Titan Gold 850W ATX 3.0 (Silver)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Gold</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">12 292 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6185" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6338" data-price="20631" data-drop="0" data-pop="117" data-brand="thermaltake" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6338" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-white-6338/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Thermaltake Toughpower GF3 850W Gold (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Thermaltake</div>
+  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-white-6338/" class="product-card__title" title="Блок питания Thermaltake Toughpower GF3 850W Gold (White)">    Блок питания Thermaltake Toughpower GF3 850W Gold (White)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Gold</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">20 631 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6338" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6470" data-price="12442" data-drop="0" data-pop="116" data-brand="chieftec" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6470" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-silver-6470/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Chieftec Powerplay 750W Platinum (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Chieftec</div>
+  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-silver-6470/" class="product-card__title" title="Блок питания Chieftec Powerplay 750W Platinum (Silver)">    Блок питания Chieftec Powerplay 750W Platinum (Silver)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>750</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Platinum</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">12 442 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6470" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6920" data-price="13430" data-drop="0" data-pop="115" data-brand="cougar" data-seller="marketplace">
   <div class="product-card__badges">
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
@@ -801,8 +863,8 @@
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-titanium-6920/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-titanium-6920/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Cougar GEX850 850W Gold Modular (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">Cougar</div>
   <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-titanium-6920/" class="product-card__title" title="Блок питания Cougar GEX850 850W Gold Modular (Titanium)">    Блок питания Cougar GEX850 850W Gold Modular (Titanium)  </a>
   <div class="product-card__specs">
@@ -819,9 +881,9 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">13 151 ₽</span>
+        <span class="product-card__price">13 430 ₽</span>
         <span class="product-card__shops-cnt">
-          6 предложений        </span>
+          7 предложений        </span>
           </div>
 
           <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6920" title="Сравнить" aria-label="Сравнить товар">
@@ -829,502 +891,19 @@
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="6260" data-price="24561" data-drop="0" data-pop="106" data-brand="be quiet!" data-seller="marketplace">
+                  <article class="product-card" data-product-id="6854" data-price="12950" data-drop="0" data-pop="115" data-brand="chieftec" data-seller="marketplace">
   <div class="product-card__badges">
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="6260" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="6854" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/blok-pitaniya-be-quiet-straight-power-12-850w-platinum-white-6260/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">be quiet!</div>
-  <a href="/price-aggregator/p/blok-pitaniya-be-quiet-straight-power-12-850w-platinum-white-6260/" class="product-card__title" title="Блок питания be quiet! Straight Power 12 850W Platinum (White)">    Блок питания be quiet! Straight Power 12 850W Platinum (White)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Platinum</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">24 561 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6260" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6602" data-price="18891" data-drop="0" data-pop="106" data-brand="thermaltake" data-seller="crossborder">
-  <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6602" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-gold-6602/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Thermaltake</div>
-  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-gold-6602/" class="product-card__title" title="Блок питания Thermaltake Toughpower GF3 850W Gold (Gold)">    Блок питания Thermaltake Toughpower GF3 850W Gold (Gold)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">18 891 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6602" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6656" data-price="15631" data-drop="0" data-pop="104" data-brand="cougar" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6656" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-dark-blue-6656/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Cougar</div>
-  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-dark-blue-6656/" class="product-card__title" title="Блок питания Cougar GEX850 850W Gold Modular (Dark Blue)">    Блок питания Cougar GEX850 850W Gold Modular (Dark Blue)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">15 631 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6656" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6425" data-price="16551" data-drop="0" data-pop="103" data-brand="montech" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6425" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-midnight-6425/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Montech</div>
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-midnight-6425/" class="product-card__title" title="Блок питания Montech Titan Gold 850W ATX 3.0 (Midnight)">    Блок питания Montech Titan Gold 850W ATX 3.0 (Midnight)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">16 551 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6425" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6293" data-price="13011" data-drop="18" data-pop="103" data-brand="deepcool" data-seller="marketplace">
-  <div class="product-card__badges">
-          <span class="badge badge--drop">−18%</span>
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6293" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-dark-blue-6293/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">DeepCool</div>
-  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-dark-blue-6293/" class="product-card__title" title="Блок питания DeepCool PQ850M 850W Gold (Dark Blue)">    Блок питания DeepCool PQ850M 850W Gold (Dark Blue)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">13 011 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6293" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6194" data-price="16551" data-drop="0" data-pop="102" data-brand="thermaltake" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6194" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-white-6194/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Thermaltake</div>
-  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-white-6194/" class="product-card__title" title="Блок питания Thermaltake Toughpower GF3 850W Gold (White)">    Блок питания Thermaltake Toughpower GF3 850W Gold (White)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">16 551 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6194" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6545" data-price="18126" data-drop="15" data-pop="101" data-brand="montech" data-seller="marketplace">
-  <div class="product-card__badges">
-          <span class="badge badge--drop">−15%</span>
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6545" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-silver-6545/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Montech</div>
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-silver-6545/" class="product-card__title" title="Блок питания Montech Titan Gold 850W ATX 3.0 (Silver)">    Блок питания Montech Titan Gold 850W ATX 3.0 (Silver)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">18 126 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6545" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6229" data-price="11366" data-drop="0" data-pop="100" data-brand="deepcool" data-seller="crossborder">
-  <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6229" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-graphite-6229/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">DeepCool</div>
-  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-graphite-6229/" class="product-card__title" title="Блок питания DeepCool PQ850M 850W Gold (Graphite)">    Блок питания DeepCool PQ850M 850W Gold (Graphite)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">11 366 ₽</span>
-        <span class="product-card__shops-cnt">
-          5 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6229" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6269" data-price="17991" data-drop="0" data-pop="100" data-brand="deepcool" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6269" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-titanium-6269/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">DeepCool</div>
-  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-titanium-6269/" class="product-card__title" title="Блок питания DeepCool PQ850M 850W Gold (Titanium)">    Блок питания DeepCool PQ850M 850W Gold (Titanium)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">17 991 ₽</span>
-        <span class="product-card__shops-cnt">
-          5 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6269" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6547" data-price="22041" data-drop="0" data-pop="100" data-brand="corsair" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6547" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-white-6547/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Corsair</div>
-  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-white-6547/" class="product-card__title" title="Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (White)">    Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (White)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">22 041 ₽</span>
-        <span class="product-card__shops-cnt">
-          5 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6547" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6809" data-price="15006" data-drop="0" data-pop="100" data-brand="montech" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6809" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-graphite-6809/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Montech</div>
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-graphite-6809/" class="product-card__title" title="Блок питания Montech Titan Gold 850W ATX 3.0 (Graphite)">    Блок питания Montech Titan Gold 850W ATX 3.0 (Graphite)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">15 006 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6809" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6316" data-price="24291" data-drop="0" data-pop="100" data-brand="be quiet!" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6316" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-be-quiet-straight-power-12-850w-platinum-black-6316/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">be quiet!</div>
-  <a href="/price-aggregator/p/blok-pitaniya-be-quiet-straight-power-12-850w-platinum-black-6316/" class="product-card__title" title="Блок питания be quiet! Straight Power 12 850W Platinum (Black)">    Блок питания be quiet! Straight Power 12 850W Platinum (Black)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Platinum</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">24 291 ₽</span>
-        <span class="product-card__shops-cnt">
-          5 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6316" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6346" data-price="13941" data-drop="0" data-pop="100" data-brand="thermaltake" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6346" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-titanium-6346/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Thermaltake</div>
-  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-titanium-6346/" class="product-card__title" title="Блок питания Thermaltake Toughpower GF3 850W Gold (Titanium)">    Блок питания Thermaltake Toughpower GF3 850W Gold (Titanium)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">13 941 ₽</span>
-        <span class="product-card__shops-cnt">
-          5 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6346" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6910" data-price="12546" data-drop="0" data-pop="100" data-brand="chieftec" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6910" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-white-6910/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-midnight-6854/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Chieftec Powerplay 750W Platinum (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">Chieftec</div>
-  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-white-6910/" class="product-card__title" title="Блок питания Chieftec Powerplay 750W Platinum (White)">    Блок питания Chieftec Powerplay 750W Platinum (White)  </a>
+  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-midnight-6854/" class="product-card__title" title="Блок питания Chieftec Powerplay 750W Platinum (Midnight)">    Блок питания Chieftec Powerplay 750W Platinum (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -1339,103 +918,29 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">12 546 ₽</span>
+        <span class="product-card__price">12 950 ₽</span>
         <span class="product-card__shops-cnt">
-          5 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6910" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6854" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="6200" data-price="15335" data-drop="0" data-pop="99" data-brand="cougar" data-seller="crossborder">
-  <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6200" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-titanium-6200/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Cougar</div>
-  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-titanium-6200/" class="product-card__title" title="Блок питания Cougar GEX850 850W Gold Modular (Titanium)">    Блок питания Cougar GEX850 850W Gold Modular (Titanium)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">15 335 ₽</span>
-        <span class="product-card__shops-cnt">
-          5 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6200" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6971" data-price="19390" data-drop="0" data-pop="99" data-brand="corsair" data-seller="crossborder">
-  <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6971" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-silver-6971/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Corsair</div>
-  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-silver-6971/" class="product-card__title" title="Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Silver)">    Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Silver)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">19 390 ₽</span>
-        <span class="product-card__shops-cnt">
-          5 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6971" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6754" data-price="16371" data-drop="0" data-pop="99" data-brand="thermaltake" data-seller="marketplace">
+                  <article class="product-card" data-product-id="6689" data-price="14241" data-drop="0" data-pop="114" data-brand="montech" data-seller="marketplace">
   <div class="product-card__badges">
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="6754" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="6689" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-black-6754/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Thermaltake</div>
-  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-black-6754/" class="product-card__title" title="Блок питания Thermaltake Toughpower GF3 850W Gold (Black)">    Блок питания Thermaltake Toughpower GF3 850W Gold (Black)  </a>
+  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-silver-6689/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Montech Titan Gold 850W ATX 3.0 (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Montech</div>
+  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-silver-6689/" class="product-card__title" title="Блок питания Montech Titan Gold 850W ATX 3.0 (Silver)">    Блок питания Montech Titan Gold 850W ATX 3.0 (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -1450,17 +955,91 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">16 371 ₽</span>
+        <span class="product-card__price">14 241 ₽</span>
         <span class="product-card__shops-cnt">
-          5 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6754" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6689" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="6503" data-price="26031" data-drop="18" data-pop="99" data-brand="seasonic" data-seller="crossborder">
+                  <article class="product-card" data-product-id="6347" data-price="17750" data-drop="0" data-pop="114" data-brand="corsair" data-seller="marketplace">
+  <div class="product-card__badges">
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6347" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-midnight-6347/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Corsair</div>
+  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-midnight-6347/" class="product-card__title" title="Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)">    Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Gold</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">17 750 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6347" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6932" data-price="22942" data-drop="0" data-pop="113" data-brand="be quiet!" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6932" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-be-quiet-straight-power-12-850w-platinum-space-gray-6932/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания be quiet! Straight Power 12 850W Platinum (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">be quiet!</div>
+  <a href="/price-aggregator/p/blok-pitaniya-be-quiet-straight-power-12-850w-platinum-space-gray-6932/" class="product-card__title" title="Блок питания be quiet! Straight Power 12 850W Platinum (Space Gray)">    Блок питания be quiet! Straight Power 12 850W Platinum (Space Gray)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Platinum</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">22 942 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6932" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6503" data-price="24071" data-drop="18" data-pop="113" data-brand="seasonic" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−18%</span>
               <span class="badge badge--crossborder">Из Китая</span>
@@ -1470,8 +1049,8 @@
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/blok-pitaniya-seasonic-focus-gx-850-850w-gold-space-gray-6503/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/blok-pitaniya-seasonic-focus-gx-850-850w-gold-space-gray-6503/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Seasonic Focus GX-850 850W Gold (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">Seasonic</div>
   <a href="/price-aggregator/p/blok-pitaniya-seasonic-focus-gx-850-850w-gold-space-gray-6503/" class="product-card__title" title="Блок питания Seasonic Focus GX-850 850W Gold (Space Gray)">    Блок питания Seasonic Focus GX-850 850W Gold (Space Gray)  </a>
   <div class="product-card__specs">
@@ -1488,9 +1067,9 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">26 031 ₽</span>
+        <span class="product-card__price">24 071 ₽</span>
         <span class="product-card__shops-cnt">
-          6 предложений        </span>
+          7 предложений        </span>
           </div>
 
           <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6503" title="Сравнить" aria-label="Сравнить товар">
@@ -1498,56 +1077,20 @@
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="6844" data-price="18891" data-drop="0" data-pop="99" data-brand="be quiet!" data-seller="marketplace">
+                  <article class="product-card" data-product-id="6776" data-price="17566" data-drop="21" data-pop="113" data-brand="cougar" data-seller="marketplace">
   <div class="product-card__badges">
+          <span class="badge badge--drop">−21%</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="6844" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="6776" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/blok-pitaniya-be-quiet-straight-power-12-850w-platinum-titanium-6844/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">be quiet!</div>
-  <a href="/price-aggregator/p/blok-pitaniya-be-quiet-straight-power-12-850w-platinum-titanium-6844/" class="product-card__title" title="Блок питания be quiet! Straight Power 12 850W Platinum (Titanium)">    Блок питания be quiet! Straight Power 12 850W Platinum (Titanium)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Platinum</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">18 891 ₽</span>
-        <span class="product-card__shops-cnt">
-          5 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6844" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6337" data-price="20241" data-drop="0" data-pop="99" data-brand="montech" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6337" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-white-6337/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Montech</div>
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-white-6337/" class="product-card__title" title="Блок питания Montech Titan Gold 850W ATX 3.0 (White)">    Блок питания Montech Titan Gold 850W ATX 3.0 (White)  </a>
+  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-titanium-6776/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Cougar GEX850 850W Gold Modular (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Cougar</div>
+  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-titanium-6776/" class="product-card__title" title="Блок питания Cougar GEX850 850W Gold Modular (Titanium)">    Блок питания Cougar GEX850 850W Gold Modular (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -1562,29 +1105,29 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">20 241 ₽</span>
+        <span class="product-card__price">17 566 ₽</span>
         <span class="product-card__shops-cnt">
-          5 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6337" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6776" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="6353" data-price="14690" data-drop="0" data-pop="99" data-brand="montech" data-seller="crossborder">
+                  <article class="product-card" data-product-id="6809" data-price="15830" data-drop="0" data-pop="112" data-brand="montech" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
+              <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="6353" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="6809" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-midnight-6353/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-graphite-6809/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Montech Titan Gold 850W ATX 3.0 (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">Montech</div>
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-midnight-6353/" class="product-card__title" title="Блок питания Montech Titan Gold 850W ATX 3.0 (Midnight)">    Блок питания Montech Titan Gold 850W ATX 3.0 (Midnight)  </a>
+  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-graphite-6809/" class="product-card__title" title="Блок питания Montech Titan Gold 850W ATX 3.0 (Graphite)">    Блок питания Montech Titan Gold 850W ATX 3.0 (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -1599,29 +1142,29 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">14 690 ₽</span>
+        <span class="product-card__price">15 830 ₽</span>
         <span class="product-card__shops-cnt">
-          5 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6353" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6809" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="6878" data-price="16191" data-drop="0" data-pop="99" data-brand="chieftec" data-seller="crossborder">
+                  <article class="product-card" data-product-id="6590" data-price="15830" data-drop="0" data-pop="112" data-brand="chieftec" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
+              <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="6878" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="6590" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-graphite-6878/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-graphite-6590/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Chieftec Powerplay 750W Platinum (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">Chieftec</div>
-  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-graphite-6878/" class="product-card__title" title="Блок питания Chieftec Powerplay 750W Platinum (Graphite)">    Блок питания Chieftec Powerplay 750W Platinum (Graphite)  </a>
+  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-graphite-6590/" class="product-card__title" title="Блок питания Chieftec Powerplay 750W Platinum (Graphite)">    Блок питания Chieftec Powerplay 750W Platinum (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -1636,66 +1179,29 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">16 191 ₽</span>
+        <span class="product-card__price">15 830 ₽</span>
         <span class="product-card__shops-cnt">
-          5 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6878" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6590" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="6897" data-price="20916" data-drop="0" data-pop="99" data-brand="montech" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6897" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-black-6897/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Montech</div>
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-black-6897/" class="product-card__title" title="Блок питания Montech Titan Gold 850W ATX 3.0 (Black)">    Блок питания Montech Titan Gold 850W ATX 3.0 (Black)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">20 916 ₽</span>
-        <span class="product-card__shops-cnt">
-          5 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6897" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6899" data-price="15291" data-drop="0" data-pop="99" data-brand="corsair" data-seller="crossborder">
+                  <article class="product-card" data-product-id="6635" data-price="16592" data-drop="0" data-pop="112" data-brand="corsair" data-seller="crossborder">
   <div class="product-card__badges">
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="6899" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="6635" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-silver-6899/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-midnight-6635/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">Corsair</div>
-  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-silver-6899/" class="product-card__title" title="Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Silver)">    Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Silver)  </a>
+  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-midnight-6635/" class="product-card__title" title="Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)">    Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -1710,29 +1216,30 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">15 291 ₽</span>
+        <span class="product-card__price">16 592 ₽</span>
         <span class="product-card__shops-cnt">
-          6 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6899" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6635" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="6217" data-price="19521" data-drop="0" data-pop="98" data-brand="montech" data-seller="marketplace">
+                  <article class="product-card" data-product-id="6986" data-price="18710" data-drop="21" data-pop="111" data-brand="thermaltake" data-seller="marketplace">
   <div class="product-card__badges">
+          <span class="badge badge--drop">−21%</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="6217" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="6986" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-space-gray-6217/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Montech</div>
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-space-gray-6217/" class="product-card__title" title="Блок питания Montech Titan Gold 850W ATX 3.0 (Space Gray)">    Блок питания Montech Titan Gold 850W ATX 3.0 (Space Gray)  </a>
+  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-white-6986/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Thermaltake Toughpower GF3 850W Gold (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Thermaltake</div>
+  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-white-6986/" class="product-card__title" title="Блок питания Thermaltake Toughpower GF3 850W Gold (White)">    Блок питания Thermaltake Toughpower GF3 850W Gold (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -1747,29 +1254,67 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">19 521 ₽</span>
+        <span class="product-card__price">18 710 ₽</span>
         <span class="product-card__shops-cnt">
-          5 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6217" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6986" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="6478" data-price="15006" data-drop="0" data-pop="98" data-brand="chieftec" data-seller="marketplace">
+                  <article class="product-card" data-product-id="6251" data-price="17837" data-drop="21" data-pop="111" data-brand="corsair" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
+          <span class="badge badge--drop">−21%</span>
+              <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="6478" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="6251" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-white-6478/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-silver-6251/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Corsair</div>
+  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-silver-6251/" class="product-card__title" title="Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Silver)">    Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Silver)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Gold</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">17 837 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6251" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6406" data-price="11062" data-drop="0" data-pop="110" data-brand="chieftec" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6406" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-white-6406/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Chieftec Powerplay 750W Platinum (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">Chieftec</div>
-  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-white-6478/" class="product-card__title" title="Блок питания Chieftec Powerplay 750W Platinum (White)">    Блок питания Chieftec Powerplay 750W Platinum (White)  </a>
+  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-white-6406/" class="product-card__title" title="Блок питания Chieftec Powerplay 750W Platinum (White)">    Блок питания Chieftec Powerplay 750W Platinum (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -1784,140 +1329,29 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">15 006 ₽</span>
-        <span class="product-card__shops-cnt">
-          5 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6478" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6281" data-price="20466" data-drop="0" data-pop="98" data-brand="montech" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6281" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-midnight-6281/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Montech</div>
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-midnight-6281/" class="product-card__title" title="Блок питания Montech Titan Gold 850W ATX 3.0 (Midnight)">    Блок питания Montech Titan Gold 850W ATX 3.0 (Midnight)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">20 466 ₽</span>
+        <span class="product-card__price">11 062 ₽</span>
         <span class="product-card__shops-cnt">
           6 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6281" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6406" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="6567" data-price="17471" data-drop="0" data-pop="98" data-brand="seasonic" data-seller="marketplace">
+                  <article class="product-card" data-product-id="6413" data-price="14870" data-drop="0" data-pop="110" data-brand="deepcool" data-seller="marketplace">
   <div class="product-card__badges">
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="6567" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="6413" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/blok-pitaniya-seasonic-focus-gx-850-850w-gold-midnight-6567/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Seasonic</div>
-  <a href="/price-aggregator/p/blok-pitaniya-seasonic-focus-gx-850-850w-gold-midnight-6567/" class="product-card__title" title="Блок питания Seasonic Focus GX-850 850W Gold (Midnight)">    Блок питания Seasonic Focus GX-850 850W Gold (Midnight)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">17 471 ₽</span>
-        <span class="product-card__shops-cnt">
-          5 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6567" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6569" data-price="12546" data-drop="0" data-pop="98" data-brand="montech" data-seller="crossborder">
-  <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6569" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-midnight-6569/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">Montech</div>
-  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-midnight-6569/" class="product-card__title" title="Блок питания Montech Titan Gold 850W ATX 3.0 (Midnight)">    Блок питания Montech Titan Gold 850W ATX 3.0 (Midnight)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>power_watt:</span>
-        <strong>850</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>certificate:</span>
-        <strong>80 PLUS Gold</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">12 546 ₽</span>
-        <span class="product-card__shops-cnt">
-          6 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6569" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="6317" data-price="17196" data-drop="0" data-pop="98" data-brand="deepcool" data-seller="crossborder">
-  <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="6317" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-black-6317/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-titanium-6413/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания DeepCool PQ850M 850W Gold (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">DeepCool</div>
-  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-black-6317/" class="product-card__title" title="Блок питания DeepCool PQ850M 850W Gold (Black)">    Блок питания DeepCool PQ850M 850W Gold (Black)  </a>
+  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-titanium-6413/" class="product-card__title" title="Блок питания DeepCool PQ850M 850W Gold (Titanium)">    Блок питания DeepCool PQ850M 850W Gold (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -1932,29 +1366,66 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">17 196 ₽</span>
+        <span class="product-card__price">14 870 ₽</span>
         <span class="product-card__shops-cnt">
-          5 предложений        </span>
+          7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6317" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6413" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="6842" data-price="22311" data-drop="0" data-pop="98" data-brand="thermaltake" data-seller="marketplace">
+                  <article class="product-card" data-product-id="6422" data-price="15666" data-drop="0" data-pop="110" data-brand="chieftec" data-seller="marketplace">
   <div class="product-card__badges">
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="6842" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="6422" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-white-6842/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-midnight-6422/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Chieftec Powerplay 750W Platinum (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Chieftec</div>
+  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-midnight-6422/" class="product-card__title" title="Блок питания Chieftec Powerplay 750W Platinum (Midnight)">    Блок питания Chieftec Powerplay 750W Platinum (Midnight)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>750</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Platinum</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">15 666 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6422" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6962" data-price="14390" data-drop="0" data-pop="110" data-brand="thermaltake" data-seller="marketplace">
+  <div class="product-card__badges">
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6962" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-gold-6962/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Thermaltake Toughpower GF3 850W Gold (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
   <div class="product-card__brand">Thermaltake</div>
-  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-white-6842/" class="product-card__title" title="Блок питания Thermaltake Toughpower GF3 850W Gold (White)">    Блок питания Thermaltake Toughpower GF3 850W Gold (White)  </a>
+  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-gold-6962/" class="product-card__title" title="Блок питания Thermaltake Toughpower GF3 850W Gold (Gold)">    Блок питания Thermaltake Toughpower GF3 850W Gold (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -1969,29 +1440,29 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">22 311 ₽</span>
+        <span class="product-card__price">14 390 ₽</span>
         <span class="product-card__shops-cnt">
           6 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6842" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6962" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="6877" data-price="16826" data-drop="0" data-pop="98" data-brand="deepcool" data-seller="marketplace">
+                  <article class="product-card" data-product-id="6971" data-price="16592" data-drop="0" data-pop="110" data-brand="corsair" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
+              <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="6877" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="6971" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-graphite-6877/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
-  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
-  <div class="product-card__brand">DeepCool</div>
-  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-graphite-6877/" class="product-card__title" title="Блок питания DeepCool PQ850M 850W Gold (Graphite)">    Блок питания DeepCool PQ850M 850W Gold (Graphite)  </a>
+  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-silver-6971/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Corsair</div>
+  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-silver-6971/" class="product-card__title" title="Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Silver)">    Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -2006,12 +1477,532 @@
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
               <span class="product-card__price-label">от</span>
-        <span class="product-card__price">16 826 ₽</span>
+        <span class="product-card__price">16 592 ₽</span>
         <span class="product-card__shops-cnt">
-          5 предложений        </span>
+          6 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6877" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6971" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6242" data-price="13522" data-drop="0" data-pop="110" data-brand="thermaltake" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6242" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-gold-6242/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Thermaltake Toughpower GF3 850W Gold (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Thermaltake</div>
+  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-gold-6242/" class="product-card__title" title="Блок питания Thermaltake Toughpower GF3 850W Gold (Gold)">    Блок питания Thermaltake Toughpower GF3 850W Gold (Gold)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Gold</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">13 522 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6242" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6757" data-price="14272" data-drop="0" data-pop="110" data-brand="deepcool" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6757" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-silver-6757/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания DeepCool PQ850M 850W Gold (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">DeepCool</div>
+  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-silver-6757/" class="product-card__title" title="Блок питания DeepCool PQ850M 850W Gold (Silver)">    Блок питания DeepCool PQ850M 850W Gold (Silver)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Gold</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">14 272 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6757" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6263" data-price="20992" data-drop="0" data-pop="110" data-brand="seasonic" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6263" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-seasonic-focus-gx-850-850w-gold-white-6263/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Seasonic Focus GX-850 850W Gold (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Seasonic</div>
+  <a href="/price-aggregator/p/blok-pitaniya-seasonic-focus-gx-850-850w-gold-white-6263/" class="product-card__title" title="Блок питания Seasonic Focus GX-850 850W Gold (White)">    Блок питания Seasonic Focus GX-850 850W Gold (White)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Gold</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">20 992 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6263" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6785" data-price="22040" data-drop="0" data-pop="110" data-brand="montech" data-seller="marketplace">
+  <div class="product-card__badges">
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6785" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-midnight-6785/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Montech Titan Gold 850W ATX 3.0 (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Montech</div>
+  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-midnight-6785/" class="product-card__title" title="Блок питания Montech Titan Gold 850W ATX 3.0 (Midnight)">    Блок питания Montech Titan Gold 850W ATX 3.0 (Midnight)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Gold</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">22 040 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6785" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6283" data-price="16310" data-drop="0" data-pop="110" data-brand="corsair" data-seller="marketplace">
+  <div class="product-card__badges">
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6283" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-space-gray-6283/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Corsair</div>
+  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-space-gray-6283/" class="product-card__title" title="Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Space Gray)">    Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Space Gray)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Gold</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">16 310 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6283" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6667" data-price="25210" data-drop="0" data-pop="109" data-brand="corsair" data-seller="marketplace">
+  <div class="product-card__badges">
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6667" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-gold-6667/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Corsair</div>
+  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-gold-6667/" class="product-card__title" title="Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Gold)">    Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Gold)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Gold</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">25 210 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6667" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6173" data-price="10741" data-drop="0" data-pop="109" data-brand="deepcool" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6173" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-6173/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания DeepCool PQ850M 850W Gold" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">DeepCool</div>
+  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-6173/" class="product-card__title" title="Блок питания DeepCool PQ850M 850W Gold">    Блок питания DeepCool PQ850M 850W Gold  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Gold</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">10 741 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6173" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6175" data-price="16331" data-drop="0" data-pop="109" data-brand="seasonic" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6175" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-seasonic-focus-gx-850-850w-gold-6175/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Seasonic Focus GX-850 850W Gold" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Seasonic</div>
+  <a href="/price-aggregator/p/blok-pitaniya-seasonic-focus-gx-850-850w-gold-6175/" class="product-card__title" title="Блок питания Seasonic Focus GX-850 850W Gold">    Блок питания Seasonic Focus GX-850 850W Gold  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Gold</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">16 331 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6175" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6212" data-price="23932" data-drop="0" data-pop="109" data-brand="be quiet!" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6212" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-be-quiet-straight-power-12-850w-platinum-space-gray-6212/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания be quiet! Straight Power 12 850W Platinum (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">be quiet!</div>
+  <a href="/price-aggregator/p/blok-pitaniya-be-quiet-straight-power-12-850w-platinum-space-gray-6212/" class="product-card__title" title="Блок питания be quiet! Straight Power 12 850W Platinum (Space Gray)">    Блок питания be quiet! Straight Power 12 850W Platinum (Space Gray)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Platinum</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">23 932 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6212" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6230" data-price="10311" data-drop="15" data-pop="109" data-brand="chieftec" data-seller="crossborder">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−15%</span>
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6230" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-graphite-6230/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Chieftec Powerplay 750W Platinum (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Chieftec</div>
+  <a href="/price-aggregator/p/blok-pitaniya-chieftec-powerplay-750w-platinum-graphite-6230/" class="product-card__title" title="Блок питания Chieftec Powerplay 750W Platinum (Graphite)">    Блок питания Chieftec Powerplay 750W Platinum (Graphite)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>750</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Platinum</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">10 311 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6230" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6746" data-price="13687" data-drop="0" data-pop="109" data-brand="thermaltake" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6746" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-gold-6746/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Thermaltake Toughpower GF3 850W Gold (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Thermaltake</div>
+  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-gold-6746/" class="product-card__title" title="Блок питания Thermaltake Toughpower GF3 850W Gold (Gold)">    Блок питания Thermaltake Toughpower GF3 850W Gold (Gold)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Gold</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">13 687 ₽</span>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6746" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6245" data-price="12702" data-drop="0" data-pop="109" data-brand="deepcool" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6245" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-black-6245/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания DeepCool PQ850M 850W Gold (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">DeepCool</div>
+  <a href="/price-aggregator/p/blok-pitaniya-deepcool-pq850m-850w-gold-black-6245/" class="product-card__title" title="Блок питания DeepCool PQ850M 850W Gold (Black)">    Блок питания DeepCool PQ850M 850W Gold (Black)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Gold</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">12 702 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6245" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6769" data-price="16567" data-drop="14" data-pop="109" data-brand="montech" data-seller="crossborder">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−14%</span>
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6769" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-white-6769/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Montech Titan Gold 850W ATX 3.0 (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Montech</div>
+  <a href="/price-aggregator/p/blok-pitaniya-montech-titan-gold-850w-atx-3-0-white-6769/" class="product-card__title" title="Блок питания Montech Titan Gold 850W ATX 3.0 (White)">    Блок питания Montech Titan Gold 850W ATX 3.0 (White)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Gold</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">16 567 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6769" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="6431" data-price="20992" data-drop="0" data-pop="108" data-brand="seasonic" data-seller="crossborder">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="6431" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-seasonic-focus-gx-850-850w-gold-space-gray-6431/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Фото Блок питания Seasonic Focus GX-850 850W Gold (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Seasonic</div>
+  <a href="/price-aggregator/p/blok-pitaniya-seasonic-focus-gx-850-850w-gold-space-gray-6431/" class="product-card__title" title="Блок питания Seasonic Focus GX-850 850W Gold (Space Gray)">    Блок питания Seasonic Focus GX-850 850W Gold (Space Gray)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>power_watt:</span>
+        <strong>850</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>certificate:</span>
+        <strong>80 PLUS Gold</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">20 992 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6431" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
