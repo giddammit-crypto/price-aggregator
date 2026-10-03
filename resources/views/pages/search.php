@@ -282,24 +282,91 @@ document.addEventListener('DOMContentLoaded', () => {
     if (allSearchCards.length > PAGE_SIZE) {
       applySearchFilters(1);
     }
-  } else if (q && (window.location.hostname.endsWith('github.io') || window.location.pathname.endsWith('.html'))) {
-    // Client-side index search on static site
+  } else if (q) {
+    // High-precision client-side search with multi-token matching and synonyms
+    const SYNONYMS = {
+      'видюха':'видеокарта','видюхи':'видеокарта','проц':'процессор','процы':'процессор','ноут':'ноутбук','ноуты':'ноутбук',
+      'мать':'материнская плата','мамка':'материнская плата','материнка':'материнская плата',
+      'оперативка':'оперативная память','озу':'оперативная память','плашка':'оперативная память',
+      'кулер':'охлаждение','водянка':'охлаждение','бп':'блок питания','телик':'телевизор',
+      'тел':'смартфон','телефон':'смартфон','мобила':'смартфон','айфон':'iphone','айфоны':'iphone',
+      'айпады':'ipad','айпад':'ipad','уши':'наушники','эппл':'apple','эпл':'apple',
+      'сяоми':'xiaomi','ксаоми':'xiaomi','самсунг':'samsung','хуавей':'huawei','хонор':'honor',
+      'асус':'asus','гигабайт':'gigabyte','палит':'palit','мси':'msi','интел':'intel','амд':'amd',
+      'райзен':'ryzen','джифорс':'geforce','радион':'radeon','радеон':'radeon',
+      'с24':'s24','с23':'s23','с22':'s22','м3':'m3','м2':'m2','м1':'m1','ртх':'rtx','гтх':'gtx'
+    };
+
     fetch(prefix + '/api/search_index.json')
       .then(r => { if (!r.ok) throw new Error('Search index unavailable'); return r.json(); })
       .then(items => {
-        const qLower = q.toLowerCase();
-        const altQuery = fixLayout(q).toLowerCase();
+        const qClean = q.toLowerCase().trim();
+        const altQuery = fixLayout(q).toLowerCase().trim();
 
-        let matched = items.filter(p => {
-          const str = `${p.title} ${p.brand || ''} ${p.cat || ''}`.toLowerCase();
-          return str.includes(qLower);
-        });
+        // Split query into significant words
+        const rawWords = qClean.replace(/[,.()\/\\_\-+]/g, ' ').split(/\s+/).filter(w => w.length > 0);
+        const altWords = altQuery.replace(/[,.()\/\\_\-+]/g, ' ').split(/\s+/).filter(w => w.length > 0);
 
-        if (matched.length === 0 && altQuery !== qLower) {
-          matched = items.filter(p => {
-            const str = `${p.title} ${p.brand || ''} ${p.cat || ''}`.toLowerCase();
-            return str.includes(altQuery);
+        function matchWithWords(wordList) {
+          const wordVariants = wordList.map(w => {
+            const v = [w];
+            if (SYNONYMS[w]) v.push(SYNONYMS[w]);
+            const fl = fixLayout(w);
+            if (fl !== w) {
+              v.push(fl);
+              if (SYNONYMS[fl]) v.push(SYNONYMS[fl]);
+            }
+            return [...new Set(v)];
           });
+
+          const scored = [];
+          for (const p of items) {
+            const title = (p.title || '').toLowerCase();
+            const brand = (p.brand || '').toLowerCase();
+            const cat = (p.cat || '').toLowerCase();
+            const specs = Object.values(p.specs || {}).map(v => String(v).toLowerCase()).join(' ');
+            const attrs = Object.values(p.attrs || {}).map(v => String(v).toLowerCase()).join(' ');
+            const fullText = `${title} ${brand} ${cat} ${specs} ${attrs}`;
+
+            let matchedCount = 0;
+            let score = 0;
+
+            if (title.includes(qClean)) score += 100;
+            if (brand === qClean) score += 50;
+
+            for (const variants of wordVariants) {
+              const inFull = variants.some(v => fullText.includes(v));
+              if (inFull) {
+                matchedCount++;
+                if (variants.some(v => title.includes(v))) score += 20;
+                else if (variants.some(v => brand.includes(v))) score += 15;
+                else score += 5;
+              }
+            }
+
+            if (matchedCount > 0) {
+              scored.push({
+                product: p,
+                matchedCount,
+                score: (matchedCount * 1000) + score
+              });
+            }
+          }
+
+          scored.sort((a, b) => b.score - a.score);
+
+          // Prefer products matching all query words
+          const exactAll = scored.filter(s => s.matchedCount === wordList.length).map(s => s.product);
+          if (exactAll.length > 0) return exactAll;
+
+          // Otherwise return top partial matches (matching majority of words)
+          const minMatches = Math.max(1, Math.ceil(wordList.length / 2));
+          return scored.filter(s => s.matchedCount >= minMatches).map(s => s.product);
+        }
+
+        let matched = matchWithWords(rawWords);
+        if (matched.length === 0 && altQuery !== qClean) {
+          matched = matchWithWords(altWords);
           if (matched.length > 0 && heading) {
             heading.textContent = `Поиск по запросу «${q}» (исправлено на «${altQuery}»)`;
           }
@@ -338,6 +405,33 @@ document.addEventListener('DOMContentLoaded', () => {
               </article>
             `;
           }).join('');
+
+          // Dynamically populate brand pills if empty
+          const brandFilters = document.getElementById('searchBrandFilters');
+          if (brandFilters && brandFilters.children.length <= 2) {
+            const brandCounts = {};
+            matched.forEach(p => { if (p.brand) brandCounts[p.brand] = (brandCounts[p.brand] || 0) + 1; });
+            const topBrands = Object.entries(brandCounts).sort((a,b) => b[1] - a[1]).slice(0, 8);
+            if (topBrands.length > 0) {
+              brandFilters.innerHTML = `
+                <span class="text-muted" style="font-size: var(--fs-xs); font-weight: 700; margin-right: 6px;">Бренд:</span>
+                <button type="button" class="btn btn--sm search-brand-btn is-active" data-brand="">Все</button>
+                ${topBrands.map(([b, cnt]) => `
+                  <button type="button" class="btn btn--sm search-brand-btn" data-brand="${escapeHtml(b.toLowerCase())}">
+                    ${escapeHtml(b)} <span class="text-muted" style="font-size: 10px;">(${cnt})</span>
+                  </button>
+                `).join('')}
+              `;
+              brandFilters.querySelectorAll('.search-brand-btn').forEach(pill => {
+                pill.addEventListener('click', () => {
+                  brandFilters.querySelectorAll('.search-brand-btn').forEach(p => p.classList.remove('is-active'));
+                  pill.classList.add('is-active');
+                  activeBrand = (pill.dataset.brand || '').toLowerCase().trim();
+                  applySearchFilters(1);
+                });
+              });
+            }
+          }
 
           allSearchCards = Array.from(grid.querySelectorAll('.product-card'));
           applySearchFilters(1);

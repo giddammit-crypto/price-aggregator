@@ -373,16 +373,21 @@ foreach ($categoryTargets as $catId => $quota) {
         $title = $base['title'];
         $basePrice = $base['price'];
 
-        // Natural model variations across cycles
+        // Natural model variations across cycles for appropriate categories only
         if ($cycle > 0) {
             $color = $colors[$cycle % count($colors)];
-            if (isset($memoryVariants[$catId])) {
+            if (in_array($catId, [30, 31], true) && isset($memoryVariants[$catId])) {
                 $memVar = $memoryVariants[$catId][$cycle % count($memoryVariants[$catId])];
                 $title .= " ({$memVar}, {$color})";
-            } else {
-                $title .= " ({$color})";
+                $basePrice += ($cycle % 4) * 5000;
+            } elseif (in_array($catId, [12, 13, 14, 20], true) && isset($memoryVariants[$catId])) {
+                $memVar = $memoryVariants[$catId][$cycle % count($memoryVariants[$catId])];
+                $title .= " ({$memVar})";
+                $basePrice += ($cycle % 4) * 2500;
+            } elseif ($catId === 16 || $catId === 50) {
+                $c = ($cycle % 2 === 0) ? 'White' : 'Black';
+                $title .= " ({$c})";
             }
-            $basePrice += ($cycle % 7) * 1500;
         }
 
         $slug = Utf8::slugify($title);
@@ -396,6 +401,9 @@ foreach ($categoryTargets as $catId => $quota) {
         // Realistic image selection (.webp)
         $productImg = $base['img'] ?? $defaultImg;
 
+        // Clean model query for donor store links (e.g. "AMD Ryzen 7 7800X3D", "Intel Core i5-12400F")
+        $cleanDonorQuery = \App\Services\DonorUrlHelper::cleanModelQuery($title, $base['brand'] ?? '', $base['model'] ?? '', $mpn);
+
         // Retailer offers
         $numOffers = 5 + ($id % 3);
         $offers = [];
@@ -408,8 +416,8 @@ foreach ($categoryTargets as $catId => $quota) {
             $shop = $shopsConfig[$shopId];
             $offerKey = "{$shopId}:{$id}_{$o}";
 
-            // Real donor search URL
-            $donorSearchUrl = str_replace('{q}', urlencode($title), $shop['url_template']);
+            // Real donor search URL with clean model query
+            $donorSearchUrl = \App\Services\DonorUrlHelper::buildStoreUrl($shop['url_template'], $cleanDonorQuery);
 
             $priceVariance = (($id * 11 + $o * 17) % 21 - 10) / 100.0;
             $offerPrice = (int)round($basePrice * (1 + $priceVariance));

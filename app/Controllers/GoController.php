@@ -49,7 +49,13 @@ class GoController
         if (!empty($targetOffer['url'])) {
             $targetUrl = $targetOffer['url'];
         } else {
-            $searchUrl = str_replace('{q}', urlencode($product['title']), $shop['search_url_template'] ?? 'https://www.google.com/search?q=' . urlencode($product['title']));
+            $cleanQ = \App\Services\DonorUrlHelper::cleanModelQuery(
+                $product['title'] ?? '',
+                $product['brand'] ?? '',
+                $product['model'] ?? '',
+                $product['mpn'] ?? ''
+            );
+            $searchUrl = str_replace('{q}', urlencode($cleanQ), $shop['search_url_template'] ?? 'https://www.google.com/search?q=' . urlencode($cleanQ));
             $targetUrl = $searchUrl;
 
             if (!empty($shop['affiliate_template'])) {
@@ -88,7 +94,8 @@ class GoController
             return Response::redirect('/', 302);
         }
 
-        $targetUrl = str_replace('{q}', urlencode($query), $shop['search_url_template'] ?? 'https://google.com');
+        $cleanQ = \App\Services\DonorUrlHelper::cleanModelQuery($query);
+        $targetUrl = str_replace('{q}', urlencode($cleanQ), $shop['search_url_template'] ?? 'https://google.com');
         if (!self::isSafeTarget($targetUrl)) {
             return Response::redirect('/');
         }

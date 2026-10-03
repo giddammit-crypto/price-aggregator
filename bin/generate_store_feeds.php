@@ -168,7 +168,8 @@ foreach ($shops as $shopId => $meta) {
         $storePrice = (int)round($basePrice * $multiplier);
         $oldPrice = (int)round($storePrice * 1.12);
 
-        $donorUrl = str_replace('{q}', urlencode($prod['title']), $meta['search_url_template']);
+        $cleanDonorQuery = \App\Services\DonorUrlHelper::cleanModelQuery($prod['title'], $prod['brand'] ?? '', $prod['model'] ?? '', $prod['mpn'] ?? '');
+        $donorUrl = \App\Services\DonorUrlHelper::buildStoreUrl($meta['search_url_template'], $cleanDonorQuery);
 
         $out .= "      <offer id=\"" . xmlEscape($offerId) . "\" available=\"true\">\n";
         $out .= "        <url>" . xmlEscape($donorUrl) . "</url>\n";

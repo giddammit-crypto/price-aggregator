@@ -14,3 +14,14 @@
 [2026-10-03 22:32:01] [INFO] FeedImporter [megamarket]: read 40, accepted 40, quarantined 0, rejected 0 in 0.004s
 [2026-10-03 22:32:01] [INFO] FeedImporter [aliexpress]: read 40, accepted 40, quarantined 0, rejected 0 in 0.005s
 [2026-10-03 22:32:01] [INFO] FeedImporter [joom]: read 40, accepted 40, quarantined 0, rejected 0 in 0.005s
+[2026-10-03 22:59:44] [INFO] FeedImporter [citilink]: read 40, accepted 40, quarantined 0, rejected 0 in 0.006s
+[2026-10-03 22:59:44] [INFO] FeedImporter [regard]: read 40, accepted 40, quarantined 0, rejected 0 in 0.005s
+[2026-10-03 22:59:44] [INFO] FeedImporter [onlinetrade]: read 40, accepted 40, quarantined 0, rejected 0 in 0.006s
+[2026-10-03 22:59:44] [INFO] FeedImporter [mvideo]: read 40, accepted 40, quarantined 0, rejected 0 in 0.005s
+[2026-10-03 22:59:44] [INFO] FeedImporter [dns]: read 40, accepted 40, quarantined 0, rejected 0 in 0.005s
+[2026-10-03 22:59:44] [INFO] FeedImporter [ozon]: read 40, accepted 40, quarantined 0, rejected 0 in 0.005s
+[2026-10-03 22:59:44] [INFO] FeedImporter [wildberries]: read 40, accepted 40, quarantined 0, rejected 0 in 0.005s
+[2026-10-03 22:59:44] [INFO] FeedImporter [yandex_market]: read 40, accepted 40, quarantined 0, rejected 0 in 0.006s
+[2026-10-03 22:59:44] [INFO] FeedImporter [megamarket]: read 40, accepted 40, quarantined 0, rejected 0 in 0.006s
+[2026-10-03 22:59:44] [INFO] FeedImporter [aliexpress]: read 40, accepted 40, quarantined 0, rejected 0 in 0.005s
+[2026-10-03 22:59:44] [INFO] FeedImporter [joom]: read 40, accepted 40, quarantined 0, rejected 0 in 0.005s

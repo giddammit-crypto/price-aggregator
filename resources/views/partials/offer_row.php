@@ -19,7 +19,8 @@ $origin = $offer['origin'] ?? 'RU';
 $offerKey = urlencode($offer['k']);
 $isBestOffer = !empty($isBest);
 $donorUrl = !empty($offer['url']) ? $offer['url'] : '';
-$goUrl = $isLinkOnly ? "/go/search/{$shopId}?q=" . urlencode($productTitle ?? '') : "/go/{$productId}/{$offerKey}";
+$cleanModelQuery = \App\Services\DonorUrlHelper::cleanModelQuery($productTitle ?? '');
+$goUrl = $isLinkOnly ? "/go/search/{$shopId}?q=" . urlencode($cleanModelQuery) : "/go/{$productId}/{$offerKey}";
 $directUrl = is_string($donorUrl) && preg_match('~^https?://~i', $donorUrl) ? $donorUrl : $goUrl;
 $searchOnly = $isLinkOnly || (parse_url($directUrl, PHP_URL_QUERY) !== null
     && (bool)preg_match('~/(?:search|sitesearch|listing|catalog)(?:/|\.html|$)~i', (string)parse_url($directUrl, PHP_URL_PATH)));

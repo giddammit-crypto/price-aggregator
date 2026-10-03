@@ -90,11 +90,25 @@ export function initSearch() {
     input.setAttribute('aria-expanded', 'true');
   }
 
+  const SUGGEST_SYNONYMS = {
+    'видюха':'видеокарта','видюхи':'видеокарта','проц':'процессор','процы':'процессор','ноут':'ноутбук','ноуты':'ноутбук',
+    'мать':'материнская плата','мамка':'материнская плата','материнка':'материнская плата',
+    'оперативка':'оперативная память','озу':'оперативная память','плашка':'оперативная память',
+    'кулер':'охлаждение','водянка':'охлаждение','бп':'блок питания','телик':'телевизор',
+    'тел':'смартфон','телефон':'смартфон','мобила':'смартфон','айфон':'iphone','айфоны':'iphone',
+    'айпады':'ipad','айпад':'ipad','уши':'наушники','эппл':'apple','эпл':'apple',
+    'сяоми':'xiaomi','ксаоми':'xiaomi','самсунг':'samsung','хуавей':'huawei','хонор':'honor',
+    'асус':'asus','гигабайт':'gigabyte','палит':'palit','мси':'msi','интел':'intel','амд':'amd',
+    'райзен':'ryzen','джифорс':'geforce','радион':'radeon','радеон':'radeon',
+    'с24':'s24','с23':'s23','с22':'s22','м3':'m3','м2':'m2','м1':'m1','ртх':'rtx','гтх':'gtx'
+  };
+
   async function suggestions(query, signal) {
     if (!staticSite) {
-      const response = await fetch(`/api/suggest?q=${encodeURIComponent(query)}`, { signal });
-      if (!response.ok) throw new Error('Suggestions unavailable');
-      return response.json();
+      try {
+        const response = await fetch(`/api/suggest?q=${encodeURIComponent(query)}`, { signal });
+        if (response.ok) return response.json();
+      } catch (_) {}
     }
 
     if (!staticIndex) {
@@ -103,17 +117,54 @@ export function initSearch() {
       staticIndex = await response.json();
     }
 
-    const lower = query.toLocaleLowerCase('ru');
-    let matched = staticIndex.filter(p => `${p.title} ${p.brand || ''} ${p.cat || ''}`.toLocaleLowerCase('ru').includes(lower));
+    const qClean = query.toLowerCase().trim();
+    const altQuery = fixLayout(query).toLowerCase().trim();
+    const rawWords = qClean.replace(/[,.()\/\\_\-+]/g, ' ').split(/\s+/).filter(w => w.length > 0);
 
-    if (matched.length === 0) {
-      const alt = fixLayout(query);
-      if (alt !== lower) {
-        matched = staticIndex.filter(p => `${p.title} ${p.brand || ''} ${p.cat || ''}`.toLocaleLowerCase('ru').includes(alt));
+    const wordVariants = rawWords.map(w => {
+      const v = [w];
+      if (SUGGEST_SYNONYMS[w]) v.push(SUGGEST_SYNONYMS[w]);
+      const fl = fixLayout(w);
+      if (fl !== w) {
+        v.push(fl);
+        if (SUGGEST_SYNONYMS[fl]) v.push(SUGGEST_SYNONYMS[fl]);
+      }
+      return [...new Set(v)];
+    });
+
+    const scored = [];
+    for (const p of staticIndex) {
+      const title = (p.title || '').toLowerCase();
+      const brand = (p.brand || '').toLowerCase();
+      const cat = (p.cat || '').toLowerCase();
+      const fullText = `${title} ${brand} ${cat}`;
+
+      let matchedCount = 0;
+      let score = 0;
+      if (title.includes(qClean)) score += 100;
+      if (brand === qClean) score += 50;
+
+      for (const variants of wordVariants) {
+        if (variants.some(v => fullText.includes(v))) {
+          matchedCount++;
+          if (variants.some(v => title.includes(v))) score += 20;
+          else score += 10;
+        }
+      }
+
+      if (matchedCount > 0) {
+        scored.push({
+          product: p,
+          matchedCount,
+          score: (matchedCount * 1000) + score
+        });
       }
     }
 
-    return { products: matched.slice(0, 5) };
+    scored.sort((a, b) => b.score - a.score);
+    const matched = scored.slice(0, 5).map(s => s.product);
+
+    return { products: matched };
   }
 
   input.addEventListener('input', () => {

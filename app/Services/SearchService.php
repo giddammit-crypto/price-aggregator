@@ -70,8 +70,15 @@ class SearchService
         arsort($docScores);
         $topDocIds = array_slice(array_keys($docScores), 0, $limit);
 
-        // Fetch product data from Pack
-        return Pack::getMultiple($topDocIds);
+        // Fetch product data from Pack and preserve ranking order
+        $items = Pack::getMultiple($topDocIds);
+        $ordered = [];
+        foreach ($topDocIds as $docId) {
+            if (isset($items[$docId])) {
+                $ordered[] = $items[$docId];
+            }
+        }
+        return $ordered;
     }
 
     /**
@@ -134,6 +141,14 @@ class SearchService
             if (preg_match('/^([a-zа-я]+)([0-9]+)$/u', $tok, $splitM)) {
                 $tokens[] = $splitM[1];
                 $tokens[] = $splitM[2];
+            }
+
+            // Split digits+letters (e.g. 7800x3d -> 7800, x3d; 12400f -> 12400)
+            if (preg_match('/^([0-9]+)([a-zа-я]+.*)$/u', $tok, $splitM)) {
+                $tokens[] = $splitM[1];
+                if (strlen($splitM[2]) >= 2) {
+                    $tokens[] = $splitM[2];
+                }
             }
 
             // Stem Russian words (simple Russian suffix stripping)

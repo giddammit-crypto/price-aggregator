@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2026-10-03 22:31">
+<yml_catalog date="2026-10-03 22:59">
   <shop>
     <name>DNS</name>
     <company>ООО DNS</company>
@@ -32,7 +32,7 @@
     </categories>
     <offers>
       <offer id="dns-10-1" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80+AMD+Ryzen+7+7800X3D+OEM</url>
+        <url>https://www.dns-shop.ru/search/?q=AMD+Ryzen+7+7800X3D</url>
         <price>48400</price>
         <oldprice>54208</oldprice>
         <currencyId>RUB</currencyId>
@@ -50,7 +50,7 @@
         <param name="TDP">120 Вт</param>
       </offer>
       <offer id="dns-10-2" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80+Intel+Core+i5-12400F+OEM</url>
+        <url>https://www.dns-shop.ru/search/?q=Intel+Core+i5-12400F</url>
         <price>11835</price>
         <oldprice>13255</oldprice>
         <currencyId>RUB</currencyId>
@@ -68,7 +68,7 @@
         <param name="TDP">65 Вт</param>
       </offer>
       <offer id="dns-10-3" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80+AMD+Ryzen+5+7600X+OEM</url>
+        <url>https://www.dns-shop.ru/search/?q=AMD+Ryzen+5+7600X</url>
         <price>20590</price>
         <oldprice>23061</oldprice>
         <currencyId>RUB</currencyId>
@@ -86,7 +86,7 @@
         <param name="TDP">105 Вт</param>
       </offer>
       <offer id="dns-10-4" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80+Intel+Core+i7-14700K+OEM</url>
+        <url>https://www.dns-shop.ru/search/?q=Intel+Core+i7-14700K</url>
         <price>44280</price>
         <oldprice>49594</oldprice>
         <currencyId>RUB</currencyId>
@@ -103,7 +103,7 @@
         <param name="TDP">125 Вт</param>
       </offer>
       <offer id="dns-11-5" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9C%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F+%D0%BF%D0%BB%D0%B0%D1%82%D0%B0+ASUS+TUF+GAMING+B650-PLUS</url>
+        <url>https://www.dns-shop.ru/search/?q=ASUS+TUF+GAMING+B650-PLUS</url>
         <price>22650</price>
         <oldprice>25368</oldprice>
         <currencyId>RUB</currencyId>
@@ -119,7 +119,7 @@
         <param name="Форм-фактор">ATX</param>
       </offer>
       <offer id="dns-11-6" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9C%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F+%D0%BF%D0%BB%D0%B0%D1%82%D0%B0+MSI+MAG+B760+TOMAHAWK+WIFI</url>
+        <url>https://www.dns-shop.ru/search/?q=MSI+MAG+B760+TOMAHAWK+WIFI</url>
         <price>23165</price>
         <oldprice>25945</oldprice>
         <currencyId>RUB</currencyId>
@@ -135,7 +135,7 @@
         <param name="Форм-фактор">ATX</param>
       </offer>
       <offer id="dns-11-7" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9C%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F+%D0%BF%D0%BB%D0%B0%D1%82%D0%B0+GIGABYTE+B650+AORUS+ELITE+AX</url>
+        <url>https://www.dns-shop.ru/search/?q=GIGABYTE+B650+AORUS+ELITE+AX</url>
         <price>24710</price>
         <oldprice>27675</oldprice>
         <currencyId>RUB</currencyId>
@@ -151,7 +151,7 @@
         <param name="Форм-фактор">ATX</param>
       </offer>
       <offer id="dns-12-8" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9E%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F+%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D1%8C+Kingston+FURY+Beast+DDR5+32GB+%282x16GB%29+6000MHz</url>
+        <url>https://www.dns-shop.ru/search/?q=Kingston+FURY+Beast+DDR5+32GB+6000MHz</url>
         <price>13380</price>
         <oldprice>14986</oldprice>
         <currencyId>RUB</currencyId>
@@ -167,7 +167,7 @@
         <param name="Частота">6000 МГц</param>
       </offer>
       <offer id="dns-12-9" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9E%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F+%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D1%8C+Corsair+Vengeance+DDR5+32GB+%282x16GB%29+5600MHz</url>
+        <url>https://www.dns-shop.ru/search/?q=Corsair+Vengeance+DDR5+32GB+5600MHz</url>
         <price>11835</price>
         <oldprice>13255</oldprice>
         <currencyId>RUB</currencyId>
@@ -183,7 +183,7 @@
         <param name="Частота">5600 МГц</param>
       </offer>
       <offer id="dns-13-10" available="true">
-        <url>https://www.dns-shop.ru/search/?q=SSD+%D0%BD%D0%B0%D0%BA%D0%BE%D0%BF%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+Samsung+990+PRO+2TB+NVMe+M.2</url>
+        <url>https://www.dns-shop.ru/search/?q=Samsung+990+PRO+2TB+NVMe+M.2</url>
         <price>22650</price>
         <oldprice>25368</oldprice>
         <currencyId>RUB</currencyId>
@@ -199,7 +199,7 @@
         <param name="Интерфейс">PCIe 4.0 x4</param>
       </offer>
       <offer id="dns-13-11" available="true">
-        <url>https://www.dns-shop.ru/search/?q=SSD+%D0%BD%D0%B0%D0%BA%D0%BE%D0%BF%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+Kingston+KC3000+1TB+NVMe+M.2</url>
+        <url>https://www.dns-shop.ru/search/?q=Kingston+KC3000+1TB+NVMe+M.2</url>
         <price>10805</price>
         <oldprice>12102</oldprice>
         <currencyId>RUB</currencyId>
@@ -215,7 +215,7 @@
         <param name="Интерфейс">PCIe 4.0 x4</param>
       </offer>
       <offer id="dns-14-12" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%92%D0%B8%D0%B4%D0%B5%D0%BE%D0%BA%D0%B0%D1%80%D1%82%D0%B0+Palit+GeForce+RTX+4090+GameRock+24GB</url>
+        <url>https://www.dns-shop.ru/search/?q=Palit+GeForce+RTX+4090+GameRock+24GB</url>
         <price>226590</price>
         <oldprice>253781</oldprice>
         <currencyId>RUB</currencyId>
@@ -231,7 +231,7 @@
         <param name="Шина">384 бит</param>
       </offer>
       <offer id="dns-14-13" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%92%D0%B8%D0%B4%D0%B5%D0%BE%D0%BA%D0%B0%D1%80%D1%82%D0%B0+MSI+GeForce+RTX+4060+Ventus+2X+Black+8G+OC</url>
+        <url>https://www.dns-shop.ru/search/?q=MSI+GeForce+RTX+4060+Ventus+2X+Black+8G+OC</url>
         <price>36040</price>
         <oldprice>40365</oldprice>
         <currencyId>RUB</currencyId>
@@ -247,7 +247,7 @@
         <param name="Шина">128 бит</param>
       </offer>
       <offer id="dns-14-14" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%92%D0%B8%D0%B4%D0%B5%D0%BE%D0%BA%D0%B0%D1%80%D1%82%D0%B0+ASUS+ROG+Strix+GeForce+RTX+4080+Super+16GB</url>
+        <url>https://www.dns-shop.ru/search/?q=ASUS+ROG+Strix+GeForce+RTX+4080+Super+16GB</url>
         <price>144190</price>
         <oldprice>161493</oldprice>
         <currencyId>RUB</currencyId>
@@ -263,7 +263,7 @@
         <param name="Шина">256 бит</param>
       </offer>
       <offer id="dns-14-15" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%92%D0%B8%D0%B4%D0%B5%D0%BE%D0%BA%D0%B0%D1%80%D1%82%D0%B0+GIGABYTE+Radeon+RX+7800+XT+Gaming+OC+16GB</url>
+        <url>https://www.dns-shop.ru/search/?q=GIGABYTE+Radeon+RX+7800+XT+Gaming+OC+16GB</url>
         <price>59730</price>
         <oldprice>66898</oldprice>
         <currencyId>RUB</currencyId>
@@ -279,7 +279,7 @@
         <param name="Шина">256 бит</param>
       </offer>
       <offer id="dns-15-16" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%91%D0%BB%D0%BE%D0%BA+%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%B8%D1%8F+Corsair+RM850x+850W+Gold</url>
+        <url>https://www.dns-shop.ru/search/?q=Corsair+RM850x+850W+Gold</url>
         <price>17500</price>
         <oldprice>19600</oldprice>
         <currencyId>RUB</currencyId>
@@ -295,7 +295,7 @@
         <param name="Модульный">Да</param>
       </offer>
       <offer id="dns-15-17" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%91%D0%BB%D0%BE%D0%BA+%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%B8%D1%8F+DeepCool+PQ850M+850W+Gold</url>
+        <url>https://www.dns-shop.ru/search/?q=DeepCool+PQ850M+850W+Gold</url>
         <price>12865</price>
         <oldprice>14409</oldprice>
         <currencyId>RUB</currencyId>
@@ -311,7 +311,7 @@
         <param name="Модульный">Да</param>
       </offer>
       <offer id="dns-16-18" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9A%D0%BE%D1%80%D0%BF%D1%83%D1%81+Lian+Li+O11+Dynamic+EVO+Black</url>
+        <url>https://www.dns-shop.ru/search/?q=Lian+Li+O11+Dynamic+EVO+Black</url>
         <price>18530</price>
         <oldprice>20754</oldprice>
         <currencyId>RUB</currencyId>
@@ -326,7 +326,7 @@
         <param name="Цвет">Черный</param>
       </offer>
       <offer id="dns-16-19" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9A%D0%BE%D1%80%D0%BF%D1%83%D1%81+DeepCool+CC560+V2+Black</url>
+        <url>https://www.dns-shop.ru/search/?q=DeepCool+CC560+V2+Black</url>
         <price>5655</price>
         <oldprice>6334</oldprice>
         <currencyId>RUB</currencyId>
@@ -342,7 +342,7 @@
         <param name="Вентиляторы">4x120мм</param>
       </offer>
       <offer id="dns-17-20" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9A%D1%83%D0%BB%D0%B5%D1%80+%D0%B4%D0%BB%D1%8F+%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0+DeepCool+AK620+Digital</url>
+        <url>https://www.dns-shop.ru/search/?q=DeepCool+AK620+Digital</url>
         <price>7715</price>
         <oldprice>8641</oldprice>
         <currencyId>RUB</currencyId>
@@ -358,7 +358,7 @@
         <param name="Сокет">AM5 / LGA1700</param>
       </offer>
       <offer id="dns-20-21" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9D%D0%BE%D1%83%D1%82%D0%B1%D1%83%D0%BA+Apple+MacBook+Air+13+M3+16GB+512GB+Midnight</url>
+        <url>https://www.dns-shop.ru/search/?q=Apple+MacBook+Air+13+M3+16GB+512GB+Midnight</url>
         <price>149340</price>
         <oldprice>167261</oldprice>
         <currencyId>RUB</currencyId>
@@ -375,7 +375,7 @@
         <param name="SSD">512 ГБ</param>
       </offer>
       <offer id="dns-20-22" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%98%D0%B3%D1%80%D0%BE%D0%B2%D0%BE%D0%B9+%D0%BD%D0%BE%D1%83%D1%82%D0%B1%D1%83%D0%BA+ASUS+ROG+Zephyrus+G16+%28Core+Ultra+9+%2F+RTX+4080+%2F+32GB+%2F+1TB+OLED%29</url>
+        <url>https://www.dns-shop.ru/search/?q=ASUS+ROG+Zephyrus+G16</url>
         <price>298690</price>
         <oldprice>334533</oldprice>
         <currencyId>RUB</currencyId>
@@ -392,7 +392,7 @@
         <param name="RAM">32 ГБ</param>
       </offer>
       <offer id="dns-21-23" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80+LG+UltraGear+27GP850-B+27+Nano+IPS+165Hz+QHD</url>
+        <url>https://www.dns-shop.ru/search/?q=LG+UltraGear+27GP850-B+27+Nano</url>
         <price>36040</price>
         <oldprice>40365</oldprice>
         <currencyId>RUB</currencyId>
@@ -409,7 +409,7 @@
         <param name="Матрица">Nano IPS</param>
       </offer>
       <offer id="dns-21-24" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80+Samsung+Odyssey+G5+27+165Hz+WQHD+Curved+1000R</url>
+        <url>https://www.dns-shop.ru/search/?q=Samsung+Odyssey+G5+27+165Hz+WQHD+Curved+1000R</url>
         <price>24710</price>
         <oldprice>27675</oldprice>
         <currencyId>RUB</currencyId>
@@ -425,7 +425,7 @@
         <param name="Частота">165 Гц</param>
       </offer>
       <offer id="dns-22-25" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9F%D0%9A+ARDOR+GAMING+EVO+X034+Core+i5+%2F+RTX+4060+%2F+16GB+DDR5+%2F+1TB+SSD</url>
+        <url>https://www.dns-shop.ru/search/?q=ARDOR+GAMING+EVO+X034+Core+i5+%2F+RTX+4060+%2F+16GB+DDR5+%2F+1TB+SSD</url>
         <price>87540</price>
         <oldprice>98045</oldprice>
         <currencyId>RUB</currencyId>
@@ -442,7 +442,7 @@
         <param name="SSD">1 ТБ NVMe</param>
       </offer>
       <offer id="dns-30-26" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%A1%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD+Apple+iPhone+15+128GB+Black</url>
+        <url>https://www.dns-shop.ru/search/?q=Apple+iPhone+15+128GB+Black</url>
         <price>77240</price>
         <oldprice>86509</oldprice>
         <currencyId>RUB</currencyId>
@@ -458,7 +458,7 @@
         <param name="Камера">48 Мп</param>
       </offer>
       <offer id="dns-30-27" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%A1%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD+Apple+iPhone+16+Pro+Max+256GB+Desert+Titanium</url>
+        <url>https://www.dns-shop.ru/search/?q=Apple+iPhone+16+Pro+Max+256GB+Desert+Titanium</url>
         <price>164790</price>
         <oldprice>184565</oldprice>
         <currencyId>RUB</currencyId>
@@ -474,7 +474,7 @@
         <param name="Корпус">Титан</param>
       </offer>
       <offer id="dns-30-28" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%A1%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD+Samsung+Galaxy+S24+Ultra+256GB+Titanium+Gray</url>
+        <url>https://www.dns-shop.ru/search/?q=Samsung+Galaxy+S24+Ultra+256GB+Titanium+Gray</url>
         <price>113290</price>
         <oldprice>126885</oldprice>
         <currencyId>RUB</currencyId>
@@ -491,7 +491,7 @@
         <param name="Стилус">S Pen</param>
       </offer>
       <offer id="dns-30-29" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%A1%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD+Xiaomi+14+Ultra+512GB+Black+Leica+Camera</url>
+        <url>https://www.dns-shop.ru/search/?q=Xiaomi+14+Ultra+512GB+Black</url>
         <price>118440</price>
         <oldprice>132653</oldprice>
         <currencyId>RUB</currencyId>
@@ -506,7 +506,7 @@
         <param name="Камера">Leica Quad Camera 50 Мп 1-дюймовый сенсор</param>
       </offer>
       <offer id="dns-31-30" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9F%D0%BB%D0%B0%D0%BD%D1%88%D0%B5%D1%82+Apple+iPad+Air+11+M2+128GB+Wi-Fi+Space+Gray</url>
+        <url>https://www.dns-shop.ru/search/?q=Apple+iPad+Air+11+M2+128GB+Wi-Fi+Space+Gray</url>
         <price>72090</price>
         <oldprice>80741</oldprice>
         <currencyId>RUB</currencyId>
@@ -522,7 +522,7 @@
         <param name="Память">128 ГБ</param>
       </offer>
       <offer id="dns-31-31" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%9F%D0%BB%D0%B0%D0%BD%D1%88%D0%B5%D1%82+Samsung+Galaxy+Tab+S9+128GB+Wi-Fi+Graphite</url>
+        <url>https://www.dns-shop.ru/search/?q=Samsung+Galaxy+Tab+S9+128GB+Wi-Fi+Graphite</url>
         <price>66940</price>
         <oldprice>74973</oldprice>
         <currencyId>RUB</currencyId>
@@ -537,7 +537,7 @@
         <param name="Память">128 ГБ</param>
       </offer>
       <offer id="dns-32-32" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%A1%D0%BC%D0%B0%D1%80%D1%82-%D1%87%D0%B0%D1%81%D1%8B+Apple+Watch+Series+9+GPS+45mm+Midnight+Aluminum</url>
+        <url>https://www.dns-shop.ru/search/?q=Apple+Watch+Series+9+GPS+45mm+Midnight+Aluminum</url>
         <price>43250</price>
         <oldprice>48440</oldprice>
         <currencyId>RUB</currencyId>
@@ -553,7 +553,7 @@
         <param name="Пульсоксиметр">Да</param>
       </offer>
       <offer id="dns-32-33" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%A1%D0%BC%D0%B0%D1%80%D1%82-%D1%87%D0%B0%D1%81%D1%8B+Samsung+Galaxy+Watch6+44mm+Graphite</url>
+        <url>https://www.dns-shop.ru/search/?q=Samsung+Galaxy+Watch6+44mm+Graphite</url>
         <price>22650</price>
         <oldprice>25368</oldprice>
         <currencyId>RUB</currencyId>
@@ -569,7 +569,7 @@
         <param name="ЭКГ">Да</param>
       </offer>
       <offer id="dns-33-34" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%91%D0%B5%D1%81%D0%BF%D1%80%D0%BE%D0%B2%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5+%D0%BD%D0%B0%D1%83%D1%88%D0%BD%D0%B8%D0%BA%D0%B8+Sony+WH-1000XM5+Black+ANC</url>
+        <url>https://www.dns-shop.ru/search/?q=Sony+WH-1000XM5+Black</url>
         <price>36040</price>
         <oldprice>40365</oldprice>
         <currencyId>RUB</currencyId>
@@ -585,7 +585,7 @@
         <param name="Автономность">30 ч</param>
       </offer>
       <offer id="dns-33-35" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%91%D0%B5%D1%81%D0%BF%D1%80%D0%BE%D0%B2%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5+%D0%BD%D0%B0%D1%83%D1%88%D0%BD%D0%B8%D0%BA%D0%B8+Apple+AirPods+Pro+2+%28USB-C%29+White</url>
+        <url>https://www.dns-shop.ru/search/?q=Apple+AirPods+Pro+2+White</url>
         <price>23680</price>
         <oldprice>26522</oldprice>
         <currencyId>RUB</currencyId>
@@ -601,7 +601,7 @@
         <param name="Разъем">USB-C</param>
       </offer>
       <offer id="dns-33-36" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%91%D0%B5%D1%81%D0%BF%D1%80%D0%BE%D0%B2%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5+%D0%BD%D0%B0%D1%83%D1%88%D0%BD%D0%B8%D0%BA%D0%B8+Marshall+Major+IV+Bluetooth+Black</url>
+        <url>https://www.dns-shop.ru/search/?q=Marshall+Major+IV+Bluetooth+Black</url>
         <price>12350</price>
         <oldprice>13832</oldprice>
         <currencyId>RUB</currencyId>
@@ -617,7 +617,7 @@
         <param name="Беспроводная зарядка">Да</param>
       </offer>
       <offer id="dns-40-37" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%A2%D0%B5%D0%BB%D0%B5%D0%B2%D0%B8%D0%B7%D0%BE%D1%80+Xiaomi+TV+A+Pro+55+2025+4K+UHD+QLED+Google+TV</url>
+        <url>https://www.dns-shop.ru/search/?q=Xiaomi+TV+A+Pro+55+2025+4K+UHD</url>
         <price>40160</price>
         <oldprice>44979</oldprice>
         <currencyId>RUB</currencyId>
@@ -634,7 +634,7 @@
         <param name="Smart TV">Google TV</param>
       </offer>
       <offer id="dns-40-38" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%A2%D0%B5%D0%BB%D0%B5%D0%B2%D0%B8%D0%B7%D0%BE%D1%80+LG+OLED55C3RLA+55+4K+120Hz+webOS+Smart+TV</url>
+        <url>https://www.dns-shop.ru/search/?q=LG</url>
         <price>144190</price>
         <oldprice>161493</oldprice>
         <currencyId>RUB</currencyId>
@@ -651,7 +651,7 @@
         <param name="Smart TV">webOS</param>
       </offer>
       <offer id="dns-50-39" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%A0%D0%BE%D0%B1%D0%BE%D1%82-%D0%BF%D1%8B%D0%BB%D0%B5%D1%81%D0%BE%D1%81+Roborock+S8+Pro+Ultra+White+%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F+%D1%81%D0%B0%D0%BC%D0%BE%D0%BE%D1%87%D0%B8%D1%81%D1%82%D0%BA%D0%B8</url>
+        <url>https://www.dns-shop.ru/search/?q=Roborock+S8+Pro+Ultra+White</url>
         <price>92690</price>
         <oldprice>103813</oldprice>
         <currencyId>RUB</currencyId>
@@ -667,7 +667,7 @@
         <param name="Станция">All-in-One с сушкой</param>
       </offer>
       <offer id="dns-50-40" available="true">
-        <url>https://www.dns-shop.ru/search/?q=%D0%A0%D0%BE%D0%B1%D0%BE%D1%82-%D0%BF%D1%8B%D0%BB%D0%B5%D1%81%D0%BE%D1%81+Dreame+L10s+Ultra+%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F+%D1%81+%D0%BF%D1%80%D0%BE%D0%BC%D1%8B%D0%B2%D0%BA%D0%BE%D0%B9+%D1%88%D0%B2%D0%B0%D0%B1%D1%80</url>
+        <url>https://www.dns-shop.ru/search/?q=Dreame+L10s+Ultra</url>
         <price>66940</price>
         <oldprice>74973</oldprice>
         <currencyId>RUB</currencyId>

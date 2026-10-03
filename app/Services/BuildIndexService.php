@@ -141,7 +141,7 @@ class BuildIndexService
                     if (!isset($searchPostings[$tok])) {
                         $searchPostings[$tok] = [];
                     }
-                    if (count($searchPostings[$tok]) < 100) {
+                    if (count($searchPostings[$tok]) < 1000) {
                         $searchPostings[$tok][] = [$id, $weight, $pop];
                     }
                     $vocab[$tok] = ($vocab[$tok] ?? 0) + 1;
@@ -285,6 +285,12 @@ class BuildIndexService
             if (preg_match('/^([a-zа-я]+)([0-9]+)$/u', $tok, $splitM)) {
                 $tokens[$splitM[1]] = 3;
                 $tokens[$splitM[2]] = 4;
+            }
+            if (preg_match('/^([0-9]+)([a-zа-я]+.*)$/u', $tok, $splitM)) {
+                $tokens[$splitM[1]] = 4;
+                if (strlen($splitM[2]) >= 2) {
+                    $tokens[$splitM[2]] = 4;
+                }
             }
         }
         return $tokens;
