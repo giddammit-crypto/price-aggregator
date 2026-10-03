@@ -217,7 +217,7 @@ foreach ($productIdsToExport as $pid) {
         'price' => $p['agg']['min'] ?? 0,
         'offers' => $p['agg']['cnt'] ?? 0,
         'url' => "{$basePrefix}/p/{$slug}-{$pid}/",
-        'image' => "{$basePrefix}" . (VerifiedProductImage::forProduct($p) ?? '/assets/img/placeholder.svg'),
+        'image' => "{$basePrefix}" . (VerifiedProductImage::forProduct($p) ?? $p['img'] ?? '/assets/img/placeholder.svg'),
         'specs' => $p['specs'] ?? [],
         'attrs' => $p['attrs'] ?? []
     ];

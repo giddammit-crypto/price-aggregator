@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2026-10-03 22:31">
+  <shop>
+    <name>ОнлайнТрейд</name>
+    <company>ООО ОнлайнТрейд</company>
+    <url>https://www.onlinetrade.ru</url>
+    <currencies>
+      <currency id="RUB" rate="1"/>
+    </currencies>
+    <categories>
+      <category id="1">Комплектующие для ПК</category>
+      <category id="10">Процессоры</category>
+      <category id="11">Материнские платы</category>
+      <category id="12">Оперативная память</category>
+      <category id="13">SSD и накопители</category>
+      <category id="14">Видеокарты</category>
+      <category id="15">Блоки питания</category>
+      <category id="16">Корпуса</category>
+      <category id="17">Охлаждение ПК</category>
+      <category id="2">Ноутбуки и компьютеры</category>
+      <category id="20">Ноутбуки</category>
+      <category id="21">Мониторы</category>
+      <category id="22">Готовые ПК</category>
+      <category id="3">Смартфоны и гаджеты</category>
+      <category id="30">Смартфоны</category>
+      <category id="31">Планшеты</category>
+      <category id="32">Смарт-часы и браслеты</category>
+      <category id="33">Наушники и гарнитуры</category>
+      <category id="4">ТВ и умный дом</category>
+      <category id="40">Телевизоры</category>
+      <category id="50">Роботы-пылесосы</category>
+    </categories>
+    <offers>
+      <offer id="onlinetrade-10-1" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80+AMD+Ryzen+7+7800X3D+OEM</url>
+        <price>47460</price>
+        <oldprice>53155</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>10</categoryId>
+        <picture>/assets/img/products/amd-ryzen-7-7800x3d-100-000000910.webp</picture>
+        <name>Процессор AMD Ryzen 7 7800X3D OEM</name>
+        <vendor>AMD</vendor>
+        <vendorCode>100-000000910</vendorCode>
+        <barcode>730143314930</barcode>
+        <delivery>true</delivery>
+        <param name="Сокет">AM5</param>
+        <param name="Ядра">8</param>
+        <param name="Потоки">16</param>
+        <param name="Кэш L3">96 МБ</param>
+        <param name="TDP">120 Вт</param>
+      </offer>
+      <offer id="onlinetrade-10-2" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80+Intel+Core+i5-12400F+OEM</url>
+        <price>11605</price>
+        <oldprice>12998</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>10</categoryId>
+        <picture>/assets/img/products/cpu-intel.webp</picture>
+        <name>Процессор Intel Core i5-12400F OEM</name>
+        <vendor>Intel</vendor>
+        <vendorCode>CM8071504821107</vendorCode>
+        <barcode>5032037237758</barcode>
+        <delivery>true</delivery>
+        <param name="Сокет">LGA1700</param>
+        <param name="Ядра">6</param>
+        <param name="Потоки">12</param>
+        <param name="Базовая частота">2.5 ГГц</param>
+        <param name="TDP">65 Вт</param>
+      </offer>
+      <offer id="onlinetrade-10-3" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80+AMD+Ryzen+5+7600X+OEM</url>
+        <price>20190</price>
+        <oldprice>22613</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>10</categoryId>
+        <picture>/assets/img/products/cpu-ryzen.webp</picture>
+        <name>Процессор AMD Ryzen 5 7600X OEM</name>
+        <vendor>AMD</vendor>
+        <vendorCode>100-000000593</vendorCode>
+        <barcode>730143314442</barcode>
+        <delivery>true</delivery>
+        <param name="Сокет">AM5</param>
+        <param name="Ядра">6</param>
+        <param name="Потоки">12</param>
+        <param name="Базовая частота">4.7 ГГц</param>
+        <param name="TDP">105 Вт</param>
+      </offer>
+      <offer id="onlinetrade-10-4" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80+Intel+Core+i7-14700K+OEM</url>
+        <price>43420</price>
+        <oldprice>48630</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>10</categoryId>
+        <picture>/assets/img/products/cpu-intel.webp</picture>
+        <name>Процессор Intel Core i7-14700K OEM</name>
+        <vendor>Intel</vendor>
+        <vendorCode>CM8071505092101</vendorCode>
+        <barcode>5032037278638</barcode>
+        <delivery>true</delivery>
+        <param name="Сокет">LGA1700</param>
+        <param name="Ядра">20</param>
+        <param name="Потоки">28</param>
+        <param name="TDP">125 Вт</param>
+      </offer>
+      <offer id="onlinetrade-11-5" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9C%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F+%D0%BF%D0%BB%D0%B0%D1%82%D0%B0+ASUS+TUF+GAMING+B650-PLUS</url>
+        <price>22210</price>
+        <oldprice>24875</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>11</categoryId>
+        <picture>/assets/img/products/mobo-asus.webp</picture>
+        <name>Материнская плата ASUS TUF GAMING B650-PLUS</name>
+        <vendor>ASUS</vendor>
+        <vendorCode>TUF-GAMING-B650-PLUS</vendorCode>
+        <barcode>4711081912569</barcode>
+        <delivery>true</delivery>
+        <param name="Сокет">AM5</param>
+        <param name="Чипсет">AMD B650</param>
+        <param name="Форм-фактор">ATX</param>
+      </offer>
+      <offer id="onlinetrade-11-6" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9C%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F+%D0%BF%D0%BB%D0%B0%D1%82%D0%B0+MSI+MAG+B760+TOMAHAWK+WIFI</url>
+        <price>22715</price>
+        <oldprice>25441</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>11</categoryId>
+        <picture>/assets/img/products/mobo-asus.webp</picture>
+        <name>Материнская плата MSI MAG B760 TOMAHAWK WIFI</name>
+        <vendor>MSI</vendor>
+        <vendorCode>MAG-B760-TOMAHAWK-WIFI</vendorCode>
+        <barcode>4711377030519</barcode>
+        <delivery>true</delivery>
+        <param name="Сокет">LGA1700</param>
+        <param name="Чипсет">Intel B760</param>
+        <param name="Форм-фактор">ATX</param>
+      </offer>
+      <offer id="onlinetrade-11-7" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9C%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F+%D0%BF%D0%BB%D0%B0%D1%82%D0%B0+GIGABYTE+B650+AORUS+ELITE+AX</url>
+        <price>24230</price>
+        <oldprice>27138</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>11</categoryId>
+        <picture>/assets/img/products/mobo-asus.webp</picture>
+        <name>Материнская плата GIGABYTE B650 AORUS ELITE AX</name>
+        <vendor>GIGABYTE</vendor>
+        <vendorCode>B650-AORUS-ELITE-AX</vendorCode>
+        <barcode>4719331849887</barcode>
+        <delivery>true</delivery>
+        <param name="Сокет">AM5</param>
+        <param name="Чипсет">AMD B650</param>
+        <param name="Форм-фактор">ATX</param>
+      </offer>
+      <offer id="onlinetrade-12-8" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9E%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F+%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D1%8C+Kingston+FURY+Beast+DDR5+32GB+%282x16GB%29+6000MHz</url>
+        <price>13120</price>
+        <oldprice>14694</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>12</categoryId>
+        <picture>/assets/img/products/ram-fury.webp</picture>
+        <name>Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz</name>
+        <vendor>Kingston</vendor>
+        <vendorCode>KF560C36BBEK2-32</vendorCode>
+        <barcode>740617327717</barcode>
+        <delivery>true</delivery>
+        <param name="Тип">DDR5</param>
+        <param name="Объем">32 ГБ</param>
+        <param name="Частота">6000 МГц</param>
+      </offer>
+      <offer id="onlinetrade-12-9" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9E%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F+%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D1%8C+Corsair+Vengeance+DDR5+32GB+%282x16GB%29+5600MHz</url>
+        <price>11605</price>
+        <oldprice>12998</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>12</categoryId>
+        <picture>/assets/img/products/ram-fury.webp</picture>
+        <name>Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz</name>
+        <vendor>Corsair</vendor>
+        <vendorCode>CMK32GX5M2B5600C36</vendorCode>
+        <barcode>840006659792</barcode>
+        <delivery>true</delivery>
+        <param name="Тип">DDR5</param>
+        <param name="Объем">32 ГБ</param>
+        <param name="Частота">5600 МГц</param>
+      </offer>
+      <offer id="onlinetrade-13-10" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=SSD+%D0%BD%D0%B0%D0%BA%D0%BE%D0%BF%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+Samsung+990+PRO+2TB+NVMe+M.2</url>
+        <price>22210</price>
+        <oldprice>24875</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>13</categoryId>
+        <picture>/assets/img/products/ssd-samsung.webp</picture>
+        <name>SSD накопитель Samsung 990 PRO 2TB NVMe M.2</name>
+        <vendor>Samsung</vendor>
+        <vendorCode>MZ-V9P2T0BW</vendorCode>
+        <barcode>8806094215038</barcode>
+        <delivery>true</delivery>
+        <param name="Форм-фактор">M.2 2280</param>
+        <param name="Объем">2000 ГБ</param>
+        <param name="Интерфейс">PCIe 4.0 x4</param>
+      </offer>
+      <offer id="onlinetrade-13-11" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=SSD+%D0%BD%D0%B0%D0%BA%D0%BE%D0%BF%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+Kingston+KC3000+1TB+NVMe+M.2</url>
+        <price>10595</price>
+        <oldprice>11866</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>13</categoryId>
+        <picture>/assets/img/products/ssd-samsung.webp</picture>
+        <name>SSD накопитель Kingston KC3000 1TB NVMe M.2</name>
+        <vendor>Kingston</vendor>
+        <vendorCode>SKC3000S/1024G</vendorCode>
+        <barcode>740617324341</barcode>
+        <delivery>true</delivery>
+        <param name="Форм-фактор">M.2 2280</param>
+        <param name="Объем">1000 ГБ</param>
+        <param name="Интерфейс">PCIe 4.0 x4</param>
+      </offer>
+      <offer id="onlinetrade-14-12" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%92%D0%B8%D0%B4%D0%B5%D0%BE%D0%BA%D0%B0%D1%80%D1%82%D0%B0+Palit+GeForce+RTX+4090+GameRock+24GB</url>
+        <price>222190</price>
+        <oldprice>248853</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>14</categoryId>
+        <picture>/assets/img/products/gpu-rtx4090.webp</picture>
+        <name>Видеокарта Palit GeForce RTX 4090 GameRock 24GB</name>
+        <vendor>Palit</vendor>
+        <vendorCode>NED4090S19SB-1020G</vendorCode>
+        <barcode>4710562243406</barcode>
+        <delivery>true</delivery>
+        <param name="Видеочип">GeForce RTX 4090</param>
+        <param name="Память">24 ГБ GDDR6X</param>
+        <param name="Шина">384 бит</param>
+      </offer>
+      <offer id="onlinetrade-14-13" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%92%D0%B8%D0%B4%D0%B5%D0%BE%D0%BA%D0%B0%D1%80%D1%82%D0%B0+MSI+GeForce+RTX+4060+Ventus+2X+Black+8G+OC</url>
+        <price>35340</price>
+        <oldprice>39581</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>14</categoryId>
+        <picture>/assets/img/products/gpu-rtx4060.webp</picture>
+        <name>Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC</name>
+        <vendor>MSI</vendor>
+        <vendorCode>RTX-4060-VENTUS-2X-8G-OC</vendorCode>
+        <barcode>4711377098458</barcode>
+        <delivery>true</delivery>
+        <param name="Видеочип">GeForce RTX 4060</param>
+        <param name="Память">8 ГБ GDDR6</param>
+        <param name="Шина">128 бит</param>
+      </offer>
+      <offer id="onlinetrade-14-14" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%92%D0%B8%D0%B4%D0%B5%D0%BE%D0%BA%D0%B0%D1%80%D1%82%D0%B0+ASUS+ROG+Strix+GeForce+RTX+4080+Super+16GB</url>
+        <price>141390</price>
+        <oldprice>158357</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>14</categoryId>
+        <picture>/assets/img/products/gpu-rtx4090.webp</picture>
+        <name>Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB</name>
+        <vendor>ASUS</vendor>
+        <vendorCode>ROG-STRIX-RTX4080S-O16G</vendorCode>
+        <barcode>4711387472015</barcode>
+        <delivery>true</delivery>
+        <param name="Видеочип">GeForce RTX 4080 Super</param>
+        <param name="Память">16 ГБ GDDR6X</param>
+        <param name="Шина">256 бит</param>
+      </offer>
+      <offer id="onlinetrade-14-15" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%92%D0%B8%D0%B4%D0%B5%D0%BE%D0%BA%D0%B0%D1%80%D1%82%D0%B0+GIGABYTE+Radeon+RX+7800+XT+Gaming+OC+16GB</url>
+        <price>58570</price>
+        <oldprice>65598</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>14</categoryId>
+        <picture>/assets/img/products/gpu-rtx4060.webp</picture>
+        <name>Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB</name>
+        <vendor>GIGABYTE</vendor>
+        <vendorCode>GV-R78XTGAMING OC-16GD</vendorCode>
+        <barcode>4719331314125</barcode>
+        <delivery>true</delivery>
+        <param name="Видеочип">Radeon RX 7800 XT</param>
+        <param name="Память">16 ГБ GDDR6</param>
+        <param name="Шина">256 бит</param>
+      </offer>
+      <offer id="onlinetrade-15-16" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%91%D0%BB%D0%BE%D0%BA+%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%B8%D1%8F+Corsair+RM850x+850W+Gold</url>
+        <price>17160</price>
+        <oldprice>19219</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>15</categoryId>
+        <picture>/assets/img/products/psu-corsair.webp</picture>
+        <name>Блок питания Corsair RM850x 850W Gold</name>
+        <vendor>Corsair</vendor>
+        <vendorCode>CP-9020200-EU</vendorCode>
+        <barcode>840006629993</barcode>
+        <delivery>true</delivery>
+        <param name="Мощность">850 Вт</param>
+        <param name="Сертификат">80 PLUS Gold</param>
+        <param name="Модульный">Да</param>
+      </offer>
+      <offer id="onlinetrade-15-17" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%91%D0%BB%D0%BE%D0%BA+%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%B8%D1%8F+DeepCool+PQ850M+850W+Gold</url>
+        <price>12615</price>
+        <oldprice>14129</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>15</categoryId>
+        <picture>/assets/img/products/psu-corsair.webp</picture>
+        <name>Блок питания DeepCool PQ850M 850W Gold</name>
+        <vendor>DeepCool</vendor>
+        <vendorCode>R-PQA00M-FA0B-EU</vendorCode>
+        <barcode>6933412711674</barcode>
+        <delivery>true</delivery>
+        <param name="Мощность">850 Вт</param>
+        <param name="Сертификат">80 PLUS Gold</param>
+        <param name="Модульный">Да</param>
+      </offer>
+      <offer id="onlinetrade-16-18" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9A%D0%BE%D1%80%D0%BF%D1%83%D1%81+Lian+Li+O11+Dynamic+EVO+Black</url>
+        <price>18170</price>
+        <oldprice>20350</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>16</categoryId>
+        <picture>/assets/img/products/case-lianli.webp</picture>
+        <name>Корпус Lian Li O11 Dynamic EVO Black</name>
+        <vendor>Lian Li</vendor>
+        <vendorCode>G99.O11DEX.00</vendorCode>
+        <barcode>4718466010735</barcode>
+        <delivery>true</delivery>
+        <param name="Типоразмер">Midi-Tower</param>
+        <param name="Цвет">Черный</param>
+      </offer>
+      <offer id="onlinetrade-16-19" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9A%D0%BE%D1%80%D0%BF%D1%83%D1%81+DeepCool+CC560+V2+Black</url>
+        <price>5545</price>
+        <oldprice>6210</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>16</categoryId>
+        <picture>/assets/img/products/case-lianli.webp</picture>
+        <name>Корпус DeepCool CC560 V2 Black</name>
+        <vendor>DeepCool</vendor>
+        <vendorCode>R-CC560-BKGAA4-G-2</vendorCode>
+        <barcode>6933412774594</barcode>
+        <delivery>true</delivery>
+        <param name="Типоразмер">Midi-Tower</param>
+        <param name="Цвет">Черный</param>
+        <param name="Вентиляторы">4x120мм</param>
+      </offer>
+      <offer id="onlinetrade-17-20" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9A%D1%83%D0%BB%D0%B5%D1%80+%D0%B4%D0%BB%D1%8F+%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0+DeepCool+AK620+Digital</url>
+        <price>7565</price>
+        <oldprice>8473</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>17</categoryId>
+        <picture>/assets/img/products/cooler-ak620.webp</picture>
+        <name>Кулер для процессора DeepCool AK620 Digital</name>
+        <vendor>DeepCool</vendor>
+        <vendorCode>R-AK620-BKADMN-G</vendorCode>
+        <barcode>6933412728221</barcode>
+        <delivery>true</delivery>
+        <param name="TDP">260 Вт</param>
+        <param name="Тип">Воздушный кулер</param>
+        <param name="Сокет">AM5 / LGA1700</param>
+      </offer>
+      <offer id="onlinetrade-20-21" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9D%D0%BE%D1%83%D1%82%D0%B1%D1%83%D0%BA+Apple+MacBook+Air+13+M3+16GB+512GB+Midnight</url>
+        <price>146440</price>
+        <oldprice>164013</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>20</categoryId>
+        <picture>/assets/img/products/laptop-macbook.webp</picture>
+        <name>Ноутбук Apple MacBook Air 13 M3 16GB 512GB Midnight</name>
+        <vendor>Apple</vendor>
+        <vendorCode>MC8K4LL/A</vendorCode>
+        <barcode>195949234567</barcode>
+        <delivery>true</delivery>
+        <param name="Экран">13.6 IPS</param>
+        <param name="Процессор">Apple M3</param>
+        <param name="RAM">16 ГБ</param>
+        <param name="SSD">512 ГБ</param>
+      </offer>
+      <offer id="onlinetrade-20-22" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%98%D0%B3%D1%80%D0%BE%D0%B2%D0%BE%D0%B9+%D0%BD%D0%BE%D1%83%D1%82%D0%B1%D1%83%D0%BA+ASUS+ROG+Zephyrus+G16+%28Core+Ultra+9+%2F+RTX+4080+%2F+32GB+%2F+1TB+OLED%29</url>
+        <price>292890</price>
+        <oldprice>328037</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>20</categoryId>
+        <picture>/assets/img/products/laptop-macbook.webp</picture>
+        <name>Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED)</name>
+        <vendor>ASUS</vendor>
+        <vendorCode>GU605MZ-QR065W</vendorCode>
+        <barcode>4711387514210</barcode>
+        <delivery>true</delivery>
+        <param name="Экран">16.0 2.5K 240Hz OLED</param>
+        <param name="Процессор">Intel Core Ultra 9</param>
+        <param name="Видеокарта">RTX 4080</param>
+        <param name="RAM">32 ГБ</param>
+      </offer>
+      <offer id="onlinetrade-21-23" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80+LG+UltraGear+27GP850-B+27+Nano+IPS+165Hz+QHD</url>
+        <price>35340</price>
+        <oldprice>39581</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>21</categoryId>
+        <picture>/assets/img/products/monitor-lg.webp</picture>
+        <name>Монитор LG UltraGear 27GP850-B 27 Nano IPS 165Hz QHD</name>
+        <vendor>LG</vendor>
+        <vendorCode>27GP850-B</vendorCode>
+        <barcode>8806091216503</barcode>
+        <delivery>true</delivery>
+        <param name="Диагональ">27&quot;</param>
+        <param name="Разрешение">2560x1440</param>
+        <param name="Частота">165 Гц</param>
+        <param name="Матрица">Nano IPS</param>
+      </offer>
+      <offer id="onlinetrade-21-24" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80+Samsung+Odyssey+G5+27+165Hz+WQHD+Curved+1000R</url>
+        <price>24230</price>
+        <oldprice>27138</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>21</categoryId>
+        <picture>/assets/img/products/monitor-lg.webp</picture>
+        <name>Монитор Samsung Odyssey G5 27 165Hz WQHD Curved 1000R</name>
+        <vendor>Samsung</vendor>
+        <vendorCode>LS27AG550EIXCI</vendorCode>
+        <barcode>8806092823617</barcode>
+        <delivery>true</delivery>
+        <param name="Диагональ">27&quot;</param>
+        <param name="Разрешение">2560x1440</param>
+        <param name="Частота">165 Гц</param>
+      </offer>
+      <offer id="onlinetrade-22-25" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9F%D0%9A+ARDOR+GAMING+EVO+X034+Core+i5+%2F+RTX+4060+%2F+16GB+DDR5+%2F+1TB+SSD</url>
+        <price>85840</price>
+        <oldprice>96141</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>22</categoryId>
+        <picture>/assets/img/products/case-lianli.webp</picture>
+        <name>ПК ARDOR GAMING EVO X034 Core i5 / RTX 4060 / 16GB DDR5 / 1TB SSD</name>
+        <vendor>ARDOR GAMING</vendor>
+        <vendorCode>EVO-X034</vendorCode>
+        <barcode>4627192837192</barcode>
+        <delivery>true</delivery>
+        <param name="Процессор">Intel Core i5-12400F</param>
+        <param name="Видеокарта">RTX 4060</param>
+        <param name="RAM">16 ГБ DDR5</param>
+        <param name="SSD">1 ТБ NVMe</param>
+      </offer>
+      <offer id="onlinetrade-30-26" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%A1%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD+Apple+iPhone+15+128GB+Black</url>
+        <price>75740</price>
+        <oldprice>84829</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>30</categoryId>
+        <picture>/assets/img/products/phone-iphone15.webp</picture>
+        <name>Смартфон Apple iPhone 15 128GB Black</name>
+        <vendor>Apple</vendor>
+        <vendorCode>MTP03ZD/A</vendorCode>
+        <barcode>195949038234</barcode>
+        <delivery>true</delivery>
+        <param name="Память">128 ГБ</param>
+        <param name="Экран">6.1 Super Retina XDR OLED</param>
+        <param name="Камера">48 Мп</param>
+      </offer>
+      <offer id="onlinetrade-30-27" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%A1%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD+Apple+iPhone+16+Pro+Max+256GB+Desert+Titanium</url>
+        <price>161590</price>
+        <oldprice>180981</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>30</categoryId>
+        <picture>/assets/img/products/phone-iphone15.webp</picture>
+        <name>Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium</name>
+        <vendor>Apple</vendor>
+        <vendorCode>MYWW3HN/A</vendorCode>
+        <barcode>195949823101</barcode>
+        <delivery>true</delivery>
+        <param name="Память">256 ГБ</param>
+        <param name="Экран">6.9 ProMotion 120Hz</param>
+        <param name="Корпус">Титан</param>
+      </offer>
+      <offer id="onlinetrade-30-28" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%A1%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD+Samsung+Galaxy+S24+Ultra+256GB+Titanium+Gray</url>
+        <price>111090</price>
+        <oldprice>124421</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>30</categoryId>
+        <picture>/assets/img/products/phone-iphone15.webp</picture>
+        <name>Смартфон Samsung Galaxy S24 Ultra 256GB Titanium Gray</name>
+        <vendor>Samsung</vendor>
+        <vendorCode>SM-S928B-256</vendorCode>
+        <barcode>8806095304724</barcode>
+        <delivery>true</delivery>
+        <param name="Память">256 ГБ</param>
+        <param name="RAM">12 ГБ</param>
+        <param name="Экран">6.8 Dynamic AMOLED 2X</param>
+        <param name="Стилус">S Pen</param>
+      </offer>
+      <offer id="onlinetrade-30-29" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%A1%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD+Xiaomi+14+Ultra+512GB+Black+Leica+Camera</url>
+        <price>116140</price>
+        <oldprice>130077</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>30</categoryId>
+        <picture>/assets/img/products/phone-iphone15.webp</picture>
+        <name>Смартфон Xiaomi 14 Ultra 512GB Black Leica Camera</name>
+        <vendor>Xiaomi</vendor>
+        <vendorCode>24030PN60G</vendorCode>
+        <barcode>6941812762312</barcode>
+        <delivery>true</delivery>
+        <param name="Память">512 ГБ</param>
+        <param name="Камера">Leica Quad Camera 50 Мп 1-дюймовый сенсор</param>
+      </offer>
+      <offer id="onlinetrade-31-30" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9F%D0%BB%D0%B0%D0%BD%D1%88%D0%B5%D1%82+Apple+iPad+Air+11+M2+128GB+Wi-Fi+Space+Gray</url>
+        <price>70690</price>
+        <oldprice>79173</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>31</categoryId>
+        <picture>/assets/img/products/tablet-ipad.webp</picture>
+        <name>Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray</name>
+        <vendor>Apple</vendor>
+        <vendorCode>MU9D3LL/A</vendorCode>
+        <barcode>195949392101</barcode>
+        <delivery>true</delivery>
+        <param name="Экран">11 Liquid Retina</param>
+        <param name="Процессор">Apple M2</param>
+        <param name="Память">128 ГБ</param>
+      </offer>
+      <offer id="onlinetrade-31-31" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%9F%D0%BB%D0%B0%D0%BD%D1%88%D0%B5%D1%82+Samsung+Galaxy+Tab+S9+128GB+Wi-Fi+Graphite</url>
+        <price>65640</price>
+        <oldprice>73517</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>31</categoryId>
+        <picture>/assets/img/products/tablet-ipad.webp</picture>
+        <name>Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite</name>
+        <vendor>Samsung</vendor>
+        <vendorCode>SM-X710N</vendorCode>
+        <barcode>8806095062143</barcode>
+        <delivery>true</delivery>
+        <param name="Экран">11 Dynamic AMOLED 2X 120Hz</param>
+        <param name="Память">128 ГБ</param>
+      </offer>
+      <offer id="onlinetrade-32-32" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%A1%D0%BC%D0%B0%D1%80%D1%82-%D1%87%D0%B0%D1%81%D1%8B+Apple+Watch+Series+9+GPS+45mm+Midnight+Aluminum</url>
+        <price>42410</price>
+        <oldprice>47499</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>32</categoryId>
+        <picture>/assets/img/products/watch-apple.webp</picture>
+        <name>Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum</name>
+        <vendor>Apple</vendor>
+        <vendorCode>MR993LL/A</vendorCode>
+        <barcode>195949012450</barcode>
+        <delivery>true</delivery>
+        <param name="Размер">45 мм</param>
+        <param name="Корпус">Алюминий</param>
+        <param name="Пульсоксиметр">Да</param>
+      </offer>
+      <offer id="onlinetrade-32-33" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%A1%D0%BC%D0%B0%D1%80%D1%82-%D1%87%D0%B0%D1%81%D1%8B+Samsung+Galaxy+Watch6+44mm+Graphite</url>
+        <price>22210</price>
+        <oldprice>24875</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>32</categoryId>
+        <picture>/assets/img/products/watch-apple.webp</picture>
+        <name>Смарт-часы Samsung Galaxy Watch6 44mm Graphite</name>
+        <vendor>Samsung</vendor>
+        <vendorCode>SM-R940NZKASER</vendorCode>
+        <barcode>8806095078120</barcode>
+        <delivery>true</delivery>
+        <param name="Размер">44 мм</param>
+        <param name="ОС">Wear OS</param>
+        <param name="ЭКГ">Да</param>
+      </offer>
+      <offer id="onlinetrade-33-34" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%91%D0%B5%D1%81%D0%BF%D1%80%D0%BE%D0%B2%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5+%D0%BD%D0%B0%D1%83%D1%88%D0%BD%D0%B8%D0%BA%D0%B8+Sony+WH-1000XM5+Black+ANC</url>
+        <price>35340</price>
+        <oldprice>39581</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>33</categoryId>
+        <picture>/assets/img/products/headphones-sony.webp</picture>
+        <name>Беспроводные наушники Sony WH-1000XM5 Black ANC</name>
+        <vendor>Sony</vendor>
+        <vendorCode>WH1000XM5/B</vendorCode>
+        <barcode>4548736132573</barcode>
+        <delivery>true</delivery>
+        <param name="Тип">Полноразмерные</param>
+        <param name="Шумоподавление">Активное ANC</param>
+        <param name="Автономность">30 ч</param>
+      </offer>
+      <offer id="onlinetrade-33-35" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%91%D0%B5%D1%81%D0%BF%D1%80%D0%BE%D0%B2%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5+%D0%BD%D0%B0%D1%83%D1%88%D0%BD%D0%B8%D0%BA%D0%B8+Apple+AirPods+Pro+2+%28USB-C%29+White</url>
+        <price>23220</price>
+        <oldprice>26006</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>33</categoryId>
+        <picture>/assets/img/products/headphones-sony.webp</picture>
+        <name>Беспроводные наушники Apple AirPods Pro 2 (USB-C) White</name>
+        <vendor>Apple</vendor>
+        <vendorCode>MTJV3ZM/A</vendorCode>
+        <barcode>195949052456</barcode>
+        <delivery>true</delivery>
+        <param name="Тип">TWS внутриканальные</param>
+        <param name="Шумоподавление">ANC + Прозрачность</param>
+        <param name="Разъем">USB-C</param>
+      </offer>
+      <offer id="onlinetrade-33-36" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%91%D0%B5%D1%81%D0%BF%D1%80%D0%BE%D0%B2%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5+%D0%BD%D0%B0%D1%83%D1%88%D0%BD%D0%B8%D0%BA%D0%B8+Marshall+Major+IV+Bluetooth+Black</url>
+        <price>12110</price>
+        <oldprice>13563</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>33</categoryId>
+        <picture>/assets/img/products/headphones-sony.webp</picture>
+        <name>Беспроводные наушники Marshall Major IV Bluetooth Black</name>
+        <vendor>Marshall</vendor>
+        <vendorCode>1005773</vendorCode>
+        <barcode>7340055379458</barcode>
+        <delivery>true</delivery>
+        <param name="Тип">Накладные Bluetooth</param>
+        <param name="Автономность">80 ч</param>
+        <param name="Беспроводная зарядка">Да</param>
+      </offer>
+      <offer id="onlinetrade-40-37" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%A2%D0%B5%D0%BB%D0%B5%D0%B2%D0%B8%D0%B7%D0%BE%D1%80+Xiaomi+TV+A+Pro+55+2025+4K+UHD+QLED+Google+TV</url>
+        <price>39380</price>
+        <oldprice>44106</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>40</categoryId>
+        <picture>/assets/img/products/tv-xiaomi.webp</picture>
+        <name>Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV</name>
+        <vendor>Xiaomi</vendor>
+        <vendorCode>ELA5478EU</vendorCode>
+        <barcode>6941812769120</barcode>
+        <delivery>true</delivery>
+        <param name="Диагональ">55&quot;</param>
+        <param name="Разрешение">3840x2160 4K</param>
+        <param name="Технология">QLED</param>
+        <param name="Smart TV">Google TV</param>
+      </offer>
+      <offer id="onlinetrade-40-38" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%A2%D0%B5%D0%BB%D0%B5%D0%B2%D0%B8%D0%B7%D0%BE%D1%80+LG+OLED55C3RLA+55+4K+120Hz+webOS+Smart+TV</url>
+        <price>141390</price>
+        <oldprice>158357</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>40</categoryId>
+        <picture>/assets/img/products/tv-xiaomi.webp</picture>
+        <name>Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV</name>
+        <vendor>LG</vendor>
+        <vendorCode>OLED55C3RLA</vendorCode>
+        <barcode>8806091823120</barcode>
+        <delivery>true</delivery>
+        <param name="Диагональ">55&quot;</param>
+        <param name="Разрешение">4K OLED</param>
+        <param name="Частота">120 Гц</param>
+        <param name="Smart TV">webOS</param>
+      </offer>
+      <offer id="onlinetrade-50-39" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%A0%D0%BE%D0%B1%D0%BE%D1%82-%D0%BF%D1%8B%D0%BB%D0%B5%D1%81%D0%BE%D1%81+Roborock+S8+Pro+Ultra+White+%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F+%D1%81%D0%B0%D0%BC%D0%BE%D0%BE%D1%87%D0%B8%D1%81%D1%82%D0%BA%D0%B8</url>
+        <price>90890</price>
+        <oldprice>101797</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>50</categoryId>
+        <picture>/assets/img/products/vacuum-roborock.webp</picture>
+        <name>Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки</name>
+        <vendor>Roborock</vendor>
+        <vendorCode>S8PU02-00</vendorCode>
+        <barcode>6970995786438</barcode>
+        <delivery>true</delivery>
+        <param name="Влажная уборка">Виброшвабра VibraRise 2.0</param>
+        <param name="Сила всасывания">6000 Па</param>
+        <param name="Станция">All-in-One с сушкой</param>
+      </offer>
+      <offer id="onlinetrade-50-40" available="true">
+        <url>https://www.onlinetrade.ru/sitesearch.html?query=%D0%A0%D0%BE%D0%B1%D0%BE%D1%82-%D0%BF%D1%8B%D0%BB%D0%B5%D1%81%D0%BE%D1%81+Dreame+L10s+Ultra+%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F+%D1%81+%D0%BF%D1%80%D0%BE%D0%BC%D1%8B%D0%B2%D0%BA%D0%BE%D0%B9+%D1%88%D0%B2%D0%B0%D0%B1%D1%80</url>
+        <price>65640</price>
+        <oldprice>73517</oldprice>
+        <currencyId>RUB</currencyId>
+        <categoryId>50</categoryId>
+        <picture>/assets/img/products/vacuum-roborock.webp</picture>
+        <name>Робот-пылесос Dreame L10s Ultra станция с промывкой швабр</name>
+        <vendor>Dreame</vendor>
+        <vendorCode>RLS6LADC</vendorCode>
+        <barcode>6973734689124</barcode>
+        <delivery>true</delivery>
+        <param name="Влажная уборка">Вращающиеся диски</param>
+        <param name="Сила всасывания">5300 Па</param>
+        <param name="Станция">Самоочистка и промывка</param>
+      </offer>
+    </offers>
+  </shop>
+</yml_catalog>

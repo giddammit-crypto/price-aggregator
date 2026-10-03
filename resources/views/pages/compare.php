@@ -38,7 +38,7 @@ declare(strict_types=1);
           <?php if (!empty($products)): ?>
             <?php foreach ($products as $p): ?>
               <th style="padding: 16px; text-align: center; vertical-align: top; width: 220px;">
-                <img src="<?= e(\App\Services\VerifiedProductImage::forProduct($p) ?? '/assets/img/placeholder.svg') ?>" alt="" style="max-height: 100px; margin: 0 auto 8px;" width="100" height="100">
+                <img src="<?= e(\App\Services\VerifiedProductImage::forProduct($p) ?? $p['img'] ?? '/assets/img/placeholder.svg') ?>" alt="<?= e($p['title']) ?>" style="max-height: 100px; margin: 0 auto 8px;" width="100" height="100">
                 <a href="/p/<?= e($p['slug']) ?>-<?= $p['id'] ?>" class="font-bold" style="display: block; line-height: 1.3; margin-bottom: 6px;">
                   <?= e($p['title']) ?>
                 </a>

@@ -56,27 +56,20 @@ $searchOnly = $isLinkOnly || (parse_url($directUrl, PHP_URL_QUERY) !== null
   </div>
 
   <div class="offer-price-col">
-    <?php if ($searchOnly): ?>
-      <span class="text-muted" style="font-size: var(--fs-xs);">Цена на сайте</span>
-    <?php else: ?>
+    <?php if ($landed !== null && $landed > 0): ?>
       <div class="offer-price"><?= formatPrice($landed) ?></div>
-      <?php if ($landed !== $price): ?>
+      <?php if ($landed !== $price && $price !== null): ?>
         <div class="offer-price-note">с доставкой</div>
       <?php endif; ?>
+    <?php else: ?>
+      <span class="text-muted" style="font-size: var(--fs-xs);">Уточняйте на сайте</span>
     <?php endif; ?>
   </div>
 
   <div>
-    <?php if ($searchOnly): ?>
-      <a href="<?= e($directUrl) ?>" target="_blank" rel="sponsored nofollow noopener" class="btn btn--outline btn--sm">
-        Искать на <?= e($shopDef['name']) ?>
-        <svg class="icon icon-sm"><use href="/assets/icons/sprite.svg#arrow-up-right"></use></svg>
-      </a>
-    <?php else: ?>
-      <a href="<?= e($directUrl) ?>" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-        В магазин
-        <svg class="icon icon-sm"><use href="/assets/icons/sprite.svg#arrow-up-right"></use></svg>
-      </a>
-    <?php endif; ?>
+    <a href="<?= e($directUrl) ?>" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
+      В магазин
+      <svg class="icon icon-sm"><use href="/assets/icons/sprite.svg#arrow-up-right"></use></svg>
+    </a>
   </div>
 </div>

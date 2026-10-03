@@ -13,6 +13,7 @@ data/state/http_cache/*
 !data/state/http_cache/.gitkeep
 data/state/ratelimit/
 data/state/sessions/
+data/state/cursors/
 
 # Logs
 data/logs/*.log

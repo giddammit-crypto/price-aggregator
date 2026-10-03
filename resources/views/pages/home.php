@@ -87,9 +87,11 @@ foreach ($drops as $candidate) {
           </div>
 
           <?php if ($featuredDrop): ?>
+            <?php 
+              $fImg = \App\Services\VerifiedProductImage::forProduct($featuredDrop) ?? $featuredDrop['img'] ?? '/assets/img/products/gpu-rtx4060.webp';
+            ?>
             <div style="text-align: center; margin-bottom: var(--sp-4);">
-              <img src="/assets/img/placeholder.svg" alt="" style="max-height: 160px; margin: 0 auto; object-fit: contain;" width="160" height="160">
-              <p class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</p>
+              <img src="<?= e($fImg) ?>" alt="<?= e('Фото ' . $featuredDrop['title']) ?>" style="max-height: 160px; margin: 0 auto; object-fit: contain;" width="160" height="160" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
             </div>
 
             <div class="product-card__brand" style="font-size: var(--fs-xs);"><?= e($featuredDrop['brand']) ?></div>

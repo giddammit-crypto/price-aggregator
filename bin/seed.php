@@ -56,7 +56,7 @@ $categoriesCatalog = [
     10 => [
         'default_img' => '/assets/img/products/cpu-ryzen.webp',
         'items' => [
-            ['brand' => 'AMD', 'title' => 'Процессор AMD Ryzen 7 7800X3D OEM', 'price' => 46990, 'mpn' => '100-000000910', 'ean' => '730143314930', 'img' => '/assets/img/products/cpu-ryzen.webp', 'attrs' => ['socket' => 'AM5', 'cores' => 8, 'threads' => 16, 'tdp' => '120 Вт'], 'specs' => ['Сокет' => 'AM5', 'Количество ядер' => '8', 'Число потоков' => '16', 'Базовая частота' => '4.2 ГГц', 'Кэш L3' => '96 МБ 3D V-Cache', 'TDP' => '120 Вт']],
+            ['brand' => 'AMD', 'title' => 'Процессор AMD Ryzen 7 7800X3D OEM', 'price' => 46990, 'mpn' => '100-000000910', 'ean' => '730143314930', 'img' => '/assets/img/products/amd-ryzen-7-7800x3d-100-000000910.webp', 'attrs' => ['socket' => 'AM5', 'cores' => 8, 'threads' => 16, 'tdp' => '120 Вт'], 'specs' => ['Сокет' => 'AM5', 'Количество ядер' => '8', 'Число потоков' => '16', 'Базовая частота' => '4.2 ГГц', 'Кэш L3' => '96 МБ 3D V-Cache', 'TDP' => '120 Вт']],
             ['brand' => 'Intel', 'title' => 'Процессор Intel Core i5-12400F OEM', 'price' => 11490, 'mpn' => 'CM8071504821107', 'ean' => '5032037237758', 'img' => '/assets/img/products/cpu-intel.webp', 'attrs' => ['socket' => 'LGA1700', 'cores' => 6, 'threads' => 12, 'tdp' => '65 Вт'], 'specs' => ['Сокет' => 'LGA1700', 'Количество ядер' => '6', 'Число потоков' => '12', 'Базовая частота' => '2.5 ГГц', 'TDP' => '65 Вт']],
             ['brand' => 'AMD', 'title' => 'Процессор AMD Ryzen 5 7600X OEM', 'price' => 19990, 'mpn' => '100-000000593', 'ean' => '730143314442', 'img' => '/assets/img/products/cpu-ryzen.webp', 'attrs' => ['socket' => 'AM5', 'cores' => 6, 'threads' => 12, 'tdp' => '105 Вт'], 'specs' => ['Сокет' => 'AM5', 'Количество ядер' => '6', 'Число потоков' => '12', 'Базовая частота' => '4.7 ГГц', 'TDP' => '105 Вт']],
             ['brand' => 'Intel', 'title' => 'Процессор Intel Core i7-14700K OEM', 'price' => 42990, 'mpn' => 'CM8071505092101', 'ean' => '5032037278638', 'img' => '/assets/img/products/cpu-intel.webp', 'attrs' => ['socket' => 'LGA1700', 'cores' => 20, 'threads' => 28, 'tdp' => '125 Вт'], 'specs' => ['Сокет' => 'LGA1700', 'Количество ядер' => '20 (8P + 12E)', 'Число потоков' => '28', 'Базовая частота' => '3.4 ГГц', 'TDP' => '125 Вт']],
@@ -311,11 +311,11 @@ $shopsConfig = [
     'onlinetrade' => ['name' => 'ОнлайнТрейд', 'kind' => 'retail', 'mode' => 'prices', 'url_template' => 'https://www.onlinetrade.ru/sitesearch.html?query={q}', 'color' => '#1D70B8'],
     'mvideo' => ['name' => 'М.Видео', 'kind' => 'retail', 'mode' => 'prices', 'url_template' => 'https://www.mvideo.ru/listing?q={q}', 'color' => '#E30613'],
     'ozon' => ['name' => 'Ozon', 'kind' => 'marketplace', 'mode' => 'prices', 'url_template' => 'https://www.ozon.ru/search/?text={q}', 'color' => '#005BFF'],
-    'wildberries' => ['name' => 'Wildberries', 'kind' => 'marketplace', 'mode' => 'link_only', 'url_template' => 'https://www.wildberries.ru/catalog/0/search.aspx?search={q}', 'color' => '#CB11AB'],
+    'wildberries' => ['name' => 'Wildberries', 'kind' => 'marketplace', 'mode' => 'prices', 'url_template' => 'https://www.wildberries.ru/catalog/0/search.aspx?search={q}', 'color' => '#CB11AB'],
     'megamarket' => ['name' => 'Мегамаркет', 'kind' => 'marketplace', 'mode' => 'prices', 'url_template' => 'https://megamarket.ru/catalog/?q={q}', 'color' => '#270560'],
     'yandex_market' => ['name' => 'Яндекс Маркет', 'kind' => 'marketplace', 'mode' => 'prices', 'url_template' => 'https://market.yandex.ru/search?text={q}', 'color' => '#FC3F1D'],
     'aliexpress' => ['name' => 'AliExpress', 'kind' => 'crossborder', 'mode' => 'prices', 'url_template' => 'https://aliexpress.ru/wholesale?SearchText={q}', 'color' => '#FF4747'],
-    'dns' => ['name' => 'DNS', 'kind' => 'retail', 'mode' => 'link_only', 'url_template' => 'https://www.dns-shop.ru/search/?q={q}', 'color' => '#ED6C00'],
+    'dns' => ['name' => 'DNS', 'kind' => 'retail', 'mode' => 'prices', 'url_template' => 'https://www.dns-shop.ru/search/?q={q}', 'color' => '#ED6C00'],
     'avito' => ['name' => 'Авито', 'kind' => 'classifieds', 'mode' => 'link_only', 'url_template' => 'https://www.avito.ru/rossiya?q={q}', 'color' => '#00AAFF']
 ];
 $shopKeys = array_keys($shopsConfig);
@@ -424,25 +424,56 @@ foreach ($categoryTargets as $catId => $quota) {
             if ($shop['kind'] === 'marketplace') {
                 $hasMp = 1;
                 $rating = round(4.6 + (($id + $o) % 4) / 10, 1);
-                $sellerNames = ['ТехноТрейд', 'Электроника Плюс', 'Re:Store Direct', 'M-Shop', 'Official Store', 'iStore Pro'];
+                $sellerNames = ['ТехноТрейд', 'Электроника Плюс', 'Re:Store Direct', 'M-Shop', 'Official Store', 'iStore Pro', 'Digital Hub'];
                 $seller = [
                     'name' => $sellerNames[($id + $o) % count($sellerNames)],
                     'rating' => $rating,
                     'n' => 150 + (($id + $o) % 800),
                     'official' => ($rating >= 4.8) ? 1 : 0
                 ];
-                if ($shopId === 'ozon' && $o === 0) {
+                if ($shopId === 'ozon') {
                     $note = 'Цена с Ozon Картой';
-                    $offerPrice = (int)round($offerPrice * 0.95);
+                    $offerPrice = (int)round($basePrice * (0.95 + (($id + $o) % 4) / 100.0));
+                    $landed = $offerPrice;
+                } elseif ($shopId === 'wildberries') {
+                    $note = 'Скидка с WB Кошельком';
+                    $offerPrice = (int)round($basePrice * (0.96 + (($id + $o) % 4) / 100.0));
+                    $landed = $offerPrice;
+                } elseif ($shopId === 'yandex_market') {
+                    $note = 'Баллы Яндекс Плюс';
+                    $offerPrice = (int)round($basePrice * (0.97 + (($id + $o) % 4) / 100.0));
                     $landed = $offerPrice;
                 } elseif ($shopId === 'megamarket') {
                     $note = 'Кэшбэк до 15% бонусами';
+                    $offerPrice = (int)round($basePrice * (0.98 + (($id + $o) % 4) / 100.0));
+                    $landed = $offerPrice;
                 }
+            } elseif ($shopId === 'dns') {
+                $note = 'Гарантия DNS 12–36 мес.';
+                $offerPrice = (int)round($basePrice * (1.03 + (($id + $o) % 3) / 100.0));
+                $landed = $offerPrice;
+            } elseif ($shopId === 'mvideo') {
+                $note = 'Бонусы М.Видео до 10%';
+                $offerPrice = (int)round($basePrice * (1.04 + (($id + $o) % 3) / 100.0));
+                $landed = $offerPrice;
+            } elseif ($shopId === 'citilink') {
+                $note = 'Гарантия Ситилинк';
+                $offerPrice = (int)round($basePrice * (1.00 + (($id + $o) % 3) / 100.0));
+                $landed = $offerPrice;
+            } elseif ($shopId === 'regard') {
+                $note = 'Гарантия Регард';
+                $offerPrice = (int)round($basePrice * (0.99 + (($id + $o) % 3) / 100.0));
+                $landed = $offerPrice;
+            } elseif ($shopId === 'onlinetrade') {
+                $note = 'Клубная цена ON-бонусы';
+                $offerPrice = (int)round($basePrice * (1.01 + (($id + $o) % 3) / 100.0));
+                $landed = $offerPrice;
             }
 
             if ($shopId === 'aliexpress') {
                 $hasCb = 1;
                 $origin = 'CN';
+                $offerPrice = (int)round($basePrice * (0.82 + (($id + $o) % 5) / 100.0));
                 $landed = $offerPrice;
                 $seller = [
                     'name' => "Top Digital Global Store",

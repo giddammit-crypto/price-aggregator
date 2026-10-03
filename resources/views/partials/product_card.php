@@ -24,6 +24,7 @@ $isMp = $published && !empty($product['agg']['mp']);
 $isCb = $published && !empty($product['agg']['cb']);
 $url = $published ? "/p/{$product['slug']}-{$id}/" : null;
 $verifiedImage = $published ? \App\Services\VerifiedProductImage::forProduct($product) : null;
+$productImg = $verifiedImage ?? $product['img'] ?? $p['img'] ?? '/assets/img/placeholder.svg';
 $pop = (int)($p['pop'] ?? 0);
 $seller = $isCb ? 'crossborder' : ($isMp ? 'marketplace' : 'retail');
 ?>
@@ -46,9 +47,8 @@ $seller = $isCb ? 'crossborder' : ($isMp ? 'marketplace' : 'retail');
   <?php endif; ?>
 
   <?php if ($published): ?><a href="<?= e($url) ?>" class="product-card__img-wrap" tabindex="-1"><?php else: ?><div class="product-card__img-wrap"><?php endif; ?>
-    <img src="<?= e($verifiedImage ?? '/assets/img/placeholder.svg') ?>" alt="<?= $verifiedImage ? e('Фото ' . $title) : '' ?>" class="product-card__img" loading="lazy" width="180" height="180">
+    <img src="<?= e($productImg) ?>" alt="<?= e('Фото ' . $title) ?>" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/<?= (int)($p['cat'] ?? 10) ?>.svg';">
   <?php if ($published): ?></a><?php else: ?></div><?php endif; ?>
-  <?php if (!$verifiedImage): ?><span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span><?php endif; ?>
 
   <div class="product-card__brand"><?= e($brand) ?></div>
   <?php if ($published): ?><a href="<?= e($url) ?>" class="product-card__title" title="<?= e($title) ?>"><?php else: ?><span class="product-card__title"><?php endif; ?>

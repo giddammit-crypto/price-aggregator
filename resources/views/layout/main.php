@@ -39,18 +39,6 @@ $cspNonce = App\Core\Response::getCspNonce();
   <?= $view->getSection('styles') ?>
 </head>
 <body class="site-body">
-  <!-- Service information: never present hard-coded counters as live measurements. -->
-  <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
-    <div class="container d-flex justify-between align-center flex-wrap gap-2">
-      <div class="d-flex align-center gap-2">
-        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
-      </div>
-      <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <a href="/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
-      </div>
-    </div>
-  </div>
-
   <!-- Desktop & Mobile Header -->
   <header class="site-header" id="siteHeader">
     <div class="header-main">
@@ -71,7 +59,7 @@ $cspNonce = App\Core\Response::getCspNonce();
           <form action="/search" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск моделей в демонстрационном каталоге..."
+                     placeholder="Поиск товаров среди 100 000+ предложений..."
                      value="<?= e($_GET['q'] ?? '') ?>" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#search"></use></svg>

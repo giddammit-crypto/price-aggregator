@@ -20,7 +20,7 @@ $maxPrice = $product['agg']['max'] ?? $minPrice;
 $shopsCnt = $product['agg']['shops'] ?? 1;
 $offersCnt = $product['agg']['cnt'] ?? count($offers);
 $verifiedImage = \App\Services\VerifiedProductImage::forProduct($product);
-$img = $verifiedImage ?? '/assets/img/placeholder.svg';
+$img = $verifiedImage ?? $product['img'] ?? '/assets/img/placeholder.svg';
 $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}";
 ?>
 
@@ -86,8 +86,7 @@ $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}"
         </span>
       <?php endif; ?>
 
-      <img src="<?= e($img) ?>" alt="<?= $verifiedImage ? e('Фото ' . $title) : '' ?>" style="max-height: 320px; object-fit: contain; width: 100%;" width="320" height="320">
-      <?php if (!$verifiedImage): ?><p class="text-muted" style="font-size: var(--fs-xs);">Фото этой модели пока не подтверждено</p><?php endif; ?>
+      <img src="<?= e($img) ?>" alt="<?= e('Фото ' . $title) ?>" style="max-height: 320px; object-fit: contain; width: 100%;" width="320" height="320">
     </div>
 
     <!-- Product Title & Buy Box -->
