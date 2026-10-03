@@ -51,4 +51,4 @@
 - [x] Шаг 36: Деплой и документация (`dist.zip`, `docs/sources.md`, `README.md`)
 - [x] Шаг 37: Бэкапы и восстановление (`bin/backup.php`, `bin/restore.php`)
 - [x] Шаг 38: Мониторинг и Health-check
-- [ ] Шаг 39: Публикация репозитория на GitHub
+- [x] Шаг 39: Публикация репозитория на GitHub
