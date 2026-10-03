@@ -24,18 +24,13 @@
   <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
   </head>
 <body class="site-body">
-  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <!-- Service information: never present hard-coded counters as live measurements. -->
   <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
     <div class="container d-flex justify-between align-center flex-wrap gap-2">
       <div class="d-flex align-center gap-2">
-        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
-        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
-        <span>Обновлено только что &mdash;</span>
-        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
-        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
       </div>
       <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/price-aggregator/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
         <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
       </div>
     </div>
@@ -61,7 +56,7 @@
           <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     placeholder="Поиск моделей в демонстрационном каталоге..."
                      value="" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
@@ -541,7 +536,7 @@
     </div>
 
     <!-- Mobile Filter Toggle Button -->
-    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn">
+    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn" aria-controls="filterSidebar" aria-expanded="false">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#filter"></use></svg>
       <span>Фильтры</span>
     </button>
@@ -688,22 +683,17 @@
       <div class="product-grid" id="catalogProducts">
                   <article class="product-card" data-product-id="7205" data-price="15006" data-drop="0" data-pop="110" data-brand="cougar" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7205" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-gold-7205/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Cougar Duoface Pro RGB White (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7205" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-gold-7205/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Cougar</div>
-  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-gold-7205/" class="product-card__title" title="Корпус Cougar Duoface Pro RGB White (Gold)">
-    Корпус Cougar Duoface Pro RGB White (Gold)  </a>
-
+  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-gold-7205/" class="product-card__title" title="Корпус Cougar Duoface Pro RGB White (Gold)">    Корпус Cougar Duoface Pro RGB White (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -717,35 +707,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">15 006 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">15 006 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7205" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7205" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7328" data-price="5051" data-drop="0" data-pop="110" data-brand="deepcool" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7328" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-dark-blue-7328/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7328" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-dark-blue-7328/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">DeepCool</div>
-  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-dark-blue-7328/" class="product-card__title" title="Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)">
-    Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-dark-blue-7328/" class="product-card__title" title="Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)">    Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -759,35 +744,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">5 051 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">5 051 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7328" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7328" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7250" data-price="14096" data-drop="0" data-pop="109" data-brand="nzxt" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7250" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7250/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7250" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7250/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">NZXT</div>
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7250/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)">
-    Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7250/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)">    Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -801,35 +781,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">14 096 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">14 096 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7250" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7250" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7151" data-price="25371" data-drop="0" data-pop="108" data-brand="lian li" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7151" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-white-7151/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Lian Li O11 Dynamic EVO Black (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7151" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-white-7151/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Lian Li</div>
-  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-white-7151/" class="product-card__title" title="Корпус Lian Li O11 Dynamic EVO Black (White)">
-    Корпус Lian Li O11 Dynamic EVO Black (White)  </a>
-
+  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-white-7151/" class="product-card__title" title="Корпус Lian Li O11 Dynamic EVO Black (White)">    Корпус Lian Li O11 Dynamic EVO Black (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -843,35 +818,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">25 371 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">25 371 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7151" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7151" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7766" data-price="15150" data-drop="0" data-pop="107" data-brand="phanteks" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7766" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-dark-blue-7766/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Phanteks Eclipse G360A Black (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7766" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-dark-blue-7766/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Phanteks</div>
-  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-dark-blue-7766/" class="product-card__title" title="Корпус Phanteks Eclipse G360A Black (Dark Blue)">
-    Корпус Phanteks Eclipse G360A Black (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-dark-blue-7766/" class="product-card__title" title="Корпус Phanteks Eclipse G360A Black (Dark Blue)">    Корпус Phanteks Eclipse G360A Black (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -885,36 +855,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">15 150 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">15 150 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7766" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7766" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7007" data-price="19521" data-drop="12" data-pop="107" data-brand="lian li" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−12%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7007" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-white-7007/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Lian Li O11 Dynamic EVO Black (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7007" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-white-7007/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Lian Li</div>
-  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-white-7007/" class="product-card__title" title="Корпус Lian Li O11 Dynamic EVO Black (White)">
-    Корпус Lian Li O11 Dynamic EVO Black (White)  </a>
-
+  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-white-7007/" class="product-card__title" title="Корпус Lian Li O11 Dynamic EVO Black (White)">    Корпус Lian Li O11 Dynamic EVO Black (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -928,35 +893,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">19 521 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">19 521 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7007" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7007" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7163" data-price="7544" data-drop="0" data-pop="107" data-brand="montech" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7163" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-montech-air-903-max-black-4x140mm-argb-fans-titanium-7163/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Montech AIR 903 MAX Black (4x140mm ARGB Fans) (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7163" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-montech-air-903-max-black-4x140mm-argb-fans-titanium-7163/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Montech</div>
-  <a href="/price-aggregator/p/korpus-montech-air-903-max-black-4x140mm-argb-fans-titanium-7163/" class="product-card__title" title="Корпус Montech AIR 903 MAX Black (4x140mm ARGB Fans) (Titanium)">
-    Корпус Montech AIR 903 MAX Black (4x140mm ARGB Fans) (Titanium)  </a>
-
+  <a href="/price-aggregator/p/korpus-montech-air-903-max-black-4x140mm-argb-fans-titanium-7163/" class="product-card__title" title="Корпус Montech AIR 903 MAX Black (4x140mm ARGB Fans) (Titanium)">    Корпус Montech AIR 903 MAX Black (4x140mm ARGB Fans) (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -970,35 +930,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">7 544 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">7 544 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7163" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7163" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7526" data-price="11961" data-drop="0" data-pop="106" data-brand="phanteks" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7526" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-titanium-7526/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Phanteks Eclipse G360A Black (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7526" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-titanium-7526/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Phanteks</div>
-  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-titanium-7526/" class="product-card__title" title="Корпус Phanteks Eclipse G360A Black (Titanium)">
-    Корпус Phanteks Eclipse G360A Black (Titanium)  </a>
-
+  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-titanium-7526/" class="product-card__title" title="Корпус Phanteks Eclipse G360A Black (Titanium)">    Корпус Phanteks Eclipse G360A Black (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1012,35 +967,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">11 961 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">11 961 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7526" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7526" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7790" data-price="9467" data-drop="0" data-pop="106" data-brand="phanteks" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7790" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-black-7790/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Phanteks Eclipse G360A Black (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7790" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-black-7790/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Phanteks</div>
-  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-black-7790/" class="product-card__title" title="Корпус Phanteks Eclipse G360A Black (Black)">
-    Корпус Phanteks Eclipse G360A Black (Black)  </a>
-
+  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-black-7790/" class="product-card__title" title="Корпус Phanteks Eclipse G360A Black (Black)">    Корпус Phanteks Eclipse G360A Black (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1054,35 +1004,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">9 467 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">9 467 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7790" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7790" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7316" data-price="11241" data-drop="0" data-pop="106" data-brand="zalman" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7316" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-zalman-i3-neo-black-4x120mm-rgb-midnight-7316/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Zalman i3 NEO Black (4x120mm RGB) (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7316" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-zalman-i3-neo-black-4x120mm-rgb-midnight-7316/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Zalman</div>
-  <a href="/price-aggregator/p/korpus-zalman-i3-neo-black-4x120mm-rgb-midnight-7316/" class="product-card__title" title="Корпус Zalman i3 NEO Black (4x120mm RGB) (Midnight)">
-    Корпус Zalman i3 NEO Black (4x120mm RGB) (Midnight)  </a>
-
+  <a href="/price-aggregator/p/korpus-zalman-i3-neo-black-4x120mm-rgb-midnight-7316/" class="product-card__title" title="Корпус Zalman i3 NEO Black (4x120mm RGB) (Midnight)">    Корпус Zalman i3 NEO Black (4x120mm RGB) (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1096,35 +1041,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">11 241 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">11 241 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7316" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7316" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="6998" data-price="8351" data-drop="0" data-pop="105" data-brand="phanteks" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="6998" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-6998/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Phanteks Eclipse G360A Black" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="6998" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-6998/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Phanteks</div>
-  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-6998/" class="product-card__title" title="Корпус Phanteks Eclipse G360A Black">
-    Корпус Phanteks Eclipse G360A Black  </a>
-
+  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-6998/" class="product-card__title" title="Корпус Phanteks Eclipse G360A Black">    Корпус Phanteks Eclipse G360A Black  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1138,35 +1078,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">8 351 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">8 351 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6998" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6998" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7184" data-price="9091" data-drop="0" data-pop="103" data-brand="deepcool" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7184" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-dark-blue-7184/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7184" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-dark-blue-7184/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">DeepCool</div>
-  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-dark-blue-7184/" class="product-card__title" title="Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)">
-    Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-dark-blue-7184/" class="product-card__title" title="Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)">    Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1180,35 +1115,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">9 091 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">9 091 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7184" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7184" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7733" data-price="9546" data-drop="0" data-pop="101" data-brand="cougar" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7733" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-white-7733/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Cougar Duoface Pro RGB White (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7733" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-white-7733/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Cougar</div>
-  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-white-7733/" class="product-card__title" title="Корпус Cougar Duoface Pro RGB White (White)">
-    Корпус Cougar Duoface Pro RGB White (White)  </a>
-
+  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-white-7733/" class="product-card__title" title="Корпус Cougar Duoface Pro RGB White (White)">    Корпус Cougar Duoface Pro RGB White (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1222,35 +1152,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">9 546 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">9 546 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7733" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7733" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7646" data-price="13459" data-drop="0" data-pop="101" data-brand="phanteks" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7646" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-black-7646/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Phanteks Eclipse G360A Black (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7646" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-black-7646/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Phanteks</div>
-  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-black-7646/" class="product-card__title" title="Корпус Phanteks Eclipse G360A Black (Black)">
-    Корпус Phanteks Eclipse G360A Black (Black)  </a>
-
+  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-black-7646/" class="product-card__title" title="Корпус Phanteks Eclipse G360A Black (Black)">    Корпус Phanteks Eclipse G360A Black (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1264,35 +1189,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">13 459 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">13 459 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7646" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7646" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7685" data-price="11510" data-drop="0" data-pop="100" data-brand="cougar" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7685" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-space-gray-7685/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Cougar Duoface Pro RGB White (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7685" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-space-gray-7685/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Cougar</div>
-  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-space-gray-7685/" class="product-card__title" title="Корпус Cougar Duoface Pro RGB White (Space Gray)">
-    Корпус Cougar Duoface Pro RGB White (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-space-gray-7685/" class="product-card__title" title="Корпус Cougar Duoface Pro RGB White (Space Gray)">    Корпус Cougar Duoface Pro RGB White (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1306,35 +1226,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">11 510 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">11 510 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7685" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7685" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7703" data-price="23706" data-drop="0" data-pop="100" data-brand="lian li" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7703" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-gold-7703/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Lian Li O11 Dynamic EVO Black (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7703" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-gold-7703/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Lian Li</div>
-  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-gold-7703/" class="product-card__title" title="Корпус Lian Li O11 Dynamic EVO Black (Gold)">
-    Корпус Lian Li O11 Dynamic EVO Black (Gold)  </a>
-
+  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-gold-7703/" class="product-card__title" title="Корпус Lian Li O11 Dynamic EVO Black (Gold)">    Корпус Lian Li O11 Dynamic EVO Black (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1348,35 +1263,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">23 706 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">23 706 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7703" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7703" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="6996" data-price="4491" data-drop="0" data-pop="100" data-brand="zalman" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="6996" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-zalman-i3-neo-black-4x120mm-rgb-6996/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Zalman i3 NEO Black (4x120mm RGB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="6996" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-zalman-i3-neo-black-4x120mm-rgb-6996/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Zalman</div>
-  <a href="/price-aggregator/p/korpus-zalman-i3-neo-black-4x120mm-rgb-6996/" class="product-card__title" title="Корпус Zalman i3 NEO Black (4x120mm RGB)">
-    Корпус Zalman i3 NEO Black (4x120mm RGB)  </a>
-
+  <a href="/price-aggregator/p/korpus-zalman-i3-neo-black-4x120mm-rgb-6996/" class="product-card__title" title="Корпус Zalman i3 NEO Black (4x120mm RGB)">    Корпус Zalman i3 NEO Black (4x120mm RGB)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1390,36 +1300,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">4 491 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">4 491 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6996" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6996" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7784" data-price="6501" data-drop="24" data-pop="100" data-brand="deepcool" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−24%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7784" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-black-7784/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7784" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-black-7784/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">DeepCool</div>
-  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-black-7784/" class="product-card__title" title="Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Black)">
-    Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Black)  </a>
-
+  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-black-7784/" class="product-card__title" title="Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Black)">    Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1433,35 +1338,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">6 501 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">6 501 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7784" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7784" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7834" data-price="8826" data-drop="0" data-pop="100" data-brand="nzxt" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7834" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-dark-blue-7834/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7834" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-dark-blue-7834/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">NZXT</div>
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-dark-blue-7834/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Dark Blue)">
-    Корпус NZXT H5 Flow Black (CC-H51FB-01) (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-dark-blue-7834/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Dark Blue)">    Корпус NZXT H5 Flow Black (CC-H51FB-01) (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1475,36 +1375,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">8 826 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">8 826 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7834" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7834" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7070" data-price="11083" data-drop="15" data-pop="100" data-brand="phanteks" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−15%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7070" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-black-7070/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Phanteks Eclipse G360A Black (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7070" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-black-7070/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Phanteks</div>
-  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-black-7070/" class="product-card__title" title="Корпус Phanteks Eclipse G360A Black (Black)">
-    Корпус Phanteks Eclipse G360A Black (Black)  </a>
-
+  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-black-7070/" class="product-card__title" title="Корпус Phanteks Eclipse G360A Black (Black)">    Корпус Phanteks Eclipse G360A Black (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1518,35 +1413,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">11 083 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">11 083 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7070" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7070" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7082" data-price="14096" data-drop="0" data-pop="100" data-brand="nzxt" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7082" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-white-7082/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус NZXT H5 Flow Black (CC-H51FB-01) (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7082" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-white-7082/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">NZXT</div>
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-white-7082/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (White)">
-    Корпус NZXT H5 Flow Black (CC-H51FB-01) (White)  </a>
-
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-white-7082/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (White)">    Корпус NZXT H5 Flow Black (CC-H51FB-01) (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1560,35 +1450,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">14 096 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">14 096 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7082" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7082" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7645" data-price="13941" data-drop="0" data-pop="100" data-brand="cougar" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7645" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-black-7645/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Cougar Duoface Pro RGB White (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7645" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-black-7645/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Cougar</div>
-  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-black-7645/" class="product-card__title" title="Корпус Cougar Duoface Pro RGB White (Black)">
-    Корпус Cougar Duoface Pro RGB White (Black)  </a>
-
+  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-black-7645/" class="product-card__title" title="Корпус Cougar Duoface Pro RGB White (Black)">    Корпус Cougar Duoface Pro RGB White (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1602,35 +1487,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">13 941 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">13 941 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7645" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7645" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7655" data-price="24291" data-drop="0" data-pop="100" data-brand="lian li" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7655" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-white-7655/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Lian Li O11 Dynamic EVO Black (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7655" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-white-7655/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Lian Li</div>
-  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-white-7655/" class="product-card__title" title="Корпус Lian Li O11 Dynamic EVO Black (White)">
-    Корпус Lian Li O11 Dynamic EVO Black (White)  </a>
-
+  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-white-7655/" class="product-card__title" title="Корпус Lian Li O11 Dynamic EVO Black (White)">    Корпус Lian Li O11 Dynamic EVO Black (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1644,35 +1524,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">24 291 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">24 291 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7655" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7655" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7190" data-price="11961" data-drop="0" data-pop="99" data-brand="phanteks" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7190" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-dark-blue-7190/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Phanteks Eclipse G360A Black (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7190" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-dark-blue-7190/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Phanteks</div>
-  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-dark-blue-7190/" class="product-card__title" title="Корпус Phanteks Eclipse G360A Black (Dark Blue)">
-    Корпус Phanteks Eclipse G360A Black (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/korpus-phanteks-eclipse-g360a-black-dark-blue-7190/" class="product-card__title" title="Корпус Phanteks Eclipse G360A Black (Dark Blue)">    Корпус Phanteks Eclipse G360A Black (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1686,35 +1561,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">11 961 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">11 961 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7190" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7190" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7249" data-price="14711" data-drop="0" data-pop="99" data-brand="fractal design" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7249" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-fractal-design-pop-air-rgb-tg-clear-tint-space-gray-7249/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Fractal Design Pop Air RGB TG Clear Tint (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7249" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-fractal-design-pop-air-rgb-tg-clear-tint-space-gray-7249/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Fractal Design</div>
-  <a href="/price-aggregator/p/korpus-fractal-design-pop-air-rgb-tg-clear-tint-space-gray-7249/" class="product-card__title" title="Корпус Fractal Design Pop Air RGB TG Clear Tint (Space Gray)">
-    Корпус Fractal Design Pop Air RGB TG Clear Tint (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/korpus-fractal-design-pop-air-rgb-tg-clear-tint-space-gray-7249/" class="product-card__title" title="Корпус Fractal Design Pop Air RGB TG Clear Tint (Space Gray)">    Корпус Fractal Design Pop Air RGB TG Clear Tint (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1728,35 +1598,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">14 711 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">14 711 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7249" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7249" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7268" data-price="12731" data-drop="0" data-pop="99" data-brand="zalman" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7268" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-zalman-i3-neo-black-4x120mm-rgb-graphite-7268/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Zalman i3 NEO Black (4x120mm RGB) (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7268" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-zalman-i3-neo-black-4x120mm-rgb-graphite-7268/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Zalman</div>
-  <a href="/price-aggregator/p/korpus-zalman-i3-neo-black-4x120mm-rgb-graphite-7268/" class="product-card__title" title="Корпус Zalman i3 NEO Black (4x120mm RGB) (Graphite)">
-    Корпус Zalman i3 NEO Black (4x120mm RGB) (Graphite)  </a>
-
+  <a href="/price-aggregator/p/korpus-zalman-i3-neo-black-4x120mm-rgb-graphite-7268/" class="product-card__title" title="Корпус Zalman i3 NEO Black (4x120mm RGB) (Graphite)">    Корпус Zalman i3 NEO Black (4x120mm RGB) (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1770,35 +1635,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">12 731 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">12 731 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7268" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7268" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7277" data-price="8810" data-drop="0" data-pop="99" data-brand="cougar" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7277" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-gold-7277/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Cougar Duoface Pro RGB White (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7277" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-gold-7277/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Cougar</div>
-  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-gold-7277/" class="product-card__title" title="Корпус Cougar Duoface Pro RGB White (Gold)">
-    Корпус Cougar Duoface Pro RGB White (Gold)  </a>
-
+  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-gold-7277/" class="product-card__title" title="Корпус Cougar Duoface Pro RGB White (Gold)">    Корпус Cougar Duoface Pro RGB White (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1812,35 +1672,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">8 810 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">8 810 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7277" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7277" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7061" data-price="9546" data-drop="0" data-pop="99" data-brand="cougar" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7061" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-gold-7061/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Cougar Duoface Pro RGB White (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7061" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-gold-7061/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Cougar</div>
-  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-gold-7061/" class="product-card__title" title="Корпус Cougar Duoface Pro RGB White (Gold)">
-    Корпус Cougar Duoface Pro RGB White (Gold)  </a>
-
+  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-gold-7061/" class="product-card__title" title="Корпус Cougar Duoface Pro RGB White (Gold)">    Корпус Cougar Duoface Pro RGB White (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1854,36 +1709,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">9 546 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">9 546 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7061" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7061" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7623" data-price="18891" data-drop="13" data-pop="99" data-brand="lian li" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−13%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7623" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-graphite-7623/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Lian Li O11 Dynamic EVO Black (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7623" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-graphite-7623/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Lian Li</div>
-  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-graphite-7623/" class="product-card__title" title="Корпус Lian Li O11 Dynamic EVO Black (Graphite)">
-    Корпус Lian Li O11 Dynamic EVO Black (Graphite)  </a>
-
+  <a href="/price-aggregator/p/korpus-lian-li-o11-dynamic-evo-black-graphite-7623/" class="product-card__title" title="Корпус Lian Li O11 Dynamic EVO Black (Graphite)">    Корпус Lian Li O11 Dynamic EVO Black (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1897,35 +1747,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">18 891 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">18 891 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7623" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7623" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7400" data-price="7726" data-drop="0" data-pop="99" data-brand="deepcool" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7400" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-dark-blue-7400/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7400" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-dark-blue-7400/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">DeepCool</div>
-  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-dark-blue-7400/" class="product-card__title" title="Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)">
-    Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-dark-blue-7400/" class="product-card__title" title="Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)">    Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1939,35 +1784,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">7 726 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">7 726 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7400" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7400" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7754" data-price="14096" data-drop="0" data-pop="98" data-brand="nzxt" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7754" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7754/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7754" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7754/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">NZXT</div>
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7754/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)">
-    Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7754/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)">    Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1981,35 +1821,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">14 096 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">14 096 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7754" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7754" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7394" data-price="10001" data-drop="0" data-pop="98" data-brand="nzxt" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7394" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7394/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7394" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7394/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">NZXT</div>
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7394/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)">
-    Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7394/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)">    Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -2023,35 +1858,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">10 001 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">10 001 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7394" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7394" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7169" data-price="10456" data-drop="0" data-pop="97" data-brand="fractal design" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7169" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-fractal-design-pop-air-rgb-tg-clear-tint-midnight-7169/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Fractal Design Pop Air RGB TG Clear Tint (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7169" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-fractal-design-pop-air-rgb-tg-clear-tint-midnight-7169/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Fractal Design</div>
-  <a href="/price-aggregator/p/korpus-fractal-design-pop-air-rgb-tg-clear-tint-midnight-7169/" class="product-card__title" title="Корпус Fractal Design Pop Air RGB TG Clear Tint (Midnight)">
-    Корпус Fractal Design Pop Air RGB TG Clear Tint (Midnight)  </a>
-
+  <a href="/price-aggregator/p/korpus-fractal-design-pop-air-rgb-tg-clear-tint-midnight-7169/" class="product-card__title" title="Корпус Fractal Design Pop Air RGB TG Clear Tint (Midnight)">    Корпус Fractal Design Pop Air RGB TG Clear Tint (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -2065,35 +1895,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">10 456 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">10 456 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7169" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7169" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7426" data-price="16141" data-drop="0" data-pop="97" data-brand="nzxt" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7426" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-black-7426/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7426" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-black-7426/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">NZXT</div>
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-black-7426/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Black)">
-    Корпус NZXT H5 Flow Black (CC-H51FB-01) (Black)  </a>
-
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-black-7426/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Black)">    Корпус NZXT H5 Flow Black (CC-H51FB-01) (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -2107,35 +1932,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">16 141 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">16 141 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7426" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7426" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7274" data-price="8541" data-drop="0" data-pop="97" data-brand="nzxt" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7274" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-gold-7274/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7274" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-gold-7274/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">NZXT</div>
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-gold-7274/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Gold)">
-    Корпус NZXT H5 Flow Black (CC-H51FB-01) (Gold)  </a>
-
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-gold-7274/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Gold)">    Корпус NZXT H5 Flow Black (CC-H51FB-01) (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -2149,35 +1969,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">8 541 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">8 541 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7274" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7274" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7538" data-price="16310" data-drop="0" data-pop="97" data-brand="nzxt" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7538" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7538/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7538" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7538/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">NZXT</div>
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7538/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)">
-    Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7538/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)">    Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -2191,16 +2006,16 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">16 310 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">16 310 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7538" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7538" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
               </div>
 
@@ -2266,7 +2081,7 @@
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
+          <p class="footer-currency">Перед покупкой уточняйте актуальные цены и наличие в магазине.</p>
         </div>
 
         <div class="footer-col">
@@ -2285,7 +2100,7 @@
           <ul class="footer-links">
             <li><a href="/price-aggregator/pages/how-it-works">Как мы считаем цены</a></li>
             <li><a href="/price-aggregator/pages/marketplaces">О маркетплейсах и продавцах</a></li>
-            <li><a href="/price-aggregator/pages/report">Сообщить о неверной цене</a></li>
+            <li><span title="Форма доступна только на PHP-сайте">Сообщить о неверной цене (в демо недоступно)</span></li>
             <li><a href="/price-aggregator/pages/legal">Политика конфиденциальности (152-ФЗ)</a></li>
             <li><a href="/price-aggregator/ui-kit">Витрина компонентов (UI Kit)</a></li>
           </ul>
@@ -2312,15 +2127,15 @@
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#home"></use></svg>
       <span>Главная</span>
     </a>
-    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
       <span>Каталог</span>
     </button>
-    <a href="/price-aggregator/compare" class="mobile-nav__item">
+    <a href="/price-aggregator/compare" class="mobile-nav__item" id="mobileCompareBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       <span>Сравнение</span>
     </a>
-    <a href="/price-aggregator/favorites" class="mobile-nav__item">
+    <a href="/price-aggregator/favorites" class="mobile-nav__item" id="mobileFavBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
       <span>Избранное</span>
     </a>

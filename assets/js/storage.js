@@ -5,7 +5,8 @@
 export const Storage = {
   get(key) {
     try {
-      return JSON.parse(localStorage.getItem(key)) || [];
+      const values = JSON.parse(localStorage.getItem(key));
+      return Array.isArray(values) ? values.filter(id => Number.isSafeInteger(id) && id > 0) : [];
     } catch {
       return [];
     }
@@ -14,8 +15,10 @@ export const Storage = {
   set(key, val) {
     try {
       localStorage.setItem(key, JSON.stringify(val));
+      return true;
     } catch (e) {
       console.warn("Storage quota exceeded", e);
+      return false;
     }
   },
 
@@ -29,8 +32,7 @@ export const Storage = {
       list.push(id);
       added = true;
     }
-    this.set(key, list);
-    return { list, added };
+    return { list, added, saved: this.set(key, list) };
   },
 
   has(key, id) {

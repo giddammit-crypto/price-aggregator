@@ -24,18 +24,13 @@
   <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
   </head>
 <body class="site-body">
-  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <!-- Service information: never present hard-coded counters as live measurements. -->
   <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
     <div class="container d-flex justify-between align-center flex-wrap gap-2">
       <div class="d-flex align-center gap-2">
-        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
-        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
-        <span>Обновлено только что &mdash;</span>
-        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
-        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
       </div>
       <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/price-aggregator/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
         <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
       </div>
     </div>
@@ -61,7 +56,7 @@
           <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     placeholder="Поиск моделей в демонстрационном каталоге..."
                      value="" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
@@ -529,8 +524,7 @@
   "@context": "https://schema.org/",
   "@type": "Product",
   "name": "Блок питания Thermaltake Toughpower GF3 850W Gold (Graphite)",
-  "image": ["\/assets\/img\/products\/psu-corsair.webp"],
-  "description": "Сравнение цен на Блок питания Thermaltake Toughpower GF3 850W Gold (Graphite) в магазинах РФ и маркетплейсах.",
+    "description": "Сравнение цен на Блок питания Thermaltake Toughpower GF3 850W Gold (Graphite) в магазинах РФ и маркетплейсах.",
   "brand": {
     "@type": "Brand",
     "name": "Thermaltake"  },
@@ -556,11 +550,8 @@
 
     <!-- Product Pager (навигация по товарам категории) -->
     <div class="product-pager d-flex align-center gap-2">
-              <a href="/price-aggregator/p/blok-pitaniya-be-quiet-straight-power-12-850w-platinum-dark-blue-6868/" class="btn btn--secondary btn--sm" title="">
-          <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right" style="transform: rotate(180deg);"></use></svg>
-          <span>Предыдущий товар</span>
-        </a>
-                    <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-silver-6400/" class="btn btn--secondary btn--sm" title="">
+                    
+                          <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-silver-6400/" class="btn btn--secondary btn--sm" title="Блок питания Cougar GEX850 850W Gold Modular (Silver)">
           <span>Следующий товар</span>
           <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
         </a>
@@ -572,8 +563,8 @@
     <!-- Gallery Area -->
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
       
-      <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Блок питания Thermaltake Toughpower GF3 850W Gold (Graphite)" style="max-height: 320px; object-fit: contain; width: 100%;" width="320" height="320" onerror="this.onerror=null; this.src='/assets/img/p/15.svg';">
-    </div>
+      <img src="/price-aggregator/assets/img/placeholder.svg" alt="" style="max-height: 320px; object-fit: contain; width: 100%;" width="320" height="320">
+      <p class="text-muted" style="font-size: var(--fs-xs);">Фото этой модели пока не подтверждено</p>    </div>
 
     <!-- Product Title & Buy Box -->
     <div style="display: flex; flex-direction: column; justify-content: space-between;">
@@ -632,6 +623,18 @@
     </div>
   </div>
 
+  <!-- A price alert needs an actual product and a target price. The API returns JSON. -->
+  <section style="margin-bottom: var(--sp-8);">
+    <h2 style="font-size: var(--fs-lg); font-weight: 800;">Уведомить о снижении цены</h2>
+    <form id="priceAlertForm" action="#" onsubmit="alert('Подписка успешно оформлена!'); return false;" method="POST" class="d-flex gap-2 flex-wrap mt-4">
+      <input type="hidden" name="_csrf" value="d8ddef5816c9910e5a7799ac9fd648f661939968e0a886bd9d001222358fe141">      <input type="hidden" name="product_id" value="6882">
+      <label>E-mail <input type="email" name="email" required autocomplete="email" class="search-input"></label>
+      <label>Желаемая цена, ₽ <input type="number" name="target_price" min="1" step="1" required class="search-input"></label>
+      <button type="submit" class="btn btn--accent">Подписаться</button>
+    </form>
+    <p id="priceAlertStatus" role="status" aria-live="polite"></p>
+  </section>
+
   <!-- Offers Table & Tabs -->
   <section style="margin-bottom: var(--sp-8);">
     <div class="d-flex justify-between align-center flex-wrap gap-4 mb-4">
@@ -668,13 +671,12 @@
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">22 669 ₽</div>
-            </div>
+          <span class="text-muted" style="font-size: var(--fs-xs);">Цена на сайте</span>
+      </div>
 
   <div>
-          <a href="https://market.yandex.ru/search?text=%D0%91%D0%BB%D0%BE%D0%BA+%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%B8%D1%8F+Thermaltake+Toughpower+GF3+850W+Gold+%28Graphite%29" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-        В магазин
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
+          <a href="https://market.yandex.ru/search?text=%D0%91%D0%BB%D0%BE%D0%BA+%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%B8%D1%8F+Thermaltake+Toughpower+GF3+850W+Gold+%28Graphite%29" target="_blank" rel="sponsored nofollow noopener" class="btn btn--outline btn--sm">
+        Искать на Яндекс Маркет        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
       </a>
       </div>
 </div>
@@ -776,13 +778,12 @@
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">19 311 ₽</div>
-            </div>
+          <span class="text-muted" style="font-size: var(--fs-xs);">Цена на сайте</span>
+      </div>
 
   <div>
-          <a href="https://www.citilink.ru/search/?text=%D0%91%D0%BB%D0%BE%D0%BA+%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%B8%D1%8F+Thermaltake+Toughpower+GF3+850W+Gold+%28Graphite%29" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-        В магазин
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
+          <a href="https://www.citilink.ru/search/?text=%D0%91%D0%BB%D0%BE%D0%BA+%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%B8%D1%8F+Thermaltake+Toughpower+GF3+850W+Gold+%28Graphite%29" target="_blank" rel="sponsored nofollow noopener" class="btn btn--outline btn--sm">
+        Искать на Ситилинк        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
       </a>
       </div>
 </div>
@@ -802,33 +803,11 @@
         <h2 style="font-size: var(--fs-lg); font-weight: 800;">Динамика минимальной цены (30–90 дней)</h2>
         <p class="text-muted" style="font-size: var(--fs-xs);">График фиксирует минимальную подтвержденную цену на товар среди всех магазинов.</p>
       </div>
-      <span class="badge badge--best">В наличии</span>
     </div>
 
     <!-- SVG Price Line Chart -->
-    <div style="width: 100%; height: 180px; position: relative;">
-      
-      <svg viewBox="0 0 800 140" width="100%" height="100%" preserveAspectRatio="none">
-        <!-- Horizontal grid lines -->
-        <line x1="30" y1="20" x2="770" y2="20" stroke="#E4E7EB" stroke-dasharray="4"/>
-        <line x1="30" y1="120" x2="770" y2="120" stroke="#E4E7EB"/>
-        
-        <!-- Polyline curve -->
-        <polyline points="30,30 400,75 770,120" fill="none" stroke="var(--c-accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-
-        <!-- Dots -->
-                  <circle cx="30" cy="30" r="5" fill="#FFF" stroke="var(--c-accent)" stroke-width="2"/>
-          <text x="30" y="20" font-size="11" font-weight="bold" fill="var(--c-ink)" text-anchor="middle">21 242 ₽</text>
-          <text x="30" y="136" font-size="10" fill="var(--c-ink-3)" text-anchor="middle">03.09</text>
-                  <circle cx="400" cy="75" r="5" fill="#FFF" stroke="var(--c-accent)" stroke-width="2"/>
-          <text x="400" y="65" font-size="11" font-weight="bold" fill="var(--c-ink)" text-anchor="middle">20 277 ₽</text>
-          <text x="400" y="136" font-size="10" fill="var(--c-ink-3)" text-anchor="middle">18.09</text>
-                  <circle cx="770" cy="120" r="5" fill="#FFF" stroke="var(--c-accent)" stroke-width="2"/>
-          <text x="770" y="110" font-size="11" font-weight="bold" fill="var(--c-ink)" text-anchor="middle">19 311 ₽</text>
-          <text x="770" y="136" font-size="10" fill="var(--c-ink-3)" text-anchor="middle">03.10</text>
-              </svg>
-    </div>
-  </section>
+          <p class="text-muted" role="status">Пока нет подтверждённых замеров цены для графика.</p>
+      </section>
 
   <!-- Technical Specifications -->
   <section style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-6); margin-bottom: var(--sp-8);">
@@ -851,22 +830,17 @@
       <div class="product-grid">
                   <article class="product-card" data-product-id="6491" data-price="22286" data-drop="0" data-pop="110" data-brand="corsair" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="6491" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-midnight-6491/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="6491" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-midnight-6491/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Corsair</div>
-  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-midnight-6491/" class="product-card__title" title="Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)">
-    Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)  </a>
-
+  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-midnight-6491/" class="product-card__title" title="Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)">    Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -880,35 +854,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">22 286 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">22 286 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6491" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6491" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="6722" data-price="20466" data-drop="0" data-pop="108" data-brand="thermaltake" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="6722" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-space-gray-6722/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Блок питания Thermaltake Toughpower GF3 850W Gold (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="6722" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-space-gray-6722/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Thermaltake</div>
-  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-space-gray-6722/" class="product-card__title" title="Блок питания Thermaltake Toughpower GF3 850W Gold (Space Gray)">
-    Блок питания Thermaltake Toughpower GF3 850W Gold (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/blok-pitaniya-thermaltake-toughpower-gf3-850w-gold-space-gray-6722/" class="product-card__title" title="Блок питания Thermaltake Toughpower GF3 850W Gold (Space Gray)">    Блок питания Thermaltake Toughpower GF3 850W Gold (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -922,35 +891,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">20 466 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">20 466 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6722" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6722" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="6800" data-price="11616" data-drop="0" data-pop="107" data-brand="cougar" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="6800" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-dark-blue-6800/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Блок питания Cougar GEX850 850W Gold Modular (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="6800" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-dark-blue-6800/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Cougar</div>
-  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-dark-blue-6800/" class="product-card__title" title="Блок питания Cougar GEX850 850W Gold Modular (Dark Blue)">
-    Блок питания Cougar GEX850 850W Gold Modular (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-dark-blue-6800/" class="product-card__title" title="Блок питания Cougar GEX850 850W Gold Modular (Dark Blue)">    Блок питания Cougar GEX850 850W Gold Modular (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -964,35 +928,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">11 616 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">11 616 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6800" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6800" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="6920" data-price="13151" data-drop="0" data-pop="106" data-brand="cougar" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="6920" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-titanium-6920/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Блок питания Cougar GEX850 850W Gold Modular (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="6920" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-titanium-6920/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Cougar</div>
-  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-titanium-6920/" class="product-card__title" title="Блок питания Cougar GEX850 850W Gold Modular (Titanium)">
-    Блок питания Cougar GEX850 850W Gold Modular (Titanium)  </a>
-
+  <a href="/price-aggregator/p/blok-pitaniya-cougar-gex850-850w-gold-modular-titanium-6920/" class="product-card__title" title="Блок питания Cougar GEX850 850W Gold Modular (Titanium)">    Блок питания Cougar GEX850 850W Gold Modular (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -1006,16 +965,16 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">13 151 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">13 151 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6920" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6920" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
               </div>
     </section>
@@ -1024,6 +983,27 @@
 <script>
 // Interactive offer filter chips on product page
 document.addEventListener('DOMContentLoaded', () => {
+  const alertForm = document.getElementById('priceAlertForm');
+  const alertStatus = document.getElementById('priceAlertStatus');
+  if (location.hostname.endsWith('github.io') && alertForm) {
+    alertForm.hidden = true;
+    alertStatus.textContent = 'Уведомления о цене доступны только на сайте с подключённым сервером.';
+  }
+  alertForm?.addEventListener('submit', async event => {
+    event.preventDefault();
+    const button = alertForm.querySelector('button[type="submit"]');
+    button.disabled = true;
+    alertStatus.textContent = 'Отправляем запрос…';
+    try {
+      const response = await fetch(alertForm.action, { method: 'POST', body: new FormData(alertForm) });
+      const data = await response.json();
+      alertStatus.textContent = response.ok && data.success ? data.message : (data.error || 'Не удалось оформить подписку. Попробуйте позже.');
+    } catch (_) {
+      alertStatus.textContent = 'Сервис подписки недоступен. Попробуйте позже.';
+    } finally {
+      button.disabled = false;
+    }
+  });
   const chips = document.querySelectorAll('#offerFilterChips .chip');
   chips.forEach(chip => {
     chip.addEventListener('click', () => {
@@ -1054,7 +1034,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
+          <p class="footer-currency">Перед покупкой уточняйте актуальные цены и наличие в магазине.</p>
         </div>
 
         <div class="footer-col">
@@ -1073,7 +1053,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <ul class="footer-links">
             <li><a href="/price-aggregator/pages/how-it-works">Как мы считаем цены</a></li>
             <li><a href="/price-aggregator/pages/marketplaces">О маркетплейсах и продавцах</a></li>
-            <li><a href="/price-aggregator/pages/report">Сообщить о неверной цене</a></li>
+            <li><span title="Форма доступна только на PHP-сайте">Сообщить о неверной цене (в демо недоступно)</span></li>
             <li><a href="/price-aggregator/pages/legal">Политика конфиденциальности (152-ФЗ)</a></li>
             <li><a href="/price-aggregator/ui-kit">Витрина компонентов (UI Kit)</a></li>
           </ul>
@@ -1100,15 +1080,15 @@ document.addEventListener('DOMContentLoaded', () => {
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#home"></use></svg>
       <span>Главная</span>
     </a>
-    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
       <span>Каталог</span>
     </button>
-    <a href="/price-aggregator/compare" class="mobile-nav__item">
+    <a href="/price-aggregator/compare" class="mobile-nav__item" id="mobileCompareBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       <span>Сравнение</span>
     </a>
-    <a href="/price-aggregator/favorites" class="mobile-nav__item">
+    <a href="/price-aggregator/favorites" class="mobile-nav__item" id="mobileFavBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
       <span>Избранное</span>
     </a>

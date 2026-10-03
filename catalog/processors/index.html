@@ -24,18 +24,13 @@
   <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
   </head>
 <body class="site-body">
-  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <!-- Service information: never present hard-coded counters as live measurements. -->
   <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
     <div class="container d-flex justify-between align-center flex-wrap gap-2">
       <div class="d-flex align-center gap-2">
-        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
-        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
-        <span>Обновлено только что &mdash;</span>
-        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
-        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
       </div>
       <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/price-aggregator/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
         <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
       </div>
     </div>
@@ -61,7 +56,7 @@
           <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     placeholder="Поиск моделей в демонстрационном каталоге..."
                      value="" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
@@ -541,7 +536,7 @@
     </div>
 
     <!-- Mobile Filter Toggle Button -->
-    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn">
+    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn" aria-controls="filterSidebar" aria-expanded="false">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#filter"></use></svg>
       <span>Фильтры</span>
     </button>
@@ -658,22 +653,17 @@
       <div class="product-grid" id="catalogProducts">
                   <article class="product-card" data-product-id="551" data-price="26381" data-drop="0" data-pop="110" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="551" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-space-gray-551/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="551" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-space-gray-551/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-space-gray-551/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)">
-    Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-space-gray-551/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)">    Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -691,35 +681,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">26 381 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">26 381 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="551" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="551" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="1124" data-price="38691" data-drop="0" data-pop="110" data-brand="intel" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="1124" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-oem-space-gray-1124/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Процессор Intel Core i7-14700K OEM (OEM, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="1124" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-oem-space-gray-1124/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-oem-space-gray-1124/" class="product-card__title" title="Процессор Intel Core i7-14700K OEM (OEM, Space Gray)">
-    Процессор Intel Core i7-14700K OEM (OEM, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-oem-space-gray-1124/" class="product-card__title" title="Процессор Intel Core i7-14700K OEM (OEM, Space Gray)">    Процессор Intel Core i7-14700K OEM (OEM, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -737,35 +722,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">38 691 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">38 691 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1124" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1124" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="101" data-price="58116" data-drop="0" data-pop="110" data-brand="amd" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="101" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-oem-titanium-101/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 9 7950X OEM (OEM, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="101" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-oem-titanium-101/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-oem-titanium-101/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (OEM, Titanium)">
-    Процессор AMD Ryzen 9 7950X OEM (OEM, Titanium)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-oem-titanium-101/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (OEM, Titanium)">    Процессор AMD Ryzen 9 7950X OEM (OEM, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -783,35 +763,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">58 116 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">58 116 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="101" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="101" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="893" data-price="57591" data-drop="0" data-pop="110" data-brand="amd" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="893" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-893/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="893" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-893/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-893/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)">
-    Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-893/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)">    Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -829,36 +804,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">57 591 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">57 591 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="893" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="893" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="959" data-price="19986" data-drop="24" data-pop="110" data-brand="amd" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−24%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="959" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-white-959/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 7 5700X3D OEM (BOX, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="959" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-white-959/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-white-959/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (BOX, White)">
-    Процессор AMD Ryzen 7 5700X3D OEM (BOX, White)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-white-959/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (BOX, White)">    Процессор AMD Ryzen 7 5700X3D OEM (BOX, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -876,35 +846,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">19 986 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">19 986 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="959" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="959" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="209" data-price="50131" data-drop="0" data-pop="110" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="209" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-oem-gold-209/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 7 7800X3D OEM (OEM, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="209" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-oem-gold-209/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-oem-gold-209/" class="product-card__title" title="Процессор AMD Ryzen 7 7800X3D OEM (OEM, Gold)">
-    Процессор AMD Ryzen 7 7800X3D OEM (OEM, Gold)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-oem-gold-209/" class="product-card__title" title="Процессор AMD Ryzen 7 7800X3D OEM (OEM, Gold)">    Процессор AMD Ryzen 7 7800X3D OEM (OEM, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -922,35 +887,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">50 131 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">50 131 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="209" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="209" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="485" data-price="55501" data-drop="0" data-pop="110" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="485" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-oem-dark-blue-485/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 9 7950X OEM (OEM, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="485" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-oem-dark-blue-485/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-oem-dark-blue-485/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (OEM, Dark Blue)">
-    Процессор AMD Ryzen 9 7950X OEM (OEM, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-oem-dark-blue-485/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (OEM, Dark Blue)">    Процессор AMD Ryzen 9 7950X OEM (OEM, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -968,36 +928,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">55 501 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">55 501 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="485" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="485" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="749" data-price="53931" data-drop="24" data-pop="110" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−24%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="749" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-749/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="749" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-749/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-749/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)">
-    Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-749/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)">    Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1015,35 +970,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">53 931 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">53 931 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="749" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="749" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="299" data-price="21841" data-drop="0" data-pop="109" data-brand="amd" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="299" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-silver-299/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 5 7600X OEM (BOX, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="299" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-silver-299/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-silver-299/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (BOX, Silver)">
-    Процессор AMD Ryzen 5 7600X OEM (BOX, Silver)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-silver-299/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (BOX, Silver)">    Процессор AMD Ryzen 5 7600X OEM (BOX, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1061,35 +1011,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">21 841 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">21 841 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="299" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="299" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="605" data-price="58116" data-drop="0" data-pop="109" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="605" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-605/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="605" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-605/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-605/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)">
-    Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-605/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)">    Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1107,35 +1052,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">58 116 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">58 116 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="605" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="605" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="386" data-price="18441" data-drop="0" data-pop="109" data-brand="intel" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="386" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-oem-titanium-386/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Процессор Intel Core i5-12400F OEM (OEM, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="386" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-oem-titanium-386/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-oem-titanium-386/" class="product-card__title" title="Процессор Intel Core i5-12400F OEM (OEM, Titanium)">
-    Процессор Intel Core i5-12400F OEM (OEM, Titanium)  </a>
-
+  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-oem-titanium-386/" class="product-card__title" title="Процессор Intel Core i5-12400F OEM (OEM, Titanium)">    Процессор Intel Core i5-12400F OEM (OEM, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1153,35 +1093,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">18 441 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">18 441 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="386" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="386" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="143" data-price="24171" data-drop="0" data-pop="108" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="143" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-gold-143/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 7 5700X3D OEM (BOX, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="143" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-gold-143/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-gold-143/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (BOX, Gold)">
-    Процессор AMD Ryzen 7 5700X3D OEM (BOX, Gold)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-gold-143/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (BOX, Gold)">    Процессор AMD Ryzen 7 5700X3D OEM (BOX, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1199,35 +1134,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">24 171 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">24 171 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="143" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="143" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="914" data-price="13621" data-drop="0" data-pop="108" data-brand="intel" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="914" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-oem-dark-blue-914/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Процессор Intel Core i5-12400F OEM (OEM, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="914" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-oem-dark-blue-914/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-oem-dark-blue-914/" class="product-card__title" title="Процессор Intel Core i5-12400F OEM (OEM, Dark Blue)">
-    Процессор Intel Core i5-12400F OEM (OEM, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-oem-dark-blue-914/" class="product-card__title" title="Процессор Intel Core i5-12400F OEM (OEM, Dark Blue)">    Процессор Intel Core i5-12400F OEM (OEM, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1245,35 +1175,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">13 621 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">13 621 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="914" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="914" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="683" data-price="20201" data-drop="0" data-pop="108" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="683" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-midnight-683/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 5 7600X OEM (BOX, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="683" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-midnight-683/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-midnight-683/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (BOX, Midnight)">
-    Процессор AMD Ryzen 5 7600X OEM (BOX, Midnight)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-midnight-683/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (BOX, Midnight)">    Процессор AMD Ryzen 5 7600X OEM (BOX, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1291,35 +1216,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">20 201 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">20 201 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="683" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="683" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="431" data-price="24741" data-drop="0" data-pop="108" data-brand="amd" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="431" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-gold-431/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 7 5700X3D OEM (BOX, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="431" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-gold-431/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-gold-431/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (BOX, Gold)">
-    Процессор AMD Ryzen 7 5700X3D OEM (BOX, Gold)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-gold-431/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (BOX, Gold)">    Процессор AMD Ryzen 7 5700X3D OEM (BOX, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1337,35 +1257,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">24 741 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">24 741 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="431" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="431" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="110" data-price="60961" data-drop="0" data-pop="107" data-brand="intel" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="110" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-box-midnight-110/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Процессор Intel Core i9-14900K OEM (BOX, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="110" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-box-midnight-110/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-box-midnight-110/" class="product-card__title" title="Процессор Intel Core i9-14900K OEM (BOX, Midnight)">
-    Процессор Intel Core i9-14900K OEM (BOX, Midnight)  </a>
-
+  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-box-midnight-110/" class="product-card__title" title="Процессор Intel Core i9-14900K OEM (BOX, Midnight)">    Процессор Intel Core i9-14900K OEM (BOX, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1383,35 +1298,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">60 961 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">60 961 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="110" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="110" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="695" data-price="22286" data-drop="0" data-pop="107" data-brand="amd" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="695" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-space-gray-695/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="695" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-space-gray-695/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-space-gray-695/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)">
-    Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-space-gray-695/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)">    Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1429,35 +1339,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">22 286 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">22 286 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="695" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="695" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="233" data-price="44126" data-drop="0" data-pop="107" data-brand="amd" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="233" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-box-white-233/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 7 7800X3D OEM (BOX, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="233" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-box-white-233/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-box-white-233/" class="product-card__title" title="Процессор AMD Ryzen 7 7800X3D OEM (BOX, White)">
-    Процессор AMD Ryzen 7 7800X3D OEM (BOX, White)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-box-white-233/" class="product-card__title" title="Процессор AMD Ryzen 7 7800X3D OEM (BOX, White)">    Процессор AMD Ryzen 7 7800X3D OEM (BOX, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1475,35 +1380,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">44 126 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">44 126 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="233" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="233" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="836" data-price="48351" data-drop="0" data-pop="106" data-brand="intel" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="836" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-oem-space-gray-836/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Процессор Intel Core i7-14700K OEM (OEM, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="836" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-oem-space-gray-836/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-oem-space-gray-836/" class="product-card__title" title="Процессор Intel Core i7-14700K OEM (OEM, Space Gray)">
-    Процессор Intel Core i7-14700K OEM (OEM, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-oem-space-gray-836/" class="product-card__title" title="Процессор Intel Core i7-14700K OEM (OEM, Space Gray)">    Процессор Intel Core i7-14700K OEM (OEM, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1521,35 +1421,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">48 351 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">48 351 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="836" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="836" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="23" data-price="22286" data-drop="0" data-pop="105" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="23" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-white-23/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 7 5700X3D OEM (OEM, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="23" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-white-23/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-white-23/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (OEM, White)">
-    Процессор AMD Ryzen 7 5700X3D OEM (OEM, White)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-white-23/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (OEM, White)">    Процессор AMD Ryzen 7 5700X3D OEM (OEM, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1567,36 +1462,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">22 286 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">22 286 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="23" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="23" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="497" data-price="52071" data-drop="12" data-pop="105" data-brand="amd" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−12%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="497" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-oem-gold-497/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 7 7800X3D OEM (OEM, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="497" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-oem-gold-497/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-oem-gold-497/" class="product-card__title" title="Процессор AMD Ryzen 7 7800X3D OEM (OEM, Gold)">
-    Процессор AMD Ryzen 7 7800X3D OEM (OEM, Gold)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-oem-gold-497/" class="product-card__title" title="Процессор AMD Ryzen 7 7800X3D OEM (OEM, Gold)">    Процессор AMD Ryzen 7 7800X3D OEM (OEM, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1614,36 +1504,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">52 071 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">52 071 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="497" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="497" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="518" data-price="55326" data-drop="18" data-pop="103" data-brand="intel" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−18%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="518" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-oem-silver-518/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Процессор Intel Core i9-14900K OEM (OEM, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="518" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-oem-silver-518/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-oem-silver-518/" class="product-card__title" title="Процессор Intel Core i9-14900K OEM (OEM, Silver)">
-    Процессор Intel Core i9-14900K OEM (OEM, Silver)  </a>
-
+  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-oem-silver-518/" class="product-card__title" title="Процессор Intel Core i9-14900K OEM (OEM, Silver)">    Процессор Intel Core i9-14900K OEM (OEM, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1661,36 +1546,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">55 326 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">55 326 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="518" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="518" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="35" data-price="24171" data-drop="15" data-pop="103" data-brand="amd" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−15%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="35" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-oem-midnight-35/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 5 7600X OEM (OEM, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="35" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-oem-midnight-35/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-oem-midnight-35/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (OEM, Midnight)">
-    Процессор AMD Ryzen 5 7600X OEM (OEM, Midnight)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-oem-midnight-35/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (OEM, Midnight)">    Процессор AMD Ryzen 5 7600X OEM (OEM, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1708,35 +1588,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">24 171 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">24 171 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="35" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="35" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="827" data-price="24741" data-drop="0" data-pop="103" data-brand="amd" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="827" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-midnight-827/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 5 7600X OEM (BOX, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="827" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-midnight-827/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-midnight-827/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (BOX, Midnight)">
-    Процессор AMD Ryzen 5 7600X OEM (BOX, Midnight)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-midnight-827/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (BOX, Midnight)">    Процессор AMD Ryzen 5 7600X OEM (BOX, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1754,35 +1629,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">24 741 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">24 741 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="827" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="827" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="968" data-price="27746" data-drop="0" data-pop="103" data-brand="intel" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="968" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-intel-core-i5-13600kf-oem-oem-titanium-968/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Процессор Intel Core i5-13600KF OEM (OEM, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="968" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-intel-core-i5-13600kf-oem-oem-titanium-968/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i5-13600kf-oem-oem-titanium-968/" class="product-card__title" title="Процессор Intel Core i5-13600KF OEM (OEM, Titanium)">
-    Процессор Intel Core i5-13600KF OEM (OEM, Titanium)  </a>
-
+  <a href="/price-aggregator/p/protsessor-intel-core-i5-13600kf-oem-oem-titanium-968/" class="product-card__title" title="Процессор Intel Core i5-13600KF OEM (OEM, Titanium)">    Процессор Intel Core i5-13600KF OEM (OEM, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1800,35 +1670,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">27 746 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">27 746 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="968" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="968" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="563" data-price="18591" data-drop="0" data-pop="102" data-brand="amd" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="563" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-oem-graphite-563/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 5 7600X OEM (OEM, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="563" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-oem-graphite-563/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-oem-graphite-563/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (OEM, Graphite)">
-    Процессор AMD Ryzen 5 7600X OEM (OEM, Graphite)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-oem-graphite-563/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (OEM, Graphite)">    Процессор AMD Ryzen 5 7600X OEM (OEM, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1846,35 +1711,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">18 591 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">18 591 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="563" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="563" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="935" data-price="24741" data-drop="0" data-pop="102" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="935" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-gold-935/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 7 5700X3D OEM (OEM, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="935" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-gold-935/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-gold-935/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (OEM, Gold)">
-    Процессор AMD Ryzen 7 5700X3D OEM (OEM, Gold)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-gold-935/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (OEM, Gold)">    Процессор AMD Ryzen 7 5700X3D OEM (OEM, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1892,35 +1752,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">24 741 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">24 741 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="935" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="935" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="1178" data-price="10456" data-drop="0" data-pop="101" data-brand="intel" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="1178" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-box-titanium-1178/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Процессор Intel Core i5-12400F OEM (BOX, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="1178" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-box-titanium-1178/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-box-titanium-1178/" class="product-card__title" title="Процессор Intel Core i5-12400F OEM (BOX, Titanium)">
-    Процессор Intel Core i5-12400F OEM (BOX, Titanium)  </a>
-
+  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-box-titanium-1178/" class="product-card__title" title="Процессор Intel Core i5-12400F OEM (BOX, Titanium)">    Процессор Intel Core i5-12400F OEM (BOX, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1938,35 +1793,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">10 456 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">10 456 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1178" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1178" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="419" data-price="22531" data-drop="0" data-pop="101" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="419" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-oem-graphite-419/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 5 7600X OEM (OEM, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="419" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-oem-graphite-419/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-oem-graphite-419/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (OEM, Graphite)">
-    Процессор AMD Ryzen 5 7600X OEM (OEM, Graphite)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-oem-graphite-419/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (OEM, Graphite)">    Процессор AMD Ryzen 5 7600X OEM (OEM, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1984,35 +1834,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">22 531 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">22 531 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="419" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="419" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="263" data-price="24741" data-drop="0" data-pop="100" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="263" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-space-gray-263/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="263" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-space-gray-263/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-space-gray-263/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)">
-    Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-space-gray-263/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)">    Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -2030,35 +1875,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">24 741 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">24 741 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="263" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="263" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="802" data-price="13476" data-drop="0" data-pop="100" data-brand="intel" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="802" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-oem-silver-802/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Процессор Intel Core i5-12400F OEM (OEM, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="802" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-oem-silver-802/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-oem-silver-802/" class="product-card__title" title="Процессор Intel Core i5-12400F OEM (OEM, Silver)">
-    Процессор Intel Core i5-12400F OEM (OEM, Silver)  </a>
-
+  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-oem-silver-802/" class="product-card__title" title="Процессор Intel Core i5-12400F OEM (OEM, Silver)">    Процессор Intel Core i5-12400F OEM (OEM, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -2076,35 +1916,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">13 476 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">13 476 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="802" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="802" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="347" data-price="21060" data-drop="0" data-pop="100" data-brand="amd" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="347" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-graphite-347/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 5 7600X OEM (BOX, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="347" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-graphite-347/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-graphite-347/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (BOX, Graphite)">
-    Процессор AMD Ryzen 5 7600X OEM (BOX, Graphite)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-graphite-347/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (BOX, Graphite)">    Процессор AMD Ryzen 5 7600X OEM (BOX, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -2122,35 +1957,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">21 060 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">21 060 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="347" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="347" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="607" data-price="26091" data-drop="0" data-pop="100" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="607" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-titanium-607/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 7 5700X3D OEM (BOX, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="607" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-titanium-607/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-titanium-607/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (BOX, Titanium)">
-    Процессор AMD Ryzen 7 5700X3D OEM (BOX, Titanium)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-titanium-607/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (BOX, Titanium)">    Процессор AMD Ryzen 7 5700X3D OEM (BOX, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -2168,35 +1998,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">26 091 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">26 091 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="607" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="607" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="363" data-price="22776" data-drop="0" data-pop="100" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="363" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-black-363/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 5 7600X OEM (BOX, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="363" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-black-363/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-black-363/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (BOX, Black)">
-    Процессор AMD Ryzen 5 7600X OEM (BOX, Black)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-black-363/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (BOX, Black)">    Процессор AMD Ryzen 5 7600X OEM (BOX, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -2214,35 +2039,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">22 776 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">22 776 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="363" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="363" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="892" data-price="47311" data-drop="0" data-pop="100" data-brand="intel" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="892" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-box-titanium-892/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Процессор Intel Core i7-14700K OEM (BOX, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="892" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-box-titanium-892/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-box-titanium-892/" class="product-card__title" title="Процессор Intel Core i7-14700K OEM (BOX, Titanium)">
-    Процессор Intel Core i7-14700K OEM (BOX, Titanium)  </a>
-
+  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-box-titanium-892/" class="product-card__title" title="Процессор Intel Core i7-14700K OEM (BOX, Titanium)">    Процессор Intel Core i7-14700K OEM (BOX, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -2260,35 +2080,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">47 311 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">47 311 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="892" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="892" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="638" data-price="54891" data-drop="0" data-pop="100" data-brand="intel" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="638" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-box-graphite-638/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Процессор Intel Core i9-14900K OEM (BOX, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="638" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-box-graphite-638/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-box-graphite-638/" class="product-card__title" title="Процессор Intel Core i9-14900K OEM (BOX, Graphite)">
-    Процессор Intel Core i9-14900K OEM (BOX, Graphite)  </a>
-
+  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-box-graphite-638/" class="product-card__title" title="Процессор Intel Core i9-14900K OEM (BOX, Graphite)">    Процессор Intel Core i9-14900K OEM (BOX, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -2306,16 +2121,16 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">54 891 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">54 891 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="638" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="638" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
               </div>
 
@@ -2381,7 +2196,7 @@
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
+          <p class="footer-currency">Перед покупкой уточняйте актуальные цены и наличие в магазине.</p>
         </div>
 
         <div class="footer-col">
@@ -2400,7 +2215,7 @@
           <ul class="footer-links">
             <li><a href="/price-aggregator/pages/how-it-works">Как мы считаем цены</a></li>
             <li><a href="/price-aggregator/pages/marketplaces">О маркетплейсах и продавцах</a></li>
-            <li><a href="/price-aggregator/pages/report">Сообщить о неверной цене</a></li>
+            <li><span title="Форма доступна только на PHP-сайте">Сообщить о неверной цене (в демо недоступно)</span></li>
             <li><a href="/price-aggregator/pages/legal">Политика конфиденциальности (152-ФЗ)</a></li>
             <li><a href="/price-aggregator/ui-kit">Витрина компонентов (UI Kit)</a></li>
           </ul>
@@ -2427,15 +2242,15 @@
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#home"></use></svg>
       <span>Главная</span>
     </a>
-    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
       <span>Каталог</span>
     </button>
-    <a href="/price-aggregator/compare" class="mobile-nav__item">
+    <a href="/price-aggregator/compare" class="mobile-nav__item" id="mobileCompareBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       <span>Сравнение</span>
     </a>
-    <a href="/price-aggregator/favorites" class="mobile-nav__item">
+    <a href="/price-aggregator/favorites" class="mobile-nav__item" id="mobileFavBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
       <span>Избранное</span>
     </a>

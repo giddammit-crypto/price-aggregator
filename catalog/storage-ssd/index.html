@@ -24,18 +24,13 @@
   <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
   </head>
 <body class="site-body">
-  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <!-- Service information: never present hard-coded counters as live measurements. -->
   <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
     <div class="container d-flex justify-between align-center flex-wrap gap-2">
       <div class="d-flex align-center gap-2">
-        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
-        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
-        <span>Обновлено только что &mdash;</span>
-        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
-        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
       </div>
       <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/price-aggregator/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
         <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
       </div>
     </div>
@@ -61,7 +56,7 @@
           <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     placeholder="Поиск моделей в демонстрационном каталоге..."
                      value="" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
@@ -541,7 +536,7 @@
     </div>
 
     <!-- Mobile Filter Toggle Button -->
-    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn">
+    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn" aria-controls="filterSidebar" aria-expanded="false">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#filter"></use></svg>
       <span>Фильтры</span>
     </button>
@@ -683,22 +678,17 @@
       <div class="product-grid" id="catalogProducts">
                   <article class="product-card" data-product-id="4247" data-price="10456" data-drop="0" data-pop="110" data-brand="crucial" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4247" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-1tb-titanium-4247/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (1TB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4247" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-1tb-titanium-4247/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Crucial</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-1tb-titanium-4247/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (1TB, Titanium)">
-    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (1TB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-1tb-titanium-4247/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (1TB, Titanium)">    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (1TB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -716,35 +706,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">10 456 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">10 456 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4247" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4247" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3764" data-price="12341" data-drop="0" data-pop="110" data-brand="crucial" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3764" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-500gb-dark-blue-3764/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (500GB, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3764" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-500gb-dark-blue-3764/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Crucial</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-500gb-dark-blue-3764/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (500GB, Dark Blue)">
-    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (500GB, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-500gb-dark-blue-3764/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (500GB, Dark Blue)">    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (500GB, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -762,36 +747,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">12 341 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">12 341 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3764" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3764" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3773" data-price="19521" data-drop="18" data-pop="110" data-brand="netac" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−18%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3773" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-graphite-3773/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3773" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-graphite-3773/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Netac</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-graphite-3773/" class="product-card__title" title="SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Graphite)">
-    SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-graphite-3773/" class="product-card__title" title="SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Graphite)">    SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -809,35 +789,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">19 521 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">19 521 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3773" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3773" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3707" data-price="14841" data-drop="0" data-pop="109" data-brand="western digital" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3707" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-500gb-graphite-3707/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель WD Black SN850X 1TB NVMe M.2 (500GB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3707" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-500gb-graphite-3707/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Western Digital</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-500gb-graphite-3707/" class="product-card__title" title="SSD накопитель WD Black SN850X 1TB NVMe M.2 (500GB, Graphite)">
-    SSD накопитель WD Black SN850X 1TB NVMe M.2 (500GB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-500gb-graphite-3707/" class="product-card__title" title="SSD накопитель WD Black SN850X 1TB NVMe M.2 (500GB, Graphite)">    SSD накопитель WD Black SN850X 1TB NVMe M.2 (500GB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -855,35 +830,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">14 841 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">14 841 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3707" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3707" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3785" data-price="6361" data-drop="0" data-pop="109" data-brand="crucial" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3785" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-4tb-black-3785/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3785" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-4tb-black-3785/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Crucial</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-4tb-black-3785/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Black)">
-    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Black)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-4tb-black-3785/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Black)">    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -901,35 +871,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">6 361 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">6 361 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3785" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3785" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3608" data-price="13941" data-drop="0" data-pop="108" data-brand="kingston" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3608" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-2tb-white-3608/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Kingston KC3000 1TB NVMe M.2 (2TB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3608" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-2tb-white-3608/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Kingston</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-2tb-white-3608/" class="product-card__title" title="SSD накопитель Kingston KC3000 1TB NVMe M.2 (2TB, White)">
-    SSD накопитель Kingston KC3000 1TB NVMe M.2 (2TB, White)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-2tb-white-3608/" class="product-card__title" title="SSD накопитель Kingston KC3000 1TB NVMe M.2 (2TB, White)">    SSD накопитель Kingston KC3000 1TB NVMe M.2 (2TB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -947,35 +912,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">13 941 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">13 941 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3608" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3608" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4688" data-price="10916" data-drop="0" data-pop="108" data-brand="crucial" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4688" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-500gb-titanium-4688/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (500GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4688" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-500gb-titanium-4688/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Crucial</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-500gb-titanium-4688/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (500GB, Titanium)">
-    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (500GB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-500gb-titanium-4688/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (500GB, Titanium)">    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (500GB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -993,35 +953,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">10 916 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">10 916 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4688" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4688" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4709" data-price="14551" data-drop="0" data-pop="108" data-brand="crucial" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4709" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-4tb-dark-blue-4709/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4709" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-4tb-dark-blue-4709/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Crucial</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-4tb-dark-blue-4709/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Dark Blue)">
-    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-4tb-dark-blue-4709/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Dark Blue)">    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1039,35 +994,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">14 551 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">14 551 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4709" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4709" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3872" data-price="14841" data-drop="0" data-pop="107" data-brand="kioxia" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3872" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-kioxia-exceria-pro-1tb-nvme-m-2-4tb-titanium-3872/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Kioxia Exceria Pro 1TB NVMe M.2 (4TB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3872" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-kioxia-exceria-pro-1tb-nvme-m-2-4tb-titanium-3872/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Kioxia</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-kioxia-exceria-pro-1tb-nvme-m-2-4tb-titanium-3872/" class="product-card__title" title="SSD накопитель Kioxia Exceria Pro 1TB NVMe M.2 (4TB, Titanium)">
-    SSD накопитель Kioxia Exceria Pro 1TB NVMe M.2 (4TB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-kioxia-exceria-pro-1tb-nvme-m-2-4tb-titanium-3872/" class="product-card__title" title="SSD накопитель Kioxia Exceria Pro 1TB NVMe M.2 (4TB, Titanium)">    SSD накопитель Kioxia Exceria Pro 1TB NVMe M.2 (4TB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1085,35 +1035,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">14 841 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">14 841 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3872" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3872" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4160" data-price="26836" data-drop="0" data-pop="106" data-brand="samsung" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4160" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-1tb-black-4160/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (1TB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4160" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-1tb-black-4160/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-1tb-black-4160/" class="product-card__title" title="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (1TB, Black)">
-    SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (1TB, Black)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-1tb-black-4160/" class="product-card__title" title="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (1TB, Black)">    SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (1TB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1131,35 +1076,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">26 836 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">26 836 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4160" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4160" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4721" data-price="11151" data-drop="0" data-pop="106" data-brand="kingston" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4721" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-1tb-gold-4721/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Kingston KC3000 1TB NVMe M.2 (1TB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4721" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-1tb-gold-4721/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Kingston</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-1tb-gold-4721/" class="product-card__title" title="SSD накопитель Kingston KC3000 1TB NVMe M.2 (1TB, Gold)">
-    SSD накопитель Kingston KC3000 1TB NVMe M.2 (1TB, Gold)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-1tb-gold-4721/" class="product-card__title" title="SSD накопитель Kingston KC3000 1TB NVMe M.2 (1TB, Gold)">    SSD накопитель Kingston KC3000 1TB NVMe M.2 (1TB, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1177,36 +1117,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">11 151 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">11 151 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4721" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4721" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3962" data-price="18126" data-drop="12" data-pop="106" data-brand="netac" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−12%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3962" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-500gb-graphite-3962/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Netac NV7000 2TB NVMe M.2 (500GB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3962" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-500gb-graphite-3962/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Netac</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-500gb-graphite-3962/" class="product-card__title" title="SSD накопитель Netac NV7000 2TB NVMe M.2 (500GB, Graphite)">
-    SSD накопитель Netac NV7000 2TB NVMe M.2 (500GB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-500gb-graphite-3962/" class="product-card__title" title="SSD накопитель Netac NV7000 2TB NVMe M.2 (500GB, Graphite)">    SSD накопитель Netac NV7000 2TB NVMe M.2 (500GB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1224,35 +1159,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">18 126 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">18 126 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3962" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3962" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4259" data-price="16731" data-drop="0" data-pop="106" data-brand="kingston" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4259" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-4tb-space-gray-4259/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Kingston KC3000 1TB NVMe M.2 (4TB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4259" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-4tb-space-gray-4259/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Kingston</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-4tb-space-gray-4259/" class="product-card__title" title="SSD накопитель Kingston KC3000 1TB NVMe M.2 (4TB, Space Gray)">
-    SSD накопитель Kingston KC3000 1TB NVMe M.2 (4TB, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-4tb-space-gray-4259/" class="product-card__title" title="SSD накопитель Kingston KC3000 1TB NVMe M.2 (4TB, Space Gray)">    SSD накопитель Kingston KC3000 1TB NVMe M.2 (4TB, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1270,35 +1200,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">16 731 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">16 731 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4259" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4259" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4643" data-price="25471" data-drop="0" data-pop="105" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4643" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-2tb-dark-blue-4643/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (2TB, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4643" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-2tb-dark-blue-4643/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-2tb-dark-blue-4643/" class="product-card__title" title="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (2TB, Dark Blue)">
-    SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (2TB, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-2tb-dark-blue-4643/" class="product-card__title" title="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (2TB, Dark Blue)">    SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (2TB, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1316,35 +1241,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">25 471 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">25 471 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4643" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4643" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3929" data-price="20011" data-drop="0" data-pop="105" data-brand="samsung" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3929" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-500gb-titanium-3929/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (500GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3929" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-500gb-titanium-3929/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-500gb-titanium-3929/" class="product-card__title" title="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (500GB, Titanium)">
-    SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (500GB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-500gb-titanium-3929/" class="product-card__title" title="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (500GB, Titanium)">    SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (500GB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1362,35 +1282,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">20 011 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">20 011 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3929" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3929" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3938" data-price="12141" data-drop="0" data-pop="105" data-brand="western digital" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3938" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-1tb-midnight-3938/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель WD Black SN850X 1TB NVMe M.2 (1TB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3938" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-1tb-midnight-3938/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Western Digital</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-1tb-midnight-3938/" class="product-card__title" title="SSD накопитель WD Black SN850X 1TB NVMe M.2 (1TB, Midnight)">
-    SSD накопитель WD Black SN850X 1TB NVMe M.2 (1TB, Midnight)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-1tb-midnight-3938/" class="product-card__title" title="SSD накопитель WD Black SN850X 1TB NVMe M.2 (1TB, Midnight)">    SSD накопитель WD Black SN850X 1TB NVMe M.2 (1TB, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1408,35 +1323,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">12 141 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">12 141 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3938" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3938" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4511" data-price="18905" data-drop="0" data-pop="105" data-brand="kingston" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4511" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-4tb-space-gray-4511/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Kingston KC3000 1TB NVMe M.2 (4TB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4511" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-4tb-space-gray-4511/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Kingston</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-4tb-space-gray-4511/" class="product-card__title" title="SSD накопитель Kingston KC3000 1TB NVMe M.2 (4TB, Space Gray)">
-    SSD накопитель Kingston KC3000 1TB NVMe M.2 (4TB, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-4tb-space-gray-4511/" class="product-card__title" title="SSD накопитель Kingston KC3000 1TB NVMe M.2 (4TB, Space Gray)">    SSD накопитель Kingston KC3000 1TB NVMe M.2 (4TB, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1454,35 +1364,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">18 905 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">18 905 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4511" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4511" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4325" data-price="8731" data-drop="0" data-pop="105" data-brand="adata" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4325" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-500gb-space-gray-4325/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (500GB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4325" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-500gb-space-gray-4325/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ADATA</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-500gb-space-gray-4325/" class="product-card__title" title="SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (500GB, Space Gray)">
-    SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (500GB, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-500gb-space-gray-4325/" class="product-card__title" title="SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (500GB, Space Gray)">    SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (500GB, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1500,35 +1405,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">8 731 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">8 731 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4325" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4325" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3863" data-price="14251" data-drop="0" data-pop="104" data-brand="adata" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3863" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-2tb-white-3863/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (2TB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3863" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-2tb-white-3863/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ADATA</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-2tb-white-3863/" class="product-card__title" title="SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (2TB, White)">
-    SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (2TB, White)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-2tb-white-3863/" class="product-card__title" title="SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (2TB, White)">    SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (2TB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1546,36 +1446,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">14 251 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">14 251 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3863" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3863" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4424" data-price="12546" data-drop="24" data-pop="103" data-brand="netac" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−24%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4424" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-2tb-silver-4424/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Netac NV7000 2TB NVMe M.2 (2TB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4424" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-2tb-silver-4424/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Netac</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-2tb-silver-4424/" class="product-card__title" title="SSD накопитель Netac NV7000 2TB NVMe M.2 (2TB, Silver)">
-    SSD накопитель Netac NV7000 2TB NVMe M.2 (2TB, Silver)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-2tb-silver-4424/" class="product-card__title" title="SSD накопитель Netac NV7000 2TB NVMe M.2 (2TB, Silver)">    SSD накопитель Netac NV7000 2TB NVMe M.2 (2TB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1593,35 +1488,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">12 546 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">12 546 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4424" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4424" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4433" data-price="22741" data-drop="0" data-pop="103" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4433" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-500gb-titanium-4433/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (500GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4433" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-500gb-titanium-4433/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-500gb-titanium-4433/" class="product-card__title" title="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (500GB, Titanium)">
-    SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (500GB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-500gb-titanium-4433/" class="product-card__title" title="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (500GB, Titanium)">    SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (500GB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1639,35 +1529,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">22 741 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">22 741 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4433" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4433" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3533" data-price="15191" data-drop="0" data-pop="103" data-brand="crucial" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3533" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-4tb-black-3533/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3533" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-4tb-black-3533/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Crucial</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-4tb-black-3533/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Black)">
-    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Black)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-4tb-black-3533/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Black)">    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1685,35 +1570,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">15 191 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">15 191 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3533" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3533" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4589" data-price="14841" data-drop="0" data-pop="103" data-brand="western digital" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4589" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-2tb-graphite-4589/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель WD Black SN850X 1TB NVMe M.2 (2TB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4589" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-2tb-graphite-4589/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Western Digital</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-2tb-graphite-4589/" class="product-card__title" title="SSD накопитель WD Black SN850X 1TB NVMe M.2 (2TB, Graphite)">
-    SSD накопитель WD Black SN850X 1TB NVMe M.2 (2TB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-2tb-graphite-4589/" class="product-card__title" title="SSD накопитель WD Black SN850X 1TB NVMe M.2 (2TB, Graphite)">    SSD накопитель WD Black SN850X 1TB NVMe M.2 (2TB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1731,35 +1611,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">14 841 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">14 841 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4589" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4589" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4148" data-price="15501" data-drop="0" data-pop="102" data-brand="western digital" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4148" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-4tb-graphite-4148/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель WD Black SN850X 1TB NVMe M.2 (4TB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4148" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-4tb-graphite-4148/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Western Digital</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-4tb-graphite-4148/" class="product-card__title" title="SSD накопитель WD Black SN850X 1TB NVMe M.2 (4TB, Graphite)">
-    SSD накопитель WD Black SN850X 1TB NVMe M.2 (4TB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-4tb-graphite-4148/" class="product-card__title" title="SSD накопитель WD Black SN850X 1TB NVMe M.2 (4TB, Graphite)">    SSD накопитель WD Black SN850X 1TB NVMe M.2 (4TB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1777,35 +1652,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">15 501 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">15 501 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4148" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4148" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3674" data-price="15631" data-drop="0" data-pop="102" data-brand="adata" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3674" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-4tb-white-3674/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (4TB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3674" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-4tb-white-3674/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ADATA</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-4tb-white-3674/" class="product-card__title" title="SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (4TB, White)">
-    SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (4TB, White)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-4tb-white-3674/" class="product-card__title" title="SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (4TB, White)">    SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (4TB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1823,35 +1693,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">15 631 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">15 631 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3674" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3674" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4730" data-price="9091" data-drop="0" data-pop="102" data-brand="crucial" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4730" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-2tb-black-4730/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (2TB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4730" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-2tb-black-4730/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Crucial</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-2tb-black-4730/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (2TB, Black)">
-    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (2TB, Black)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-2tb-black-4730/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (2TB, Black)">    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (2TB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1869,35 +1734,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">9 091 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">9 091 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4730" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4730" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3719" data-price="26836" data-drop="0" data-pop="102" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3719" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-2tb-black-3719/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (2TB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3719" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-2tb-black-3719/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-2tb-black-3719/" class="product-card__title" title="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (2TB, Black)">
-    SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (2TB, Black)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-2tb-black-3719/" class="product-card__title" title="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (2TB, Black)">    SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (2TB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1915,36 +1775,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">26 836 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">26 836 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3719" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3719" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3521" data-price="18126" data-drop="21" data-pop="102" data-brand="netac" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−21%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3521" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-graphite-3521/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3521" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-graphite-3521/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Netac</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-graphite-3521/" class="product-card__title" title="SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Graphite)">
-    SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-graphite-3521/" class="product-card__title" title="SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Graphite)">    SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1962,35 +1817,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">18 126 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">18 126 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3521" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3521" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4631" data-price="13491" data-drop="0" data-pop="101" data-brand="western digital" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4631" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-500gb-midnight-4631/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель WD Black SN850X 1TB NVMe M.2 (500GB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4631" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-500gb-midnight-4631/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Western Digital</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-500gb-midnight-4631/" class="product-card__title" title="SSD накопитель WD Black SN850X 1TB NVMe M.2 (500GB, Midnight)">
-    SSD накопитель WD Black SN850X 1TB NVMe M.2 (500GB, Midnight)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-500gb-midnight-4631/" class="product-card__title" title="SSD накопитель WD Black SN850X 1TB NVMe M.2 (500GB, Midnight)">    SSD накопитель WD Black SN850X 1TB NVMe M.2 (500GB, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -2008,36 +1858,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">13 491 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">13 491 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4631" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4631" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4193" data-price="15336" data-drop="18" data-pop="101" data-brand="netac" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−18%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4193" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-midnight-4193/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4193" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-midnight-4193/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Netac</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-midnight-4193/" class="product-card__title" title="SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Midnight)">
-    SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Midnight)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-midnight-4193/" class="product-card__title" title="SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Midnight)">    SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -2055,35 +1900,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">15 336 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">15 336 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4193" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4193" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3376" data-price="26541" data-drop="0" data-pop="100" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3376" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-1tb-space-gray-3376/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (1TB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3376" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-1tb-space-gray-3376/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-1tb-space-gray-3376/" class="product-card__title" title="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (1TB, Space Gray)">
-    SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (1TB, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-1tb-space-gray-3376/" class="product-card__title" title="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (1TB, Space Gray)">    SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (1TB, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -2101,35 +1941,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">26 541 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">26 541 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3376" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3376" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3894" data-price="23241" data-drop="0" data-pop="100" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3894" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-4tb-graphite-3894/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (4TB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3894" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-4tb-graphite-3894/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-4tb-graphite-3894/" class="product-card__title" title="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (4TB, Graphite)">
-    SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (4TB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-samsung-990-pro-2tb-nvme-m-2-4tb-graphite-3894/" class="product-card__title" title="SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (4TB, Graphite)">    SSD накопитель Samsung 990 PRO 2TB NVMe M.2 (4TB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -2147,35 +1982,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">23 241 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">23 241 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3894" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3894" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4422" data-price="6431" data-drop="0" data-pop="100" data-brand="crucial" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4422" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-2tb-silver-4422/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (2TB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4422" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-2tb-silver-4422/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Crucial</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-2tb-silver-4422/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (2TB, Silver)">
-    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (2TB, Silver)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-2tb-silver-4422/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (2TB, Silver)">    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (2TB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -2193,35 +2023,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">6 431 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">6 431 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4422" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4422" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4168" data-price="17736" data-drop="0" data-pop="100" data-brand="kingston" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4168" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-2tb-silver-4168/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Kingston KC3000 1TB NVMe M.2 (2TB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4168" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-2tb-silver-4168/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Kingston</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-2tb-silver-4168/" class="product-card__title" title="SSD накопитель Kingston KC3000 1TB NVMe M.2 (2TB, Silver)">
-    SSD накопитель Kingston KC3000 1TB NVMe M.2 (2TB, Silver)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-2tb-silver-4168/" class="product-card__title" title="SSD накопитель Kingston KC3000 1TB NVMe M.2 (2TB, Silver)">    SSD накопитель Kingston KC3000 1TB NVMe M.2 (2TB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -2239,35 +2064,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">17 736 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">17 736 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4168" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4168" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4682" data-price="11990" data-drop="0" data-pop="100" data-brand="adata" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4682" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-4tb-white-4682/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (4TB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4682" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-4tb-white-4682/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ADATA</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-4tb-white-4682/" class="product-card__title" title="SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (4TB, White)">
-    SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (4TB, White)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-4tb-white-4682/" class="product-card__title" title="SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (4TB, White)">    SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (4TB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -2285,35 +2105,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">11 990 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">11 990 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4682" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4682" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3919" data-price="15461" data-drop="0" data-pop="100" data-brand="adata" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3919" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-2tb-silver-3919/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (2TB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3919" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-2tb-silver-3919/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ADATA</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-2tb-silver-3919/" class="product-card__title" title="SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (2TB, Silver)">
-    SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (2TB, Silver)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-2tb-silver-3919/" class="product-card__title" title="SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (2TB, Silver)">    SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (2TB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -2331,16 +2146,16 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">15 461 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">15 461 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3919" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3919" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
               </div>
 
@@ -2406,7 +2221,7 @@
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
+          <p class="footer-currency">Перед покупкой уточняйте актуальные цены и наличие в магазине.</p>
         </div>
 
         <div class="footer-col">
@@ -2425,7 +2240,7 @@
           <ul class="footer-links">
             <li><a href="/price-aggregator/pages/how-it-works">Как мы считаем цены</a></li>
             <li><a href="/price-aggregator/pages/marketplaces">О маркетплейсах и продавцах</a></li>
-            <li><a href="/price-aggregator/pages/report">Сообщить о неверной цене</a></li>
+            <li><span title="Форма доступна только на PHP-сайте">Сообщить о неверной цене (в демо недоступно)</span></li>
             <li><a href="/price-aggregator/pages/legal">Политика конфиденциальности (152-ФЗ)</a></li>
             <li><a href="/price-aggregator/ui-kit">Витрина компонентов (UI Kit)</a></li>
           </ul>
@@ -2452,15 +2267,15 @@
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#home"></use></svg>
       <span>Главная</span>
     </a>
-    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
       <span>Каталог</span>
     </button>
-    <a href="/price-aggregator/compare" class="mobile-nav__item">
+    <a href="/price-aggregator/compare" class="mobile-nav__item" id="mobileCompareBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       <span>Сравнение</span>
     </a>
-    <a href="/price-aggregator/favorites" class="mobile-nav__item">
+    <a href="/price-aggregator/favorites" class="mobile-nav__item" id="mobileFavBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
       <span>Избранное</span>
     </a>

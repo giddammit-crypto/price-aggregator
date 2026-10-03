@@ -24,18 +24,13 @@
   <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
   </head>
 <body class="site-body">
-  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <!-- Service information: never present hard-coded counters as live measurements. -->
   <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
     <div class="container d-flex justify-between align-center flex-wrap gap-2">
       <div class="d-flex align-center gap-2">
-        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
-        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
-        <span>Обновлено только что &mdash;</span>
-        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
-        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
       </div>
       <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/price-aggregator/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
         <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
       </div>
     </div>
@@ -61,7 +56,7 @@
           <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     placeholder="Поиск моделей в демонстрационном каталоге..."
                      value="" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
@@ -541,7 +536,7 @@
     </div>
 
     <!-- Mobile Filter Toggle Button -->
-    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn">
+    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn" aria-controls="filterSidebar" aria-expanded="false">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#filter"></use></svg>
       <span>Фильтры</span>
     </button>
@@ -688,22 +683,17 @@
       <div class="product-grid" id="catalogProducts">
                   <article class="product-card" data-product-id="5798" data-price="65511" data-drop="0" data-pop="110" data-brand="inno3d" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5798" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-oc-edition-gold-5798/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (OC Edition, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5798" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-oc-edition-gold-5798/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Inno3D</div>
-  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-oc-edition-gold-5798/" class="product-card__title" title="Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (OC Edition, Gold)">
-    Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (OC Edition, Gold)  </a>
-
+  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-oc-edition-gold-5798/" class="product-card__title" title="Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (OC Edition, Gold)">    Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (OC Edition, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -721,35 +711,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">65 511 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">65 511 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5798" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5798" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="6161" data-price="130041" data-drop="0" data-pop="109" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="6161" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-white-edition-black-6161/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4090.webp" alt="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (White Edition, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="6161" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-white-edition-black-6161/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-white-edition-black-6161/" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (White Edition, Black)">
-    Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (White Edition, Black)  </a>
-
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-white-edition-black-6161/" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (White Edition, Black)">    Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (White Edition, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -767,35 +752,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">130 041 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">130 041 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6161" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6161" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5666" data-price="62070" data-drop="0" data-pop="109" data-brand="gigabyte" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5666" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-proart-silver-5666/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (ProArt, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5666" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-proart-silver-5666/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">GIGABYTE</div>
-  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-proart-silver-5666/" class="product-card__title" title="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (ProArt, Silver)">
-    Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (ProArt, Silver)  </a>
-
+  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-proart-silver-5666/" class="product-card__title" title="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (ProArt, Silver)">    Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (ProArt, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -813,35 +793,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">62 070 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">62 070 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5666" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5666" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5282" data-price="58941" data-drop="0" data-pop="109" data-brand="gigabyte" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5282" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-white-edition-graphite-5282/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (White Edition, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5282" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-white-edition-graphite-5282/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">GIGABYTE</div>
-  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-white-edition-graphite-5282/" class="product-card__title" title="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (White Edition, Graphite)">
-    Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (White Edition, Graphite)  </a>
-
+  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-white-edition-graphite-5282/" class="product-card__title" title="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (White Edition, Graphite)">    Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (White Edition, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -859,35 +834,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">58 941 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">58 941 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5282" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5282" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5336" data-price="38666" data-drop="0" data-pop="109" data-brand="msi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5336" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4060-ventus-2x-black-8g-oc-dual-fan-space-gray-5336/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (Dual Fan, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5336" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4060-ventus-2x-black-8g-oc-dual-fan-space-gray-5336/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4060-ventus-2x-black-8g-oc-dual-fan-space-gray-5336/" class="product-card__title" title="Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (Dual Fan, Space Gray)">
-    Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (Dual Fan, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4060-ventus-2x-black-8g-oc-dual-fan-space-gray-5336/" class="product-card__title" title="Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (Dual Fan, Space Gray)">    Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (Dual Fan, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -905,35 +875,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">38 666 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">38 666 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5336" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5336" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5699" data-price="55341" data-drop="0" data-pop="108" data-brand="sapphire" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5699" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-sapphire-pure-radeon-rx-7800-xt-16gb-white-dual-fan-space-gray-5699/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта Sapphire Pure Radeon RX 7800 XT 16GB White (Dual Fan, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5699" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-sapphire-pure-radeon-rx-7800-xt-16gb-white-dual-fan-space-gray-5699/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Sapphire</div>
-  <a href="/price-aggregator/p/videokarta-sapphire-pure-radeon-rx-7800-xt-16gb-white-dual-fan-space-gray-5699/" class="product-card__title" title="Видеокарта Sapphire Pure Radeon RX 7800 XT 16GB White (Dual Fan, Space Gray)">
-    Видеокарта Sapphire Pure Radeon RX 7800 XT 16GB White (Dual Fan, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/videokarta-sapphire-pure-radeon-rx-7800-xt-16gb-white-dual-fan-space-gray-5699/" class="product-card__title" title="Видеокарта Sapphire Pure Radeon RX 7800 XT 16GB White (Dual Fan, Space Gray)">    Видеокарта Sapphire Pure Radeon RX 7800 XT 16GB White (Dual Fan, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -951,35 +916,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">55 341 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">55 341 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5699" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5699" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5744" data-price="31491" data-drop="0" data-pop="107" data-brand="msi" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5744" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4060-ventus-2x-black-8g-oc-proart-white-5744/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (ProArt, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5744" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4060-ventus-2x-black-8g-oc-proart-white-5744/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4060-ventus-2x-black-8g-oc-proart-white-5744/" class="product-card__title" title="Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (ProArt, White)">
-    Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (ProArt, White)  </a>
-
+  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4060-ventus-2x-black-8g-oc-proart-white-5744/" class="product-card__title" title="Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (ProArt, White)">    Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (ProArt, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -997,35 +957,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">31 491 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">31 491 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5744" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5744" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5270" data-price="62091" data-drop="0" data-pop="107" data-brand="inno3d" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5270" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-proart-space-gray-5270/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (ProArt, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5270" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-proart-space-gray-5270/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Inno3D</div>
-  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-proart-space-gray-5270/" class="product-card__title" title="Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (ProArt, Space Gray)">
-    Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (ProArt, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-proart-space-gray-5270/" class="product-card__title" title="Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (ProArt, Space Gray)">    Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (ProArt, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1043,36 +998,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">62 091 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">62 091 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5270" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5270" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="6041" data-price="132981" data-drop="21" data-pop="106" data-brand="asus" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−21%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="6041" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-white-edition-titanium-6041/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4090.webp" alt="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (White Edition, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="6041" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-white-edition-titanium-6041/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-white-edition-titanium-6041/" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (White Edition, Titanium)">
-    Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (White Edition, Titanium)  </a>
-
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-white-edition-titanium-6041/" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (White Edition, Titanium)">    Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (White Edition, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1090,35 +1040,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">132 981 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">132 981 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6041" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6041" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5909" data-price="49491" data-drop="0" data-pop="105" data-brand="colorful" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5909" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-colorful-igame-geforce-rtx-4060-ti-ultra-w-duo-oc-8gb-proart-midnight-5909/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (ProArt, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5909" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-colorful-igame-geforce-rtx-4060-ti-ultra-w-duo-oc-8gb-proart-midnight-5909/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Colorful</div>
-  <a href="/price-aggregator/p/videokarta-colorful-igame-geforce-rtx-4060-ti-ultra-w-duo-oc-8gb-proart-midnight-5909/" class="product-card__title" title="Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (ProArt, Midnight)">
-    Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (ProArt, Midnight)  </a>
-
+  <a href="/price-aggregator/p/videokarta-colorful-igame-geforce-rtx-4060-ti-ultra-w-duo-oc-8gb-proart-midnight-5909/" class="product-card__title" title="Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (ProArt, Midnight)">    Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (ProArt, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1136,35 +1081,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">49 491 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">49 491 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5909" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5909" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5654" data-price="60051" data-drop="0" data-pop="105" data-brand="inno3d" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5654" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-gaming-trio-gold-5654/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (Gaming Trio, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5654" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-gaming-trio-gold-5654/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Inno3D</div>
-  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-gaming-trio-gold-5654/" class="product-card__title" title="Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (Gaming Trio, Gold)">
-    Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (Gaming Trio, Gold)  </a>
-
+  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-gaming-trio-gold-5654/" class="product-card__title" title="Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (Gaming Trio, Gold)">    Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (Gaming Trio, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1182,35 +1122,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">60 051 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">60 051 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5654" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5654" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5324" data-price="67041" data-drop="0" data-pop="105" data-brand="zotac" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5324" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-white-edition-titanium-5324/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (White Edition, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5324" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-white-edition-titanium-5324/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ZOTAC</div>
-  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-white-edition-titanium-5324/" class="product-card__title" title="Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (White Edition, Titanium)">
-    Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (White Edition, Titanium)  </a>
-
+  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-white-edition-titanium-5324/" class="product-card__title" title="Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (White Edition, Titanium)">    Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (White Edition, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1228,35 +1163,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">67 041 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">67 041 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5324" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5324" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5468" data-price="62991" data-drop="0" data-pop="104" data-brand="zotac" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5468" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-proart-titanium-5468/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (ProArt, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5468" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-proart-titanium-5468/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ZOTAC</div>
-  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-proart-titanium-5468/" class="product-card__title" title="Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (ProArt, Titanium)">
-    Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (ProArt, Titanium)  </a>
-
+  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-proart-titanium-5468/" class="product-card__title" title="Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (ProArt, Titanium)">    Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (ProArt, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1274,35 +1204,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">62 991 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">62 991 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5468" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5468" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5249" data-price="130171" data-drop="0" data-pop="104" data-brand="asus" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5249" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-gaming-trio-titanium-5249/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4090.webp" alt="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (Gaming Trio, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5249" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-gaming-trio-titanium-5249/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-gaming-trio-titanium-5249/" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (Gaming Trio, Titanium)">
-    Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (Gaming Trio, Titanium)  </a>
-
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-gaming-trio-titanium-5249/" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (Gaming Trio, Titanium)">    Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (Gaming Trio, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1320,35 +1245,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">130 171 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">130 171 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5249" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5249" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5027" data-price="55341" data-drop="0" data-pop="104" data-brand="sapphire" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5027" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-sapphire-pure-radeon-rx-7800-xt-16gb-white-proart-white-5027/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта Sapphire Pure Radeon RX 7800 XT 16GB White (ProArt, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5027" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-sapphire-pure-radeon-rx-7800-xt-16gb-white-proart-white-5027/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Sapphire</div>
-  <a href="/price-aggregator/p/videokarta-sapphire-pure-radeon-rx-7800-xt-16gb-white-proart-white-5027/" class="product-card__title" title="Видеокарта Sapphire Pure Radeon RX 7800 XT 16GB White (ProArt, White)">
-    Видеокарта Sapphire Pure Radeon RX 7800 XT 16GB White (ProArt, White)  </a>
-
+  <a href="/price-aggregator/p/videokarta-sapphire-pure-radeon-rx-7800-xt-16gb-white-proart-white-5027/" class="product-card__title" title="Видеокарта Sapphire Pure Radeon RX 7800 XT 16GB White (ProArt, White)">    Видеокарта Sapphire Pure Radeon RX 7800 XT 16GB White (ProArt, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1366,35 +1286,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">55 341 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">55 341 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5027" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5027" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5930" data-price="54891" data-drop="0" data-pop="103" data-brand="gigabyte" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5930" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-gaming-trio-graphite-5930/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (Gaming Trio, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5930" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-gaming-trio-graphite-5930/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">GIGABYTE</div>
-  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-gaming-trio-graphite-5930/" class="product-card__title" title="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (Gaming Trio, Graphite)">
-    Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (Gaming Trio, Graphite)  </a>
-
+  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-gaming-trio-graphite-5930/" class="product-card__title" title="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (Gaming Trio, Graphite)">    Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (Gaming Trio, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1412,35 +1327,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">54 891 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">54 891 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5930" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5930" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4985" data-price="130041" data-drop="0" data-pop="103" data-brand="asus" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4985" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-proart-dark-blue-4985/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4090.webp" alt="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (ProArt, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4985" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-proart-dark-blue-4985/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-proart-dark-blue-4985/" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (ProArt, Dark Blue)">
-    Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (ProArt, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-proart-dark-blue-4985/" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (ProArt, Dark Blue)">    Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (ProArt, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1458,35 +1368,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">130 041 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">130 041 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4985" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4985" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5093" data-price="44091" data-drop="0" data-pop="103" data-brand="colorful" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5093" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-colorful-igame-geforce-rtx-4060-ti-ultra-w-duo-oc-8gb-gaming-trio-silver-5093/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (Gaming Trio, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5093" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-colorful-igame-geforce-rtx-4060-ti-ultra-w-duo-oc-8gb-gaming-trio-silver-5093/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Colorful</div>
-  <a href="/price-aggregator/p/videokarta-colorful-igame-geforce-rtx-4060-ti-ultra-w-duo-oc-8gb-gaming-trio-silver-5093/" class="product-card__title" title="Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (Gaming Trio, Silver)">
-    Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (Gaming Trio, Silver)  </a>
-
+  <a href="/price-aggregator/p/videokarta-colorful-igame-geforce-rtx-4060-ti-ultra-w-duo-oc-8gb-gaming-trio-silver-5093/" class="product-card__title" title="Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (Gaming Trio, Silver)">    Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (Gaming Trio, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1504,35 +1409,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">44 091 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">44 091 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5093" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5093" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5435" data-price="62555" data-drop="0" data-pop="101" data-brand="sapphire" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5435" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-sapphire-pure-radeon-rx-7800-xt-16gb-white-oc-edition-gold-5435/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта Sapphire Pure Radeon RX 7800 XT 16GB White (OC Edition, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5435" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-sapphire-pure-radeon-rx-7800-xt-16gb-white-oc-edition-gold-5435/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Sapphire</div>
-  <a href="/price-aggregator/p/videokarta-sapphire-pure-radeon-rx-7800-xt-16gb-white-oc-edition-gold-5435/" class="product-card__title" title="Видеокарта Sapphire Pure Radeon RX 7800 XT 16GB White (OC Edition, Gold)">
-    Видеокарта Sapphire Pure Radeon RX 7800 XT 16GB White (OC Edition, Gold)  </a>
-
+  <a href="/price-aggregator/p/videokarta-sapphire-pure-radeon-rx-7800-xt-16gb-white-oc-edition-gold-5435/" class="product-card__title" title="Видеокарта Sapphire Pure Radeon RX 7800 XT 16GB White (OC Edition, Gold)">    Видеокарта Sapphire Pure Radeon RX 7800 XT 16GB White (OC Edition, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1550,35 +1450,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">62 555 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">62 555 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5435" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5435" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5711" data-price="206531" data-drop="0" data-pop="101" data-brand="palit" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5711" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-oc-edition-graphite-5711/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4090.webp" alt="Видеокарта Palit GeForce RTX 4090 GameRock 24GB (OC Edition, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5711" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-oc-edition-graphite-5711/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Palit</div>
-  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-oc-edition-graphite-5711/" class="product-card__title" title="Видеокарта Palit GeForce RTX 4090 GameRock 24GB (OC Edition, Graphite)">
-    Видеокарта Palit GeForce RTX 4090 GameRock 24GB (OC Edition, Graphite)  </a>
-
+  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-oc-edition-graphite-5711/" class="product-card__title" title="Видеокарта Palit GeForce RTX 4090 GameRock 24GB (OC Edition, Graphite)">    Видеокарта Palit GeForce RTX 4090 GameRock 24GB (OC Edition, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1596,35 +1491,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">206 531 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">206 531 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5711" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5711" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5777" data-price="132851" data-drop="0" data-pop="101" data-brand="asus" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5777" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-dual-fan-dark-blue-5777/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4090.webp" alt="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (Dual Fan, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5777" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-dual-fan-dark-blue-5777/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-dual-fan-dark-blue-5777/" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (Dual Fan, Dark Blue)">
-    Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (Dual Fan, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-dual-fan-dark-blue-5777/" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (Dual Fan, Dark Blue)">    Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (Dual Fan, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1642,35 +1532,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">132 851 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">132 851 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5777" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5777" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5534" data-price="60621" data-drop="0" data-pop="101" data-brand="inno3d" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5534" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-gaming-trio-white-5534/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (Gaming Trio, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5534" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-gaming-trio-white-5534/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Inno3D</div>
-  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-gaming-trio-white-5534/" class="product-card__title" title="Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (Gaming Trio, White)">
-    Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (Gaming Trio, White)  </a>
-
+  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-gaming-trio-white-5534/" class="product-card__title" title="Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (Gaming Trio, White)">    Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (Gaming Trio, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1688,36 +1573,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">60 621 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">60 621 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5534" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5534" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5852" data-price="73461" data-drop="12" data-pop="101" data-brand="zotac" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−12%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5852" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-gaming-trio-dark-blue-5852/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (Gaming Trio, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5852" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-gaming-trio-dark-blue-5852/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ZOTAC</div>
-  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-gaming-trio-dark-blue-5852/" class="product-card__title" title="Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (Gaming Trio, Dark Blue)">
-    Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (Gaming Trio, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-gaming-trio-dark-blue-5852/" class="product-card__title" title="Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (Gaming Trio, Dark Blue)">    Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (Gaming Trio, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1735,35 +1615,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">73 461 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">73 461 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5852" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5852" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5105" data-price="132851" data-drop="0" data-pop="101" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5105" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-proart-titanium-5105/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4090.webp" alt="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (ProArt, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5105" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-proart-titanium-5105/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-proart-titanium-5105/" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (ProArt, Titanium)">
-    Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (ProArt, Titanium)  </a>
-
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-proart-titanium-5105/" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (ProArt, Titanium)">    Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (ProArt, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1781,35 +1656,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">132 851 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">132 851 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5105" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5105" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="6151" data-price="200691" data-drop="0" data-pop="100" data-brand="palit" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="6151" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-oc-edition-gold-6151/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4090.webp" alt="Видеокарта Palit GeForce RTX 4090 GameRock 24GB (OC Edition, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="6151" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-oc-edition-gold-6151/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Palit</div>
-  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-oc-edition-gold-6151/" class="product-card__title" title="Видеокарта Palit GeForce RTX 4090 GameRock 24GB (OC Edition, Gold)">
-    Видеокарта Palit GeForce RTX 4090 GameRock 24GB (OC Edition, Gold)  </a>
-
+  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-oc-edition-gold-6151/" class="product-card__title" title="Видеокарта Palit GeForce RTX 4090 GameRock 24GB (OC Edition, Gold)">    Видеокарта Palit GeForce RTX 4090 GameRock 24GB (OC Edition, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1827,35 +1697,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">200 691 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">200 691 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6151" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6151" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4895" data-price="208381" data-drop="0" data-pop="100" data-brand="palit" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4895" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-dual-fan-midnight-4895/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4090.webp" alt="Видеокарта Palit GeForce RTX 4090 GameRock 24GB (Dual Fan, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4895" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-dual-fan-midnight-4895/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Palit</div>
-  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-dual-fan-midnight-4895/" class="product-card__title" title="Видеокарта Palit GeForce RTX 4090 GameRock 24GB (Dual Fan, Midnight)">
-    Видеокарта Palit GeForce RTX 4090 GameRock 24GB (Dual Fan, Midnight)  </a>
-
+  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-dual-fan-midnight-4895/" class="product-card__title" title="Видеокарта Palit GeForce RTX 4090 GameRock 24GB (Dual Fan, Midnight)">    Видеокарта Palit GeForce RTX 4090 GameRock 24GB (Dual Fan, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1873,35 +1738,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">208 381 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">208 381 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4895" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4895" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5709" data-price="44581" data-drop="0" data-pop="100" data-brand="colorful" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5709" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-colorful-igame-geforce-rtx-4060-ti-ultra-w-duo-oc-8gb-proart-dark-blue-5709/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (ProArt, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5709" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-colorful-igame-geforce-rtx-4060-ti-ultra-w-duo-oc-8gb-proart-dark-blue-5709/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Colorful</div>
-  <a href="/price-aggregator/p/videokarta-colorful-igame-geforce-rtx-4060-ti-ultra-w-duo-oc-8gb-proart-dark-blue-5709/" class="product-card__title" title="Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (ProArt, Dark Blue)">
-    Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (ProArt, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/videokarta-colorful-igame-geforce-rtx-4060-ti-ultra-w-duo-oc-8gb-proart-dark-blue-5709/" class="product-card__title" title="Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (ProArt, Dark Blue)">    Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (ProArt, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1919,35 +1779,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">44 581 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">44 581 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5709" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5709" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4967" data-price="217060" data-drop="0" data-pop="100" data-brand="palit" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4967" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-gaming-trio-midnight-4967/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4090.webp" alt="Видеокарта Palit GeForce RTX 4090 GameRock 24GB (Gaming Trio, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4967" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-gaming-trio-midnight-4967/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Palit</div>
-  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-gaming-trio-midnight-4967/" class="product-card__title" title="Видеокарта Palit GeForce RTX 4090 GameRock 24GB (Gaming Trio, Midnight)">
-    Видеокарта Palit GeForce RTX 4090 GameRock 24GB (Gaming Trio, Midnight)  </a>
-
+  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-gaming-trio-midnight-4967/" class="product-card__title" title="Видеокарта Palit GeForce RTX 4090 GameRock 24GB (Gaming Trio, Midnight)">    Видеокарта Palit GeForce RTX 4090 GameRock 24GB (Gaming Trio, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1965,36 +1820,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">217 060 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">217 060 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4967" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4967" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5236" data-price="72671" data-drop="11" data-pop="100" data-brand="zotac" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−11%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5236" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-oc-edition-silver-5236/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (OC Edition, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5236" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-oc-edition-silver-5236/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ZOTAC</div>
-  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-oc-edition-silver-5236/" class="product-card__title" title="Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (OC Edition, Silver)">
-    Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (OC Edition, Silver)  </a>
-
+  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-oc-edition-silver-5236/" class="product-card__title" title="Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (OC Edition, Silver)">    Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (OC Edition, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -2012,35 +1862,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">72 671 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">72 671 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5236" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5236" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5272" data-price="39760" data-drop="0" data-pop="100" data-brand="msi" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5272" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4060-ventus-2x-black-8g-oc-oc-edition-dark-blue-5272/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (OC Edition, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5272" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4060-ventus-2x-black-8g-oc-oc-edition-dark-blue-5272/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4060-ventus-2x-black-8g-oc-oc-edition-dark-blue-5272/" class="product-card__title" title="Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (OC Edition, Dark Blue)">
-    Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (OC Edition, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4060-ventus-2x-black-8g-oc-oc-edition-dark-blue-5272/" class="product-card__title" title="Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (OC Edition, Dark Blue)">    Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (OC Edition, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -2058,35 +1903,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">39 760 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">39 760 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5272" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5272" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4826" data-price="59511" data-drop="0" data-pop="100" data-brand="gigabyte" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4826" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-proart-midnight-4826/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (ProArt, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4826" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-proart-midnight-4826/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">GIGABYTE</div>
-  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-proart-midnight-4826/" class="product-card__title" title="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (ProArt, Midnight)">
-    Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (ProArt, Midnight)  </a>
-
+  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-proart-midnight-4826/" class="product-card__title" title="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (ProArt, Midnight)">    Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (ProArt, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -2104,35 +1944,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">59 511 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">59 511 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4826" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4826" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4831" data-price="211566" data-drop="0" data-pop="100" data-brand="palit" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4831" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-oc-edition-space-gray-4831/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4090.webp" alt="Видеокарта Palit GeForce RTX 4090 GameRock 24GB (OC Edition, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4831" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-oc-edition-space-gray-4831/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Palit</div>
-  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-oc-edition-space-gray-4831/" class="product-card__title" title="Видеокарта Palit GeForce RTX 4090 GameRock 24GB (OC Edition, Space Gray)">
-    Видеокарта Palit GeForce RTX 4090 GameRock 24GB (OC Edition, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/videokarta-palit-geforce-rtx-4090-gamerock-24gb-oc-edition-space-gray-4831/" class="product-card__title" title="Видеокарта Palit GeForce RTX 4090 GameRock 24GB (OC Edition, Space Gray)">    Видеокарта Palit GeForce RTX 4090 GameRock 24GB (OC Edition, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -2150,36 +1985,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">211 566 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">211 566 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4831" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4831" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5600" data-price="36726" data-drop="15" data-pop="100" data-brand="msi" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−15%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5600" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4060-ventus-2x-black-8g-oc-white-edition-white-5600/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (White Edition, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5600" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4060-ventus-2x-black-8g-oc-white-edition-white-5600/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4060-ventus-2x-black-8g-oc-white-edition-white-5600/" class="product-card__title" title="Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (White Edition, White)">
-    Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (White Edition, White)  </a>
-
+  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4060-ventus-2x-black-8g-oc-white-edition-white-5600/" class="product-card__title" title="Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (White Edition, White)">    Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC (White Edition, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -2197,35 +2027,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">36 726 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">36 726 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5600" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5600" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5345" data-price="134091" data-drop="0" data-pop="100" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5345" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-proart-dark-blue-5345/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4090.webp" alt="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (ProArt, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5345" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-proart-dark-blue-5345/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-proart-dark-blue-5345/" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (ProArt, Dark Blue)">
-    Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (ProArt, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-proart-dark-blue-5345/" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (ProArt, Dark Blue)">    Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (ProArt, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -2243,35 +2068,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">134 091 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">134 091 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5345" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5345" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5861" data-price="42311" data-drop="0" data-pop="100" data-brand="colorful" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5861" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-colorful-igame-geforce-rtx-4060-ti-ultra-w-duo-oc-8gb-dual-fan-graphite-5861/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (Dual Fan, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5861" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-colorful-igame-geforce-rtx-4060-ti-ultra-w-duo-oc-8gb-dual-fan-graphite-5861/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Colorful</div>
-  <a href="/price-aggregator/p/videokarta-colorful-igame-geforce-rtx-4060-ti-ultra-w-duo-oc-8gb-dual-fan-graphite-5861/" class="product-card__title" title="Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (Dual Fan, Graphite)">
-    Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (Dual Fan, Graphite)  </a>
-
+  <a href="/price-aggregator/p/videokarta-colorful-igame-geforce-rtx-4060-ti-ultra-w-duo-oc-8gb-dual-fan-graphite-5861/" class="product-card__title" title="Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (Dual Fan, Graphite)">    Видеокарта Colorful iGame GeForce RTX 4060 Ti Ultra W Duo OC 8GB (Dual Fan, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -2289,35 +2109,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">42 311 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">42 311 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5861" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5861" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="6140" data-price="62991" data-drop="0" data-pop="100" data-brand="zotac" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="6140" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-dual-fan-dark-blue-6140/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (Dual Fan, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="6140" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-dual-fan-dark-blue-6140/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ZOTAC</div>
-  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-dual-fan-dark-blue-6140/" class="product-card__title" title="Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (Dual Fan, Dark Blue)">
-    Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (Dual Fan, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/videokarta-zotac-gaming-geforce-rtx-4070-super-twin-edge-12gb-dual-fan-dark-blue-6140/" class="product-card__title" title="Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (Dual Fan, Dark Blue)">    Видеокарта ZOTAC Gaming GeForce RTX 4070 Super Twin Edge 12GB (Dual Fan, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -2335,16 +2150,16 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">62 991 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">62 991 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6140" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6140" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
               </div>
 
@@ -2410,7 +2225,7 @@
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
+          <p class="footer-currency">Перед покупкой уточняйте актуальные цены и наличие в магазине.</p>
         </div>
 
         <div class="footer-col">
@@ -2429,7 +2244,7 @@
           <ul class="footer-links">
             <li><a href="/price-aggregator/pages/how-it-works">Как мы считаем цены</a></li>
             <li><a href="/price-aggregator/pages/marketplaces">О маркетплейсах и продавцах</a></li>
-            <li><a href="/price-aggregator/pages/report">Сообщить о неверной цене</a></li>
+            <li><span title="Форма доступна только на PHP-сайте">Сообщить о неверной цене (в демо недоступно)</span></li>
             <li><a href="/price-aggregator/pages/legal">Политика конфиденциальности (152-ФЗ)</a></li>
             <li><a href="/price-aggregator/ui-kit">Витрина компонентов (UI Kit)</a></li>
           </ul>
@@ -2456,15 +2271,15 @@
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#home"></use></svg>
       <span>Главная</span>
     </a>
-    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
       <span>Каталог</span>
     </button>
-    <a href="/price-aggregator/compare" class="mobile-nav__item">
+    <a href="/price-aggregator/compare" class="mobile-nav__item" id="mobileCompareBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       <span>Сравнение</span>
     </a>
-    <a href="/price-aggregator/favorites" class="mobile-nav__item">
+    <a href="/price-aggregator/favorites" class="mobile-nav__item" id="mobileFavBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
       <span>Избранное</span>
     </a>

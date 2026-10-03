@@ -24,18 +24,13 @@
   <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
   </head>
 <body class="site-body">
-  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <!-- Service information: never present hard-coded counters as live measurements. -->
   <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
     <div class="container d-flex justify-between align-center flex-wrap gap-2">
       <div class="d-flex align-center gap-2">
-        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
-        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
-        <span>Обновлено только что &mdash;</span>
-        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
-        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
       </div>
       <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/price-aggregator/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
         <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
       </div>
     </div>
@@ -61,7 +56,7 @@
           <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     placeholder="Поиск моделей в демонстрационном каталоге..."
                      value="" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
@@ -541,7 +536,7 @@
     </div>
 
     <!-- Mobile Filter Toggle Button -->
-    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn">
+    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn" aria-controls="filterSidebar" aria-expanded="false">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#filter"></use></svg>
       <span>Фильтры</span>
     </button>
@@ -848,22 +843,17 @@
       <div class="product-grid" id="catalogProducts">
                   <article class="product-card" data-product-id="7205" data-price="15006" data-drop="0" data-pop="110" data-brand="cougar" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7205" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-gold-7205/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус Cougar Duoface Pro RGB White (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7205" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-gold-7205/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Cougar</div>
-  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-gold-7205/" class="product-card__title" title="Корпус Cougar Duoface Pro RGB White (Gold)">
-    Корпус Cougar Duoface Pro RGB White (Gold)  </a>
-
+  <a href="/price-aggregator/p/korpus-cougar-duoface-pro-rgb-white-gold-7205/" class="product-card__title" title="Корпус Cougar Duoface Pro RGB White (Gold)">    Корпус Cougar Duoface Pro RGB White (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -877,35 +867,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">15 006 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">15 006 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7205" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7205" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="551" data-price="26381" data-drop="0" data-pop="110" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="551" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-space-gray-551/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="551" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-space-gray-551/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-space-gray-551/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)">
-    Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-oem-space-gray-551/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)">    Процессор AMD Ryzen 7 5700X3D OEM (OEM, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -923,35 +908,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">26 381 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">26 381 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="551" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="551" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3125" data-price="16480" data-drop="0" data-pop="110" data-brand="adata" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3125" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-gold-3125/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3125" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-gold-3125/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ADATA</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-gold-3125/" class="product-card__title" title="Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Gold)">
-    Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Gold)  </a>
-
+  <a href="/price-aggregator/p/operativnaya-pamyat-adata-xpg-lancer-blade-32gb-2x16gb-6000mhz-64gb-gold-3125/" class="product-card__title" title="Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Gold)">    Оперативная память ADATA XPG Lancer Blade 32GB (2x16GB) 6000MHz (64GB, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -969,35 +949,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">16 480 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">16 480 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3125" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3125" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="6491" data-price="22286" data-drop="0" data-pop="110" data-brand="corsair" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="6491" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-midnight-6491/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/psu-corsair.webp" alt="Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="6491" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-midnight-6491/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Corsair</div>
-  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-midnight-6491/" class="product-card__title" title="Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)">
-    Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)  </a>
-
+  <a href="/price-aggregator/p/blok-pitaniya-corsair-rm850x-850w-gold-cp-9020200-eu-midnight-6491/" class="product-card__title" title="Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)">    Блок питания Corsair RM850x 850W Gold (CP-9020200-EU) (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>power_watt:</span>
@@ -1011,35 +986,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">22 286 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">22 286 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6491" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6491" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="1124" data-price="38691" data-drop="0" data-pop="110" data-brand="intel" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="1124" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-oem-space-gray-1124/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Процессор Intel Core i7-14700K OEM (OEM, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="1124" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-oem-space-gray-1124/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-oem-space-gray-1124/" class="product-card__title" title="Процессор Intel Core i7-14700K OEM (OEM, Space Gray)">
-    Процессор Intel Core i7-14700K OEM (OEM, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-oem-space-gray-1124/" class="product-card__title" title="Процессор Intel Core i7-14700K OEM (OEM, Space Gray)">    Процессор Intel Core i7-14700K OEM (OEM, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1057,35 +1027,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">38 691 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">38 691 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1124" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1124" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="101" data-price="58116" data-drop="0" data-pop="110" data-brand="amd" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="101" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-oem-titanium-101/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 9 7950X OEM (OEM, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="101" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-oem-titanium-101/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-oem-titanium-101/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (OEM, Titanium)">
-    Процессор AMD Ryzen 9 7950X OEM (OEM, Titanium)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-oem-titanium-101/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (OEM, Titanium)">    Процессор AMD Ryzen 9 7950X OEM (OEM, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1103,35 +1068,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">58 116 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">58 116 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="101" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="101" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="8549" data-price="15006" data-drop="0" data-pop="110" data-brand="noctua" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="8549" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/kuler-dlya-protsessora-noctua-nh-d15-chromax-black-black-8549/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cooler-ak620.webp" alt="Кулер для процессора Noctua NH-D15 chromax.black (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="8549" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/kuler-dlya-protsessora-noctua-nh-d15-chromax-black-black-8549/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Noctua</div>
-  <a href="/price-aggregator/p/kuler-dlya-protsessora-noctua-nh-d15-chromax-black-black-8549/" class="product-card__title" title="Кулер для процессора Noctua NH-D15 chromax.black (Black)">
-    Кулер для процессора Noctua NH-D15 chromax.black (Black)  </a>
-
+  <a href="/price-aggregator/p/kuler-dlya-protsessora-noctua-nh-d15-chromax-black-black-8549/" class="product-card__title" title="Кулер для процессора Noctua NH-D15 chromax.black (Black)">    Кулер для процессора Noctua NH-D15 chromax.black (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1145,36 +1105,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">15 006 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">15 006 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="8549" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="8549" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="1652" data-price="26961" data-drop="12" data-pop="110" data-brand="gigabyte" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−12%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="1652" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/materinskaya-plata-gigabyte-z790-gaming-x-ax-midnight-1652/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/mobo-asus.webp" alt="Материнская плата GIGABYTE Z790 GAMING X AX (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="1652" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/materinskaya-plata-gigabyte-z790-gaming-x-ax-midnight-1652/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">GIGABYTE</div>
-  <a href="/price-aggregator/p/materinskaya-plata-gigabyte-z790-gaming-x-ax-midnight-1652/" class="product-card__title" title="Материнская плата GIGABYTE Z790 GAMING X AX (Midnight)">
-    Материнская плата GIGABYTE Z790 GAMING X AX (Midnight)  </a>
-
+  <a href="/price-aggregator/p/materinskaya-plata-gigabyte-z790-gaming-x-ax-midnight-1652/" class="product-card__title" title="Материнская плата GIGABYTE Z790 GAMING X AX (Midnight)">    Материнская плата GIGABYTE Z790 GAMING X AX (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1192,35 +1147,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">26 961 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">26 961 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1652" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1652" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="893" data-price="57591" data-drop="0" data-pop="110" data-brand="amd" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="893" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-893/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="893" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-893/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-893/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)">
-    Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-893/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)">    Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1238,36 +1188,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">57 591 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">57 591 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="893" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="893" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="1925" data-price="23241" data-drop="15" data-pop="110" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−15%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="1925" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/materinskaya-plata-asus-tuf-gaming-b650-plus-titanium-1925/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/mobo-asus.webp" alt="Материнская плата ASUS TUF GAMING B650-PLUS (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="1925" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/materinskaya-plata-asus-tuf-gaming-b650-plus-titanium-1925/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/materinskaya-plata-asus-tuf-gaming-b650-plus-titanium-1925/" class="product-card__title" title="Материнская плата ASUS TUF GAMING B650-PLUS (Titanium)">
-    Материнская плата ASUS TUF GAMING B650-PLUS (Titanium)  </a>
-
+  <a href="/price-aggregator/p/materinskaya-plata-asus-tuf-gaming-b650-plus-titanium-1925/" class="product-card__title" title="Материнская плата ASUS TUF GAMING B650-PLUS (Titanium)">    Материнская плата ASUS TUF GAMING B650-PLUS (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1285,35 +1230,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">23 241 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">23 241 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1925" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1925" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="4247" data-price="10456" data-drop="0" data-pop="110" data-brand="crucial" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="4247" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-1tb-titanium-4247/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (1TB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="4247" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-1tb-titanium-4247/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Crucial</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-1tb-titanium-4247/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (1TB, Titanium)">
-    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (1TB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-1tb-titanium-4247/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (1TB, Titanium)">    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (1TB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1331,35 +1271,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">10 456 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">10 456 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4247" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4247" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7328" data-price="5051" data-drop="0" data-pop="110" data-brand="deepcool" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7328" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-dark-blue-7328/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7328" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-dark-blue-7328/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">DeepCool</div>
-  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-dark-blue-7328/" class="product-card__title" title="Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)">
-    Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/korpus-deepcool-cc560-v2-black-4x120mm-fans-dark-blue-7328/" class="product-card__title" title="Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)">    Корпус DeepCool CC560 V2 Black (4x120mm Fans) (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1373,35 +1308,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">5 051 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">5 051 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7328" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7328" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5798" data-price="65511" data-drop="0" data-pop="110" data-brand="inno3d" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5798" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-oc-edition-gold-5798/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (OC Edition, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5798" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-oc-edition-gold-5798/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Inno3D</div>
-  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-oc-edition-gold-5798/" class="product-card__title" title="Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (OC Edition, Gold)">
-    Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (OC Edition, Gold)  </a>
-
+  <a href="/price-aggregator/p/videokarta-inno3d-geforce-rtx-4070-twin-x2-12gb-oc-edition-gold-5798/" class="product-card__title" title="Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (OC Edition, Gold)">    Видеокарта Inno3D GeForce RTX 4070 Twin X2 12GB (OC Edition, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1419,35 +1349,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">65 511 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">65 511 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5798" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5798" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3764" data-price="12341" data-drop="0" data-pop="110" data-brand="crucial" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3764" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-500gb-dark-blue-3764/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (500GB, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3764" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-500gb-dark-blue-3764/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Crucial</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-500gb-dark-blue-3764/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (500GB, Dark Blue)">
-    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (500GB, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-500gb-dark-blue-3764/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (500GB, Dark Blue)">    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (500GB, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1465,36 +1390,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">12 341 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">12 341 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3764" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3764" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3773" data-price="19521" data-drop="18" data-pop="110" data-brand="netac" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−18%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3773" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-graphite-3773/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3773" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-graphite-3773/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Netac</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-graphite-3773/" class="product-card__title" title="SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Graphite)">
-    SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-graphite-3773/" class="product-card__title" title="SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Graphite)">    SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1512,36 +1432,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">19 521 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">19 521 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3773" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3773" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="959" data-price="19986" data-drop="24" data-pop="110" data-brand="amd" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−24%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="959" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-white-959/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 7 5700X3D OEM (BOX, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="959" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-white-959/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-white-959/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (BOX, White)">
-    Процессор AMD Ryzen 7 5700X3D OEM (BOX, White)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-box-white-959/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM (BOX, White)">    Процессор AMD Ryzen 7 5700X3D OEM (BOX, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1559,35 +1474,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">19 986 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">19 986 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="959" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="959" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="209" data-price="50131" data-drop="0" data-pop="110" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="209" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-oem-gold-209/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 7 7800X3D OEM (OEM, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="209" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-oem-gold-209/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-oem-gold-209/" class="product-card__title" title="Процессор AMD Ryzen 7 7800X3D OEM (OEM, Gold)">
-    Процессор AMD Ryzen 7 7800X3D OEM (OEM, Gold)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-oem-gold-209/" class="product-card__title" title="Процессор AMD Ryzen 7 7800X3D OEM (OEM, Gold)">    Процессор AMD Ryzen 7 7800X3D OEM (OEM, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1605,35 +1515,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">50 131 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">50 131 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="209" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="209" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="2519" data-price="11767" data-drop="0" data-pop="110" data-brand="patriot" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="2519" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-white-2519/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="2519" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-white-2519/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Patriot</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-white-2519/" class="product-card__title" title="Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, White)">
-    Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, White)  </a>
-
+  <a href="/price-aggregator/p/operativnaya-pamyat-patriot-viper-venom-ddr5-32gb-2x16gb-6400mhz-64gb-white-2519/" class="product-card__title" title="Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, White)">    Оперативная память Patriot Viper Venom DDR5 32GB (2x16GB) 6400MHz (64GB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1651,35 +1556,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">11 767 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">11 767 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2519" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2519" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="2015" data-price="30351" data-drop="0" data-pop="110" data-brand="gigabyte" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="2015" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/materinskaya-plata-gigabyte-b650-aorus-elite-ax-space-gray-2015/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/mobo-asus.webp" alt="Материнская плата GIGABYTE B650 AORUS ELITE AX (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="2015" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/materinskaya-plata-gigabyte-b650-aorus-elite-ax-space-gray-2015/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">GIGABYTE</div>
-  <a href="/price-aggregator/p/materinskaya-plata-gigabyte-b650-aorus-elite-ax-space-gray-2015/" class="product-card__title" title="Материнская плата GIGABYTE B650 AORUS ELITE AX (Space Gray)">
-    Материнская плата GIGABYTE B650 AORUS ELITE AX (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/materinskaya-plata-gigabyte-b650-aorus-elite-ax-space-gray-2015/" class="product-card__title" title="Материнская плата GIGABYTE B650 AORUS ELITE AX (Space Gray)">    Материнская плата GIGABYTE B650 AORUS ELITE AX (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1697,35 +1597,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">30 351 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">30 351 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2015" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2015" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="485" data-price="55501" data-drop="0" data-pop="110" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="485" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-oem-dark-blue-485/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 9 7950X OEM (OEM, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="485" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-oem-dark-blue-485/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-oem-dark-blue-485/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (OEM, Dark Blue)">
-    Процессор AMD Ryzen 9 7950X OEM (OEM, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-oem-dark-blue-485/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (OEM, Dark Blue)">    Процессор AMD Ryzen 9 7950X OEM (OEM, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1743,36 +1638,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">55 501 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">55 501 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="485" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="485" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7910" data-price="5106" data-drop="15" data-pop="110" data-brand="thermalright" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−15%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7910" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/kuler-dlya-protsessora-thermalright-peerless-assassin-120-se-gold-7910/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cooler-ak620.webp" alt="Кулер для процессора Thermalright Peerless Assassin 120 SE (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7910" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/kuler-dlya-protsessora-thermalright-peerless-assassin-120-se-gold-7910/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Thermalright</div>
-  <a href="/price-aggregator/p/kuler-dlya-protsessora-thermalright-peerless-assassin-120-se-gold-7910/" class="product-card__title" title="Кулер для процессора Thermalright Peerless Assassin 120 SE (Gold)">
-    Кулер для процессора Thermalright Peerless Assassin 120 SE (Gold)  </a>
-
+  <a href="/price-aggregator/p/kuler-dlya-protsessora-thermalright-peerless-assassin-120-se-gold-7910/" class="product-card__title" title="Кулер для процессора Thermalright Peerless Assassin 120 SE (Gold)">    Кулер для процессора Thermalright Peerless Assassin 120 SE (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1786,36 +1676,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">5 106 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">5 106 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7910" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7910" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="749" data-price="53931" data-drop="24" data-pop="110" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−24%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="749" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-749/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="749" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-749/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-749/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)">
-    Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-749/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)">    Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1833,35 +1718,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">53 931 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">53 931 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="749" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="749" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="2321" data-price="9891" data-drop="0" data-pop="109" data-brand="crucial" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="2321" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/operativnaya-pamyat-crucial-pro-ddr5-32gb-2x16gb-5600mhz-32gb-silver-2321/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="2321" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-crucial-pro-ddr5-32gb-2x16gb-5600mhz-32gb-silver-2321/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Crucial</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-crucial-pro-ddr5-32gb-2x16gb-5600mhz-32gb-silver-2321/" class="product-card__title" title="Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)">
-    Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)  </a>
-
+  <a href="/price-aggregator/p/operativnaya-pamyat-crucial-pro-ddr5-32gb-2x16gb-5600mhz-32gb-silver-2321/" class="product-card__title" title="Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)">    Оперативная память Crucial Pro DDR5 32GB (2x16GB) 5600MHz (32GB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1879,35 +1759,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">9 891 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">9 891 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2321" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2321" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="6161" data-price="130041" data-drop="0" data-pop="109" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="6161" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-white-edition-black-6161/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4090.webp" alt="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (White Edition, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="6161" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-white-edition-black-6161/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-white-edition-black-6161/" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (White Edition, Black)">
-    Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (White Edition, Black)  </a>
-
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4080-super-16gb-white-edition-black-6161/" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (White Edition, Black)">    Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB (White Edition, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1925,35 +1800,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">130 041 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">130 041 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6161" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6161" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5666" data-price="62070" data-drop="0" data-pop="109" data-brand="gigabyte" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5666" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-proart-silver-5666/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (ProArt, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5666" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-proart-silver-5666/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">GIGABYTE</div>
-  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-proart-silver-5666/" class="product-card__title" title="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (ProArt, Silver)">
-    Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (ProArt, Silver)  </a>
-
+  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-proart-silver-5666/" class="product-card__title" title="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (ProArt, Silver)">    Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (ProArt, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -1971,35 +1841,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">62 070 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">62 070 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5666" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5666" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="299" data-price="21841" data-drop="0" data-pop="109" data-brand="amd" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="299" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-silver-299/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 5 7600X OEM (BOX, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="299" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-silver-299/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-silver-299/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (BOX, Silver)">
-    Процессор AMD Ryzen 5 7600X OEM (BOX, Silver)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-box-silver-299/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (BOX, Silver)">    Процессор AMD Ryzen 5 7600X OEM (BOX, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -2017,35 +1882,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">21 841 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">21 841 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="299" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="299" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="7250" data-price="14096" data-drop="0" data-pop="109" data-brand="nzxt" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="7250" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7250/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="7250" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7250/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">NZXT</div>
-  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7250/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)">
-    Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/korpus-nzxt-h5-flow-black-cc-h51fb-01-space-gray-7250/" class="product-card__title" title="Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)">    Корпус NZXT H5 Flow Black (CC-H51FB-01) (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -2059,35 +1919,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">14 096 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">14 096 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7250" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7250" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3158" data-price="11691" data-drop="0" data-pop="109" data-brand="corsair" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3158" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-midnight-3158/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3158" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-midnight-3158/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Corsair</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-midnight-3158/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)">
-    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)  </a>
-
+  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-midnight-3158/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)">    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -2105,35 +1960,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">11 691 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">11 691 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3158" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3158" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="2651" data-price="19101" data-drop="0" data-pop="109" data-brand="teamgroup" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="2651" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-titanium-2651/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="2651" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-titanium-2651/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">TeamGroup</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-titanium-2651/" class="product-card__title" title="Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Titanium)">
-    Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/operativnaya-pamyat-teamgroup-t-force-delta-rgb-ddr5-32gb-2x16gb-6000mhz-16gb-titanium-2651/" class="product-card__title" title="Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Titanium)">    Оперативная память TeamGroup T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz (16GB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -2151,35 +2001,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">19 101 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">19 101 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2651" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2651" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="605" data-price="58116" data-drop="0" data-pop="109" data-brand="amd" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="605" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-605/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="605" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-605/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">AMD</div>
-  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-605/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)">
-    Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)  </a>
-
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-box-titanium-605/" class="product-card__title" title="Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)">    Процессор AMD Ryzen 9 7950X OEM (BOX, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -2197,35 +2042,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">58 116 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">58 116 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="605" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="605" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="2675" data-price="13041" data-drop="0" data-pop="109" data-brand="corsair" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="2675" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-2675/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ram-fury.webp" alt="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="2675" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-2675/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Corsair</div>
-  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-2675/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)">
-    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/operativnaya-pamyat-corsair-vengeance-ddr5-32gb-2x16gb-5600mhz-32gb-graphite-2675/" class="product-card__title" title="Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)">    Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz (32GB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -2243,35 +2083,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">13 041 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">13 041 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2675" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2675" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="8054" data-price="8091" data-drop="0" data-pop="109" data-brand="deepcool" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="8054" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/kuler-dlya-protsessora-deepcool-ak620-digital-tdp-260-vt-white-8054/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cooler-ak620.webp" alt="Кулер для процессора DeepCool AK620 Digital (TDP 260 Вт) (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="8054" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/kuler-dlya-protsessora-deepcool-ak620-digital-tdp-260-vt-white-8054/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">DeepCool</div>
-  <a href="/price-aggregator/p/kuler-dlya-protsessora-deepcool-ak620-digital-tdp-260-vt-white-8054/" class="product-card__title" title="Кулер для процессора DeepCool AK620 Digital (TDP 260 Вт) (White)">
-    Кулер для процессора DeepCool AK620 Digital (TDP 260 Вт) (White)  </a>
-
+  <a href="/price-aggregator/p/kuler-dlya-protsessora-deepcool-ak620-digital-tdp-260-vt-white-8054/" class="product-card__title" title="Кулер для процессора DeepCool AK620 Digital (TDP 260 Вт) (White)">    Кулер для процессора DeepCool AK620 Digital (TDP 260 Вт) (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -2285,35 +2120,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">8 091 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">8 091 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="8054" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="8054" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3707" data-price="14841" data-drop="0" data-pop="109" data-brand="western digital" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3707" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-500gb-graphite-3707/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель WD Black SN850X 1TB NVMe M.2 (500GB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3707" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-500gb-graphite-3707/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Western Digital</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-500gb-graphite-3707/" class="product-card__title" title="SSD накопитель WD Black SN850X 1TB NVMe M.2 (500GB, Graphite)">
-    SSD накопитель WD Black SN850X 1TB NVMe M.2 (500GB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-wd-black-sn850x-1tb-nvme-m-2-500gb-graphite-3707/" class="product-card__title" title="SSD накопитель WD Black SN850X 1TB NVMe M.2 (500GB, Graphite)">    SSD накопитель WD Black SN850X 1TB NVMe M.2 (500GB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -2331,35 +2161,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">14 841 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">14 841 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3707" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3707" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="386" data-price="18441" data-drop="0" data-pop="109" data-brand="intel" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="386" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-oem-titanium-386/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Процессор Intel Core i5-12400F OEM (OEM, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="386" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-oem-titanium-386/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-oem-titanium-386/" class="product-card__title" title="Процессор Intel Core i5-12400F OEM (OEM, Titanium)">
-    Процессор Intel Core i5-12400F OEM (OEM, Titanium)  </a>
-
+  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-oem-titanium-386/" class="product-card__title" title="Процессор Intel Core i5-12400F OEM (OEM, Titanium)">    Процессор Intel Core i5-12400F OEM (OEM, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -2377,35 +2202,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">18 441 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">18 441 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="386" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="386" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="5282" data-price="58941" data-drop="0" data-pop="109" data-brand="gigabyte" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="5282" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-white-edition-graphite-5282/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/gpu-rtx4060.webp" alt="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (White Edition, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="5282" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-white-edition-graphite-5282/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">GIGABYTE</div>
-  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-white-edition-graphite-5282/" class="product-card__title" title="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (White Edition, Graphite)">
-    Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (White Edition, Graphite)  </a>
-
+  <a href="/price-aggregator/p/videokarta-gigabyte-radeon-rx-7800-xt-gaming-oc-16gb-white-edition-graphite-5282/" class="product-card__title" title="Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (White Edition, Graphite)">    Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB (White Edition, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>gpu_chip:</span>
@@ -2423,35 +2243,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">58 941 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">58 941 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5282" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="5282" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="3785" data-price="6361" data-drop="0" data-pop="109" data-brand="crucial" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="3785" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-4tb-black-3785/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="3785" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-4tb-black-3785/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Crucial</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-4tb-black-3785/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Black)">
-    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Black)  </a>
-
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-4tb-black-3785/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Black)">    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (4TB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -2469,16 +2284,16 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">6 361 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">6 361 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3785" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3785" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
               </div>
 
@@ -2544,7 +2359,7 @@
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
+          <p class="footer-currency">Перед покупкой уточняйте актуальные цены и наличие в магазине.</p>
         </div>
 
         <div class="footer-col">
@@ -2563,7 +2378,7 @@
           <ul class="footer-links">
             <li><a href="/price-aggregator/pages/how-it-works">Как мы считаем цены</a></li>
             <li><a href="/price-aggregator/pages/marketplaces">О маркетплейсах и продавцах</a></li>
-            <li><a href="/price-aggregator/pages/report">Сообщить о неверной цене</a></li>
+            <li><span title="Форма доступна только на PHP-сайте">Сообщить о неверной цене (в демо недоступно)</span></li>
             <li><a href="/price-aggregator/pages/legal">Политика конфиденциальности (152-ФЗ)</a></li>
             <li><a href="/price-aggregator/ui-kit">Витрина компонентов (UI Kit)</a></li>
           </ul>
@@ -2590,15 +2405,15 @@
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#home"></use></svg>
       <span>Главная</span>
     </a>
-    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
       <span>Каталог</span>
     </button>
-    <a href="/price-aggregator/compare" class="mobile-nav__item">
+    <a href="/price-aggregator/compare" class="mobile-nav__item" id="mobileCompareBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       <span>Сравнение</span>
     </a>
-    <a href="/price-aggregator/favorites" class="mobile-nav__item">
+    <a href="/price-aggregator/favorites" class="mobile-nav__item" id="mobileFavBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
       <span>Избранное</span>
     </a>

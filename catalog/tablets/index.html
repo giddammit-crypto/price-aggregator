@@ -24,18 +24,13 @@
   <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
   </head>
 <body class="site-body">
-  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <!-- Service information: never present hard-coded counters as live measurements. -->
   <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
     <div class="container d-flex justify-between align-center flex-wrap gap-2">
       <div class="d-flex align-center gap-2">
-        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
-        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
-        <span>Обновлено только что &mdash;</span>
-        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
-        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
       </div>
       <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/price-aggregator/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
         <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
       </div>
     </div>
@@ -61,7 +56,7 @@
           <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     placeholder="Поиск моделей в демонстрационном каталоге..."
                      value="" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
@@ -541,7 +536,7 @@
     </div>
 
     <!-- Mobile Filter Toggle Button -->
-    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn">
+    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn" aria-controls="filterSidebar" aria-expanded="false">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#filter"></use></svg>
       <span>Фильтры</span>
     </button>
@@ -678,22 +673,17 @@
       <div class="product-grid" id="catalogProducts">
                   <article class="product-card" data-product-id="14675" data-price="152765" data-drop="0" data-pop="110" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14675" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-silver-14675/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14675" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-silver-14675/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-silver-14675/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Silver)">
-    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Silver)  </a>
-
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-silver-14675/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Silver)">    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -707,35 +697,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">152 765 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">152 765 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14675" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14675" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14687" data-price="32391" data-drop="0" data-pop="110" data-brand="honor" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14687" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14687/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14687" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14687/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HONOR</div>
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14687/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)">
-    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)  </a>
-
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14687/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)">    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -749,35 +734,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">32 391 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">32 391 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14687" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14687" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15170" data-price="31041" data-drop="0" data-pop="109" data-brand="honor" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15170" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-gold-15170/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15170" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-gold-15170/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HONOR</div>
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-gold-15170/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)">
-    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)  </a>
-
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-gold-15170/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)">    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -791,35 +771,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">31 041 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">31 041 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15170" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15170" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14984" data-price="58491" data-drop="0" data-pop="109" data-brand="samsung" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14984" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-black-14984/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14984" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-black-14984/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-black-14984/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)">
-    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)  </a>
-
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-black-14984/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)">    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -833,35 +808,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">58 491 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">58 491 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14984" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14984" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14786" data-price="63691" data-drop="0" data-pop="109" data-brand="apple" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14786" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-gold-14786/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14786" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-gold-14786/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-gold-14786/" class="product-card__title" title="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, Gold)">
-    Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, Gold)  </a>
-
+  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-gold-14786/" class="product-card__title" title="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, Gold)">    Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -875,35 +845,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">63 691 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">63 691 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14786" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14786" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15203" data-price="29891" data-drop="0" data-pop="108" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15203" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-midnight-15203/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15203" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-midnight-15203/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-midnight-15203/" class="product-card__title" title="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Midnight)">
-    Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Midnight)  </a>
-
+  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-midnight-15203/" class="product-card__title" title="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Midnight)">    Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -917,35 +882,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">29 891 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">29 891 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15203" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15203" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14972" data-price="32651" data-drop="0" data-pop="108" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14972" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-graphite-14972/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14972" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-graphite-14972/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-graphite-14972/" class="product-card__title" title="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Graphite)">
-    Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-graphite-14972/" class="product-card__title" title="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Graphite)">    Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -959,35 +919,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">32 651 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">32 651 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14972" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14972" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14939" data-price="24291" data-drop="0" data-pop="107" data-brand="honor" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14939" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14939/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14939" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14939/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HONOR</div>
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14939/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)">
-    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)  </a>
-
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14939/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)">    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1001,35 +956,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">24 291 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">24 291 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14939" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14939" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15236" data-price="62501" data-drop="0" data-pop="105" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15236" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-black-15236/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15236" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-black-15236/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-black-15236/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)">
-    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)  </a>
-
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-black-15236/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)">    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1043,35 +993,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">62 501 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">62 501 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15236" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15236" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14774" data-price="68141" data-drop="0" data-pop="104" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14774" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-dark-blue-14774/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14774" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-dark-blue-14774/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-dark-blue-14774/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Dark Blue)">
-    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-dark-blue-14774/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Dark Blue)">    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1085,36 +1030,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">68 141 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">68 141 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14774" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14774" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15050" data-price="33471" data-drop="15" data-pop="104" data-brand="lenovo" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−15%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15050" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-black-15050/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15050" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-black-15050/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Lenovo</div>
-  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-black-15050/" class="product-card__title" title="Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Black)">
-    Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Black)  </a>
-
+  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-black-15050/" class="product-card__title" title="Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Black)">    Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1128,35 +1068,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">33 471 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">33 471 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15050" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15050" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14564" data-price="62541" data-drop="0" data-pop="104" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14564" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-titanium-14564/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14564" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-titanium-14564/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-titanium-14564/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Titanium)">
-    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-titanium-14564/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Titanium)">    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1170,35 +1105,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">62 541 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">62 541 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14564" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14564" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14993" data-price="27131" data-drop="0" data-pop="101" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14993" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-silver-14993/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14993" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-silver-14993/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-silver-14993/" class="product-card__title" title="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Silver)">
-    Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Silver)  </a>
-
+  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-silver-14993/" class="product-card__title" title="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Silver)">    Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1212,35 +1142,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">27 131 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">27 131 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14993" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14993" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15026" data-price="66591" data-drop="0" data-pop="101" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15026" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-dark-blue-15026/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15026" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-dark-blue-15026/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-dark-blue-15026/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Dark Blue)">
-    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-dark-blue-15026/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Dark Blue)">    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1254,36 +1179,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">66 591 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">66 591 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15026" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15026" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15134" data-price="31011" data-drop="24" data-pop="100" data-brand="lenovo" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−24%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15134" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-titanium-15134/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15134" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-titanium-15134/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Lenovo</div>
-  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-titanium-15134/" class="product-card__title" title="Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Titanium)">
-    Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-titanium-15134/" class="product-card__title" title="Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Titanium)">    Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1297,36 +1217,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">31 011 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">31 011 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15134" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15134" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14924" data-price="38061" data-drop="24" data-pop="100" data-brand="lenovo" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−24%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14924" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-black-14924/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14924" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-black-14924/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Lenovo</div>
-  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-black-14924/" class="product-card__title" title="Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Black)">
-    Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Black)  </a>
-
+  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-black-14924/" class="product-card__title" title="Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Black)">    Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1340,35 +1255,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">38 061 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">38 061 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14924" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14924" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14933" data-price="63691" data-drop="0" data-pop="100" data-brand="apple" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14933" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-white-14933/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14933" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-white-14933/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-white-14933/" class="product-card__title" title="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, White)">
-    Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, White)  </a>
-
+  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-white-14933/" class="product-card__title" title="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, White)">    Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1382,35 +1292,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">63 691 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">63 691 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14933" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14933" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14969" data-price="146466" data-drop="0" data-pop="100" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14969" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-graphite-14969/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14969" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-graphite-14969/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-graphite-14969/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Graphite)">
-    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-graphite-14969/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Graphite)">    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1424,35 +1329,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">146 466 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">146 466 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14969" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14969" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14981" data-price="32391" data-drop="0" data-pop="100" data-brand="honor" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14981" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-gold-14981/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14981" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-gold-14981/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HONOR</div>
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-gold-14981/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)">
-    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)  </a>
-
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-gold-14981/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)">    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1466,35 +1366,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">32 391 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">32 391 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14981" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14981" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15011" data-price="145071" data-drop="0" data-pop="100" data-brand="apple" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15011" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-midnight-15011/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15011" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-midnight-15011/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-midnight-15011/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Midnight)">
-    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Midnight)  </a>
-
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-midnight-15011/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Midnight)">    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1508,36 +1403,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">145 071 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">145 071 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15011" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15011" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14938" data-price="30351" data-drop="23" data-pop="99" data-brand="lenovo" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−23%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14938" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-512gb-white-14938/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (512GB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14938" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-512gb-white-14938/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Lenovo</div>
-  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-512gb-white-14938/" class="product-card__title" title="Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (512GB, White)">
-    Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (512GB, White)  </a>
-
+  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-512gb-white-14938/" class="product-card__title" title="Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (512GB, White)">    Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (512GB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1551,35 +1441,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">30 351 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">30 351 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14938" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14938" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15214" data-price="143316" data-drop="0" data-pop="99" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15214" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-128gb-dark-blue-15214/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15214" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-128gb-dark-blue-15214/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-128gb-dark-blue-15214/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Dark Blue)">
-    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-128gb-dark-blue-15214/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Dark Blue)">    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1593,35 +1478,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">143 316 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">143 316 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15214" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15214" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14752" data-price="139221" data-drop="0" data-pop="99" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14752" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-128gb-titanium-14752/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14752" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-128gb-titanium-14752/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-128gb-titanium-14752/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Titanium)">
-    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-128gb-titanium-14752/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Titanium)">    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1635,35 +1515,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">139 221 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">139 221 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14752" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14752" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14795" data-price="59841" data-drop="0" data-pop="99" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14795" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-black-14795/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14795" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-black-14795/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-black-14795/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)">
-    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)  </a>
-
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-black-14795/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)">    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1677,35 +1552,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">59 841 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">59 841 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14795" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14795" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15347" data-price="143676" data-drop="0" data-pop="99" data-brand="apple" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15347" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-graphite-15347/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15347" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-graphite-15347/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-graphite-15347/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Graphite)">
-    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-graphite-15347/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Graphite)">    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1719,35 +1589,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">143 676 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">143 676 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15347" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15347" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14905" data-price="67041" data-drop="0" data-pop="98" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14905" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-256gb-graphite-14905/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (256GB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14905" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-256gb-graphite-14905/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-256gb-graphite-14905/" class="product-card__title" title="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (256GB, Graphite)">
-    Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (256GB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-256gb-graphite-14905/" class="product-card__title" title="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (256GB, Graphite)">    Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (256GB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1761,36 +1626,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">67 041 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">67 041 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14905" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14905" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15176" data-price="39051" data-drop="21" data-pop="98" data-brand="lenovo" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−21%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15176" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-black-15176/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15176" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-black-15176/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Lenovo</div>
-  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-black-15176/" class="product-card__title" title="Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Black)">
-    Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Black)  </a>
-
+  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-black-15176/" class="product-card__title" title="Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Black)">    Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1804,35 +1664,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">39 051 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">39 051 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15176" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15176" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15191" data-price="25641" data-drop="0" data-pop="98" data-brand="honor" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15191" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-15191/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15191" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-15191/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HONOR</div>
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-15191/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)">
-    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)  </a>
-
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-15191/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)">    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1846,35 +1701,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">25 641 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">25 641 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15191" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15191" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15193" data-price="139221" data-drop="0" data-pop="98" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15193" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-128gb-titanium-15193/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15193" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-128gb-titanium-15193/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-128gb-titanium-15193/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Titanium)">
-    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-128gb-titanium-15193/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Titanium)">    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1888,35 +1738,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">139 221 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">139 221 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15193" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15193" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14710" data-price="140586" data-drop="0" data-pop="98" data-brand="apple" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14710" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-128gb-dark-blue-14710/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14710" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-128gb-dark-blue-14710/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-128gb-dark-blue-14710/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Dark Blue)">
-    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-128gb-dark-blue-14710/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Dark Blue)">    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (128GB, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1930,35 +1775,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">140 586 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">140 586 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14710" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14710" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14982" data-price="65091" data-drop="0" data-pop="98" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14982" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-128gb-black-14982/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (128GB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14982" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-128gb-black-14982/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-128gb-black-14982/" class="product-card__title" title="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (128GB, Black)">
-    Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (128GB, Black)  </a>
-
+  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-128gb-black-14982/" class="product-card__title" title="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (128GB, Black)">    Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (128GB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1972,35 +1812,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">65 091 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">65 091 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14982" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14982" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14995" data-price="26496" data-drop="0" data-pop="98" data-brand="honor" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14995" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-256gb-silver-14995/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (256GB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14995" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-256gb-silver-14995/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HONOR</div>
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-256gb-silver-14995/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (256GB, Silver)">
-    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (256GB, Silver)  </a>
-
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-256gb-silver-14995/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (256GB, Silver)">    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (256GB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -2014,35 +1849,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">26 496 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">26 496 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14995" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14995" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15035" data-price="25751" data-drop="0" data-pop="98" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15035" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-graphite-15035/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15035" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-graphite-15035/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-graphite-15035/" class="product-card__title" title="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Graphite)">
-    Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-graphite-15035/" class="product-card__title" title="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Graphite)">    Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -2056,35 +1886,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">25 751 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">25 751 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15035" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15035" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14543" data-price="61091" data-drop="0" data-pop="98" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14543" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-14543/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14543" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-14543/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-14543/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite">
-    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite  </a>
-
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-14543/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite">    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -2098,35 +1923,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">61 091 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">61 091 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14543" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14543" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14837" data-price="58491" data-drop="0" data-pop="98" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14837" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-dark-blue-14837/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14837" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-dark-blue-14837/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-dark-blue-14837/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Dark Blue)">
-    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-dark-blue-14837/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Dark Blue)">    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -2140,35 +1960,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">58 491 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">58 491 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14837" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14837" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14587" data-price="35141" data-drop="0" data-pop="98" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14587" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-128gb-dark-blue-14587/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (128GB, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14587" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-128gb-dark-blue-14587/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-128gb-dark-blue-14587/" class="product-card__title" title="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (128GB, Dark Blue)">
-    Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (128GB, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-128gb-dark-blue-14587/" class="product-card__title" title="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (128GB, Dark Blue)">    Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (128GB, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -2182,16 +1997,16 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">35 141 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">35 141 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14587" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14587" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
               </div>
 
@@ -2257,7 +2072,7 @@
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
+          <p class="footer-currency">Перед покупкой уточняйте актуальные цены и наличие в магазине.</p>
         </div>
 
         <div class="footer-col">
@@ -2276,7 +2091,7 @@
           <ul class="footer-links">
             <li><a href="/price-aggregator/pages/how-it-works">Как мы считаем цены</a></li>
             <li><a href="/price-aggregator/pages/marketplaces">О маркетплейсах и продавцах</a></li>
-            <li><a href="/price-aggregator/pages/report">Сообщить о неверной цене</a></li>
+            <li><span title="Форма доступна только на PHP-сайте">Сообщить о неверной цене (в демо недоступно)</span></li>
             <li><a href="/price-aggregator/pages/legal">Политика конфиденциальности (152-ФЗ)</a></li>
             <li><a href="/price-aggregator/ui-kit">Витрина компонентов (UI Kit)</a></li>
           </ul>
@@ -2303,15 +2118,15 @@
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#home"></use></svg>
       <span>Главная</span>
     </a>
-    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
       <span>Каталог</span>
     </button>
-    <a href="/price-aggregator/compare" class="mobile-nav__item">
+    <a href="/price-aggregator/compare" class="mobile-nav__item" id="mobileCompareBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       <span>Сравнение</span>
     </a>
-    <a href="/price-aggregator/favorites" class="mobile-nav__item">
+    <a href="/price-aggregator/favorites" class="mobile-nav__item" id="mobileFavBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
       <span>Избранное</span>
     </a>

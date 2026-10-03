@@ -24,18 +24,13 @@
   <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
   </head>
 <body class="site-body">
-  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <!-- Service information: never present hard-coded counters as live measurements. -->
   <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
     <div class="container d-flex justify-between align-center flex-wrap gap-2">
       <div class="d-flex align-center gap-2">
-        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
-        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
-        <span>Обновлено только что &mdash;</span>
-        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
-        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
       </div>
       <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/price-aggregator/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
         <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
       </div>
     </div>
@@ -61,7 +56,7 @@
           <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     placeholder="Поиск моделей в демонстрационном каталоге..."
                      value="" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
@@ -541,7 +536,7 @@
     </div>
 
     <!-- Mobile Filter Toggle Button -->
-    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn">
+    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn" aria-controls="filterSidebar" aria-expanded="false">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#filter"></use></svg>
       <span>Фильтры</span>
     </button>
@@ -678,22 +673,17 @@
       <div class="product-grid" id="catalogProducts">
                   <article class="product-card" data-product-id="19538" data-price="18891" data-drop="0" data-pop="110" data-brand="redmond" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19538" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-gold-19538/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19538" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-gold-19538/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Redmond</div>
-  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-gold-19538/" class="product-card__title" title="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Gold)">
-    Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Gold)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-gold-19538/" class="product-card__title" title="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Gold)">    Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -707,35 +697,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">18 891 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">18 891 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19538" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19538" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19571" data-price="67151" data-drop="0" data-pop="110" data-brand="ecovacs" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19571" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-midnight-19571/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19571" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-midnight-19571/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Ecovacs</div>
-  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-midnight-19571/" class="product-card__title" title="Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Midnight)">
-    Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Midnight)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-midnight-19571/" class="product-card__title" title="Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Midnight)">    Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -749,35 +734,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">67 151 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">67 151 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19571" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19571" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19604" data-price="58491" data-drop="0" data-pop="110" data-brand="dreame" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19604" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-black-19604/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19604" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-black-19604/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Dreame</div>
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-black-19604/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Black)">
-    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Black)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-black-19604/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Black)">    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -791,35 +771,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">58 491 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">58 491 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19604" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19604" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19679" data-price="87351" data-drop="0" data-pop="110" data-brand="roborock" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19679" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-roborock-s8-pro-ultra-white-stantsiya-samoochistki-white-19679/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19679" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-roborock-s8-pro-ultra-white-stantsiya-samoochistki-white-19679/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Roborock</div>
-  <a href="/price-aggregator/p/robot-pylesos-roborock-s8-pro-ultra-white-stantsiya-samoochistki-white-19679/" class="product-card__title" title="Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (White)">
-    Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (White)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-roborock-s8-pro-ultra-white-stantsiya-samoochistki-white-19679/" class="product-card__title" title="Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (White)">    Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -833,35 +808,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">87 351 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">87 351 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19679" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19679" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19802" data-price="64391" data-drop="0" data-pop="109" data-brand="ecovacs" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19802" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-silver-19802/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19802" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-silver-19802/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Ecovacs</div>
-  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-silver-19802/" class="product-card__title" title="Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Silver)">
-    Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Silver)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-silver-19802/" class="product-card__title" title="Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Silver)">    Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -875,35 +845,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">64 391 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">64 391 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19802" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19802" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19328" data-price="16191" data-drop="0" data-pop="108" data-brand="redmond" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19328" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-space-gray-19328/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19328" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-space-gray-19328/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Redmond</div>
-  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-space-gray-19328/" class="product-card__title" title="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Space Gray)">
-    Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-space-gray-19328/" class="product-card__title" title="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Space Gray)">    Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -917,35 +882,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">16 191 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">16 191 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19328" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19328" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19646" data-price="66591" data-drop="0" data-pop="107" data-brand="dreame" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19646" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-dark-blue-19646/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19646" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-dark-blue-19646/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Dreame</div>
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-dark-blue-19646/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Dark Blue)">
-    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-dark-blue-19646/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Dark Blue)">    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -959,35 +919,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">66 591 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">66 591 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19646" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19646" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19967" data-price="32076" data-drop="0" data-pop="107" data-brand="roborock" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19967" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-roborock-q7-max-black-vlazhnaya-uborka-4200-pa-graphite-19967/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Roborock Q7 Max Black влажная уборка 4200 Па (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19967" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-roborock-q7-max-black-vlazhnaya-uborka-4200-pa-graphite-19967/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Roborock</div>
-  <a href="/price-aggregator/p/robot-pylesos-roborock-q7-max-black-vlazhnaya-uborka-4200-pa-graphite-19967/" class="product-card__title" title="Робот-пылесос Roborock Q7 Max Black влажная уборка 4200 Па (Graphite)">
-    Робот-пылесос Roborock Q7 Max Black влажная уборка 4200 Па (Graphite)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-roborock-q7-max-black-vlazhnaya-uborka-4200-pa-graphite-19967/" class="product-card__title" title="Робот-пылесос Roborock Q7 Max Black влажная уборка 4200 Па (Graphite)">    Робот-пылесос Roborock Q7 Max Black влажная уборка 4200 Па (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1001,35 +956,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">32 076 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">32 076 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19967" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19967" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19559" data-price="13491" data-drop="0" data-pop="106" data-brand="redmond" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19559" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-white-19559/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19559" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-white-19559/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Redmond</div>
-  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-white-19559/" class="product-card__title" title="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (White)">
-    Робот-пылесос Redmond RV-R650S WiFi влажная уборка (White)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-white-19559/" class="product-card__title" title="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (White)">    Робот-пылесос Redmond RV-R650S WiFi влажная уборка (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1043,36 +993,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">13 491 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">13 491 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19559" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19559" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19208" data-price="34401" data-drop="18" data-pop="105" data-brand="roidmi" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−18%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19208" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-dark-blue-19208/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19208" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-dark-blue-19208/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Roidmi</div>
-  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-dark-blue-19208/" class="product-card__title" title="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Dark Blue)">
-    Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-dark-blue-19208/" class="product-card__title" title="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Dark Blue)">    Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1086,35 +1031,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">34 401 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">34 401 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19208" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19208" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19580" data-price="17541" data-drop="0" data-pop="105" data-brand="redmond" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19580" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-space-gray-19580/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19580" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-space-gray-19580/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Redmond</div>
-  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-space-gray-19580/" class="product-card__title" title="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Space Gray)">
-    Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-space-gray-19580/" class="product-card__title" title="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Space Gray)">    Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1128,36 +1068,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">17 541 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">17 541 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19580" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19580" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19439" data-price="31611" data-drop="24" data-pop="105" data-brand="roidmi" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−24%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19439" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-titanium-19439/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19439" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-titanium-19439/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Roidmi</div>
-  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-titanium-19439/" class="product-card__title" title="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Titanium)">
-    Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Titanium)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-titanium-19439/" class="product-card__title" title="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Titanium)">    Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1171,35 +1106,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">31 611 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">31 611 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19439" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19439" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19373" data-price="61191" data-drop="0" data-pop="103" data-brand="dreame" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19373" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-titanium-19373/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19373" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-titanium-19373/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Dreame</div>
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-titanium-19373/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Titanium)">
-    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Titanium)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-titanium-19373/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Titanium)">    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1213,35 +1143,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">61 191 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">61 191 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19373" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19373" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19505" data-price="27891" data-drop="0" data-pop="102" data-brand="roborock" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19505" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-roborock-q7-max-black-vlazhnaya-uborka-4200-pa-midnight-19505/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Roborock Q7 Max Black влажная уборка 4200 Па (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19505" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-roborock-q7-max-black-vlazhnaya-uborka-4200-pa-midnight-19505/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Roborock</div>
-  <a href="/price-aggregator/p/robot-pylesos-roborock-q7-max-black-vlazhnaya-uborka-4200-pa-midnight-19505/" class="product-card__title" title="Робот-пылесос Roborock Q7 Max Black влажная уборка 4200 Па (Midnight)">
-    Робот-пылесос Roborock Q7 Max Black влажная уборка 4200 Па (Midnight)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-roborock-q7-max-black-vlazhnaya-uborka-4200-pa-midnight-19505/" class="product-card__title" title="Робот-пылесос Roborock Q7 Max Black влажная уборка 4200 Па (Midnight)">    Робот-пылесос Roborock Q7 Max Black влажная уборка 4200 Па (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1255,35 +1180,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">27 891 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">27 891 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19505" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19505" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19514" data-price="51406" data-drop="0" data-pop="102" data-brand="xiaomi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19514" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-xiaomi-robot-vacuum-x10-white-stantsiya-vse-v-odnom-space-gray-19514/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Xiaomi Robot Vacuum X10+ White станция Все в одном (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19514" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-xiaomi-robot-vacuum-x10-white-stantsiya-vse-v-odnom-space-gray-19514/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/robot-pylesos-xiaomi-robot-vacuum-x10-white-stantsiya-vse-v-odnom-space-gray-19514/" class="product-card__title" title="Робот-пылесос Xiaomi Robot Vacuum X10+ White станция Все в одном (Space Gray)">
-    Робот-пылесос Xiaomi Robot Vacuum X10+ White станция Все в одном (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-xiaomi-robot-vacuum-x10-white-stantsiya-vse-v-odnom-space-gray-19514/" class="product-card__title" title="Робот-пылесос Xiaomi Robot Vacuum X10+ White станция Все в одном (Space Gray)">    Робот-пылесос Xiaomi Robot Vacuum X10+ White станция Все в одном (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1297,35 +1217,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">51 406 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">51 406 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19514" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19514" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19835" data-price="65241" data-drop="0" data-pop="102" data-brand="dreame" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19835" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-dark-blue-19835/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19835" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-dark-blue-19835/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Dreame</div>
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-dark-blue-19835/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Dark Blue)">
-    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-dark-blue-19835/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Dark Blue)">    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1339,35 +1254,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">65 241 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">65 241 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19835" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19835" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19382" data-price="68531" data-drop="0" data-pop="102" data-brand="ecovacs" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19382" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-midnight-19382/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19382" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-midnight-19382/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Ecovacs</div>
-  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-midnight-19382/" class="product-card__title" title="Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Midnight)">
-    Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Midnight)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-midnight-19382/" class="product-card__title" title="Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Midnight)">    Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1381,35 +1291,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">68 531 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">68 531 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19382" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19382" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19724" data-price="54136" data-drop="0" data-pop="101" data-brand="xiaomi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19724" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-xiaomi-robot-vacuum-x10-white-stantsiya-vse-v-odnom-gold-19724/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Xiaomi Robot Vacuum X10+ White станция Все в одном (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19724" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-xiaomi-robot-vacuum-x10-white-stantsiya-vse-v-odnom-gold-19724/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/robot-pylesos-xiaomi-robot-vacuum-x10-white-stantsiya-vse-v-odnom-gold-19724/" class="product-card__title" title="Робот-пылесос Xiaomi Robot Vacuum X10+ White станция Все в одном (Gold)">
-    Робот-пылесос Xiaomi Robot Vacuum X10+ White станция Все в одном (Gold)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-xiaomi-robot-vacuum-x10-white-stantsiya-vse-v-odnom-gold-19724/" class="product-card__title" title="Робот-пылесос Xiaomi Robot Vacuum X10+ White станция Все в одном (Gold)">    Робот-пылесос Xiaomi Robot Vacuum X10+ White станция Все в одном (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1423,36 +1328,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">54 136 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">54 136 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19724" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19724" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19670" data-price="28821" data-drop="15" data-pop="101" data-brand="roidmi" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−15%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19670" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-black-19670/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19670" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-black-19670/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Roidmi</div>
-  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-black-19670/" class="product-card__title" title="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Black)">
-    Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Black)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-black-19670/" class="product-card__title" title="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Black)">    Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1466,35 +1366,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">28 821 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">28 821 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19670" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19670" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19163" data-price="61091" data-drop="0" data-pop="101" data-brand="dreame" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19163" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-19163/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19163" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-19163/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Dreame</div>
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-19163/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр">
-    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-19163/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр">    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1508,35 +1403,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">61 091 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">61 091 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19163" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19163" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19462" data-price="86001" data-drop="0" data-pop="100" data-brand="roborock" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19462" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-roborock-s8-pro-ultra-white-stantsiya-samoochistki-graphite-19462/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19462" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-roborock-s8-pro-ultra-white-stantsiya-samoochistki-graphite-19462/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Roborock</div>
-  <a href="/price-aggregator/p/robot-pylesos-roborock-s8-pro-ultra-white-stantsiya-samoochistki-graphite-19462/" class="product-card__title" title="Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (Graphite)">
-    Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (Graphite)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-roborock-s8-pro-ultra-white-stantsiya-samoochistki-graphite-19462/" class="product-card__title" title="Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (Graphite)">    Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1550,35 +1440,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">86 001 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">86 001 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19462" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19462" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19814" data-price="61191" data-drop="0" data-pop="100" data-brand="dreame" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19814" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-titanium-19814/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19814" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-titanium-19814/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Dreame</div>
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-titanium-19814/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Titanium)">
-    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Titanium)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-titanium-19814/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Titanium)">    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1592,35 +1477,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">61 191 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">61 191 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19814" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19814" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19660" data-price="61171" data-drop="0" data-pop="100" data-brand="dreame" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19660" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-gold-19660/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19660" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-gold-19660/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Dreame</div>
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-gold-19660/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Gold)">
-    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Gold)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-gold-19660/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Gold)">    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1634,36 +1514,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">61 171 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">61 171 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19660" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19660" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19691" data-price="33006" data-drop="21" data-pop="100" data-brand="roidmi" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−21%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19691" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-titanium-19691/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19691" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-titanium-19691/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Roidmi</div>
-  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-titanium-19691/" class="product-card__title" title="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Titanium)">
-    Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Titanium)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-titanium-19691/" class="product-card__title" title="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Titanium)">    Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1677,35 +1552,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">33 006 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">33 006 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19691" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19691" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19693" data-price="93051" data-drop="0" data-pop="100" data-brand="roborock" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19693" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-roborock-s8-pro-ultra-white-stantsiya-samoochistki-midnight-19693/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19693" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-roborock-s8-pro-ultra-white-stantsiya-samoochistki-midnight-19693/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Roborock</div>
-  <a href="/price-aggregator/p/robot-pylesos-roborock-s8-pro-ultra-white-stantsiya-samoochistki-midnight-19693/" class="product-card__title" title="Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (Midnight)">
-    Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (Midnight)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-roborock-s8-pro-ultra-white-stantsiya-samoochistki-midnight-19693/" class="product-card__title" title="Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (Midnight)">    Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1719,35 +1589,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">93 051 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">93 051 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19693" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19693" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19219" data-price="61171" data-drop="0" data-pop="99" data-brand="dreame" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19219" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-gold-19219/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19219" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-gold-19219/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Dreame</div>
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-gold-19219/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Gold)">
-    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Gold)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-gold-19219/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Gold)">    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1761,35 +1626,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">61 171 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">61 171 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19219" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19219" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19769" data-price="16191" data-drop="0" data-pop="99" data-brand="redmond" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19769" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-space-gray-19769/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19769" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-space-gray-19769/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Redmond</div>
-  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-space-gray-19769/" class="product-card__title" title="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Space Gray)">
-    Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-space-gray-19769/" class="product-card__title" title="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Space Gray)">    Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1803,35 +1663,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">16 191 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">16 191 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19769" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19769" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19532" data-price="87351" data-drop="0" data-pop="99" data-brand="roborock" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19532" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-roborock-s8-pro-ultra-white-stantsiya-samoochistki-gold-19532/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19532" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-roborock-s8-pro-ultra-white-stantsiya-samoochistki-gold-19532/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Roborock</div>
-  <a href="/price-aggregator/p/robot-pylesos-roborock-s8-pro-ultra-white-stantsiya-samoochistki-gold-19532/" class="product-card__title" title="Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (Gold)">
-    Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (Gold)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-roborock-s8-pro-ultra-white-stantsiya-samoochistki-gold-19532/" class="product-card__title" title="Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (Gold)">    Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1845,36 +1700,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">87 351 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">87 351 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19532" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19532" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19537" data-price="31271" data-drop="17" data-pop="99" data-brand="roidmi" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−17%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19537" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-gold-19537/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19537" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-gold-19537/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Roidmi</div>
-  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-gold-19537/" class="product-card__title" title="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Gold)">
-    Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Gold)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-gold-19537/" class="product-card__title" title="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Gold)">    Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1888,35 +1738,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">31 271 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">31 271 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19537" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19537" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19800" data-price="59141" data-drop="0" data-pop="99" data-brand="dreame" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19800" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-silver-19800/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19800" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-silver-19800/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Dreame</div>
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-silver-19800/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Silver)">
-    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Silver)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-silver-19800/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Silver)">    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1930,35 +1775,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">59 141 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">59 141 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19800" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19800" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19307" data-price="21591" data-drop="0" data-pop="99" data-brand="redmond" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19307" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-white-19307/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19307" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-white-19307/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Redmond</div>
-  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-white-19307/" class="product-card__title" title="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (White)">
-    Робот-пылесос Redmond RV-R650S WiFi влажная уборка (White)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-white-19307/" class="product-card__title" title="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (White)">    Робот-пылесос Redmond RV-R650S WiFi влажная уборка (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -1972,36 +1812,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">21 591 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">21 591 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19307" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19307" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19586" data-price="31611" data-drop="21" data-pop="99" data-brand="roidmi" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−21%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19586" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-dark-blue-19586/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19586" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-dark-blue-19586/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Roidmi</div>
-  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-dark-blue-19586/" class="product-card__title" title="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Dark Blue)">
-    Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-roidmi-eve-plus-so-stantsiey-vsasyvaniya-pyli-dark-blue-19586/" class="product-card__title" title="Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Dark Blue)">    Робот-пылесос Roidmi Eve Plus со станцией всасывания пыли (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -2015,35 +1850,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">31 611 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">31 611 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19586" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19586" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19844" data-price="72671" data-drop="0" data-pop="99" data-brand="ecovacs" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19844" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-graphite-19844/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19844" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-graphite-19844/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Ecovacs</div>
-  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-graphite-19844/" class="product-card__title" title="Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Graphite)">
-    Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Graphite)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-graphite-19844/" class="product-card__title" title="Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Graphite)">    Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -2057,35 +1887,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">72 671 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">72 671 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19844" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19844" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19394" data-price="68141" data-drop="0" data-pop="99" data-brand="dreame" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19394" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-dark-blue-19394/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19394" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-dark-blue-19394/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Dreame</div>
-  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-dark-blue-19394/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Dark Blue)">
-    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-dreame-l10s-ultra-stantsiya-s-promyvkoy-shvabr-dark-blue-19394/" class="product-card__title" title="Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Dark Blue)">    Робот-пылесос Dreame L10s Ultra станция с промывкой швабр (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -2099,35 +1924,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">68 141 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">68 141 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19394" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19394" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19412" data-price="13641" data-drop="0" data-pop="99" data-brand="redmond" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19412" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-gold-19412/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19412" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-gold-19412/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Redmond</div>
-  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-gold-19412/" class="product-card__title" title="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Gold)">
-    Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Gold)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-redmond-rv-r650s-wifi-vlazhnaya-uborka-gold-19412/" class="product-card__title" title="Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Gold)">    Робот-пылесос Redmond RV-R650S WiFi влажная уборка (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -2141,35 +1961,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">13 641 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">13 641 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19412" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19412" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19445" data-price="75165" data-drop="0" data-pop="99" data-brand="ecovacs" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19445" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-midnight-19445/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/vacuum-roborock.webp" alt="Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19445" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-midnight-19445/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Ecovacs</div>
-  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-midnight-19445/" class="product-card__title" title="Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Midnight)">
-    Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Midnight)  </a>
-
+  <a href="/price-aggregator/p/robot-pylesos-ecovacs-deebot-t20-omni-s-goryachey-vodoy-6000-pa-midnight-19445/" class="product-card__title" title="Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Midnight)">    Робот-пылесос Ecovacs Deebot T20 Omni с горячей водой 6000 Па (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>wet_cleaning:</span>
@@ -2183,16 +1998,16 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">75 165 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">75 165 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19445" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19445" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
               </div>
 
@@ -2258,7 +2073,7 @@
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
+          <p class="footer-currency">Перед покупкой уточняйте актуальные цены и наличие в магазине.</p>
         </div>
 
         <div class="footer-col">
@@ -2277,7 +2092,7 @@
           <ul class="footer-links">
             <li><a href="/price-aggregator/pages/how-it-works">Как мы считаем цены</a></li>
             <li><a href="/price-aggregator/pages/marketplaces">О маркетплейсах и продавцах</a></li>
-            <li><a href="/price-aggregator/pages/report">Сообщить о неверной цене</a></li>
+            <li><span title="Форма доступна только на PHP-сайте">Сообщить о неверной цене (в демо недоступно)</span></li>
             <li><a href="/price-aggregator/pages/legal">Политика конфиденциальности (152-ФЗ)</a></li>
             <li><a href="/price-aggregator/ui-kit">Витрина компонентов (UI Kit)</a></li>
           </ul>
@@ -2304,15 +2119,15 @@
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#home"></use></svg>
       <span>Главная</span>
     </a>
-    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
       <span>Каталог</span>
     </button>
-    <a href="/price-aggregator/compare" class="mobile-nav__item">
+    <a href="/price-aggregator/compare" class="mobile-nav__item" id="mobileCompareBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       <span>Сравнение</span>
     </a>
-    <a href="/price-aggregator/favorites" class="mobile-nav__item">
+    <a href="/price-aggregator/favorites" class="mobile-nav__item" id="mobileFavBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
       <span>Избранное</span>
     </a>

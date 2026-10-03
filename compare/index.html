@@ -24,18 +24,13 @@
   <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
   </head>
 <body class="site-body">
-  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <!-- Service information: never present hard-coded counters as live measurements. -->
   <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
     <div class="container d-flex justify-between align-center flex-wrap gap-2">
       <div class="d-flex align-center gap-2">
-        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
-        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
-        <span>Обновлено только что &mdash;</span>
-        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
-        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
       </div>
       <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/price-aggregator/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
         <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
       </div>
     </div>
@@ -61,7 +56,7 @@
           <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     placeholder="Поиск моделей в демонстрационном каталоге..."
                      value="" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
@@ -530,7 +525,11 @@
       <p class="text-muted" style="font-size: var(--fs-sm);">Сравните характеристики и минимальные цены выбранных моделей</p>
     </div>
 
-      </div>
+      <label class="filter-checkbox font-bold" id="compareDiffControl" hidden>
+        <input type="checkbox" id="toggleDiffsOnly">
+        <span>Показывать только отличия</span>
+      </label>
+  </div>
 
   <div id="compareEmptyState"  style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: 48px; text-align: center; max-width: 600px; margin: 0 auto;">
     <svg class="icon icon-lg" style="color: var(--c-ink-3); width: 48px; height: 48px; margin: 0 auto var(--sp-3);"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
@@ -541,7 +540,7 @@
     <a href="/price-aggregator/catalog/smartphones" class="btn btn--accent">Перейти в каталог</a>
   </div>
 
-  <div id="compareTableWrap" style="display:none;" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); overflow-x: auto; box-shadow: var(--sh-1);">
+  <div id="compareTableWrap" style="display:none; background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); overflow-x: auto; box-shadow: var(--sh-1);">
     <table style="width: 100%; border-collapse: collapse; min-width: 700px; font-size: var(--fs-sm);">
       <thead id="compareThead">
         <tr style="border-bottom: 2px solid var(--c-line); background: var(--c-bg);">
@@ -573,6 +572,13 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
+  stored = stored.filter(id => Number.isSafeInteger(id) && id > 0).slice(0, 6);
+  if (!window.location.hostname.endsWith('github.io') && thead?.querySelectorAll('th').length <= 1) {
+    const query = stored.join(',');
+    if (query && new URLSearchParams(location.search).get('ids') !== query) location.replace('/compare?ids=' + query);
+    return;
+  }
+
   function setupDiffToggle() {
     if (diffToggle) {
       diffToggle.addEventListener('change', (e) => {
@@ -591,8 +597,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Hydrate client-side from search_index.json
   const prefix = window.location.pathname.startsWith('/price-aggregator') ? '/price-aggregator' : '';
+  const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const localUrl = value => {
+    try { const url = new URL(value, location.origin); return url.origin === location.origin ? escape(url.href) : '#'; }
+    catch (_) { return '#'; }
+  };
   fetch(prefix + '/api/search_index.json')
-    .then(r => r.json())
+    .then(r => { if (!r.ok) throw new Error('Index unavailable'); return r.json(); })
     .then(items => {
       const cmpItems = items.filter(item => stored.includes(item.id));
       if (cmpItems.length > 0 && tableWrap && thead && tbody) {
@@ -606,14 +617,14 @@ document.addEventListener('DOMContentLoaded', () => {
             <th style="padding: 16px; text-align: left; width: 220px; position: sticky; left: 0; background: var(--c-bg); z-index: 2;">Модель</th>
             ${cmpItems.map(p => `
               <th style="padding: 16px; text-align: center; vertical-align: top; width: 220px;">
-                <img src="${p.image}" alt="" style="max-height: 100px; margin: 0 auto 8px;" width="100" height="100">
-                <a href="${p.url}" class="font-bold" style="display: block; line-height: 1.3; margin-bottom: 6px;">
-                  ${p.title}
+                <img src="${localUrl(p.image)}" alt="" style="max-height: 100px; margin: 0 auto 8px;" width="100" height="100">
+                <a href="${localUrl(p.url)}" class="font-bold" style="display: block; line-height: 1.3; margin-bottom: 6px;">
+                  ${escape(p.title)}
                 </a>
                 <div style="font-size: 1.25rem; font-weight: 800; color: var(--c-accent); margin-bottom: 8px;">
                   ${(p.price || 0).toLocaleString('ru-RU')} ₽
                 </div>
-                <button type="button" class="btn btn--outline btn--sm" data-compare-id="${p.id}">Удалить</button>
+                <button type="button" class="btn btn--outline btn--sm" data-compare-id="${Number(p.id)}">Удалить</button>
               </th>
             `).join('')}
           </tr>
@@ -626,23 +637,22 @@ document.addEventListener('DOMContentLoaded', () => {
           bodyHtml += `
             <tr class="compare-row ${isSame ? 'is-same' : 'is-different'}" style="border-bottom: 1px solid var(--c-line);">
               <td style="padding: 12px 16px; font-weight: 600; color: var(--c-ink-2); position: sticky; left: 0; background: var(--c-surface); z-index: 1;">
-                ${k}
+                ${escape(k)}
               </td>
-              ${vals.map(v => `<td style="padding: 12px 16px; text-align: center;">${v}</td>`).join('')}
+              ${vals.map(v => `<td style="padding: 12px 16px; text-align: center;">${escape(v)}</td>`).join('')}
             </tr>
           `;
         });
         tbody.innerHTML = bodyHtml;
 
         tableWrap.style.display = 'block';
+        document.getElementById('compareDiffControl').hidden = false;
         if (emptyState) emptyState.hidden = true;
         setupDiffToggle();
       }
     })
     .catch(() => {
-      if (!window.location.search.includes('ids=')) {
-        window.location.replace('/compare?ids=' + stored.join(','));
-      }
+      if (emptyState) { emptyState.hidden = false; emptyState.querySelector('h2').textContent = 'Не удалось загрузить сравнение'; }
     });
 });
 </script>
@@ -657,7 +667,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
+          <p class="footer-currency">Перед покупкой уточняйте актуальные цены и наличие в магазине.</p>
         </div>
 
         <div class="footer-col">
@@ -676,7 +686,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <ul class="footer-links">
             <li><a href="/price-aggregator/pages/how-it-works">Как мы считаем цены</a></li>
             <li><a href="/price-aggregator/pages/marketplaces">О маркетплейсах и продавцах</a></li>
-            <li><a href="/price-aggregator/pages/report">Сообщить о неверной цене</a></li>
+            <li><span title="Форма доступна только на PHP-сайте">Сообщить о неверной цене (в демо недоступно)</span></li>
             <li><a href="/price-aggregator/pages/legal">Политика конфиденциальности (152-ФЗ)</a></li>
             <li><a href="/price-aggregator/ui-kit">Витрина компонентов (UI Kit)</a></li>
           </ul>
@@ -703,15 +713,15 @@ document.addEventListener('DOMContentLoaded', () => {
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#home"></use></svg>
       <span>Главная</span>
     </a>
-    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
       <span>Каталог</span>
     </button>
-    <a href="/price-aggregator/compare" class="mobile-nav__item">
+    <a href="/price-aggregator/compare" class="mobile-nav__item" id="mobileCompareBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       <span>Сравнение</span>
     </a>
-    <a href="/price-aggregator/favorites" class="mobile-nav__item">
+    <a href="/price-aggregator/favorites" class="mobile-nav__item" id="mobileFavBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
       <span>Избранное</span>
     </a>

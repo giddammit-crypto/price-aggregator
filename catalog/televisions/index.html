@@ -24,18 +24,13 @@
   <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
   </head>
 <body class="site-body">
-  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <!-- Service information: never present hard-coded counters as live measurements. -->
   <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
     <div class="container d-flex justify-between align-center flex-wrap gap-2">
       <div class="d-flex align-center gap-2">
-        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
-        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
-        <span>Обновлено только что &mdash;</span>
-        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
-        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
       </div>
       <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/price-aggregator/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
         <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
       </div>
     </div>
@@ -61,7 +56,7 @@
           <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     placeholder="Поиск моделей в демонстрационном каталоге..."
                      value="" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
@@ -541,7 +536,7 @@
     </div>
 
     <!-- Mobile Filter Toggle Button -->
-    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn">
+    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn" aria-controls="filterSidebar" aria-expanded="false">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#filter"></use></svg>
       <span>Фильтры</span>
     </button>
@@ -688,22 +683,17 @@
       <div class="product-grid" id="catalogProducts">
                   <article class="product-card" data-product-id="18119" data-price="72531" data-drop="0" data-pop="110" data-brand="philips" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18119" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-black-18119/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18119" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-black-18119/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Philips</div>
-  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-black-18119/" class="product-card__title" title="Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Black)">
-    Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Black)  </a>
-
+  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-black-18119/" class="product-card__title" title="Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Black)">    Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -721,36 +711,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">72 531 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">72 531 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18119" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18119" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18095" data-price="78111" data-drop="15" data-pop="109" data-brand="philips" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−15%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18095" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-dark-blue-18095/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18095" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-dark-blue-18095/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Philips</div>
-  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-dark-blue-18095/" class="product-card__title" title="Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Dark Blue)">
-    Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-dark-blue-18095/" class="product-card__title" title="Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Dark Blue)">    Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -768,35 +753,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">78 111 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">78 111 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18095" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18095" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18779" data-price="66016" data-drop="0" data-pop="108" data-brand="samsung" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18779" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-white-18779/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18779" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-white-18779/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-white-18779/" class="product-card__title" title="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (White)">
-    Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (White)  </a>
-
+  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-white-18779/" class="product-card__title" title="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (White)">    Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -814,35 +794,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">66 016 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">66 016 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18779" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18779" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18227" data-price="65311" data-drop="0" data-pop="107" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18227" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-space-gray-18227/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18227" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-space-gray-18227/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-space-gray-18227/" class="product-card__title" title="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Space Gray)">
-    Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-space-gray-18227/" class="product-card__title" title="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Space Gray)">    Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -860,35 +835,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">65 311 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">65 311 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18227" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18227" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18821" data-price="67331" data-drop="0" data-pop="106" data-brand="hisense" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18821" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-graphite-18821/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18821" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-graphite-18821/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Hisense</div>
-  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-graphite-18821/" class="product-card__title" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Graphite)">
-    Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Graphite)  </a>
-
+  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-graphite-18821/" class="product-card__title" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Graphite)">    Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -906,35 +876,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">67 331 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">67 331 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18821" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18821" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18581" data-price="66021" data-drop="0" data-pop="106" data-brand="hisense" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18581" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-midnight-18581/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18581" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-midnight-18581/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Hisense</div>
-  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-midnight-18581/" class="product-card__title" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Midnight)">
-    Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Midnight)  </a>
-
+  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-midnight-18581/" class="product-card__title" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Midnight)">    Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -952,35 +917,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">66 021 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">66 021 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18581" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18581" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18680" data-price="106191" data-drop="0" data-pop="106" data-brand="sony" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18680" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-graphite-18680/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18680" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-graphite-18680/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Sony</div>
-  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-graphite-18680/" class="product-card__title" title="Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Graphite)">
-    Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Graphite)  </a>
-
+  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-graphite-18680/" class="product-card__title" title="Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Graphite)">    Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -998,35 +958,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">106 191 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">106 191 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18680" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18680" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18953" data-price="37791" data-drop="0" data-pop="105" data-brand="xiaomi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18953" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-dark-blue-18953/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18953" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-dark-blue-18953/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-dark-blue-18953/" class="product-card__title" title="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Dark Blue)">
-    Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-dark-blue-18953/" class="product-card__title" title="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Dark Blue)">    Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1044,35 +999,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">37 791 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">37 791 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18953" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18953" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18251" data-price="68696" data-drop="0" data-pop="105" data-brand="samsung" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18251" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-gold-18251/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18251" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-gold-18251/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-gold-18251/" class="product-card__title" title="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Gold)">
-    Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Gold)  </a>
-
+  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-gold-18251/" class="product-card__title" title="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Gold)">    Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1090,35 +1040,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">68 696 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">68 696 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18251" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18251" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18338" data-price="130121" data-drop="0" data-pop="105" data-brand="lg" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18338" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-lg-oled55c3rla-55-4k-120hz-webos-smart-tv-silver-18338/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18338" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-lg-oled55c3rla-55-4k-120hz-webos-smart-tv-silver-18338/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">LG</div>
-  <a href="/price-aggregator/p/televizor-lg-oled55c3rla-55-4k-120hz-webos-smart-tv-silver-18338/" class="product-card__title" title="Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV (Silver)">
-    Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV (Silver)  </a>
-
+  <a href="/price-aggregator/p/televizor-lg-oled55c3rla-55-4k-120hz-webos-smart-tv-silver-18338/" class="product-card__title" title="Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV (Silver)">    Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1136,35 +1081,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">130 121 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">130 121 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18338" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18338" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18404" data-price="41841" data-drop="0" data-pop="105" data-brand="tcl" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18404" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-black-18404/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18404" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-black-18404/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">TCL</div>
-  <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-black-18404/" class="product-card__title" title="Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Black)">
-    Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Black)  </a>
-
+  <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-black-18404/" class="product-card__title" title="Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Black)">    Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1182,35 +1122,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">41 841 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">41 841 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18404" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18404" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18932" data-price="47931" data-drop="0" data-pop="105" data-brand="tcl" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18932" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-titanium-18932/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18932" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-titanium-18932/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">TCL</div>
-  <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-titanium-18932/" class="product-card__title" title="Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Titanium)">
-    Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Titanium)  </a>
-
+  <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-titanium-18932/" class="product-card__title" title="Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Titanium)">    Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1228,35 +1163,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">47 931 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">47 931 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18932" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18932" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18965" data-price="63236" data-drop="0" data-pop="104" data-brand="hisense" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18965" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-graphite-18965/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18965" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-graphite-18965/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Hisense</div>
-  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-graphite-18965/" class="product-card__title" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Graphite)">
-    Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Graphite)  </a>
-
+  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-graphite-18965/" class="product-card__title" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Graphite)">    Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1274,35 +1204,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">63 236 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">63 236 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18965" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18965" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18041" data-price="35481" data-drop="0" data-pop="104" data-brand="xiaomi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18041" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-18041/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18041" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-18041/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-18041/" class="product-card__title" title="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV">
-    Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV  </a>
-
+  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-18041/" class="product-card__title" title="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV">    Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1320,35 +1245,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">35 481 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">35 481 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18041" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18041" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19085" data-price="66021" data-drop="0" data-pop="104" data-brand="hisense" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19085" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-midnight-19085/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19085" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-midnight-19085/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Hisense</div>
-  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-midnight-19085/" class="product-card__title" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Midnight)">
-    Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Midnight)  </a>
-
+  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-midnight-19085/" class="product-card__title" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Midnight)">    Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1366,35 +1286,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">66 021 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">66 021 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19085" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19085" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18062" data-price="36391" data-drop="0" data-pop="103" data-brand="haier" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18062" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-haier-55-smart-tv-s3-4k-uhd-android-tv-white-18062/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Haier 55 Smart TV S3 4K UHD Android TV (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18062" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-haier-55-smart-tv-s3-4k-uhd-android-tv-white-18062/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Haier</div>
-  <a href="/price-aggregator/p/televizor-haier-55-smart-tv-s3-4k-uhd-android-tv-white-18062/" class="product-card__title" title="Телевизор Haier 55 Smart TV S3 4K UHD Android TV (White)">
-    Телевизор Haier 55 Smart TV S3 4K UHD Android TV (White)  </a>
-
+  <a href="/price-aggregator/p/televizor-haier-55-smart-tv-s3-4k-uhd-android-tv-white-18062/" class="product-card__title" title="Телевизор Haier 55 Smart TV S3 4K UHD Android TV (White)">    Телевизор Haier 55 Smart TV S3 4K UHD Android TV (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1412,35 +1327,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">36 391 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">36 391 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18062" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18062" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18449" data-price="37791" data-drop="0" data-pop="102" data-brand="xiaomi" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18449" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-dark-blue-18449/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18449" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-dark-blue-18449/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-dark-blue-18449/" class="product-card__title" title="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Dark Blue)">
-    Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-dark-blue-18449/" class="product-card__title" title="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Dark Blue)">    Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1458,36 +1368,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">37 791 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">37 791 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18449" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18449" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18977" data-price="43236" data-drop="12" data-pop="102" data-brand="xiaomi" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−12%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18977" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-black-18977/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18977" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-black-18977/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-black-18977/" class="product-card__title" title="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Black)">
-    Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Black)  </a>
-
+  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-black-18977/" class="product-card__title" title="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Black)">    Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1505,35 +1410,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">43 236 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">43 236 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18977" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18977" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18482" data-price="135581" data-drop="0" data-pop="101" data-brand="lg" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18482" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-lg-oled55c3rla-55-4k-120hz-webos-smart-tv-silver-18482/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18482" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-lg-oled55c3rla-55-4k-120hz-webos-smart-tv-silver-18482/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">LG</div>
-  <a href="/price-aggregator/p/televizor-lg-oled55c3rla-55-4k-120hz-webos-smart-tv-silver-18482/" class="product-card__title" title="Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV (Silver)">
-    Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV (Silver)  </a>
-
+  <a href="/price-aggregator/p/televizor-lg-oled55c3rla-55-4k-120hz-webos-smart-tv-silver-18482/" class="product-card__title" title="Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV (Silver)">    Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1551,35 +1451,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">135 581 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">135 581 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18482" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18482" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18467" data-price="67331" data-drop="0" data-pop="100" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18467" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-gold-18467/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18467" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-gold-18467/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-gold-18467/" class="product-card__title" title="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Gold)">
-    Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Gold)  </a>
-
+  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-gold-18467/" class="product-card__title" title="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Gold)">    Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1597,35 +1492,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">67 331 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">67 331 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18467" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18467" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18269" data-price="59791" data-drop="0" data-pop="100" data-brand="hisense" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18269" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-silver-18269/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18269" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-silver-18269/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Hisense</div>
-  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-silver-18269/" class="product-card__title" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Silver)">
-    Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Silver)  </a>
-
+  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-silver-18269/" class="product-card__title" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Silver)">    Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1643,35 +1533,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">59 791 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">59 791 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18269" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18269" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18281" data-price="37791" data-drop="0" data-pop="100" data-brand="xiaomi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18281" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-titanium-18281/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18281" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-titanium-18281/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-titanium-18281/" class="product-card__title" title="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Titanium)">
-    Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Titanium)  </a>
-
+  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-titanium-18281/" class="product-card__title" title="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Titanium)">    Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1689,35 +1574,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">37 791 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">37 791 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18281" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18281" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18548" data-price="39891" data-drop="0" data-pop="100" data-brand="tcl" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18548" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-black-18548/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18548" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-black-18548/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">TCL</div>
-  <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-black-18548/" class="product-card__title" title="Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Black)">
-    Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Black)  </a>
-
+  <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-black-18548/" class="product-card__title" title="Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Black)">    Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1735,36 +1615,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">39 891 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">39 891 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18548" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18548" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18053" data-price="61836" data-drop="18" data-pop="100" data-brand="hisense" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−18%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18053" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-silver-18053/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18053" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-silver-18053/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Hisense</div>
-  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-silver-18053/" class="product-card__title" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Silver)">
-    Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Silver)  </a>
-
+  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-silver-18053/" class="product-card__title" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Silver)">    Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1782,35 +1657,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">61 836 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">61 836 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18053" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18053" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18071" data-price="71541" data-drop="0" data-pop="100" data-brand="philips" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18071" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-titanium-18071/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18071" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-titanium-18071/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Philips</div>
-  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-titanium-18071/" class="product-card__title" title="Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Titanium)">
-    Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Titanium)  </a>
-
+  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-titanium-18071/" class="product-card__title" title="Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Titanium)">    Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1828,35 +1698,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">71 541 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">71 541 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18071" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18071" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18854" data-price="38586" data-drop="0" data-pop="100" data-brand="haier" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18854" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-haier-55-smart-tv-s3-4k-uhd-android-tv-white-18854/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Haier 55 Smart TV S3 4K UHD Android TV (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18854" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-haier-55-smart-tv-s3-4k-uhd-android-tv-white-18854/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Haier</div>
-  <a href="/price-aggregator/p/televizor-haier-55-smart-tv-s3-4k-uhd-android-tv-white-18854/" class="product-card__title" title="Телевизор Haier 55 Smart TV S3 4K UHD Android TV (White)">
-    Телевизор Haier 55 Smart TV S3 4K UHD Android TV (White)  </a>
-
+  <a href="/price-aggregator/p/televizor-haier-55-smart-tv-s3-4k-uhd-android-tv-white-18854/" class="product-card__title" title="Телевизор Haier 55 Smart TV S3 4K UHD Android TV (White)">    Телевизор Haier 55 Smart TV S3 4K UHD Android TV (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1874,35 +1739,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">38 586 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">38 586 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18854" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18854" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="19129" data-price="40881" data-drop="0" data-pop="100" data-brand="xiaomi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="19129" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-silver-19129/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="19129" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-silver-19129/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-silver-19129/" class="product-card__title" title="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Silver)">
-    Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Silver)  </a>
-
+  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-silver-19129/" class="product-card__title" title="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Silver)">    Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1920,35 +1780,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">40 881 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">40 881 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19129" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19129" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18901" data-price="65950" data-drop="0" data-pop="100" data-brand="hisense" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18901" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-gold-18901/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18901" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-gold-18901/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Hisense</div>
-  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-gold-18901/" class="product-card__title" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Gold)">
-    Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Gold)  </a>
-
+  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-gold-18901/" class="product-card__title" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Gold)">    Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1966,35 +1821,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">65 950 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">65 950 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18901" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18901" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18164" data-price="41750" data-drop="0" data-pop="100" data-brand="tcl" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18164" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-dark-blue-18164/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18164" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-dark-blue-18164/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">TCL</div>
-  <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-dark-blue-18164/" class="product-card__title" title="Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Dark Blue)">
-    Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-dark-blue-18164/" class="product-card__title" title="Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Dark Blue)">    Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -2012,35 +1862,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">41 750 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">41 750 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18164" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18164" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18701" data-price="68141" data-drop="0" data-pop="99" data-brand="hisense" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18701" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-silver-18701/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18701" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-silver-18701/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Hisense</div>
-  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-silver-18701/" class="product-card__title" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Silver)">
-    Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Silver)  </a>
-
+  <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-silver-18701/" class="product-card__title" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Silver)">    Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -2058,35 +1903,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">68 141 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">68 141 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18701" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18701" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18216" data-price="106941" data-drop="0" data-pop="99" data-brand="sony" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18216" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-titanium-18216/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18216" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-titanium-18216/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Sony</div>
-  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-titanium-18216/" class="product-card__title" title="Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Titanium)">
-    Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Titanium)  </a>
-
+  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-titanium-18216/" class="product-card__title" title="Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Titanium)">    Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -2104,36 +1944,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">106 941 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">106 941 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18216" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18216" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18480" data-price="110241" data-drop="10" data-pop="99" data-brand="sony" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−10%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18480" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-black-18480/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18480" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-black-18480/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Sony</div>
-  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-black-18480/" class="product-card__title" title="Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Black)">
-    Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Black)  </a>
-
+  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-black-18480/" class="product-card__title" title="Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Black)">    Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -2151,35 +1986,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">110 241 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">110 241 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18480" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18480" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18794" data-price="132931" data-drop="0" data-pop="99" data-brand="lg" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18794" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-lg-oled55c3rla-55-4k-120hz-webos-smart-tv-midnight-18794/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18794" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-lg-oled55c3rla-55-4k-120hz-webos-smart-tv-midnight-18794/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">LG</div>
-  <a href="/price-aggregator/p/televizor-lg-oled55c3rla-55-4k-120hz-webos-smart-tv-midnight-18794/" class="product-card__title" title="Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV (Midnight)">
-    Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV (Midnight)  </a>
-
+  <a href="/price-aggregator/p/televizor-lg-oled55c3rla-55-4k-120hz-webos-smart-tv-midnight-18794/" class="product-card__title" title="Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV (Midnight)">    Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -2197,35 +2027,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">132 931 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">132 931 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18794" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18794" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18579" data-price="68071" data-drop="0" data-pop="99" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18579" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-midnight-18579/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18579" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-midnight-18579/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-midnight-18579/" class="product-card__title" title="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Midnight)">
-    Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Midnight)  </a>
-
+  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-midnight-18579/" class="product-card__title" title="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Midnight)">    Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -2243,35 +2068,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">68 071 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">68 071 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18579" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18579" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18335" data-price="70371" data-drop="0" data-pop="99" data-brand="philips" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18335" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-black-18335/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18335" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-black-18335/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Philips</div>
-  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-black-18335/" class="product-card__title" title="Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Black)">
-    Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Black)  </a>
-
+  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-black-18335/" class="product-card__title" title="Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Black)">    Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -2289,35 +2109,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">70 371 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">70 371 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18335" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18335" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="18896" data-price="108336" data-drop="0" data-pop="99" data-brand="sony" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="18896" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-graphite-18896/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="18896" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-graphite-18896/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Sony</div>
-  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-graphite-18896/" class="product-card__title" title="Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Graphite)">
-    Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Graphite)  </a>
-
+  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-graphite-18896/" class="product-card__title" title="Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Graphite)">    Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -2335,16 +2150,16 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">108 336 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">108 336 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18896" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18896" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
               </div>
 
@@ -2410,7 +2225,7 @@
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
+          <p class="footer-currency">Перед покупкой уточняйте актуальные цены и наличие в магазине.</p>
         </div>
 
         <div class="footer-col">
@@ -2429,7 +2244,7 @@
           <ul class="footer-links">
             <li><a href="/price-aggregator/pages/how-it-works">Как мы считаем цены</a></li>
             <li><a href="/price-aggregator/pages/marketplaces">О маркетплейсах и продавцах</a></li>
-            <li><a href="/price-aggregator/pages/report">Сообщить о неверной цене</a></li>
+            <li><span title="Форма доступна только на PHP-сайте">Сообщить о неверной цене (в демо недоступно)</span></li>
             <li><a href="/price-aggregator/pages/legal">Политика конфиденциальности (152-ФЗ)</a></li>
             <li><a href="/price-aggregator/ui-kit">Витрина компонентов (UI Kit)</a></li>
           </ul>
@@ -2456,15 +2271,15 @@
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#home"></use></svg>
       <span>Главная</span>
     </a>
-    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
       <span>Каталог</span>
     </button>
-    <a href="/price-aggregator/compare" class="mobile-nav__item">
+    <a href="/price-aggregator/compare" class="mobile-nav__item" id="mobileCompareBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       <span>Сравнение</span>
     </a>
-    <a href="/price-aggregator/favorites" class="mobile-nav__item">
+    <a href="/price-aggregator/favorites" class="mobile-nav__item" id="mobileFavBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
       <span>Избранное</span>
     </a>

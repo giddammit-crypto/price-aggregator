@@ -24,18 +24,13 @@
   <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
   </head>
 <body class="site-body">
-  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <!-- Service information: never present hard-coded counters as live measurements. -->
   <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
     <div class="container d-flex justify-between align-center flex-wrap gap-2">
       <div class="d-flex align-center gap-2">
-        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
-        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
-        <span>Обновлено только что &mdash;</span>
-        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
-        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
       </div>
       <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/price-aggregator/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
         <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
       </div>
     </div>
@@ -61,7 +56,7 @@
           <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     placeholder="Поиск моделей в демонстрационном каталоге..."
                      value="" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
@@ -541,7 +536,7 @@
     </div>
 
     <!-- Mobile Filter Toggle Button -->
-    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn">
+    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn" aria-controls="filterSidebar" aria-expanded="false">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#filter"></use></svg>
       <span>Фильтры</span>
     </button>
@@ -693,22 +688,17 @@
       <div class="product-grid" id="catalogProducts">
                   <article class="product-card" data-product-id="9869" data-price="272311" data-drop="0" data-pop="110" data-brand="asus" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9869" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-dark-blue-9869/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9869" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-dark-blue-9869/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-dark-blue-9869/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Dark Blue)">
-    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-dark-blue-9869/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Dark Blue)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -726,35 +716,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">272 311 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">272 311 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9869" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9869" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9923" data-price="276821" data-drop="0" data-pop="110" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9923" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-titanium-9923/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9923" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-titanium-9923/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-titanium-9923/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Titanium)">
-    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-titanium-9923/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Titanium)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -772,35 +757,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">276 821 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">276 821 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9923" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9923" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9284" data-price="266621" data-drop="0" data-pop="109" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9284" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-midnight-9284/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9284" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-midnight-9284/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-midnight-9284/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Midnight)">
-    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Midnight)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-midnight-9284/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Midnight)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -818,36 +798,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">266 621 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">266 621 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9284" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9284" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9275" data-price="271086" data-drop="15" data-pop="108" data-brand="asus" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−15%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9275" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-titanium-9275/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9275" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-titanium-9275/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-titanium-9275/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Titanium)">
-    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-titanium-9275/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Titanium)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -865,36 +840,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">271 086 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">271 086 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9275" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9275" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9296" data-price="59976" data-drop="21" data-pop="108" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−21%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9296" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-space-gray-9296/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9296" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-space-gray-9296/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Huawei</div>
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-space-gray-9296/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, Space Gray)">
-    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-space-gray-9296/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, Space Gray)">    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -912,35 +882,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">59 976 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">59 976 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9296" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9296" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="10232" data-price="59841" data-drop="0" data-pop="108" data-brand="huawei" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="10232" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-32-1tb-silver-10232/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="10232" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-32-1tb-silver-10232/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Huawei</div>
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-32-1tb-silver-10232/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB, Silver)">
-    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB, Silver)  </a>
-
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-32-1tb-silver-10232/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB, Silver)">    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -958,35 +923,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">59 841 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">59 841 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10232" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10232" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="8987" data-price="272311" data-drop="0" data-pop="107" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="8987" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-graphite-8987/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="8987" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-graphite-8987/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-graphite-8987/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Graphite)">
-    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-graphite-8987/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Graphite)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1004,36 +964,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">272 311 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">272 311 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="8987" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="8987" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9527" data-price="271086" data-drop="12" data-pop="107" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−12%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9527" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-midnight-9527/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9527" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-midnight-9527/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-midnight-9527/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Midnight)">
-    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Midnight)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-midnight-9527/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Midnight)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1051,36 +1006,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">271 086 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">271 086 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9527" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9527" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9548" data-price="59976" data-drop="18" data-pop="107" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−18%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9548" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-16-512gb-dark-blue-9548/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (16/512GB, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9548" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-16-512gb-dark-blue-9548/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Huawei</div>
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-16-512gb-dark-blue-9548/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (16/512GB, Dark Blue)">
-    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (16/512GB, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-16-512gb-dark-blue-9548/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (16/512GB, Dark Blue)">    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (16/512GB, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1098,35 +1048,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">59 976 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">59 976 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9548" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9548" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9560" data-price="141951" data-drop="0" data-pop="107" data-brand="msi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9560" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-graphite-9560/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9560" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-graphite-9560/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-graphite-9560/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Graphite)">
-    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-graphite-9560/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Graphite)">    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1144,35 +1089,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">141 951 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">141 951 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9560" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9560" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9626" data-price="267741" data-drop="0" data-pop="107" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9626" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-dark-blue-9626/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9626" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-dark-blue-9626/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-dark-blue-9626/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Dark Blue)">
-    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-dark-blue-9626/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Dark Blue)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1190,35 +1130,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">267 741 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">267 741 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9626" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9626" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="8933" data-price="267741" data-drop="0" data-pop="107" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="8933" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-silver-8933/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="8933" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-silver-8933/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-silver-8933/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Silver)">
-    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Silver)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-silver-8933/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Silver)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1236,36 +1171,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">267 741 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">267 741 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="8933" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="8933" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9317" data-price="146466" data-drop="12" data-pop="106" data-brand="msi" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−12%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9317" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-graphite-9317/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9317" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-graphite-9317/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-graphite-9317/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Graphite)">
-    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-graphite-9317/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Graphite)">    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1283,35 +1213,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">146 466 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">146 466 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9317" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9317" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9119" data-price="141951" data-drop="0" data-pop="106" data-brand="msi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9119" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-16-512gb-titanium-9119/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (16/512GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9119" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-16-512gb-titanium-9119/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-16-512gb-titanium-9119/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (16/512GB, Titanium)">
-    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (16/512GB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-16-512gb-titanium-9119/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (16/512GB, Titanium)">    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (16/512GB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1329,35 +1254,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">141 951 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">141 951 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9119" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9119" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9890" data-price="63471" data-drop="0" data-pop="106" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9890" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-gold-9890/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9890" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-gold-9890/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Huawei</div>
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-gold-9890/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, Gold)">
-    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, Gold)  </a>
-
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-gold-9890/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, Gold)">    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1375,35 +1295,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">63 471 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">63 471 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9890" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9890" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9263" data-price="144681" data-drop="0" data-pop="105" data-brand="msi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9263" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-silver-9263/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9263" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-silver-9263/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-silver-9263/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Silver)">
-    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Silver)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-silver-9263/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Silver)">    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1421,35 +1336,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">144 681 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">144 681 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9263" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9263" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="10121" data-price="272311" data-drop="0" data-pop="105" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="10121" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-graphite-10121/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="10121" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-graphite-10121/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-graphite-10121/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Graphite)">
-    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-32-1tb-graphite-10121/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Graphite)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (32/1TB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1467,35 +1377,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">272 311 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">272 311 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10121" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10121" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="10265" data-price="278061" data-drop="0" data-pop="104" data-brand="asus" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="10265" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-space-gray-10265/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="10265" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-space-gray-10265/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-space-gray-10265/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, Space Gray)">
-    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-space-gray-10265/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, Space Gray)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1513,35 +1418,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">278 061 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">278 061 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10265" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10265" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="8780" data-price="266621" data-drop="0" data-pop="104" data-brand="asus" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="8780" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-8780/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="8780" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-8780/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-8780/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)">
-    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-8780/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1559,35 +1459,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">266 621 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">266 621 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="8780" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="8780" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9329" data-price="263891" data-drop="0" data-pop="104" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9329" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-black-9329/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9329" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-black-9329/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-black-9329/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Black)">
-    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Black)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-black-9329/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Black)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1605,35 +1500,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">263 891 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">263 891 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9329" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9329" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9164" data-price="137691" data-drop="0" data-pop="104" data-brand="msi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9164" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-64-2tb-gold-9164/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (64/2TB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9164" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-64-2tb-gold-9164/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-64-2tb-gold-9164/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (64/2TB, Gold)">
-    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (64/2TB, Gold)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-64-2tb-gold-9164/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (64/2TB, Gold)">    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (64/2TB, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1651,35 +1541,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">137 691 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">137 691 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9164" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9164" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9539" data-price="59841" data-drop="0" data-pop="103" data-brand="huawei" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9539" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-space-gray-9539/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9539" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-space-gray-9539/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Huawei</div>
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-space-gray-9539/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, Space Gray)">
-    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-space-gray-9539/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, Space Gray)">    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1697,35 +1582,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">59 841 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">59 841 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9539" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9539" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="10154" data-price="140991" data-drop="0" data-pop="103" data-brand="msi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="10154" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-silver-10154/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="10154" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-silver-10154/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-silver-10154/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Silver)">
-    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Silver)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-silver-10154/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Silver)">    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1743,35 +1623,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">140 991 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">140 991 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10154" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10154" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9185" data-price="267741" data-drop="0" data-pop="103" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9185" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-9185/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9185" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-9185/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-9185/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)">
-    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-9185/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1789,36 +1664,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">267 741 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">267 741 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9185" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9185" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9044" data-price="59976" data-drop="24" data-pop="102" data-brand="huawei" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−24%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9044" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-32-1tb-midnight-9044/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9044" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-32-1tb-midnight-9044/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Huawei</div>
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-32-1tb-midnight-9044/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB, Midnight)">
-    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB, Midnight)  </a>
-
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-32-1tb-midnight-9044/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB, Midnight)">    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1836,35 +1706,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">59 976 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">59 976 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9044" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9044" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="10088" data-price="53991" data-drop="0" data-pop="101" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="10088" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-16-512gb-titanium-10088/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (16/512GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="10088" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-16-512gb-titanium-10088/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Huawei</div>
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-16-512gb-titanium-10088/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (16/512GB, Titanium)">
-    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (16/512GB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-16-512gb-titanium-10088/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (16/512GB, Titanium)">    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (16/512GB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1882,35 +1747,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">53 991 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">53 991 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10088" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10088" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9911" data-price="139371" data-drop="0" data-pop="101" data-brand="msi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9911" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-silver-9911/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9911" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-silver-9911/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-silver-9911/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Silver)">
-    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Silver)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-silver-9911/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Silver)">    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1928,35 +1788,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">139 371 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">139 371 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9911" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9911" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9428" data-price="272311" data-drop="0" data-pop="101" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9428" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-9428/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9428" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-9428/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-9428/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)">
-    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-9428/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1974,36 +1829,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">272 311 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">272 311 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9428" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9428" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="10241" data-price="59976" data-drop="21" data-pop="100" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−21%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="10241" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-white-10241/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="10241" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-white-10241/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Huawei</div>
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-white-10241/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, White)">
-    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, White)  </a>
-
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-white-10241/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, White)">    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -2021,35 +1871,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">59 976 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">59 976 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10241" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10241" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9995" data-price="284150" data-drop="0" data-pop="100" data-brand="asus" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9995" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-9995/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9995" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-9995/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-9995/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)">
-    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-9995/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -2067,35 +1912,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">284 150 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">284 150 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9995" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9995" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9752" data-price="267741" data-drop="0" data-pop="100" data-brand="asus" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9752" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-9752/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9752" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-9752/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-9752/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)">
-    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-white-9752/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -2113,35 +1953,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">267 741 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">267 741 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9752" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9752" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="8993" data-price="148191" data-drop="0" data-pop="100" data-brand="msi" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="8993" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-graphite-8993/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="8993" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-graphite-8993/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-graphite-8993/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Graphite)">
-    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-graphite-8993/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Graphite)">    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -2159,36 +1994,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">148 191 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">148 191 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="8993" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="8993" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9254" data-price="146466" data-drop="24" data-pop="100" data-brand="msi" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−24%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9254" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-16-512gb-black-9254/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (16/512GB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9254" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-16-512gb-black-9254/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-16-512gb-black-9254/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (16/512GB, Black)">
-    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (16/512GB, Black)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-16-512gb-black-9254/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (16/512GB, Black)">    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (16/512GB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -2206,35 +2036,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">146 466 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">146 466 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9254" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9254" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9515" data-price="144681" data-drop="0" data-pop="100" data-brand="msi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9515" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-64-2tb-white-9515/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (64/2TB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9515" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-64-2tb-white-9515/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-64-2tb-white-9515/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (64/2TB, White)">
-    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (64/2TB, White)  </a>
-
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-64-2tb-white-9515/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (64/2TB, White)">    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (64/2TB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -2252,35 +2077,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">144 681 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">144 681 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9515" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9515" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9781" data-price="86841" data-drop="0" data-pop="100" data-brand="xiaomi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9781" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/noutbuk-xiaomi-redmibook-pro-16-core-ultra-5-125h-32gb-1tb-3-1k-165hz-64-2tb-space-gray-9781/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Ноутбук Xiaomi RedmiBook Pro 16 (Core Ultra 5 125H / 32GB / 1TB / 3.1K 165Hz) (64/2TB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9781" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/noutbuk-xiaomi-redmibook-pro-16-core-ultra-5-125h-32gb-1tb-3-1k-165hz-64-2tb-space-gray-9781/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/noutbuk-xiaomi-redmibook-pro-16-core-ultra-5-125h-32gb-1tb-3-1k-165hz-64-2tb-space-gray-9781/" class="product-card__title" title="Ноутбук Xiaomi RedmiBook Pro 16 (Core Ultra 5 125H / 32GB / 1TB / 3.1K 165Hz) (64/2TB, Space Gray)">
-    Ноутбук Xiaomi RedmiBook Pro 16 (Core Ultra 5 125H / 32GB / 1TB / 3.1K 165Hz) (64/2TB, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/noutbuk-xiaomi-redmibook-pro-16-core-ultra-5-125h-32gb-1tb-3-1k-165hz-64-2tb-space-gray-9781/" class="product-card__title" title="Ноутбук Xiaomi RedmiBook Pro 16 (Core Ultra 5 125H / 32GB / 1TB / 3.1K 165Hz) (64/2TB, Space Gray)">    Ноутбук Xiaomi RedmiBook Pro 16 (Core Ultra 5 125H / 32GB / 1TB / 3.1K 165Hz) (64/2TB, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -2298,35 +2118,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">86 841 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">86 841 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9781" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9781" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="9017" data-price="54591" data-drop="0" data-pop="100" data-brand="huawei" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="9017" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-32-1tb-silver-9017/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="9017" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-32-1tb-silver-9017/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Huawei</div>
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-32-1tb-silver-9017/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB, Silver)">
-    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB, Silver)  </a>
-
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-32-1tb-silver-9017/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB, Silver)">    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -2344,16 +2159,16 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">54 591 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">54 591 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9017" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9017" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
               </div>
 
@@ -2419,7 +2234,7 @@
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
+          <p class="footer-currency">Перед покупкой уточняйте актуальные цены и наличие в магазине.</p>
         </div>
 
         <div class="footer-col">
@@ -2438,7 +2253,7 @@
           <ul class="footer-links">
             <li><a href="/price-aggregator/pages/how-it-works">Как мы считаем цены</a></li>
             <li><a href="/price-aggregator/pages/marketplaces">О маркетплейсах и продавцах</a></li>
-            <li><a href="/price-aggregator/pages/report">Сообщить о неверной цене</a></li>
+            <li><span title="Форма доступна только на PHP-сайте">Сообщить о неверной цене (в демо недоступно)</span></li>
             <li><a href="/price-aggregator/pages/legal">Политика конфиденциальности (152-ФЗ)</a></li>
             <li><a href="/price-aggregator/ui-kit">Витрина компонентов (UI Kit)</a></li>
           </ul>
@@ -2465,15 +2280,15 @@
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#home"></use></svg>
       <span>Главная</span>
     </a>
-    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
       <span>Каталог</span>
     </button>
-    <a href="/price-aggregator/compare" class="mobile-nav__item">
+    <a href="/price-aggregator/compare" class="mobile-nav__item" id="mobileCompareBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       <span>Сравнение</span>
     </a>
-    <a href="/price-aggregator/favorites" class="mobile-nav__item">
+    <a href="/price-aggregator/favorites" class="mobile-nav__item" id="mobileFavBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
       <span>Избранное</span>
     </a>

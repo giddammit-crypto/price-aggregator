@@ -24,18 +24,13 @@
   <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
   </head>
 <body class="site-body">
-  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <!-- Service information: never present hard-coded counters as live measurements. -->
   <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
     <div class="container d-flex justify-between align-center flex-wrap gap-2">
       <div class="d-flex align-center gap-2">
-        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
-        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
-        <span>Обновлено только что &mdash;</span>
-        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
-        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
       </div>
       <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/price-aggregator/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
         <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
       </div>
     </div>
@@ -61,7 +56,7 @@
           <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     placeholder="Поиск моделей в демонстрационном каталоге..."
                      value="" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
@@ -541,7 +536,7 @@
     </div>
 
     <!-- Mobile Filter Toggle Button -->
-    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn">
+    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn" aria-controls="filterSidebar" aria-expanded="false">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#filter"></use></svg>
       <span>Фильтры</span>
     </button>
@@ -679,22 +674,17 @@
                   <article class="product-card" data-product-id="11837" data-price="107871" data-drop="12" data-pop="110" data-brand="msi" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−12%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11837" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-titanium-11837/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11837" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-titanium-11837/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-titanium-11837/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Titanium)">
-    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Titanium)  </a>
-
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-titanium-11837/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Titanium)">    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -712,35 +702,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">107 871 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">107 871 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11837" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11837" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11660" data-price="134671" data-drop="0" data-pop="110" data-brand="acer" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11660" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-black-11660/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11660" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-black-11660/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Acer</div>
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-black-11660/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Black)">
-    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Black)  </a>
-
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-black-11660/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Black)">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -758,35 +743,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">134 671 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">134 671 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11660" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11660" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11990" data-price="134771" data-drop="0" data-pop="107" data-brand="acer" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11990" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-silver-11990/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11990" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-silver-11990/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Acer</div>
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-silver-11990/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Silver)">
-    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Silver)  </a>
-
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-silver-11990/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Silver)">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -804,35 +784,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">134 771 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">134 771 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11990" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11990" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11882" data-price="140421" data-drop="0" data-pop="105" data-brand="acer" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11882" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-silver-11882/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11882" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-silver-11882/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Acer</div>
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-silver-11882/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Silver)">
-    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Silver)  </a>
-
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-silver-11882/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Silver)">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -850,35 +825,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">140 421 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">140 421 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11882" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11882" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11717" data-price="108091" data-drop="0" data-pop="105" data-brand="msi" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11717" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-silver-11717/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11717" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-silver-11717/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-silver-11717/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Silver)">
-    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Silver)  </a>
-
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-silver-11717/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Silver)">    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -896,36 +866,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">108 091 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">108 091 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11717" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11717" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="12047" data-price="107871" data-drop="12" data-pop="104" data-brand="msi" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−12%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="12047" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-white-12047/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="12047" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-white-12047/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-white-12047/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (White)">
-    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (White)  </a>
-
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-white-12047/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (White)">    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -943,35 +908,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">107 871 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">107 871 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12047" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12047" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="12014" data-price="138766" data-drop="0" data-pop="104" data-brand="acer" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="12014" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-space-gray-12014/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="12014" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-space-gray-12014/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Acer</div>
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-space-gray-12014/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Space Gray)">
-    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-space-gray-12014/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Space Gray)">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -989,35 +949,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">138 766 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">138 766 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12014" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12014" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="12056" data-price="138766" data-drop="0" data-pop="103" data-brand="acer" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="12056" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-titanium-12056/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="12056" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-titanium-12056/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Acer</div>
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-titanium-12056/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Titanium)">
-    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Titanium)  </a>
-
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-titanium-12056/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Titanium)">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1035,35 +990,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">138 766 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">138 766 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12056" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12056" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11936" data-price="138591" data-drop="0" data-pop="103" data-brand="acer" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11936" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-silver-11936/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11936" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-silver-11936/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Acer</div>
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-silver-11936/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Silver)">
-    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Silver)  </a>
-
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-silver-11936/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Silver)">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1081,35 +1031,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">138 591 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">138 591 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11936" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11936" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11759" data-price="108091" data-drop="0" data-pop="102" data-brand="msi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11759" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-gold-11759/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11759" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-gold-11759/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-gold-11759/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Gold)">
-    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Gold)  </a>
-
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-gold-11759/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Gold)">    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1127,35 +1072,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">108 091 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">108 091 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11759" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11759" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11857" data-price="72791" data-drop="0" data-pop="100" data-brand="hp" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11857" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-dark-blue-11857/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11857" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-dark-blue-11857/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HP</div>
-  <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-dark-blue-11857/" class="product-card__title" title="ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Dark Blue)">
-    ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-dark-blue-11857/" class="product-card__title" title="ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Dark Blue)">    ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1173,35 +1113,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">72 791 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">72 791 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11857" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11857" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11624" data-price="134541" data-drop="0" data-pop="100" data-brand="acer" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11624" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-titanium-11624/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11624" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-titanium-11624/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Acer</div>
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-titanium-11624/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Titanium)">
-    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Titanium)  </a>
-
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-titanium-11624/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Titanium)">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1219,36 +1154,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">134 541 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">134 541 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11624" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11624" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11963" data-price="107871" data-drop="18" data-pop="100" data-brand="msi" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−18%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11963" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-dark-blue-11963/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11963" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-dark-blue-11963/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-dark-blue-11963/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Dark Blue)">
-    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-dark-blue-11963/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Dark Blue)">    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1266,35 +1196,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">107 871 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">107 871 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11963" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11963" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11777" data-price="103686" data-drop="0" data-pop="99" data-brand="msi" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11777" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-white-11777/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11777" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-white-11777/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-white-11777/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (White)">
-    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (White)  </a>
-
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-white-11777/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (White)">    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1312,35 +1237,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">103 686 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">103 686 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11777" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11777" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11748" data-price="148326" data-drop="0" data-pop="99" data-brand="lenovo" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11748" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-lenovo-legion-tower-5i-core-i7-rtx-4070-32gb-1tb-ssd-dark-blue-11748/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК Lenovo Legion Tower 5i Core i7 / RTX 4070 / 32GB / 1TB SSD (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11748" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-lenovo-legion-tower-5i-core-i7-rtx-4070-32gb-1tb-ssd-dark-blue-11748/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Lenovo</div>
-  <a href="/price-aggregator/p/pk-lenovo-legion-tower-5i-core-i7-rtx-4070-32gb-1tb-ssd-dark-blue-11748/" class="product-card__title" title="ПК Lenovo Legion Tower 5i Core i7 / RTX 4070 / 32GB / 1TB SSD (Dark Blue)">
-    ПК Lenovo Legion Tower 5i Core i7 / RTX 4070 / 32GB / 1TB SSD (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/pk-lenovo-legion-tower-5i-core-i7-rtx-4070-32gb-1tb-ssd-dark-blue-11748/" class="product-card__title" title="ПК Lenovo Legion Tower 5i Core i7 / RTX 4070 / 32GB / 1TB SSD (Dark Blue)">    ПК Lenovo Legion Tower 5i Core i7 / RTX 4070 / 32GB / 1TB SSD (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1358,35 +1278,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">148 326 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">148 326 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11748" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11748" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11999" data-price="104186" data-drop="0" data-pop="98" data-brand="msi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11999" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-titanium-11999/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11999" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-titanium-11999/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-titanium-11999/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Titanium)">
-    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Titanium)  </a>
-
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-titanium-11999/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Titanium)">    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1404,35 +1319,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">104 186 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">104 186 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11999" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11999" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11861" data-price="103686" data-drop="0" data-pop="97" data-brand="msi" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11861" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-graphite-11861/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11861" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-graphite-11861/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-graphite-11861/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Graphite)">
-    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Graphite)  </a>
-
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-graphite-11861/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Graphite)">    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1450,35 +1360,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">103 686 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">103 686 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11861" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11861" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11864" data-price="134771" data-drop="0" data-pop="97" data-brand="acer" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11864" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-graphite-11864/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11864" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-graphite-11864/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Acer</div>
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-graphite-11864/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Graphite)">
-    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Graphite)  </a>
-
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-graphite-11864/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Graphite)">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1496,35 +1401,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">134 771 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">134 771 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11864" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11864" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11869" data-price="76351" data-drop="0" data-pop="97" data-brand="hp" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11869" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-gold-11869/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11869" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-gold-11869/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HP</div>
-  <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-gold-11869/" class="product-card__title" title="ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Gold)">
-    ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Gold)  </a>
-
+  <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-gold-11869/" class="product-card__title" title="ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Gold)">    ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1542,35 +1442,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">76 351 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">76 351 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11869" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11869" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11870" data-price="134671" data-drop="0" data-pop="97" data-brand="acer" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11870" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-gold-11870/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11870" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-gold-11870/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Acer</div>
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-gold-11870/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Gold)">
-    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Gold)  </a>
-
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-gold-11870/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Gold)">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1588,36 +1483,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">134 671 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">134 671 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11870" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11870" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11872" data-price="160531" data-drop="17" data-pop="97" data-brand="asus" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−17%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11872" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-black-11872/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11872" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-black-11872/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-black-11872/" class="product-card__title" title="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Black)">
-    ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Black)  </a>
-
+  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-black-11872/" class="product-card__title" title="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Black)">    ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1635,35 +1525,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">160 531 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">160 531 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11872" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11872" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11650" data-price="154341" data-drop="0" data-pop="96" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11650" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-gold-11650/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11650" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-gold-11650/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-gold-11650/" class="product-card__title" title="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Gold)">
-    ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Gold)  </a>
-
+  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-gold-11650/" class="product-card__title" title="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Gold)">    ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1681,35 +1566,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">154 341 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">154 341 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11650" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11650" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11714" data-price="140421" data-drop="0" data-pop="96" data-brand="acer" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11714" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-black-11714/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11714" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-black-11714/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Acer</div>
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-black-11714/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Black)">
-    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Black)  </a>
-
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-black-11714/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Black)">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1727,35 +1607,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">140 421 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">140 421 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11714" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11714" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11836" data-price="160151" data-drop="0" data-pop="95" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11836" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-titanium-11836/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11836" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-titanium-11836/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-titanium-11836/" class="product-card__title" title="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Titanium)">
-    ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Titanium)  </a>
-
+  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-titanium-11836/" class="product-card__title" title="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Titanium)">    ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1773,35 +1648,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">160 151 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">160 151 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11836" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11836" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11608" data-price="161201" data-drop="0" data-pop="95" data-brand="asus" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11608" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-silver-11608/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11608" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-silver-11608/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-silver-11608/" class="product-card__title" title="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Silver)">
-    ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Silver)  </a>
-
+  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-silver-11608/" class="product-card__title" title="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Silver)">    ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1819,35 +1689,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">161 201 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">161 201 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11608" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11608" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11890" data-price="166461" data-drop="0" data-pop="95" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11890" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-titanium-11890/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11890" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-titanium-11890/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-titanium-11890/" class="product-card__title" title="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Titanium)">
-    ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Titanium)  </a>
-
+  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-titanium-11890/" class="product-card__title" title="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Titanium)">    ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1865,36 +1730,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">166 461 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">166 461 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11890" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11890" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11956" data-price="160531" data-drop="11" data-pop="95" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−11%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11956" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-space-gray-11956/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11956" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-space-gray-11956/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-space-gray-11956/" class="product-card__title" title="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Space Gray)">
-    ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-space-gray-11956/" class="product-card__title" title="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Space Gray)">    ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1912,35 +1772,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">160 531 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">160 531 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11956" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11956" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="12037" data-price="76351" data-drop="0" data-pop="94" data-brand="hp" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="12037" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-black-12037/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="12037" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-black-12037/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HP</div>
-  <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-black-12037/" class="product-card__title" title="ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Black)">
-    ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Black)  </a>
-
+  <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-black-12037/" class="product-card__title" title="ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Black)">    ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1958,35 +1813,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">76 351 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">76 351 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12037" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12037" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="12041" data-price="103041" data-drop="0" data-pop="94" data-brand="msi" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="12041" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-silver-12041/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="12041" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-silver-12041/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-silver-12041/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Silver)">
-    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Silver)  </a>
-
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-silver-12041/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Silver)">    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -2004,35 +1854,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">103 041 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">103 041 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12041" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12041" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11876" data-price="134541" data-drop="0" data-pop="94" data-brand="acer" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11876" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-black-11876/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11876" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-black-11876/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Acer</div>
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-black-11876/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Black)">
-    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Black)  </a>
-
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-black-11876/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Black)">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -2050,35 +1895,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">134 541 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">134 541 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11876" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11876" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11630" data-price="140421" data-drop="0" data-pop="94" data-brand="acer" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11630" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-midnight-11630/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11630" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-midnight-11630/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Acer</div>
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-midnight-11630/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Midnight)">
-    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Midnight)  </a>
-
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-midnight-11630/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Midnight)">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -2096,36 +1936,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">140 421 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">140 421 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11630" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11630" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11893" data-price="85430" data-drop="23" data-pop="94" data-brand="hp" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−23%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11893" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-titanium-11893/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11893" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-titanium-11893/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HP</div>
-  <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-titanium-11893/" class="product-card__title" title="ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Titanium)">
-    ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Titanium)  </a>
-
+  <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-titanium-11893/" class="product-card__title" title="ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Titanium)">    ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -2143,36 +1978,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">85 430 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">85 430 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11893" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11893" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="12012" data-price="146241" data-drop="22" data-pop="94" data-brand="lenovo" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−22%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="12012" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-lenovo-legion-tower-5i-core-i7-rtx-4070-32gb-1tb-ssd-space-gray-12012/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК Lenovo Legion Tower 5i Core i7 / RTX 4070 / 32GB / 1TB SSD (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="12012" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-lenovo-legion-tower-5i-core-i7-rtx-4070-32gb-1tb-ssd-space-gray-12012/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Lenovo</div>
-  <a href="/price-aggregator/p/pk-lenovo-legion-tower-5i-core-i7-rtx-4070-32gb-1tb-ssd-space-gray-12012/" class="product-card__title" title="ПК Lenovo Legion Tower 5i Core i7 / RTX 4070 / 32GB / 1TB SSD (Space Gray)">
-    ПК Lenovo Legion Tower 5i Core i7 / RTX 4070 / 32GB / 1TB SSD (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/pk-lenovo-legion-tower-5i-core-i7-rtx-4070-32gb-1tb-ssd-space-gray-12012/" class="product-card__title" title="ПК Lenovo Legion Tower 5i Core i7 / RTX 4070 / 32GB / 1TB SSD (Space Gray)">    ПК Lenovo Legion Tower 5i Core i7 / RTX 4070 / 32GB / 1TB SSD (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -2190,35 +2020,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">146 241 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">146 241 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12012" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12012" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11780" data-price="134771" data-drop="0" data-pop="93" data-brand="acer" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11780" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-white-11780/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11780" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-white-11780/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Acer</div>
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-white-11780/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (White)">
-    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (White)  </a>
-
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-white-11780/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (White)">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -2236,35 +2061,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">134 771 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">134 771 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11780" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11780" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11824" data-price="160881" data-drop="0" data-pop="93" data-brand="asus" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11824" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-silver-11824/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11824" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-silver-11824/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-silver-11824/" class="product-card__title" title="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Silver)">
-    ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Silver)  </a>
-
+  <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-silver-11824/" class="product-card__title" title="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Silver)">    ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -2282,35 +2102,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">160 881 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">160 881 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11824" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11824" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="11618" data-price="140591" data-drop="0" data-pop="93" data-brand="acer" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="11618" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-white-11618/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="11618" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-white-11618/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Acer</div>
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-white-11618/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (White)">
-    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (White)  </a>
-
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-white-11618/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (White)">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -2328,16 +2143,16 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">140 591 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">140 591 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11618" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11618" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
               </div>
 
@@ -2403,7 +2218,7 @@
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
+          <p class="footer-currency">Перед покупкой уточняйте актуальные цены и наличие в магазине.</p>
         </div>
 
         <div class="footer-col">
@@ -2422,7 +2237,7 @@
           <ul class="footer-links">
             <li><a href="/price-aggregator/pages/how-it-works">Как мы считаем цены</a></li>
             <li><a href="/price-aggregator/pages/marketplaces">О маркетплейсах и продавцах</a></li>
-            <li><a href="/price-aggregator/pages/report">Сообщить о неверной цене</a></li>
+            <li><span title="Форма доступна только на PHP-сайте">Сообщить о неверной цене (в демо недоступно)</span></li>
             <li><a href="/price-aggregator/pages/legal">Политика конфиденциальности (152-ФЗ)</a></li>
             <li><a href="/price-aggregator/ui-kit">Витрина компонентов (UI Kit)</a></li>
           </ul>
@@ -2449,15 +2264,15 @@
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#home"></use></svg>
       <span>Главная</span>
     </a>
-    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
       <span>Каталог</span>
     </button>
-    <a href="/price-aggregator/compare" class="mobile-nav__item">
+    <a href="/price-aggregator/compare" class="mobile-nav__item" id="mobileCompareBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       <span>Сравнение</span>
     </a>
-    <a href="/price-aggregator/favorites" class="mobile-nav__item">
+    <a href="/price-aggregator/favorites" class="mobile-nav__item" id="mobileFavBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
       <span>Избранное</span>
     </a>

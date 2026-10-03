@@ -24,18 +24,13 @@
   <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
   </head>
 <body class="site-body">
-  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <!-- Service information: never present hard-coded counters as live measurements. -->
   <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
     <div class="container d-flex justify-between align-center flex-wrap gap-2">
       <div class="d-flex align-center gap-2">
-        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
-        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
-        <span>Обновлено только что &mdash;</span>
-        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
-        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
       </div>
       <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/price-aggregator/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
         <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
       </div>
     </div>
@@ -61,7 +56,7 @@
           <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     placeholder="Поиск моделей в демонстрационном каталоге..."
                      value="" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
@@ -541,7 +536,7 @@
     </div>
 
     <!-- Mobile Filter Toggle Button -->
-    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn">
+    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn" aria-controls="filterSidebar" aria-expanded="false">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#filter"></use></svg>
       <span>Фильтры</span>
     </button>
@@ -678,22 +673,17 @@
       <div class="product-grid" id="catalogProducts">
                   <article class="product-card" data-product-id="15545" data-price="41316" data-drop="0" data-pop="109" data-brand="apple" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15545" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-white-15545/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15545" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-white-15545/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-white-15545/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (White)">
-    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (White)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-white-15545/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (White)">    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -707,35 +697,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">41 316 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">41 316 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15545" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15545" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16106" data-price="9651" data-drop="0" data-pop="109" data-brand="xiaomi" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16106" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-space-gray-16106/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16106" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-space-gray-16106/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-space-gray-16106/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Space Gray)">
-    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-space-gray-16106/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Space Gray)">    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -749,35 +734,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">9 651 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">9 651 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16106" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16106" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15851" data-price="43236" data-drop="0" data-pop="108" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15851" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-gold-15851/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15851" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-gold-15851/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-gold-15851/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Gold)">
-    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Gold)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-gold-15851/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Gold)">    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -791,35 +771,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">43 236 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">43 236 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15851" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15851" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16082" data-price="13941" data-drop="0" data-pop="106" data-brand="xiaomi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16082" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-silver-16082/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16082" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-silver-16082/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-silver-16082/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Silver)">
-    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Silver)  </a>
-
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-silver-16082/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Silver)">    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -833,35 +808,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">13 941 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">13 941 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16082" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16082" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16115" data-price="44541" data-drop="0" data-pop="105" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16115" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-graphite-16115/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16115" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-graphite-16115/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-graphite-16115/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Graphite)">
-    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Graphite)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-graphite-16115/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Graphite)">    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -875,35 +845,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">44 541 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">44 541 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16115" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16115" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15896" data-price="9651" data-drop="0" data-pop="103" data-brand="xiaomi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15896" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-dark-blue-15896/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15896" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-dark-blue-15896/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-dark-blue-15896/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Dark Blue)">
-    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-dark-blue-15896/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Dark Blue)">    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -917,35 +882,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">9 651 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">9 651 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15896" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15896" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15818" data-price="10911" data-drop="0" data-pop="103" data-brand="xiaomi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15818" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-white-15818/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15818" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-white-15818/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-white-15818/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (White)">
-    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (White)  </a>
-
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-white-15818/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (White)">    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -959,35 +919,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">10 911 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">10 911 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15818" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15818" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15632" data-price="6741" data-drop="0" data-pop="101" data-brand="xiaomi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15632" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-graphite-15632/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15632" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-graphite-15632/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-graphite-15632/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Graphite)">
-    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Graphite)  </a>
-
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-graphite-15632/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Graphite)">    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1001,35 +956,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">6 741 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">6 741 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15632" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15632" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16193" data-price="43671" data-drop="0" data-pop="101" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16193" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-white-16193/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16193" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-white-16193/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-white-16193/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (White)">
-    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (White)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-white-16193/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (White)">    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1043,35 +993,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">43 671 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">43 671 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16193" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16193" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15902" data-price="11870" data-drop="0" data-pop="100" data-brand="xiaomi" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15902" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-graphite-15902/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15902" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-graphite-15902/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-graphite-15902/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Graphite)">
-    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Graphite)  </a>
-
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-graphite-15902/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Graphite)">    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1085,36 +1030,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">11 870 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">11 870 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15902" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15902" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15407" data-price="47421" data-drop="12" data-pop="100" data-brand="apple" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−12%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15407" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-dark-blue-15407/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15407" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-dark-blue-15407/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-dark-blue-15407/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Dark Blue)">
-    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-dark-blue-15407/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Dark Blue)">    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1128,35 +1068,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">47 421 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">47 421 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15407" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15407" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15683" data-price="43236" data-drop="0" data-pop="100" data-brand="apple" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15683" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-graphite-15683/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15683" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-graphite-15683/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-graphite-15683/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Graphite)">
-    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Graphite)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-graphite-15683/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Graphite)">    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1170,35 +1105,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">43 236 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">43 236 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15683" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15683" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15469" data-price="16371" data-drop="0" data-pop="100" data-brand="huawei" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15469" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-graphite-15469/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15469" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-graphite-15469/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-graphite-15469/" class="product-card__title" title="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Graphite)">
-    Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Graphite)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-graphite-15469/" class="product-card__title" title="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Graphite)">    Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1212,35 +1142,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">16 371 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">16 371 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15469" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15469" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15741" data-price="25291" data-drop="0" data-pop="100" data-brand="amazfit" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15741" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-amazfit-balance-46mm-midnight-ai-fitness-graphite-15741/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Amazfit Balance 46mm Midnight (AI Fitness) (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15741" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-amazfit-balance-46mm-midnight-ai-fitness-graphite-15741/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Amazfit</div>
-  <a href="/price-aggregator/p/smart-chasy-amazfit-balance-46mm-midnight-ai-fitness-graphite-15741/" class="product-card__title" title="Смарт-часы Amazfit Balance 46mm Midnight (AI Fitness) (Graphite)">
-    Смарт-часы Amazfit Balance 46mm Midnight (AI Fitness) (Graphite)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-amazfit-balance-46mm-midnight-ai-fitness-graphite-15741/" class="product-card__title" title="Смарт-часы Amazfit Balance 46mm Midnight (AI Fitness) (Graphite)">    Смарт-часы Amazfit Balance 46mm Midnight (AI Fitness) (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1254,35 +1179,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">25 291 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">25 291 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15741" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15741" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16048" data-price="74391" data-drop="0" data-pop="100" data-brand="garmin" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16048" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-midnight-16048/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16048" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-midnight-16048/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Garmin</div>
-  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-midnight-16048/" class="product-card__title" title="Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Midnight)">
-    Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Midnight)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-midnight-16048/" class="product-card__title" title="Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Midnight)">    Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1296,35 +1216,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">74 391 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">74 391 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16048" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16048" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15576" data-price="28511" data-drop="0" data-pop="100" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15576" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-samsung-galaxy-watch6-44mm-graphite-sm-r940-graphite-15576/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Samsung Galaxy Watch6 44mm Graphite (SM-R940) (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15576" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-samsung-galaxy-watch6-44mm-graphite-sm-r940-graphite-15576/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/smart-chasy-samsung-galaxy-watch6-44mm-graphite-sm-r940-graphite-15576/" class="product-card__title" title="Смарт-часы Samsung Galaxy Watch6 44mm Graphite (SM-R940) (Graphite)">
-    Смарт-часы Samsung Galaxy Watch6 44mm Graphite (SM-R940) (Graphite)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-samsung-galaxy-watch6-44mm-graphite-sm-r940-graphite-15576/" class="product-card__title" title="Смарт-часы Samsung Galaxy Watch6 44mm Graphite (SM-R940) (Graphite)">    Смарт-часы Samsung Galaxy Watch6 44mm Graphite (SM-R940) (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1338,35 +1253,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">28 511 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">28 511 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15576" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15576" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15947" data-price="45036" data-drop="0" data-pop="99" data-brand="apple" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15947" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-dark-blue-15947/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15947" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-dark-blue-15947/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-dark-blue-15947/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Dark Blue)">
-    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-dark-blue-15947/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Dark Blue)">    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1380,35 +1290,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">45 036 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">45 036 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15947" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15947" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16204" data-price="83116" data-drop="0" data-pop="99" data-brand="garmin" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16204" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-titanium-16204/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16204" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-titanium-16204/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Garmin</div>
-  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-titanium-16204/" class="product-card__title" title="Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Titanium)">
-    Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Titanium)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-titanium-16204/" class="product-card__title" title="Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Titanium)">    Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1422,35 +1327,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">83 116 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">83 116 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16204" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16204" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15455" data-price="38631" data-drop="0" data-pop="99" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15455" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-space-gray-15455/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15455" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-space-gray-15455/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-space-gray-15455/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Space Gray)">
-    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-space-gray-15455/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Space Gray)">    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1464,35 +1364,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">38 631 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">38 631 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15455" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15455" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16225" data-price="16371" data-drop="0" data-pop="99" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16225" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-graphite-16225/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16225" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-graphite-16225/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-graphite-16225/" class="product-card__title" title="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Graphite)">
-    Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Graphite)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-graphite-16225/" class="product-card__title" title="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Graphite)">    Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1506,35 +1401,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">16 371 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">16 371 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16225" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16225" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15749" data-price="40730" data-drop="0" data-pop="99" data-brand="apple" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15749" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-black-15749/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15749" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-black-15749/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-black-15749/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Black)">
-    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Black)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-black-15749/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Black)">    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1548,36 +1438,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">40 730 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">40 730 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15749" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15749" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15764" data-price="8361" data-drop="24" data-pop="99" data-brand="xiaomi" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−24%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15764" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-white-15764/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15764" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-white-15764/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-white-15764/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (White)">
-    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (White)  </a>
-
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-white-15764/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (White)">    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1591,35 +1476,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">8 361 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">8 361 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15764" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15764" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16279" data-price="19521" data-drop="0" data-pop="99" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16279" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-graphite-16279/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16279" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-graphite-16279/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-graphite-16279/" class="product-card__title" title="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Graphite)">
-    Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Graphite)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-graphite-16279/" class="product-card__title" title="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Graphite)">    Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1633,36 +1513,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">19 521 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">19 521 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16279" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16279" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16282" data-price="82550" data-drop="17" data-pop="99" data-brand="garmin" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−17%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16282" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-graphite-16282/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16282" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-graphite-16282/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Garmin</div>
-  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-graphite-16282/" class="product-card__title" title="Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Graphite)">
-    Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Graphite)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-graphite-16282/" class="product-card__title" title="Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Graphite)">    Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1676,36 +1551,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">82 550 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">82 550 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16282" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16282" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15785" data-price="47421" data-drop="15" data-pop="99" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−15%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15785" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-dark-blue-15785/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15785" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-dark-blue-15785/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-dark-blue-15785/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Dark Blue)">
-    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-dark-blue-15785/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Dark Blue)">    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1719,35 +1589,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">47 421 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">47 421 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15785" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15785" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16046" data-price="5451" data-drop="0" data-pop="99" data-brand="xiaomi" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16046" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-midnight-16046/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16046" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-midnight-16046/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-midnight-16046/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Midnight)">
-    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Midnight)  </a>
-
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-midnight-16046/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Midnight)">    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1761,35 +1626,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">5 451 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">5 451 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16046" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16046" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16081" data-price="21591" data-drop="0" data-pop="99" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16081" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-silver-16081/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16081" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-silver-16081/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-silver-16081/" class="product-card__title" title="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Silver)">
-    Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Silver)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-silver-16081/" class="product-card__title" title="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Silver)">    Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1803,35 +1663,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">21 591 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">21 591 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16081" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16081" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15601" data-price="17541" data-drop="0" data-pop="99" data-brand="huawei" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15601" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-white-15601/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15601" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-white-15601/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-white-15601/" class="product-card__title" title="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (White)">
-    Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (White)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-white-15601/" class="product-card__title" title="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (White)">    Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1845,36 +1700,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">17 541 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">17 541 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15601" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15601" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15477" data-price="22041" data-drop="22" data-pop="98" data-brand="amazfit" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−22%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15477" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-amazfit-balance-46mm-midnight-ai-fitness-gold-15477/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Amazfit Balance 46mm Midnight (AI Fitness) (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15477" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-amazfit-balance-46mm-midnight-ai-fitness-gold-15477/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Amazfit</div>
-  <a href="/price-aggregator/p/smart-chasy-amazfit-balance-46mm-midnight-ai-fitness-gold-15477/" class="product-card__title" title="Смарт-часы Amazfit Balance 46mm Midnight (AI Fitness) (Gold)">
-    Смарт-часы Amazfit Balance 46mm Midnight (AI Fitness) (Gold)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-amazfit-balance-46mm-midnight-ai-fitness-gold-15477/" class="product-card__title" title="Смарт-часы Amazfit Balance 46mm Midnight (AI Fitness) (Gold)">    Смарт-часы Amazfit Balance 46mm Midnight (AI Fitness) (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1888,36 +1738,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">22 041 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">22 041 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15477" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15477" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15743" data-price="47421" data-drop="18" data-pop="98" data-brand="apple" data-seller="crossborder">
   <div class="product-card__badges">
           <span class="badge badge--drop">−18%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15743" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-gold-15743/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15743" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-gold-15743/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-gold-15743/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Gold)">
-    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Gold)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-gold-15743/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Gold)">    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1931,35 +1776,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">47 421 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">47 421 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15743" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15743" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16006" data-price="73591" data-drop="0" data-pop="98" data-brand="garmin" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16006" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-dark-blue-16006/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16006" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-dark-blue-16006/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Garmin</div>
-  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-dark-blue-16006/" class="product-card__title" title="Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Dark Blue)">
-    Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-dark-blue-16006/" class="product-card__title" title="Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Dark Blue)">    Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1973,35 +1813,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">73 591 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">73 591 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16006" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16006" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15775" data-price="19311" data-drop="0" data-pop="98" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15775" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-midnight-15775/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15775" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-midnight-15775/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-midnight-15775/" class="product-card__title" title="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Midnight)">
-    Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Midnight)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-midnight-15775/" class="product-card__title" title="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Midnight)">    Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -2015,35 +1850,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">19 311 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">19 311 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15775" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15775" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15787" data-price="21591" data-drop="0" data-pop="98" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15787" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-dark-blue-15787/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15787" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-dark-blue-15787/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-dark-blue-15787/" class="product-card__title" title="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Dark Blue)">
-    Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-huawei-watch-gt-4-46mm-black-stainless-steel-dark-blue-15787/" class="product-card__title" title="Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Dark Blue)">    Смарт-часы HUAWEI Watch GT 4 46mm Black Stainless Steel (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -2057,35 +1887,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">21 591 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">21 591 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15787" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15787" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15860" data-price="10911" data-drop="0" data-pop="98" data-brand="xiaomi" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15860" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-black-15860/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15860" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-black-15860/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-black-15860/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Black)">
-    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Black)  </a>
-
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-black-15860/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Black)">    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -2099,35 +1924,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">10 911 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">10 911 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15860" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15860" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15378" data-price="21846" data-drop="0" data-pop="97" data-brand="samsung" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15378" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-samsung-galaxy-watch6-44mm-graphite-sm-r940-silver-15378/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Samsung Galaxy Watch6 44mm Graphite (SM-R940) (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15378" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-samsung-galaxy-watch6-44mm-graphite-sm-r940-silver-15378/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/smart-chasy-samsung-galaxy-watch6-44mm-graphite-sm-r940-silver-15378/" class="product-card__title" title="Смарт-часы Samsung Galaxy Watch6 44mm Graphite (SM-R940) (Silver)">
-    Смарт-часы Samsung Galaxy Watch6 44mm Graphite (SM-R940) (Silver)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-samsung-galaxy-watch6-44mm-graphite-sm-r940-silver-15378/" class="product-card__title" title="Смарт-часы Samsung Galaxy Watch6 44mm Graphite (SM-R940) (Silver)">    Смарт-часы Samsung Galaxy Watch6 44mm Graphite (SM-R940) (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -2141,35 +1961,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">21 846 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">21 846 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15378" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15378" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15634" data-price="74156" data-drop="0" data-pop="97" data-brand="garmin" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15634" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-graphite-15634/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15634" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-graphite-15634/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Garmin</div>
-  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-graphite-15634/" class="product-card__title" title="Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Graphite)">
-    Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Graphite)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-garmin-fenix-7-pro-sapphire-solar-47mm-carbon-gray-graphite-15634/" class="product-card__title" title="Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Graphite)">    Смарт-часы Garmin Fenix 7 Pro Sapphire Solar 47mm Carbon Gray (Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -2183,16 +1998,16 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">74 156 ₽</span>
-      <span class="product-card__shops-cnt">
-        5 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">74 156 ₽</span>
+        <span class="product-card__shops-cnt">
+          5 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15634" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15634" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
               </div>
 
@@ -2258,7 +2073,7 @@
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
+          <p class="footer-currency">Перед покупкой уточняйте актуальные цены и наличие в магазине.</p>
         </div>
 
         <div class="footer-col">
@@ -2277,7 +2092,7 @@
           <ul class="footer-links">
             <li><a href="/price-aggregator/pages/how-it-works">Как мы считаем цены</a></li>
             <li><a href="/price-aggregator/pages/marketplaces">О маркетплейсах и продавцах</a></li>
-            <li><a href="/price-aggregator/pages/report">Сообщить о неверной цене</a></li>
+            <li><span title="Форма доступна только на PHP-сайте">Сообщить о неверной цене (в демо недоступно)</span></li>
             <li><a href="/price-aggregator/pages/legal">Политика конфиденциальности (152-ФЗ)</a></li>
             <li><a href="/price-aggregator/ui-kit">Витрина компонентов (UI Kit)</a></li>
           </ul>
@@ -2304,15 +2119,15 @@
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#home"></use></svg>
       <span>Главная</span>
     </a>
-    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
       <span>Каталог</span>
     </button>
-    <a href="/price-aggregator/compare" class="mobile-nav__item">
+    <a href="/price-aggregator/compare" class="mobile-nav__item" id="mobileCompareBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       <span>Сравнение</span>
     </a>
-    <a href="/price-aggregator/favorites" class="mobile-nav__item">
+    <a href="/price-aggregator/favorites" class="mobile-nav__item" id="mobileFavBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
       <span>Избранное</span>
     </a>

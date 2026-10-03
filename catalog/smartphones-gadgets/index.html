@@ -24,18 +24,13 @@
   <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
   </head>
 <body class="site-body">
-  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <!-- Service information: never present hard-coded counters as live measurements. -->
   <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
     <div class="container d-flex justify-between align-center flex-wrap gap-2">
       <div class="d-flex align-center gap-2">
-        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
-        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
-        <span>Обновлено только что &mdash;</span>
-        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
-        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
       </div>
       <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/price-aggregator/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
         <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
       </div>
     </div>
@@ -61,7 +56,7 @@
           <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     placeholder="Поиск моделей в демонстрационном каталоге..."
                      value="" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
@@ -541,7 +536,7 @@
     </div>
 
     <!-- Mobile Filter Toggle Button -->
-    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn">
+    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn" aria-controls="filterSidebar" aria-expanded="false">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#filter"></use></svg>
       <span>Фильтры</span>
     </button>
@@ -753,22 +748,17 @@
       <div class="product-grid" id="catalogProducts">
                   <article class="product-card" data-product-id="12575" data-price="123216" data-drop="0" data-pop="110" data-brand="google" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="12575" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-128gb-midnight-12575/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (128GB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="12575" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-128gb-midnight-12575/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Google</div>
-  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-128gb-midnight-12575/" class="product-card__title" title="Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (128GB, Midnight)">
-    Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (128GB, Midnight)  </a>
-
+  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-128gb-midnight-12575/" class="product-card__title" title="Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (128GB, Midnight)">    Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (128GB, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -786,36 +776,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">123 216 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">123 216 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12575" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12575" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="12320" data-price="155766" data-drop="15" data-pop="110" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−15%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="12320" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-1tb-silver-12320/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (1TB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="12320" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-1tb-silver-12320/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-1tb-silver-12320/" class="product-card__title" title="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (1TB, Silver)">
-    Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (1TB, Silver)  </a>
-
+  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-1tb-silver-12320/" class="product-card__title" title="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (1TB, Silver)">    Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (1TB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -833,35 +818,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">155 766 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">155 766 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12320" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12320" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="12872" data-price="149951" data-drop="0" data-pop="110" data-brand="apple" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="12872" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-256gb-white-12872/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (256GB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="12872" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-256gb-white-12872/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-256gb-white-12872/" class="product-card__title" title="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (256GB, White)">
-    Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (256GB, White)  </a>
-
+  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-256gb-white-12872/" class="product-card__title" title="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (256GB, White)">    Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (256GB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -879,35 +859,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">149 951 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">149 951 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12872" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12872" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14411" data-price="119201" data-drop="0" data-pop="110" data-brand="google" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14411" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-256gb-midnight-14411/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (256GB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14411" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-256gb-midnight-14411/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Google</div>
-  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-256gb-midnight-14411/" class="product-card__title" title="Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (256GB, Midnight)">
-    Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (256GB, Midnight)  </a>
-
+  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-256gb-midnight-14411/" class="product-card__title" title="Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (256GB, Midnight)">    Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (256GB, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -925,35 +900,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">119 201 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">119 201 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14411" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14411" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="17744" data-price="35871" data-drop="0" data-pop="110" data-brand="sennheiser" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="17744" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/besprovodnye-naushniki-sennheiser-momentum-4-wireless-black-silver-17744/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/headphones-sony.webp" alt="Беспроводные наушники Sennheiser Momentum 4 Wireless Black (Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="17744" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/besprovodnye-naushniki-sennheiser-momentum-4-wireless-black-silver-17744/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Sennheiser</div>
-  <a href="/price-aggregator/p/besprovodnye-naushniki-sennheiser-momentum-4-wireless-black-silver-17744/" class="product-card__title" title="Беспроводные наушники Sennheiser Momentum 4 Wireless Black (Silver)">
-    Беспроводные наушники Sennheiser Momentum 4 Wireless Black (Silver)  </a>
-
+  <a href="/price-aggregator/p/besprovodnye-naushniki-sennheiser-momentum-4-wireless-black-silver-17744/" class="product-card__title" title="Беспроводные наушники Sennheiser Momentum 4 Wireless Black (Silver)">    Беспроводные наушники Sennheiser Momentum 4 Wireless Black (Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -971,35 +941,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">35 871 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">35 871 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="17744" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="17744" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14675" data-price="152765" data-drop="0" data-pop="110" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14675" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-silver-14675/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14675" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-silver-14675/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-silver-14675/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Silver)">
-    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Silver)  </a>
-
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-silver-14675/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Silver)">    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1013,36 +978,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">152 765 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">152 765 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14675" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14675" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16478" data-price="16731" data-drop="18" data-pop="110" data-brand="hyperx" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−18%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16478" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/igrovaya-garnitura-hyperx-cloud-iii-wireless-black-red-space-gray-16478/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/headphones-sony.webp" alt="Игровая гарнитура HyperX Cloud III Wireless Black/Red (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16478" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovaya-garnitura-hyperx-cloud-iii-wireless-black-red-space-gray-16478/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HyperX</div>
-  <a href="/price-aggregator/p/igrovaya-garnitura-hyperx-cloud-iii-wireless-black-red-space-gray-16478/" class="product-card__title" title="Игровая гарнитура HyperX Cloud III Wireless Black/Red (Space Gray)">
-    Игровая гарнитура HyperX Cloud III Wireless Black/Red (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/igrovaya-garnitura-hyperx-cloud-iii-wireless-black-red-space-gray-16478/" class="product-card__title" title="Игровая гарнитура HyperX Cloud III Wireless Black/Red (Space Gray)">    Игровая гарнитура HyperX Cloud III Wireless Black/Red (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1060,35 +1020,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">16 731 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">16 731 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16478" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16478" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14687" data-price="32391" data-drop="0" data-pop="110" data-brand="honor" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14687" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14687/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14687" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14687/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HONOR</div>
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14687/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)">
-    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)  </a>
-
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14687/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)">    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1102,35 +1057,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">32 391 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">32 391 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14687" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14687" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14180" data-price="153781" data-drop="0" data-pop="110" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14180" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-512gb-titanium-14180/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (512GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14180" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-512gb-titanium-14180/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-512gb-titanium-14180/" class="product-card__title" title="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (512GB, Titanium)">
-    Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (512GB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-512gb-titanium-14180/" class="product-card__title" title="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (512GB, Titanium)">    Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (512GB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -1148,35 +1098,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">153 781 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">153 781 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14180" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14180" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="13157" data-price="109031" data-drop="0" data-pop="110" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="13157" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-huawei-pura-70-ultra-16-512gb-black-128gb-graphite-13157/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон HUAWEI Pura 70 Ultra 16/512GB Black (128GB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="13157" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-huawei-pura-70-ultra-16-512gb-black-128gb-graphite-13157/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/smartfon-huawei-pura-70-ultra-16-512gb-black-128gb-graphite-13157/" class="product-card__title" title="Смартфон HUAWEI Pura 70 Ultra 16/512GB Black (128GB, Graphite)">
-    Смартфон HUAWEI Pura 70 Ultra 16/512GB Black (128GB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/smartfon-huawei-pura-70-ultra-16-512gb-black-128gb-graphite-13157/" class="product-card__title" title="Смартфон HUAWEI Pura 70 Ultra 16/512GB Black (128GB, Graphite)">    Смартфон HUAWEI Pura 70 Ultra 16/512GB Black (128GB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -1194,35 +1139,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">109 031 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">109 031 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="13157" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="13157" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14201" data-price="100091" data-drop="0" data-pop="110" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14201" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-huawei-pura-70-ultra-16-512gb-black-1tb-midnight-14201/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон HUAWEI Pura 70 Ultra 16/512GB Black (1TB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14201" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-huawei-pura-70-ultra-16-512gb-black-1tb-midnight-14201/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/smartfon-huawei-pura-70-ultra-16-512gb-black-1tb-midnight-14201/" class="product-card__title" title="Смартфон HUAWEI Pura 70 Ultra 16/512GB Black (1TB, Midnight)">
-    Смартфон HUAWEI Pura 70 Ultra 16/512GB Black (1TB, Midnight)  </a>
-
+  <a href="/price-aggregator/p/smartfon-huawei-pura-70-ultra-16-512gb-black-1tb-midnight-14201/" class="product-card__title" title="Смартфон HUAWEI Pura 70 Ultra 16/512GB Black (1TB, Midnight)">    Смартфон HUAWEI Pura 70 Ultra 16/512GB Black (1TB, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -1240,35 +1180,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">100 091 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">100 091 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14201" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14201" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16292" data-price="22300" data-drop="0" data-pop="110" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16292" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/besprovodnye-naushniki-apple-airpods-pro-2-usb-c-white-16292/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/headphones-sony.webp" alt="Беспроводные наушники Apple AirPods Pro 2 (USB-C) White" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16292" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/besprovodnye-naushniki-apple-airpods-pro-2-usb-c-white-16292/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/besprovodnye-naushniki-apple-airpods-pro-2-usb-c-white-16292/" class="product-card__title" title="Беспроводные наушники Apple AirPods Pro 2 (USB-C) White">
-    Беспроводные наушники Apple AirPods Pro 2 (USB-C) White  </a>
-
+  <a href="/price-aggregator/p/besprovodnye-naushniki-apple-airpods-pro-2-usb-c-white-16292/" class="product-card__title" title="Беспроводные наушники Apple AirPods Pro 2 (USB-C) White">    Беспроводные наушники Apple AirPods Pro 2 (USB-C) White  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1286,35 +1221,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">22 300 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">22 300 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16292" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16292" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16601" data-price="21141" data-drop="0" data-pop="110" data-brand="audio-technica" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16601" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/besprovodnye-naushniki-audio-technica-ath-m50xbt2-black-white-16601/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/headphones-sony.webp" alt="Беспроводные наушники Audio-Technica ATH-M50xBT2 Black (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16601" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/besprovodnye-naushniki-audio-technica-ath-m50xbt2-black-white-16601/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Audio-Technica</div>
-  <a href="/price-aggregator/p/besprovodnye-naushniki-audio-technica-ath-m50xbt2-black-white-16601/" class="product-card__title" title="Беспроводные наушники Audio-Technica ATH-M50xBT2 Black (White)">
-    Беспроводные наушники Audio-Technica ATH-M50xBT2 Black (White)  </a>
-
+  <a href="/price-aggregator/p/besprovodnye-naushniki-audio-technica-ath-m50xbt2-black-white-16601/" class="product-card__title" title="Беспроводные наушники Audio-Technica ATH-M50xBT2 Black (White)">    Беспроводные наушники Audio-Technica ATH-M50xBT2 Black (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1332,36 +1262,31 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">21 141 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">21 141 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16601" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16601" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="17402" data-price="16266" data-drop="12" data-pop="110" data-brand="anker" data-seller="marketplace">
   <div class="product-card__badges">
           <span class="badge badge--drop">−12%</span>
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="17402" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/besprovodnye-naushniki-anker-soundcore-space-q45-black-anc-titanium-17402/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/headphones-sony.webp" alt="Беспроводные наушники Anker Soundcore Space Q45 Black ANC (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="17402" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/besprovodnye-naushniki-anker-soundcore-space-q45-black-anc-titanium-17402/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Anker</div>
-  <a href="/price-aggregator/p/besprovodnye-naushniki-anker-soundcore-space-q45-black-anc-titanium-17402/" class="product-card__title" title="Беспроводные наушники Anker Soundcore Space Q45 Black ANC (Titanium)">
-    Беспроводные наушники Anker Soundcore Space Q45 Black ANC (Titanium)  </a>
-
+  <a href="/price-aggregator/p/besprovodnye-naushniki-anker-soundcore-space-q45-black-anc-titanium-17402/" class="product-card__title" title="Беспроводные наушники Anker Soundcore Space Q45 Black ANC (Titanium)">    Беспроводные наушники Anker Soundcore Space Q45 Black ANC (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1379,35 +1304,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">16 266 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">16 266 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="17402" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="17402" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="13322" data-price="44091" data-drop="0" data-pop="109" data-brand="tecno" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="13322" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-tecno-camon-30-premier-5g-12-512gb-alps-snowy-512gb-titanium-13322/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (512GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="13322" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-tecno-camon-30-premier-5g-12-512gb-alps-snowy-512gb-titanium-13322/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">TECNO</div>
-  <a href="/price-aggregator/p/smartfon-tecno-camon-30-premier-5g-12-512gb-alps-snowy-512gb-titanium-13322/" class="product-card__title" title="Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (512GB, Titanium)">
-    Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (512GB, Titanium)  </a>
-
+  <a href="/price-aggregator/p/smartfon-tecno-camon-30-premier-5g-12-512gb-alps-snowy-512gb-titanium-13322/" class="product-card__title" title="Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (512GB, Titanium)">    Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (512GB, Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -1425,35 +1345,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">44 091 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">44 091 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="13322" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="13322" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="13334" data-price="46451" data-drop="0" data-pop="109" data-brand="tecno" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="13334" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-tecno-camon-30-premier-5g-12-512gb-alps-snowy-1tb-midnight-13334/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (1TB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="13334" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-tecno-camon-30-premier-5g-12-512gb-alps-snowy-1tb-midnight-13334/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">TECNO</div>
-  <a href="/price-aggregator/p/smartfon-tecno-camon-30-premier-5g-12-512gb-alps-snowy-1tb-midnight-13334/" class="product-card__title" title="Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (1TB, Midnight)">
-    Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (1TB, Midnight)  </a>
-
+  <a href="/price-aggregator/p/smartfon-tecno-camon-30-premier-5g-12-512gb-alps-snowy-1tb-midnight-13334/" class="product-card__title" title="Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (1TB, Midnight)">    Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (1TB, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -1471,35 +1386,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">46 451 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">46 451 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="13334" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="13334" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="13376" data-price="149951" data-drop="0" data-pop="109" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="13376" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-1tb-gold-13376/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (1TB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="13376" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-1tb-gold-13376/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-1tb-gold-13376/" class="product-card__title" title="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (1TB, Gold)">
-    Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (1TB, Gold)  </a>
-
+  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-1tb-gold-13376/" class="product-card__title" title="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (1TB, Gold)">    Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (1TB, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -1517,35 +1427,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">149 951 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">149 951 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="13376" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="13376" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15170" data-price="31041" data-drop="0" data-pop="109" data-brand="honor" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15170" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-gold-15170/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15170" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-gold-15170/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HONOR</div>
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-gold-15170/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)">
-    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)  </a>
-
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-gold-15170/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)">    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1559,35 +1464,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">31 041 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">31 041 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15170" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15170" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="12155" data-price="123216" data-drop="0" data-pop="109" data-brand="google" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="12155" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-256gb-space-gray-12155/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (256GB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="12155" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-256gb-space-gray-12155/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Google</div>
-  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-256gb-space-gray-12155/" class="product-card__title" title="Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (256GB, Space Gray)">
-    Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (256GB, Space Gray)  </a>
-
+  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-256gb-space-gray-12155/" class="product-card__title" title="Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (256GB, Space Gray)">    Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (256GB, Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -1605,35 +1505,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">123 216 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">123 216 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12155" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12155" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14984" data-price="58491" data-drop="0" data-pop="109" data-brand="samsung" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14984" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-black-14984/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14984" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-black-14984/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-black-14984/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)">
-    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)  </a>
-
+  <a href="/price-aggregator/p/planshet-samsung-galaxy-tab-s9-128gb-wi-fi-graphite-128gb-black-14984/" class="product-card__title" title="Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)">    Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite (128GB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1647,35 +1542,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">58 491 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">58 491 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14984" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14984" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="12728" data-price="151051" data-drop="0" data-pop="109" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="12728" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-256gb-gold-12728/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (256GB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="12728" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-256gb-gold-12728/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-256gb-gold-12728/" class="product-card__title" title="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (256GB, Gold)">
-    Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (256GB, Gold)  </a>
-
+  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-256gb-gold-12728/" class="product-card__title" title="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (256GB, Gold)">    Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (256GB, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -1693,35 +1583,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">151 051 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">151 051 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12728" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12728" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15545" data-price="41316" data-drop="0" data-pop="109" data-brand="apple" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15545" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-white-15545/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15545" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-white-15545/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-white-15545/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (White)">
-    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (White)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-white-15545/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (White)">    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1735,35 +1620,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">41 316 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">41 316 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15545" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15545" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14786" data-price="63691" data-drop="0" data-pop="109" data-brand="apple" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14786" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-gold-14786/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14786" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-gold-14786/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-gold-14786/" class="product-card__title" title="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, Gold)">
-    Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, Gold)  </a>
-
+  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-gold-14786/" class="product-card__title" title="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, Gold)">    Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1777,35 +1657,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">63 691 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">63 691 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14786" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14786" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="13508" data-price="153781" data-drop="0" data-pop="109" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="13508" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-512gb-silver-13508/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (512GB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="13508" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-512gb-silver-13508/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-512gb-silver-13508/" class="product-card__title" title="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (512GB, Silver)">
-    Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (512GB, Silver)  </a>
-
+  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-512gb-silver-13508/" class="product-card__title" title="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (512GB, Silver)">    Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (512GB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -1823,35 +1698,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">153 781 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">153 781 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="13508" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="13508" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="17369" data-price="18646" data-drop="0" data-pop="109" data-brand="audio-technica" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="17369" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/besprovodnye-naushniki-audio-technica-ath-m50xbt2-black-gold-17369/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/headphones-sony.webp" alt="Беспроводные наушники Audio-Technica ATH-M50xBT2 Black (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="17369" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/besprovodnye-naushniki-audio-technica-ath-m50xbt2-black-gold-17369/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Audio-Technica</div>
-  <a href="/price-aggregator/p/besprovodnye-naushniki-audio-technica-ath-m50xbt2-black-gold-17369/" class="product-card__title" title="Беспроводные наушники Audio-Technica ATH-M50xBT2 Black (Gold)">
-    Беспроводные наушники Audio-Technica ATH-M50xBT2 Black (Gold)  </a>
-
+  <a href="/price-aggregator/p/besprovodnye-naushniki-audio-technica-ath-m50xbt2-black-gold-17369/" class="product-card__title" title="Беспроводные наушники Audio-Technica ATH-M50xBT2 Black (Gold)">    Беспроводные наушники Audio-Technica ATH-M50xBT2 Black (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -1869,35 +1739,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">18 646 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">18 646 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="17369" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="17369" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16106" data-price="9651" data-drop="0" data-pop="109" data-brand="xiaomi" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16106" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-space-gray-16106/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16106" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-space-gray-16106/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-space-gray-16106/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Space Gray)">
-    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Space Gray)  </a>
-
+  <a href="/price-aggregator/p/fitnes-braslet-xiaomi-smart-band-8-pro-black-amoled-space-gray-16106/" class="product-card__title" title="Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Space Gray)">    Фитнес-браслет Xiaomi Smart Band 8 Pro Black AMOLED (Space Gray)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -1911,35 +1776,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">9 651 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">9 651 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16106" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16106" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14432" data-price="153781" data-drop="0" data-pop="108" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14432" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-1tb-dark-blue-14432/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (1TB, Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14432" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-1tb-dark-blue-14432/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-1tb-dark-blue-14432/" class="product-card__title" title="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (1TB, Dark Blue)">
-    Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (1TB, Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/smartfon-apple-iphone-16-pro-max-256gb-desert-titanium-1tb-dark-blue-14432/" class="product-card__title" title="Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (1TB, Dark Blue)">    Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium (1TB, Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -1957,35 +1817,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">153 781 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">153 781 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14432" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14432" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15203" data-price="29891" data-drop="0" data-pop="108" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15203" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-midnight-15203/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15203" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-midnight-15203/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-midnight-15203/" class="product-card__title" title="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Midnight)">
-    Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Midnight)  </a>
-
+  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-midnight-15203/" class="product-card__title" title="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Midnight)">    Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -1999,35 +1854,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">29 891 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">29 891 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15203" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15203" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14972" data-price="32651" data-drop="0" data-pop="108" data-brand="huawei" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14972" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-graphite-14972/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Graphite)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14972" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-graphite-14972/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-graphite-14972/" class="product-card__title" title="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Graphite)">
-    Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Graphite)  </a>
-
+  <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-graphite-14972/" class="product-card__title" title="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Graphite)">    Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Graphite)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -2041,35 +1891,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">32 651 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">32 651 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14972" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14972" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="12683" data-price="114991" data-drop="0" data-pop="108" data-brand="google" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="12683" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-256gb-midnight-12683/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (256GB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="12683" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-256gb-midnight-12683/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Google</div>
-  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-256gb-midnight-12683/" class="product-card__title" title="Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (256GB, Midnight)">
-    Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (256GB, Midnight)  </a>
-
+  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-256gb-midnight-12683/" class="product-card__title" title="Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (256GB, Midnight)">    Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (256GB, Midnight)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -2087,35 +1932,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">114 991 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">114 991 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12683" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12683" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14246" data-price="44091" data-drop="0" data-pop="108" data-brand="tecno" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14246" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-tecno-camon-30-premier-5g-12-512gb-alps-snowy-1tb-gold-14246/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (1TB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14246" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-tecno-camon-30-premier-5g-12-512gb-alps-snowy-1tb-gold-14246/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">TECNO</div>
-  <a href="/price-aggregator/p/smartfon-tecno-camon-30-premier-5g-12-512gb-alps-snowy-1tb-gold-14246/" class="product-card__title" title="Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (1TB, Gold)">
-    Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (1TB, Gold)  </a>
-
+  <a href="/price-aggregator/p/smartfon-tecno-camon-30-premier-5g-12-512gb-alps-snowy-1tb-gold-14246/" class="product-card__title" title="Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (1TB, Gold)">    Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (1TB, Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -2133,35 +1973,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">44 091 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">44 091 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14246" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14246" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="15851" data-price="43236" data-drop="0" data-pop="108" data-brand="apple" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="15851" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-gold-15851/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/watch-apple.webp" alt="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="15851" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-gold-15851/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-gold-15851/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Gold)">
-    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Gold)  </a>
-
+  <a href="/price-aggregator/p/smart-chasy-apple-watch-series-9-gps-45mm-midnight-aluminum-gold-15851/" class="product-card__title" title="Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Gold)">    Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum (Gold)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>color:</span>
@@ -2175,35 +2010,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">43 236 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">43 236 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15851" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15851" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="17138" data-price="9091" data-drop="0" data-pop="108" data-brand="anker" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="17138" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/besprovodnye-naushniki-anker-soundcore-space-q45-black-anc-dark-blue-17138/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/headphones-sony.webp" alt="Беспроводные наушники Anker Soundcore Space Q45 Black ANC (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="17138" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/besprovodnye-naushniki-anker-soundcore-space-q45-black-anc-dark-blue-17138/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Anker</div>
-  <a href="/price-aggregator/p/besprovodnye-naushniki-anker-soundcore-space-q45-black-anc-dark-blue-17138/" class="product-card__title" title="Беспроводные наушники Anker Soundcore Space Q45 Black ANC (Dark Blue)">
-    Беспроводные наушники Anker Soundcore Space Q45 Black ANC (Dark Blue)  </a>
-
+  <a href="/price-aggregator/p/besprovodnye-naushniki-anker-soundcore-space-q45-black-anc-dark-blue-17138/" class="product-card__title" title="Беспроводные наушники Anker Soundcore Space Q45 Black ANC (Dark Blue)">    Беспроводные наушники Anker Soundcore Space Q45 Black ANC (Dark Blue)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -2221,35 +2051,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">9 091 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">9 091 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="17138" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="17138" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14366" data-price="39121" data-drop="0" data-pop="107" data-brand="tecno" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14366" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/smartfon-tecno-camon-30-premier-5g-12-512gb-alps-snowy-256gb-black-14366/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/phone-iphone15.webp" alt="Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (256GB, Black)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14366" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/smartfon-tecno-camon-30-premier-5g-12-512gb-alps-snowy-256gb-black-14366/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">TECNO</div>
-  <a href="/price-aggregator/p/smartfon-tecno-camon-30-premier-5g-12-512gb-alps-snowy-256gb-black-14366/" class="product-card__title" title="Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (256GB, Black)">
-    Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (256GB, Black)  </a>
-
+  <a href="/price-aggregator/p/smartfon-tecno-camon-30-premier-5g-12-512gb-alps-snowy-256gb-black-14366/" class="product-card__title" title="Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (256GB, Black)">    Смартфон TECNO Camon 30 Premier 5G 12/512GB Alps Snowy (256GB, Black)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -2267,35 +2092,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">39 121 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">39 121 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14366" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14366" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="16964" data-price="21381" data-drop="0" data-pop="107" data-brand="apple" data-seller="crossborder">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="16964" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/besprovodnye-naushniki-apple-airpods-pro-2-usb-c-white-titanium-16964/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/headphones-sony.webp" alt="Беспроводные наушники Apple AirPods Pro 2 (USB-C) White (Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="16964" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/besprovodnye-naushniki-apple-airpods-pro-2-usb-c-white-titanium-16964/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/besprovodnye-naushniki-apple-airpods-pro-2-usb-c-white-titanium-16964/" class="product-card__title" title="Беспроводные наушники Apple AirPods Pro 2 (USB-C) White (Titanium)">
-    Беспроводные наушники Apple AirPods Pro 2 (USB-C) White (Titanium)  </a>
-
+  <a href="/price-aggregator/p/besprovodnye-naushniki-apple-airpods-pro-2-usb-c-white-titanium-16964/" class="product-card__title" title="Беспроводные наушники Apple AirPods Pro 2 (USB-C) White (Titanium)">    Беспроводные наушники Apple AirPods Pro 2 (USB-C) White (Titanium)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>type:</span>
@@ -2313,35 +2133,30 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">21 381 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">21 381 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16964" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16964" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
                   <article class="product-card" data-product-id="14939" data-price="24291" data-drop="0" data-pop="107" data-brand="honor" data-seller="marketplace">
   <div class="product-card__badges">
-              <span class="badge badge--best">Выгода</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="14939" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
-
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14939/" class="product-card__img-wrap" tabindex="-1">
-    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-
+      <button type="button" class="product-card__fav" data-fav-id="14939" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14939/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>  <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
   <div class="product-card__brand">HONOR</div>
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14939/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)">
-    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)  </a>
-
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14939/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)">    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -2355,16 +2170,16 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price">24 291 ₽</span>
-      <span class="product-card__shops-cnt">
-        6 предложений      </span>
-    </div>
+              <span class="product-card__price-label">от</span>
+        <span class="product-card__price">24 291 ₽</span>
+        <span class="product-card__shops-cnt">
+          6 предложений        </span>
+          </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14939" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
-  </div>
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14939" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
 </article>
               </div>
 
@@ -2430,7 +2245,7 @@
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
+          <p class="footer-currency">Перед покупкой уточняйте актуальные цены и наличие в магазине.</p>
         </div>
 
         <div class="footer-col">
@@ -2449,7 +2264,7 @@
           <ul class="footer-links">
             <li><a href="/price-aggregator/pages/how-it-works">Как мы считаем цены</a></li>
             <li><a href="/price-aggregator/pages/marketplaces">О маркетплейсах и продавцах</a></li>
-            <li><a href="/price-aggregator/pages/report">Сообщить о неверной цене</a></li>
+            <li><span title="Форма доступна только на PHP-сайте">Сообщить о неверной цене (в демо недоступно)</span></li>
             <li><a href="/price-aggregator/pages/legal">Политика конфиденциальности (152-ФЗ)</a></li>
             <li><a href="/price-aggregator/ui-kit">Витрина компонентов (UI Kit)</a></li>
           </ul>
@@ -2476,15 +2291,15 @@
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#home"></use></svg>
       <span>Главная</span>
     </a>
-    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
       <span>Каталог</span>
     </button>
-    <a href="/price-aggregator/compare" class="mobile-nav__item">
+    <a href="/price-aggregator/compare" class="mobile-nav__item" id="mobileCompareBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       <span>Сравнение</span>
     </a>
-    <a href="/price-aggregator/favorites" class="mobile-nav__item">
+    <a href="/price-aggregator/favorites" class="mobile-nav__item" id="mobileFavBtn">
       <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
       <span>Избранное</span>
     </a>
