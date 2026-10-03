@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <base href="/price-aggregator/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Купить Процессоры — сравнение цен в магазинах и маркетплейсах</title>
+  <meta name="description" content="Все актуальные цены на Процессоры в магазинах РФ и маркетплейсах. Сравнение предложений, история цен, фильтры по характеристикам.">
+  <link rel="canonical" href="http://localhost:8080/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Купить Процессоры — сравнение цен в магазинах и маркетплейсах">
+  <meta property="og:description" content="Все актуальные цены на Процессоры в магазинах РФ и маркетплейсах. Сравнение предложений, история цен, фильтры по характеристикам.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:8080/">
+  <meta property="og:site_name" content="PriceHub">
+
+  <!-- Fonts: Plus Jakarta Sans & Inter from Stitch Design System -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
+  </head>
+<body class="site-body">
+  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
+    <div class="container d-flex justify-between align-center flex-wrap gap-2">
+      <div class="d-flex align-center gap-2">
+        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
+        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
+        <span>Обновлено только что &mdash;</span>
+        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
+        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+      </div>
+      <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
+        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/price-aggregator/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
+        <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop & Mobile Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-main">
+      <div class="container header-main__inner">
+        <!-- Logo -->
+        <a href="/price-aggregator/" class="header-logo" aria-label="PriceHub Главная">
+          <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
+        </a>
+
+        <!-- Catalog Button -->
+        <button type="button" class="btn btn--accent header-catalog-btn" id="btnCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
+          <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#menu"></use></svg>
+          <span>Каталог товаров</span>
+        </button>
+
+        <!-- Search Bar with Instant Suggestions -->
+        <div class="header-search">
+          <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
+            <div class="search-input-wrap">
+              <input type="search" name="q" id="searchInput" class="search-input" 
+                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     value="" autocomplete="off" required>
+              <button type="submit" class="search-btn" aria-label="Искать">
+                <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
+              </button>
+            </div>
+            <!-- Suggestions Dropdown -->
+            <div class="search-suggestions" id="searchSuggestions" hidden></div>
+          </form>
+        </div>
+
+        <!-- Header Actions: Compare, Favorites -->
+        <div class="header-actions">
+          <a href="/price-aggregator/compare" class="header-action-btn" title="Сравнение товаров" id="hdrCompareBtn">
+            <div class="header-action-btn__icon">
+              <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+              <span class="badge-count" id="compareCount" hidden>0</span>
+            </div>
+            <span class="header-action-btn__label">Сравнение</span>
+          </a>
+
+          <a href="/price-aggregator/favorites" class="header-action-btn" title="Избранные товары" id="hdrFavBtn">
+            <div class="header-action-btn__icon">
+              <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+              <span class="badge-count" id="favoritesCount" hidden>0</span>
+            </div>
+            <span class="header-action-btn__label">Избранное</span>
+          </a>
+
+          <a href="/price-aggregator/ui-kit" class="header-action-btn" title="UI Kit & Дизайн-система">
+            <div class="header-action-btn__icon">
+              <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
+            </div>
+            <span class="header-action-btn__label">UI Kit</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Subheader Strip (Stitch Design) -->
+    <div style="background: var(--c-dark-2); border-top: 1px solid rgba(255,255,255,0.08); overflow-x: auto; white-space: nowrap;">
+      <div class="container d-flex align-center gap-2" style="height: 40px; font-size: var(--fs-xs); font-weight: 600;">
+        <a href="/price-aggregator/catalog/smartphones" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Смартфоны и гаджеты</a>
+        <a href="/price-aggregator/catalog/laptops" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Ноутбуки и ПК</a>
+        <a href="/price-aggregator/catalog/graphics-cards" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Видеокарты</a>
+        <a href="/price-aggregator/catalog/processors" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Процессоры</a>
+        <a href="/price-aggregator/catalog/storage-ssd" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">SSD накопители</a>
+        <a href="/price-aggregator/catalog/televisions" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">ТВ и Аудио</a>
+        <a href="/price-aggregator/search?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
+      </div>
+    </div>
+
+    <!-- Mega Menu Container -->
+    <nav class="mega-menu" id="megaMenu" hidden aria-label="Каталог категорий">
+      <div class="container mega-menu__inner" id="megaMenuContent">
+        <div class="mega-menu__cats">
+      <div class="mega-menu__cat-item" data-cat-id="1">
+      <span>Комплектующие для ПК</span>
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
+    </div>
+      <div class="mega-menu__cat-item" data-cat-id="2">
+      <span>Ноутбуки и компьютеры</span>
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
+    </div>
+      <div class="mega-menu__cat-item" data-cat-id="3">
+      <span>Смартфоны и гаджеты</span>
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
+    </div>
+      <div class="mega-menu__cat-item" data-cat-id="4">
+      <span>ТВ и умный дом</span>
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
+    </div>
+  </div>
+
+<div class="mega-menu__subcats" id="megaSubcats">
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/processors" class="subcat-col__title">
+        Процессоры      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        2664 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/processors?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/processors?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/processors?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/motherboards" class="subcat-col__title">
+        Материнские платы      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/motherboards?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/motherboards?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/motherboards?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/ram" class="subcat-col__title">
+        Оперативная память      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/ram?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/ram?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/ram?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/storage-ssd" class="subcat-col__title">
+        SSD и накопители      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/storage-ssd?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/storage-ssd?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/storage-ssd?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/graphics-cards" class="subcat-col__title">
+        Видеокарты      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        5336 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/graphics-cards?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/graphics-cards?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/graphics-cards?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/power-supplies" class="subcat-col__title">
+        Блоки питания      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/power-supplies?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/power-supplies?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/power-supplies?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/cases" class="subcat-col__title">
+        Корпуса      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/cases?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/cases?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/cases?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/cooling" class="subcat-col__title">
+        Охлаждение ПК      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/cooling?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/cooling?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/cooling?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/laptops" class="subcat-col__title">
+        Ноутбуки      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        2668 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/laptops?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/laptops?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/laptops?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/monitors" class="subcat-col__title">
+        Мониторы      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/monitors?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/monitors?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/monitors?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/desktop-pcs" class="subcat-col__title">
+        Готовые ПК      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/desktop-pcs?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/desktop-pcs?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/desktop-pcs?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/smartphones" class="subcat-col__title">
+        Смартфоны      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        5336 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/smartphones?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/smartphones?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/smartphones?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/tablets" class="subcat-col__title">
+        Планшеты      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/tablets?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/tablets?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/tablets?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/smartwatches" class="subcat-col__title">
+        Смарт-часы и браслеты      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/smartwatches?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/smartwatches?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/smartwatches?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/headphones" class="subcat-col__title">
+        Наушники и гарнитуры      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        1998 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/headphones?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/headphones?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/headphones?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/televisions" class="subcat-col__title">
+        Телевизоры      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        1998 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/televisions?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/televisions?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/televisions?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/robot-vacuums" class="subcat-col__title">
+        Роботы-пылесосы      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/robot-vacuums?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/robot-vacuums?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/robot-vacuums?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+  </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content Slot -->
+  <main class="site-main" id="mainContent">
+    
+<div class="container">
+  <!-- Breadcrumbs -->
+  <nav class="mb-4 text-muted" style="font-size: var(--fs-xs);" aria-label="Хлебные крошки">
+    <a href="/price-aggregator/">Главная</a> &rarr; 
+    <a href="/price-aggregator/catalog/pc-components">Каталог</a> &rarr; 
+    <span class="font-bold" style="color: var(--c-ink);">Процессоры</span>
+  </nav>
+
+  <div class="d-flex justify-between align-center mb-4 flex-wrap gap-2">
+    <div>
+      <h1 style="font-size: var(--fs-2xl); font-weight: 800; letter-spacing: -0.5px;">
+        Процессоры      </h1>
+      <p class="text-muted" style="font-size: var(--fs-sm);">
+        Найдено <span id="filterCount" class="font-bold" style="color: var(--c-ink);">2664</span> товаров
+      </p>
+    </div>
+
+    <!-- Mobile Filter Toggle Button -->
+    <button type="button" class="btn btn--secondary btn--sm" id="openFiltersBtn" style="display: none;">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#filter"></use></svg>
+      <span>Фильтры</span>
+    </button>
+  </div>
+
+  <div class="catalog-layout">
+    <!-- Filter Sidebar -->
+    <aside class="filters-sidebar" id="filterSidebar">
+      <div class="d-flex justify-between align-center mb-4" id="filterHeaderMobile">
+        <h3 class="font-bold">Фильтры</h3>
+        <a href="?" class="text-muted" style="font-size: var(--fs-xs);">Сбросить все</a>
+      </div>
+
+      <form id="filterForm" method="GET" action="">
+        <input type="hidden" name="catId" value="10">
+
+        <!-- Sort Control -->
+        <div class="filter-group">
+          <label class="filter-group__summary" for="sortSelect">Сортировка</label>
+          <div class="filter-group__content">
+            <select name="sort" id="sortSelect" class="search-input" style="height: 38px; border: 1px solid var(--c-line); padding: 0 10px;">
+              <option value="popular" selected>По популярности</option>
+              <option value="price_asc" >Сначала дешевле</option>
+              <option value="price_desc" >Сначала дороже</option>
+              <option value="drop" >По размеру скидки</option>
+              <option value="new" >Новинки</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Price Range -->
+        <div class="filter-group">
+          <div class="filter-group__summary">Цена, ₽</div>
+          <div class="filter-group__content">
+            <div class="d-flex gap-2">
+              <input type="number" name="price_from" placeholder="от" value="" class="search-input" style="height: 36px; border: 1px solid var(--c-line); padding: 0 8px;">
+              <input type="number" name="price_to" placeholder="до" value="" class="search-input" style="height: 36px; border: 1px solid var(--c-line); padding: 0 8px;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Seller Type -->
+        <div class="filter-group">
+          <div class="filter-group__summary">Продавцы</div>
+          <div class="filter-group__content">
+            <label class="filter-checkbox">
+              <input type="radio" name="seller" value="" checked>
+              <span>Все площадки</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="radio" name="seller" value="marketplace" >
+              <span>Маркетплейсы</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="radio" name="seller" value="crossborder" >
+              <span>Из Китая (AliExpress)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Brand Filter -->
+                  <div class="filter-group">
+            <div class="filter-group__summary">Бренд</div>
+            <div class="filter-group__content" style="max-height: 220px; overflow-y: auto;">
+                              <label class="filter-checkbox">
+                  <input type="radio" name="brand" value="Intel" >
+                  <span>Intel</span>
+                  <span class="text-muted" style="margin-left: auto; font-size: var(--fs-xs);">(1332)</span>
+                </label>
+                              <label class="filter-checkbox">
+                  <input type="radio" name="brand" value="AMD" >
+                  <span>AMD</span>
+                  <span class="text-muted" style="margin-left: auto; font-size: var(--fs-xs);">(1332)</span>
+                </label>
+                          </div>
+          </div>
+        
+        <!-- Discount toggle -->
+        <div class="filter-group">
+          <label class="filter-checkbox font-bold">
+            <input type="checkbox" name="drop" value="1" >
+            <span style="color: var(--c-bad);">Только со скидкой</span>
+          </label>
+        </div>
+
+        <div class="mt-4">
+          <button type="submit" class="btn btn--accent btn--sm" style="width: 100%;">Применить</button>
+        </div>
+      </form>
+    </aside>
+
+    <!-- Main Products Grid Area -->
+    <main>
+      <div class="product-grid" id="catalogProducts">
+                  <article class="product-card" data-product-id="12563">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="12563" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-space-gray-12563" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-space-gray-12563" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">23 651 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12563" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="17723">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="17723" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-white-17723" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (White)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-white-17723" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (White)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (White)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">18 391 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="17723" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="14753">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="14753" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-silver-14753" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Silver)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-silver-14753" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Silver)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Silver)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">19 791 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14753" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="17843">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−18%</span>
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="17843" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-dark-blue-17843" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-dark-blue-17843" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Dark Blue)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Dark Blue)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">26 031 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="17843" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="2783">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="2783" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-silver-2783" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Silver)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-silver-2783" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Silver)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Silver)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">21 591 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2783" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="3863">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="3863" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-white-3863" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (White)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-white-3863" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (White)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (White)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">23 911 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3863" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="10043">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="10043" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-space-gray-10043" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-space-gray-10043" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">25 471 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10043" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="4523">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="4523" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-titanium-4523" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Titanium)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-titanium-4523" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Titanium)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Titanium)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">17 991 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4523" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="6173">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="6173" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-white-6173" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (White)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-white-6173" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (White)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (White)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">18 391 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6173" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="7733">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="7733" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-space-gray-7733" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-space-gray-7733" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">21 831 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7733" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="2873">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="2873" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-midnight-2873" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Midnight)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-midnight-2873" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Midnight)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Midnight)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">18 591 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2873" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="11363">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="11363" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-black-11363" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Black)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-black-11363" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Black)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Black)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">23 651 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11363" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="8813">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−18%</span>
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="8813" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-dark-blue-8813" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-dark-blue-8813" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Dark Blue)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Dark Blue)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">24 171 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="8813" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="18053">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−18%</span>
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="18053" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-dark-blue-18053" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-dark-blue-18053" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Dark Blue)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Dark Blue)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">20 451 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18053" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="3323">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="3323" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-space-gray-3323" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-space-gray-3323" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">18 191 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3323" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="17963">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="17963" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-titanium-17963" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Titanium)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-titanium-17963" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Titanium)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Titanium)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">23 391 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="17963" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="4433">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="4433" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-black-4433" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Black)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-black-4433" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Black)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Black)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">21 831 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4433" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="2993">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="2993" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-silver-2993" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Silver)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-silver-2993" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Silver)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Silver)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">26 311 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2993" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="19493">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="19493" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-space-gray-19493" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-space-gray-19493" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">25 471 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19493" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="3773">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−18%</span>
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="3773" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-dark-blue-3773" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Dark Blue)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-dark-blue-3773" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Dark Blue)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Dark Blue)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">18 591 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3773" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="9473">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="9473" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-black-9473" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Black)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-black-9473" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Black)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Black)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">18 191 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9473" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="17183">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="17183" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-space-gray-17183" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-space-gray-17183" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Space Gray)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">21 831 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="17183" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="9803">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="9803" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-midnight-9803" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Midnight)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-midnight-9803" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Midnight)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Midnight)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">20 451 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9803" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="16193">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="16193" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-black-16193" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Black)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-socket-am5-6-x-4-7-ggts-black-16193" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Black)">
+    Процессор AMD Ryzen 5 7600X OEM (Socket AM5, 6 x 4.7 ГГц) (Black)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">25 471 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="16193" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+              </div>
+
+      <!-- Pagination -->
+              <nav class="d-flex justify-between align-center mt-4" style="padding-top: var(--sp-4); border-top: 1px solid var(--c-line);">
+                      <div></div>
+          
+          <span class="text-muted" style="font-size: var(--fs-sm);">
+            Страница <strong>1</strong> из 111          </span>
+
+                      <a href="?page=2&sort=popular&brand=" class="btn btn--secondary btn--sm">Вперед &rarr;</a>
+                  </nav>
+          </main>
+  </div>
+</div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">
+            <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
+          </div>
+          <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
+          <p class="footer-currency">Дизайн синхронизирован с Google Stitch Design System. Цены пересчитываются по курсу ЦБ РФ ежедневно.</p>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-title">Каталог техники</h3>
+          <ul class="footer-links">
+            <li><a href="/price-aggregator/catalog/graphics-cards">Видеокарты</a></li>
+            <li><a href="/price-aggregator/catalog/processors">Процессоры</a></li>
+            <li><a href="/price-aggregator/catalog/smartphones">Смартфоны</a></li>
+            <li><a href="/price-aggregator/catalog/laptops">Ноутбуки</a></li>
+            <li><a href="/price-aggregator/catalog/storage-ssd">SSD накопители</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-title">О сервисе</h3>
+          <ul class="footer-links">
+            <li><a href="/price-aggregator/pages/how-it-works">Как мы считаем цены</a></li>
+            <li><a href="/price-aggregator/pages/marketplaces">О маркетплейсах и продавцах</a></li>
+            <li><a href="/price-aggregator/pages/report">Сообщить о неверной цене</a></li>
+            <li><a href="/price-aggregator/pages/legal">Политика конфиденциальности (152-ФЗ)</a></li>
+            <li><a href="/price-aggregator/ui-kit">Витрина компонентов (UI Kit)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-title">Подключение магазинов</h3>
+          <p class="footer-note">Подключаем официальные фиды YML/XML ритейлеров и партнерские API маркетплейсов.</p>
+          <div class="footer-links mt-2">
+            <a href="mailto:partners@pricehub.ru" class="font-bold" style="color:var(--c-accent);">partners@pricehub.ru</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 PriceHub. Все права защищены. Цены не являются публичной офертой (ст. 437 ГК РФ).</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="mobile-nav" aria-label="Мобильная навигация">
+    <a href="/price-aggregator/" class="mobile-nav__item ">
+      <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#home"></use></svg>
+      <span>Главная</span>
+    </a>
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+      <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
+      <span>Каталог</span>
+    </button>
+    <a href="/price-aggregator/compare" class="mobile-nav__item">
+      <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      <span>Сравнение</span>
+    </a>
+    <a href="/price-aggregator/favorites" class="mobile-nav__item">
+      <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+      <span>Избранное</span>
+    </a>
+    <a href="/admin" class="mobile-nav__item">
+      <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#user"></use></svg>
+      <span>Кабинет</span>
+    </a>
+  </nav>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookieBanner" hidden>
+    <div class="cookie-banner__inner">
+      <p>Мы используем файлы cookie для сохранения ваших сравнений, избранного и аналитики переходов. Подробнее в <a href="/price-aggregator/pages/legal">Политике</a>.</p>
+      <button type="button" class="btn btn--sm btn--accent" id="acceptCookieBtn">Понятно</button>
+    </div>
+  </div>
+
+  <!-- Global Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Core Scripts (No build step, pure ES-modules) -->
+  <script type="module" src="/price-aggregator/assets/js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <base href="/price-aggregator/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>PriceHub — Сравнение цен в интернет-магазинах и маркетплейсах РФ и Китая</title>
+  <meta name="description" content="Агрегатор цен на электронику, смартфоны, ПК-комплектующие и бытовую технику. Сравните цены магазинов, маркетплейсов и продавцов из Китая в одном месте.">
+  <link rel="canonical" href="http://localhost:8080/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PriceHub — Сравнение цен в интернет-магазинах и маркетплейсах РФ и Китая">
+  <meta property="og:description" content="Агрегатор цен на электронику, смартфоны, ПК-комплектующие и бытовую технику. Сравните цены магазинов, маркетплейсов и продавцов из Китая в одном месте.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:8080/">
+  <meta property="og:site_name" content="PriceHub">
+
+  <!-- Fonts: Plus Jakarta Sans & Inter from Stitch Design System -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="/price-aggregator/assets/css/style.css">
+  </head>
+<body class="site-body">
+  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
+    <div class="container d-flex justify-between align-center flex-wrap gap-2">
+      <div class="d-flex align-center gap-2">
+        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
+        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
+        <span>Обновлено только что &mdash;</span>
+        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
+        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+      </div>
+      <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
+        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/price-aggregator/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
+        <a href="/price-aggregator/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop & Mobile Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-main">
+      <div class="container header-main__inner">
+        <!-- Logo -->
+        <a href="/price-aggregator/" class="header-logo" aria-label="PriceHub Главная">
+          <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
+        </a>
+
+        <!-- Catalog Button -->
+        <button type="button" class="btn btn--accent header-catalog-btn" id="btnCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
+          <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#menu"></use></svg>
+          <span>Каталог товаров</span>
+        </button>
+
+        <!-- Search Bar with Instant Suggestions -->
+        <div class="header-search">
+          <form action="/price-aggregator/search/" method="GET" class="search-form" id="searchForm" role="search">
+            <div class="search-input-wrap">
+              <input type="search" name="q" id="searchInput" class="search-input" 
+                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     value="" autocomplete="off" required>
+              <button type="submit" class="search-btn" aria-label="Искать">
+                <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#search"></use></svg>
+              </button>
+            </div>
+            <!-- Suggestions Dropdown -->
+            <div class="search-suggestions" id="searchSuggestions" hidden></div>
+          </form>
+        </div>
+
+        <!-- Header Actions: Compare, Favorites -->
+        <div class="header-actions">
+          <a href="/price-aggregator/compare" class="header-action-btn" title="Сравнение товаров" id="hdrCompareBtn">
+            <div class="header-action-btn__icon">
+              <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+              <span class="badge-count" id="compareCount" hidden>0</span>
+            </div>
+            <span class="header-action-btn__label">Сравнение</span>
+          </a>
+
+          <a href="/price-aggregator/favorites" class="header-action-btn" title="Избранные товары" id="hdrFavBtn">
+            <div class="header-action-btn__icon">
+              <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+              <span class="badge-count" id="favoritesCount" hidden>0</span>
+            </div>
+            <span class="header-action-btn__label">Избранное</span>
+          </a>
+
+          <a href="/price-aggregator/ui-kit" class="header-action-btn" title="UI Kit & Дизайн-система">
+            <div class="header-action-btn__icon">
+              <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
+            </div>
+            <span class="header-action-btn__label">UI Kit</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Subheader Strip (Stitch Design) -->
+    <div style="background: var(--c-dark-2); border-top: 1px solid rgba(255,255,255,0.08); overflow-x: auto; white-space: nowrap;">
+      <div class="container d-flex align-center gap-2" style="height: 40px; font-size: var(--fs-xs); font-weight: 600;">
+        <a href="/price-aggregator/catalog/smartphones" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Смартфоны и гаджеты</a>
+        <a href="/price-aggregator/catalog/laptops" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Ноутбуки и ПК</a>
+        <a href="/price-aggregator/catalog/graphics-cards" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Видеокарты</a>
+        <a href="/price-aggregator/catalog/processors" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Процессоры</a>
+        <a href="/price-aggregator/catalog/storage-ssd" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">SSD накопители</a>
+        <a href="/price-aggregator/catalog/televisions" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">ТВ и Аудио</a>
+        <a href="/price-aggregator/search?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
+      </div>
+    </div>
+
+    <!-- Mega Menu Container -->
+    <nav class="mega-menu" id="megaMenu" hidden aria-label="Каталог категорий">
+      <div class="container mega-menu__inner" id="megaMenuContent">
+        <div class="mega-menu__cats">
+      <div class="mega-menu__cat-item" data-cat-id="1">
+      <span>Комплектующие для ПК</span>
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
+    </div>
+      <div class="mega-menu__cat-item" data-cat-id="2">
+      <span>Ноутбуки и компьютеры</span>
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
+    </div>
+      <div class="mega-menu__cat-item" data-cat-id="3">
+      <span>Смартфоны и гаджеты</span>
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
+    </div>
+      <div class="mega-menu__cat-item" data-cat-id="4">
+      <span>ТВ и умный дом</span>
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
+    </div>
+  </div>
+
+<div class="mega-menu__subcats" id="megaSubcats">
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/processors" class="subcat-col__title">
+        Процессоры      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        2664 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/processors?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/processors?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/processors?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/motherboards" class="subcat-col__title">
+        Материнские платы      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/motherboards?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/motherboards?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/motherboards?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/ram" class="subcat-col__title">
+        Оперативная память      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/ram?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/ram?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/ram?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/storage-ssd" class="subcat-col__title">
+        SSD и накопители      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/storage-ssd?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/storage-ssd?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/storage-ssd?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/graphics-cards" class="subcat-col__title">
+        Видеокарты      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        5336 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/graphics-cards?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/graphics-cards?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/graphics-cards?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/power-supplies" class="subcat-col__title">
+        Блоки питания      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/power-supplies?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/power-supplies?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/power-supplies?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/cases" class="subcat-col__title">
+        Корпуса      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/cases?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/cases?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/cases?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/cooling" class="subcat-col__title">
+        Охлаждение ПК      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/cooling?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/cooling?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/cooling?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/laptops" class="subcat-col__title">
+        Ноутбуки      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        2668 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/laptops?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/laptops?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/laptops?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/monitors" class="subcat-col__title">
+        Мониторы      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/monitors?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/monitors?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/monitors?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/desktop-pcs" class="subcat-col__title">
+        Готовые ПК      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/desktop-pcs?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/desktop-pcs?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/desktop-pcs?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/smartphones" class="subcat-col__title">
+        Смартфоны      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        5336 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/smartphones?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/smartphones?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/smartphones?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/tablets" class="subcat-col__title">
+        Планшеты      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/tablets?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/tablets?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/tablets?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/smartwatches" class="subcat-col__title">
+        Смарт-часы и браслеты      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/smartwatches?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/smartwatches?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/smartwatches?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/headphones" class="subcat-col__title">
+        Наушники и гарнитуры      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        1998 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/headphones?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/headphones?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/headphones?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/televisions" class="subcat-col__title">
+        Телевизоры      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        1998 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/televisions?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/televisions?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/televisions?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+      <div class="subcat-col">
+      <a href="/price-aggregator/catalog/robot-vacuums" class="subcat-col__title">
+        Роботы-пылесосы      </a>
+      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
+        0 товаров
+      </p>
+      <ul class="subcat-col__list">
+        <li><a href="/price-aggregator/catalog/robot-vacuums?sort=price_asc">Недорогие</a></li>
+        <li><a href="/price-aggregator/catalog/robot-vacuums?sort=drop">С хорошей скидкой</a></li>
+        <li><a href="/price-aggregator/catalog/robot-vacuums?sort=popular">Популярные</a></li>
+      </ul>
+    </div>
+  </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content Slot -->
+  <main class="site-main" id="mainContent">
+    
+<div class="container">
+  <!-- Hero & Aggregator Spotlight Bento Grid (Stitch Design) -->
+  <section style="margin-bottom: var(--sp-8);">
+    <div style="display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--sp-4);">
+      <!-- Main High-Impact Banner (8 cols) -->
+      <div style="grid-column: span 8; background: linear-gradient(135deg, #1e232d 0%, #15181e 100%); color: #FFF; border-radius: var(--r-lg); padding: var(--sp-8); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--sh-2); @media (max-width: 1024px) { grid-column: span 12; }">
+        <!-- Ambient Glow -->
+        <div style="position: absolute; right: -80px; bottom: -80px; width: 320px; height: 320px; border-radius: 50%; background: rgba(249, 87, 0, 0.15); filter: blur(50px); pointer-events: none;"></div>
+
+        <div style="position: relative; z-index: 2;">
+          <div class="d-flex gap-2 flex-wrap mb-4">
+            <span class="badge" style="background: var(--c-accent); color: #FFF;">
+              🔥 Экономия до 42%
+            </span>
+            <span class="badge" style="background: rgba(0, 133, 91, 0.25); color: #4edea3; border: 1px solid rgba(0, 133, 91, 0.4);">
+              ✓ 20 000+ товаров проверено
+            </span>
+            <span class="badge" style="background: rgba(255,255,255,0.1); color: #FFF;">
+              Файловое хранилище (NDJSON + OPcache)
+            </span>
+          </div>
+
+          <h1 style="font-family: var(--ff-head); font-size: clamp(1.8rem, 2.8vw, 2.6rem); font-weight: 900; line-height: 1.15; margin-bottom: var(--sp-4); letter-spacing: -0.02em;">
+            Сравнивайте цены ритейлеров <span style="color: var(--c-accent); text-decoration: underline; text-underline-offset: 6px;">в один клик</span>
+          </h1>
+
+          <p class="text-muted" style="color: var(--c-on-dark); font-size: var(--fs-md); max-width: 580px; line-height: 1.6; margin-bottom: var(--sp-6);">
+            Мониторим витрины DNS, Ситилинк, М.Видео, Ozon, Мегамаркет и AliExpress. Находим максимальные скидки, честные цены с доставкой и продавцов с высоким рейтингом.
+          </p>
+
+          <div class="d-flex gap-4 flex-wrap">
+            <a href="/price-aggregator/catalog/graphics-cards" class="btn btn--accent btn--lg">Каталог видеокарт</a>
+            <a href="/price-aggregator/catalog/smartphones" class="btn btn--secondary btn--lg">Смартфоны</a>
+            <a href="/price-aggregator/catalog/processors" class="btn btn--outline btn--lg" style="color: #FFF; border-color: rgba(255,255,255,0.3);">Процессоры</a>
+          </div>
+        </div>
+
+        <!-- Retailer Price Delta Live Strip -->
+        <div style="position: relative; z-index: 2; margin-top: var(--sp-6); padding: var(--sp-3) var(--sp-4); background: rgba(255,255,255,0.06); backdrop-filter: blur(8px); border-radius: var(--r-md); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: space-between; flex-wrap: gap-2;">
+          <div class="d-flex align-center gap-2">
+            <div style="width: 32px; height: 32px; border-radius: 6px; background: var(--c-accent); color: #FFF; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 16px;">
+              ₽
+            </div>
+            <div>
+              <div style="font-weight: 700; font-size: var(--fs-sm); color: #FFF;">Индекс выгоды DNS vs Маркетплейсы</div>
+              <div class="text-muted" style="font-size: var(--fs-xs); color: rgba(255,255,255,0.6);">Разница на флагманах электроники до 18 400 ₽</div>
+            </div>
+          </div>
+
+          <div class="d-flex align-center gap-2">
+            <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: #FFF; color: #000; font-weight: 800;">DNS</span>
+            <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: #FF5000; color: #FFF; font-weight: 800;">Ситилинк</span>
+            <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: #005BFF; color: #FFF; font-weight: 800;">Ozon</span>
+            <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: #FF4747; color: #FFF; font-weight: 800;">AliExpress</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Side Card: Deal Spotter (4 cols) -->
+      <div style="grid-column: span 4; background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); padding: var(--sp-6); display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--sh-1); @media (max-width: 1024px) { grid-column: span 12; }">
+        <div>
+          <div class="d-flex justify-between align-center mb-4">
+            <span class="badge badge--drop">🔥 Лучший сброс цены</span>
+            <span class="text-muted" style="font-size: var(--fs-xs);">Сегодня</span>
+          </div>
+
+                      <div style="text-align: center; margin-bottom: var(--sp-4);">
+              <img src="/price-aggregator/assets/img/placeholder.svg" alt="" style="max-height: 160px; margin: 0 auto; object-fit: contain;" width="160" height="160">
+            </div>
+
+            <div class="product-card__brand" style="font-size: var(--fs-xs);">Xiaomi</div>
+            <a href="/price-aggregator/p/smartfon-xiaomi-14-ultra-16-512gb-black-leica-quad-camera-1tb-black-3584" class="font-bold" style="font-size: var(--fs-md); display: block; line-height: 1.3; margin-bottom: var(--sp-2);">
+              Смартфон Xiaomi 14 Ultra 16/512GB Black (Leica Quad Camera) (1TB, Black)            </a>
+
+            <div class="d-flex align-center gap-2 mb-4">
+              <span class="badge badge--drop">−24%</span>
+              <span style="font-size: 1.5rem; font-weight: 900; color: var(--c-ink);">
+                115 611 ₽              </span>
+            </div>
+                  </div>
+
+        <div>
+          <div style="background: var(--c-bg); border-radius: var(--r-sm); padding: var(--sp-3); font-size: var(--fs-xs); color: var(--c-ink-2); margin-bottom: var(--sp-4);">
+            ✓ Проверено на складах Ситилинк, Ozon, Регард.<br>
+            ✓ Гарантия официального ритейлера.
+          </div>
+                      <a href="/price-aggregator/p/smartfon-xiaomi-14-ultra-16-512gb-black-leica-quad-camera-1tb-black-3584" class="btn btn--accent" style="width: 100%;">
+              Смотреть цены во всех магазинах &rarr;
+            </a>
+                  </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Categories Grid -->
+  <section style="margin-bottom: var(--sp-8);">
+    <div class="d-flex justify-between align-center mb-4">
+      <h2 style="font-family: var(--ff-head); font-size: var(--fs-xl); font-weight: 800;">Популярные категории</h2>
+      <a href="/price-aggregator/catalog/pc-components" style="color: var(--c-accent); font-weight: 600; font-size: var(--fs-sm);">Весь каталог &rarr;</a>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--sp-4);">
+              <a href="/price-aggregator/catalog/processors" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#cpu"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">Процессоры</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">2664 товаров</span>
+        </a>
+              <a href="/price-aggregator/catalog/motherboards" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#circuit-board"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">Материнские платы</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">0 товаров</span>
+        </a>
+              <a href="/price-aggregator/catalog/ram" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#layers"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">Оперативная память</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">0 товаров</span>
+        </a>
+              <a href="/price-aggregator/catalog/storage-ssd" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#hard-drive"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">SSD и накопители</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">0 товаров</span>
+        </a>
+              <a href="/price-aggregator/catalog/graphics-cards" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#tv"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">Видеокарты</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">5336 товаров</span>
+        </a>
+              <a href="/price-aggregator/catalog/power-supplies" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#zap"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">Блоки питания</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">0 товаров</span>
+        </a>
+              <a href="/price-aggregator/catalog/cases" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#box"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">Корпуса</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">0 товаров</span>
+        </a>
+              <a href="/price-aggregator/catalog/cooling" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#wind"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">Охлаждение ПК</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">0 товаров</span>
+        </a>
+              <a href="/price-aggregator/catalog/laptops" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#laptop"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">Ноутбуки</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">2668 товаров</span>
+        </a>
+              <a href="/price-aggregator/catalog/monitors" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#monitor"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">Мониторы</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">0 товаров</span>
+        </a>
+              <a href="/price-aggregator/catalog/desktop-pcs" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#server"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">Готовые ПК</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">0 товаров</span>
+        </a>
+              <a href="/price-aggregator/catalog/smartphones" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#smartphone"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">Смартфоны</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">5336 товаров</span>
+        </a>
+              <a href="/price-aggregator/catalog/tablets" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#tablet"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">Планшеты</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">0 товаров</span>
+        </a>
+              <a href="/price-aggregator/catalog/smartwatches" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#watch"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">Смарт-часы и браслеты</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">0 товаров</span>
+        </a>
+              <a href="/price-aggregator/catalog/headphones" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#headphones"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">Наушники и гарнитуры</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">1998 товаров</span>
+        </a>
+              <a href="/price-aggregator/catalog/televisions" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#tv"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">Телевизоры</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">1998 товаров</span>
+        </a>
+              <a href="/price-aggregator/catalog/robot-vacuums" class="category-tile" style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--sp-4); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s ease, box-shadow 0.15s ease;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-accent-50); display: flex; align-items: center; justify-content: center; color: var(--c-accent);">
+            <svg class="icon icon-lg"><use href="/price-aggregator/assets/icons/sprite.svg#disc"></use></svg>
+          </div>
+          <span style="font-weight: 700; font-size: var(--fs-sm); color: var(--c-ink);">Роботы-пылесосы</span>
+          <span class="text-muted" style="font-size: var(--fs-xs);">0 товаров</span>
+        </a>
+          </div>
+  </section>
+
+  <!-- Price Drops Section -->
+      <section style="margin-bottom: var(--sp-8);">
+      <div class="d-flex justify-between align-center mb-4">
+        <div class="d-flex align-center gap-2">
+          <svg class="icon" style="color: var(--c-bad);"><use href="/price-aggregator/assets/icons/sprite.svg#trending-down"></use></svg>
+          <h2 style="font-family: var(--ff-head); font-size: var(--fs-xl); font-weight: 800;">Максимальное падение цены</h2>
+        </div>
+        <span class="badge badge--drop">Скидки до −25%</span>
+      </div>
+
+      <div class="product-grid">
+                  <article class="product-card" data-product-id="3584">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−24%</span>
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="3584" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/smartfon-xiaomi-14-ultra-16-512gb-black-leica-quad-camera-1tb-black-3584" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Смартфон Xiaomi 14 Ultra 16/512GB Black (Leica Quad Camera) (1TB, Black)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">Xiaomi</div>
+  <a href="/price-aggregator/p/smartfon-xiaomi-14-ultra-16-512gb-black-leica-quad-camera-1tb-black-3584" class="product-card__title" title="Смартфон Xiaomi 14 Ultra 16/512GB Black (Leica Quad Camera) (1TB, Black)">
+    Смартфон Xiaomi 14 Ultra 16/512GB Black (Leica Quad Camera) (1TB, Black)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">115 611 ₽</span>
+      <span class="product-card__shops-cnt">
+        5 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3584" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="7168">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−23%</span>
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="7168" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/oled-televizor-lg-oled55c3rla-55-4k-uhd-120hz-webos-dolby-vision-black-7168" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="OLED Телевизор LG OLED55C3RLA 55&quot; (4K UHD, 120Hz, webOS, Dolby Vision) (Black)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">LG</div>
+  <a href="/price-aggregator/p/oled-televizor-lg-oled55c3rla-55-4k-uhd-120hz-webos-dolby-vision-black-7168" class="product-card__title" title="OLED Телевизор LG OLED55C3RLA 55&quot; (4K UHD, 120Hz, webOS, Dolby Vision) (Black)">
+    OLED Телевизор LG OLED55C3RLA 55&quot; (4K UHD, 120Hz, webOS, Dolby Vision) (Black)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">150 990 ₽</span>
+      <span class="product-card__shops-cnt">
+        4 предложения      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="7168" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="3073">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−23%</span>
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="3073" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/smartfon-samsung-galaxy-z-fold6-12-512gb-silver-shadow-512gb-midnight-3073" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Смартфон Samsung Galaxy Z Fold6 12/512GB Silver Shadow (512GB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">Samsung</div>
+  <a href="/price-aggregator/p/smartfon-samsung-galaxy-z-fold6-12-512gb-silver-shadow-512gb-midnight-3073" class="product-card__title" title="Смартфон Samsung Galaxy Z Fold6 12/512GB Silver Shadow (512GB, Midnight)">
+    Смартфон Samsung Galaxy Z Fold6 12/512GB Silver Shadow (512GB, Midnight)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">155 471 ₽</span>
+      <span class="product-card__shops-cnt">
+        4 предложения      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3073" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="10752">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−22%</span>
+              </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="10752" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/smartfon-samsung-galaxy-s24-ultra-12-256gb-titanium-gray-sm-s928b-512gb-silver-10752" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Смартфон Samsung Galaxy S24 Ultra 12/256GB Titanium Gray (SM-S928B) (512GB, Silver)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">Samsung</div>
+  <a href="/price-aggregator/p/smartfon-samsung-galaxy-s24-ultra-12-256gb-titanium-gray-sm-s928b-512gb-silver-10752" class="product-card__title" title="Смартфон Samsung Galaxy S24 Ultra 12/256GB Titanium Gray (SM-S928B) (512GB, Silver)">
+    Смартфон Samsung Galaxy S24 Ultra 12/256GB Titanium Gray (SM-S928B) (512GB, Silver)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">114 830 ₽</span>
+      <span class="product-card__shops-cnt">
+        3 предложения      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10752" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="6657">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−22%</span>
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="6657" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/besprovodnye-naushniki-marshall-major-iv-bluetooth-black-midnight-6657" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Беспроводные наушники Marshall Major IV Bluetooth Black (Midnight)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">Marshall</div>
+  <a href="/price-aggregator/p/besprovodnye-naushniki-marshall-major-iv-bluetooth-black-midnight-6657" class="product-card__title" title="Беспроводные наушники Marshall Major IV Bluetooth Black (Midnight)">
+    Беспроводные наушники Marshall Major IV Bluetooth Black (Midnight)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">13 491 ₽</span>
+      <span class="product-card__shops-cnt">
+        4 предложения      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="6657" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="2562">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−22%</span>
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="2562" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/smartfon-samsung-galaxy-s24-ultra-12-256gb-titanium-gray-sm-s928b-256gb-silver-2562" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Смартфон Samsung Galaxy S24 Ultra 12/256GB Titanium Gray (SM-S928B) (256GB, Silver)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">Samsung</div>
+  <a href="/price-aggregator/p/smartfon-samsung-galaxy-s24-ultra-12-256gb-titanium-gray-sm-s928b-256gb-silver-2562" class="product-card__title" title="Смартфон Samsung Galaxy S24 Ultra 12/256GB Titanium Gray (SM-S928B) (256GB, Silver)">
+    Смартфон Samsung Galaxy S24 Ultra 12/256GB Titanium Gray (SM-S928B) (256GB, Silver)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">104 491 ₽</span>
+      <span class="product-card__shops-cnt">
+        4 предложения      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2562" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="14336">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−21%</span>
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="14336" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/besprovodnye-naushniki-apple-airpods-pro-2-go-pokoleniya-usb-c-magsafe-case-mtjv3-silver-14336" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Беспроводные наушники Apple AirPods Pro (2-го поколения, USB-C MagSafe Case MTJV3) (Silver)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">Apple</div>
+  <a href="/price-aggregator/p/besprovodnye-naushniki-apple-airpods-pro-2-go-pokoleniya-usb-c-magsafe-case-mtjv3-silver-14336" class="product-card__title" title="Беспроводные наушники Apple AirPods Pro (2-го поколения, USB-C MagSafe Case MTJV3) (Silver)">
+    Беспроводные наушники Apple AirPods Pro (2-го поколения, USB-C MagSafe Case MTJV3) (Silver)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">24 636 ₽</span>
+      <span class="product-card__shops-cnt">
+        5 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14336" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="10241">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−21%</span>
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="10241" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/smartfon-apple-iphone-15-128gb-black-256gb-space-gray-10241" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Смартфон Apple iPhone 15 128GB Black (256GB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">Apple</div>
+  <a href="/price-aggregator/p/smartfon-apple-iphone-15-128gb-black-256gb-space-gray-10241" class="product-card__title" title="Смартфон Apple iPhone 15 128GB Black (256GB, Space Gray)">
+    Смартфон Apple iPhone 15 128GB Black (256GB, Space Gray)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">71 601 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10241" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+              </div>
+    </section>
+  
+  <!-- Popular Products Section -->
+      <section style="margin-bottom: var(--sp-8);">
+      <div class="d-flex justify-between align-center mb-4">
+        <h2 style="font-family: var(--ff-head); font-size: var(--fs-xl); font-weight: 800;">Лидеры продаж и просмотров</h2>
+        <a href="/price-aggregator/catalog/smartphones?sort=popular" style="color: var(--c-accent); font-weight: 600; font-size: var(--fs-sm);">Смотреть все &rarr;</a>
+      </div>
+
+      <div class="product-grid">
+                  <article class="product-card" data-product-id="2816">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="2816" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/besprovodnye-naushniki-apple-airpods-pro-2-go-pokoleniya-usb-c-magsafe-case-mtjv3-white-2816" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Беспроводные наушники Apple AirPods Pro (2-го поколения, USB-C MagSafe Case MTJV3) (White)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">Apple</div>
+  <a href="/price-aggregator/p/besprovodnye-naushniki-apple-airpods-pro-2-go-pokoleniya-usb-c-magsafe-case-mtjv3-white-2816" class="product-card__title" title="Беспроводные наушники Apple AirPods Pro (2-го поколения, USB-C MagSafe Case MTJV3) (White)">
+    Беспроводные наушники Apple AirPods Pro (2-го поколения, USB-C MagSafe Case MTJV3) (White)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">25 926 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2816" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="512">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="512" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4090-oc-edition-24gb-rog-strix-rtx4090-o24g-gaming-white-oc-titanium-512" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Видеокарта ASUS ROG Strix GeForce RTX 4090 OC Edition 24GB (ROG-STRIX-RTX4090-O24G-GAMING) (White OC, Titanium)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">ASUS</div>
+  <a href="/price-aggregator/p/videokarta-asus-rog-strix-geforce-rtx-4090-oc-edition-24gb-rog-strix-rtx4090-o24g-gaming-white-oc-titanium-512" class="product-card__title" title="Видеокарта ASUS ROG Strix GeForce RTX 4090 OC Edition 24GB (ROG-STRIX-RTX4090-O24G-GAMING) (White OC, Titanium)">
+    Видеокарта ASUS ROG Strix GeForce RTX 4090 OC Edition 24GB (ROG-STRIX-RTX4090-O24G-GAMING) (White OC, Titanium)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">228 591 ₽</span>
+      <span class="product-card__shops-cnt">
+        5 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="512" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="1792">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−17%</span>
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="1792" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-lga1700-24-x-3-2-ggts-do-6-0-ggts-titanium-1792" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Процессор Intel Core i9-14900K OEM (LGA1700, 24 x 3.2 ГГц, до 6.0 ГГц) (Titanium)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">Intel</div>
+  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-lga1700-24-x-3-2-ggts-do-6-0-ggts-titanium-1792" class="product-card__title" title="Процессор Intel Core i9-14900K OEM (LGA1700, 24 x 3.2 ГГц, до 6.0 ГГц) (Titanium)">
+    Процессор Intel Core i9-14900K OEM (LGA1700, 24 x 3.2 ГГц, до 6.0 ГГц) (Titanium)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">60 711 ₽</span>
+      <span class="product-card__shops-cnt">
+        5 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1792" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="1280">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="1280" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/noutbuk-lenovo-legion-pro-5-16irx9-core-i7-14700hx-rtx-4070-32gb-1tb-wqxga-240hz-16-512gb-black-1280" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Ноутбук Lenovo Legion Pro 5 16IRX9 (Core i7-14700HX / RTX 4070 / 32GB / 1TB WQXGA 240Hz) (16/512GB, Black)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">Lenovo</div>
+  <a href="/price-aggregator/p/noutbuk-lenovo-legion-pro-5-16irx9-core-i7-14700hx-rtx-4070-32gb-1tb-wqxga-240hz-16-512gb-black-1280" class="product-card__title" title="Ноутбук Lenovo Legion Pro 5 16IRX9 (Core i7-14700HX / RTX 4070 / 32GB / 1TB WQXGA 240Hz) (16/512GB, Black)">
+    Ноутбук Lenovo Legion Pro 5 16IRX9 (Core i7-14700HX / RTX 4070 / 32GB / 1TB WQXGA 240Hz) (16/512GB, Black)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">169 271 ₽</span>
+      <span class="product-card__shops-cnt">
+        4 предложения      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1280" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="256">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="256" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-128gb-silver-256" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (128GB, Silver)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">Google</div>
+  <a href="/price-aggregator/p/smartfon-google-pixel-9-pro-xl-16-256gb-obsidian-128gb-silver-256" class="product-card__title" title="Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (128GB, Silver)">
+    Смартфон Google Pixel 9 Pro XL 16/256GB Obsidian (128GB, Silver)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">120 511 ₽</span>
+      <span class="product-card__shops-cnt">
+        5 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="256" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="3072">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="3072" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/smartfon-samsung-galaxy-s24-ultra-12-256gb-titanium-gray-sm-s928b-512gb-midnight-3072" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Смартфон Samsung Galaxy S24 Ultra 12/256GB Titanium Gray (SM-S928B) (512GB, Midnight)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">Samsung</div>
+  <a href="/price-aggregator/p/smartfon-samsung-galaxy-s24-ultra-12-256gb-titanium-gray-sm-s928b-512gb-midnight-3072" class="product-card__title" title="Смартфон Samsung Galaxy S24 Ultra 12/256GB Titanium Gray (SM-S928B) (512GB, Midnight)">
+    Смартфон Samsung Galaxy S24 Ultra 12/256GB Titanium Gray (SM-S928B) (512GB, Midnight)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">106 011 ₽</span>
+      <span class="product-card__shops-cnt">
+        4 предложения      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3072" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="4864">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="4864" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4070-ti-super-16g-gaming-x-slim-gaming-silver-4864" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Видеокарта MSI GeForce RTX 4070 Ti SUPER 16G GAMING X SLIM (Gaming, Silver)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">MSI</div>
+  <a href="/price-aggregator/p/videokarta-msi-geforce-rtx-4070-ti-super-16g-gaming-x-slim-gaming-silver-4864" class="product-card__title" title="Видеокарта MSI GeForce RTX 4070 Ti SUPER 16G GAMING X SLIM (Gaming, Silver)">
+    Видеокарта MSI GeForce RTX 4070 Ti SUPER 16G GAMING X SLIM (Gaming, Silver)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">91 901 ₽</span>
+      <span class="product-card__shops-cnt">
+        5 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4864" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+                  <article class="product-card" data-product-id="2048">
+  <div class="product-card__badges">
+              <span class="badge badge--best">Выгода</span>
+          </div>
+
+  <button type="button" class="product-card__fav" data-fav-id="2048" title="В избранное" aria-label="Добавить в избранное">
+    <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+  </button>
+
+  <a href="/price-aggregator/p/videokarta-sapphire-pure-amd-radeon-rx-7800-xt-16gb-white-oc-edition-space-gray-2048" class="product-card__img-wrap" tabindex="-1">
+    <img src="/price-aggregator/assets/img/placeholder.svg" alt="Видеокарта Sapphire PURE AMD Radeon RX 7800 XT 16GB White (OC Edition, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180">
+  </a>
+
+  <div class="product-card__brand">Sapphire</div>
+  <a href="/price-aggregator/p/videokarta-sapphire-pure-amd-radeon-rx-7800-xt-16gb-white-oc-edition-space-gray-2048" class="product-card__title" title="Видеокарта Sapphire PURE AMD Radeon RX 7800 XT 16GB White (OC Edition, Space Gray)">
+    Видеокарта Sapphire PURE AMD Radeon RX 7800 XT 16GB White (OC Edition, Space Gray)  </a>
+
+  <div class="product-card__specs">
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+      <span class="product-card__price-label">от</span>
+      <span class="product-card__price">58 491 ₽</span>
+      <span class="product-card__shops-cnt">
+        6 предложений      </span>
+    </div>
+
+    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2048" title="Сравнить" aria-label="Сравнить товар">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+    </button>
+  </div>
+</article>
+              </div>
+    </section>
+  
+  <!-- Trust Highlights & Marketplaces -->
+  <section style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); padding: var(--sp-6); margin-bottom: var(--sp-8); box-shadow: var(--sh-1);">
+    <h2 style="font-family: var(--ff-head); font-size: var(--fs-xl); font-weight: 800; margin-bottom: var(--sp-4);">Магазины и маркетплейсы в едином поиске</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--sp-6);">
+      <div>
+        <h3 style="font-weight: 700; margin-bottom: var(--sp-2); color: var(--c-accent);">Итоговая цена (Landed Price)</h3>
+        <p class="text-muted" style="font-size: var(--fs-sm); line-height: 1.5;">Для товаров из Китая и трансграничных площадок мы автоматически пересчитываем валюту по курсу ЦБ РФ и включаем стоимость доставки.</p>
+      </div>
+      <div>
+        <h3 style="font-weight: 700; margin-bottom: var(--sp-2); color: var(--c-ok);">Фильтры доверия продавцов</h3>
+        <p class="text-muted" style="font-size: var(--fs-sm); line-height: 1.5;">Отсекаем подозрительные предложения, муляжи и продавцов с низким рейтингом (< 4.3). Метка «Официальный магазин» проверяется алгоритмом.</p>
+      </div>
+      <div>
+        <h3 style="font-weight: 700; margin-bottom: var(--sp-2); color: var(--c-info);">Честный режим Link-Only</h3>
+        <p class="text-muted" style="font-size: var(--fs-sm); line-height: 1.5;">Для площадок без открытого фида для агрегаторов мы не показываем вымышленные цены, а даем прямой переход к поиску на маркетплейсе.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Price Alert Subscription Banner -->
+  <section style="background: linear-gradient(135deg, var(--c-accent-50) 0%, #FFF 100%); border: 1px solid rgba(249, 87, 0, 0.3); border-radius: var(--r-lg); padding: var(--sp-6); margin-bottom: var(--sp-6);">
+    <div style="max-width: 620px;">
+      <h3 style="font-family: var(--ff-head); font-size: var(--fs-lg); font-weight: 800; margin-bottom: var(--sp-2);">Уведомления о снижении цены</h3>
+      <p class="text-muted" style="font-size: var(--fs-sm); margin-bottom: var(--sp-4);">Подпишитесь на уведомления в карточке любого товара. Мы пришлем письмо, как только цена достигнет целевой отметки.</p>
+      <form action="#" onsubmit="alert('Подписка успешно оформлена!'); return false;" method="POST" class="d-flex gap-2" id="homeSubscribeForm">
+        <input type="hidden" name="_csrf" value="0e4f9619f6654c4f4e8a50986a5fd3d949e581e5eb931a24d84a9a3e72cd81b7">        <input type="email" name="email" placeholder="Ваш e-mail адрес..." required style="flex: 1; padding: 10px 16px; border: 1px solid var(--c-line); border-radius: var(--r-md); background: #FFF;">
+        <button type="submit" class="btn btn--accent">Подписаться</button>
+      </form>
+    </div>
+  </section>
+</div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">
+            <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
+          </div>
+          <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
+          <p class="footer-currency">Дизайн синхронизирован с Google Stitch Design System. Цены пересчитываются по курсу ЦБ РФ ежедневно.</p>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-title">Каталог техники</h3>
+          <ul class="footer-links">
+            <li><a href="/price-aggregator/catalog/graphics-cards">Видеокарты</a></li>
+            <li><a href="/price-aggregator/catalog/processors">Процессоры</a></li>
+            <li><a href="/price-aggregator/catalog/smartphones">Смартфоны</a></li>
+            <li><a href="/price-aggregator/catalog/laptops">Ноутбуки</a></li>
+            <li><a href="/price-aggregator/catalog/storage-ssd">SSD накопители</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-title">О сервисе</h3>
+          <ul class="footer-links">
+            <li><a href="/price-aggregator/pages/how-it-works">Как мы считаем цены</a></li>
+            <li><a href="/price-aggregator/pages/marketplaces">О маркетплейсах и продавцах</a></li>
+            <li><a href="/price-aggregator/pages/report">Сообщить о неверной цене</a></li>
+            <li><a href="/price-aggregator/pages/legal">Политика конфиденциальности (152-ФЗ)</a></li>
+            <li><a href="/price-aggregator/ui-kit">Витрина компонентов (UI Kit)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-title">Подключение магазинов</h3>
+          <p class="footer-note">Подключаем официальные фиды YML/XML ритейлеров и партнерские API маркетплейсов.</p>
+          <div class="footer-links mt-2">
+            <a href="mailto:partners@pricehub.ru" class="font-bold" style="color:var(--c-accent);">partners@pricehub.ru</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 PriceHub. Все права защищены. Цены не являются публичной офертой (ст. 437 ГК РФ).</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="mobile-nav" aria-label="Мобильная навигация">
+    <a href="/price-aggregator/" class="mobile-nav__item ">
+      <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#home"></use></svg>
+      <span>Главная</span>
+    </a>
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+      <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
+      <span>Каталог</span>
+    </button>
+    <a href="/price-aggregator/compare" class="mobile-nav__item">
+      <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      <span>Сравнение</span>
+    </a>
+    <a href="/price-aggregator/favorites" class="mobile-nav__item">
+      <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+      <span>Избранное</span>
+    </a>
+    <a href="/admin" class="mobile-nav__item">
+      <svg class="icon"><use href="/price-aggregator/assets/icons/sprite.svg#user"></use></svg>
+      <span>Кабинет</span>
+    </a>
+  </nav>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookieBanner" hidden>
+    <div class="cookie-banner__inner">
+      <p>Мы используем файлы cookie для сохранения ваших сравнений, избранного и аналитики переходов. Подробнее в <a href="/price-aggregator/pages/legal">Политике</a>.</p>
+      <button type="button" class="btn btn--sm btn--accent" id="acceptCookieBtn">Понятно</button>
+    </div>
+  </div>
+
+  <!-- Global Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Core Scripts (No build step, pure ES-modules) -->
+  <script type="module" src="/price-aggregator/assets/js/app.js"></script>
+  </body>
+</html>
