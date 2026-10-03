@@ -97,16 +97,16 @@ $baseProducts = [
 
 // Price modifier multipliers per shop
 $shopMultipliers = [
-    'dns' => 1.03,         // DNS: Standard retail shelf
-    'citilink' => 1.00,    // Citilink: Benchmark retail
-    'mvideo' => 1.04,      // M.Video: Retail chain
-    'regard' => 0.99,      // Regard: Competitive PC discount
-    'onlinetrade' => 1.01, // OnlineTrade: Retail
+    'wildberries' => 0.94, // Wildberries: Marketplace with WB Wallet
     'ozon' => 0.95,        // Ozon: Marketplace with Ozon Card
-    'wildberries' => 0.96, // Wildberries: Marketplace with WB Wallet
+    'aliexpress' => 0.85,  // AliExpress: Direct cross-border from China
     'yandex_market' => 0.97,// Yandex Market: Marketplace with Plus
-    'megamarket' => 0.98,  // MegaMarket: Marketplace with bonuses
-    'aliexpress' => 0.82   // AliExpress: Direct cross-border from China
+    'megamarket' => 0.99,  // MegaMarket: Marketplace with bonuses
+    'regard' => 1.02,      // Regard: Competitive PC discount
+    'citilink' => 1.04,    // Citilink: Benchmark retail
+    'onlinetrade' => 1.05, // OnlineTrade: Retail
+    'dns' => 1.10,         // DNS: Standard retail shelf with warranty
+    'mvideo' => 1.12       // M.Video: Retail chain
 ];
 
 $storeDomains = [
@@ -165,8 +165,8 @@ foreach ($shops as $shopId => $meta) {
     foreach ($baseProducts as $idx => $prod) {
         $offerId = "{$shopId}-{$prod['cat']}-" . ($idx + 1);
         $basePrice = $prod['price'];
-        $storePrice = (int)round($basePrice * $multiplier);
-        $oldPrice = (int)round($storePrice * 1.12);
+        $storePrice = (int)(round(($basePrice * $multiplier) / 100) * 100 - 10);
+        $oldPrice = (int)(round(($storePrice * 1.12) / 100) * 100 - 10);
 
         $cleanDonorQuery = \App\Services\DonorUrlHelper::cleanModelQuery($prod['title'], $prod['brand'] ?? '', $prod['model'] ?? '', $prod['mpn'] ?? '');
         $donorUrl = \App\Services\DonorUrlHelper::buildStoreUrl($meta['search_url_template'], $cleanDonorQuery);

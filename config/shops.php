@@ -101,7 +101,7 @@ return [
         'trust_level' => 4,
         'official' => false,
         'badge' => 'Маркетплейс',
-        'search_url_template' => 'https://www.wildberries.ru/catalog/0/search.aspx?search={q}',
+        'search_url_template' => 'https://www.wildberries.ru/catalog/0/search.aspx?page=1&sort=popular&search={q}',
         'affiliate_template' => '{url}',
         'rps' => 3,
         'quota_per_day' => 120000,

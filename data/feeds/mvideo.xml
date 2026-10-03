@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2026-10-03 22:59">
+<yml_catalog date="2026-10-03 23:13">
   <shop>
     <name>М.Видео</name>
     <company>ООО М.Видео</company>
@@ -32,9 +32,9 @@
     </categories>
     <offers>
       <offer id="mvideo-10-1" available="true">
-        <url>https://www.mvideo.ru/listing?q=AMD+Ryzen+7+7800X3D</url>
-        <price>48870</price>
-        <oldprice>54734</oldprice>
+        <url>https://www.mvideo.ru/listing?q=AMD%20Ryzen%207%207800X3D</url>
+        <price>52590</price>
+        <oldprice>58890</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>10</categoryId>
         <picture>/assets/img/products/amd-ryzen-7-7800x3d-100-000000910.webp</picture>
@@ -50,9 +50,9 @@
         <param name="TDP">120 Вт</param>
       </offer>
       <offer id="mvideo-10-2" available="true">
-        <url>https://www.mvideo.ru/listing?q=Intel+Core+i5-12400F</url>
-        <price>11950</price>
-        <oldprice>13384</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Intel%20Core%20i5-12400F</url>
+        <price>12890</price>
+        <oldprice>14390</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>10</categoryId>
         <picture>/assets/img/products/cpu-intel.webp</picture>
@@ -68,9 +68,9 @@
         <param name="TDP">65 Вт</param>
       </offer>
       <offer id="mvideo-10-3" available="true">
-        <url>https://www.mvideo.ru/listing?q=AMD+Ryzen+5+7600X</url>
-        <price>20790</price>
-        <oldprice>23285</oldprice>
+        <url>https://www.mvideo.ru/listing?q=AMD%20Ryzen%205%207600X</url>
+        <price>22390</price>
+        <oldprice>25090</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>10</categoryId>
         <picture>/assets/img/products/cpu-ryzen.webp</picture>
@@ -86,9 +86,9 @@
         <param name="TDP">105 Вт</param>
       </offer>
       <offer id="mvideo-10-4" available="true">
-        <url>https://www.mvideo.ru/listing?q=Intel+Core+i7-14700K</url>
-        <price>44710</price>
-        <oldprice>50075</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Intel%20Core%20i7-14700K</url>
+        <price>48090</price>
+        <oldprice>53890</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>10</categoryId>
         <picture>/assets/img/products/cpu-intel.webp</picture>
@@ -103,9 +103,9 @@
         <param name="TDP">125 Вт</param>
       </offer>
       <offer id="mvideo-11-5" available="true">
-        <url>https://www.mvideo.ru/listing?q=ASUS+TUF+GAMING+B650-PLUS</url>
-        <price>22870</price>
-        <oldprice>25614</oldprice>
+        <url>https://www.mvideo.ru/listing?q=ASUS%20TUF%20GAMING%20B650-PLUS</url>
+        <price>24590</price>
+        <oldprice>27490</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>11</categoryId>
         <picture>/assets/img/products/mobo-asus.webp</picture>
@@ -119,9 +119,9 @@
         <param name="Форм-фактор">ATX</param>
       </offer>
       <offer id="mvideo-11-6" available="true">
-        <url>https://www.mvideo.ru/listing?q=MSI+MAG+B760+TOMAHAWK+WIFI</url>
-        <price>23390</price>
-        <oldprice>26197</oldprice>
+        <url>https://www.mvideo.ru/listing?q=MSI%20MAG%20B760%20TOMAHAWK%20WIFI</url>
+        <price>25190</price>
+        <oldprice>28190</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>11</categoryId>
         <picture>/assets/img/products/mobo-asus.webp</picture>
@@ -135,9 +135,9 @@
         <param name="Форм-фактор">ATX</param>
       </offer>
       <offer id="mvideo-11-7" available="true">
-        <url>https://www.mvideo.ru/listing?q=GIGABYTE+B650+AORUS+ELITE+AX</url>
-        <price>24950</price>
-        <oldprice>27944</oldprice>
+        <url>https://www.mvideo.ru/listing?q=GIGABYTE%20B650%20AORUS%20ELITE%20AX</url>
+        <price>26890</price>
+        <oldprice>30090</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>11</categoryId>
         <picture>/assets/img/products/mobo-asus.webp</picture>
@@ -151,9 +151,9 @@
         <param name="Форм-фактор">ATX</param>
       </offer>
       <offer id="mvideo-12-8" available="true">
-        <url>https://www.mvideo.ru/listing?q=Kingston+FURY+Beast+DDR5+32GB+6000MHz</url>
-        <price>13510</price>
-        <oldprice>15131</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Kingston%20FURY%20Beast%20DDR5%2032GB</url>
+        <price>14490</price>
+        <oldprice>16190</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>12</categoryId>
         <picture>/assets/img/products/ram-fury.webp</picture>
@@ -167,9 +167,9 @@
         <param name="Частота">6000 МГц</param>
       </offer>
       <offer id="mvideo-12-9" available="true">
-        <url>https://www.mvideo.ru/listing?q=Corsair+Vengeance+DDR5+32GB+5600MHz</url>
-        <price>11950</price>
-        <oldprice>13384</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Corsair%20Vengeance%20DDR5%2032GB</url>
+        <price>12890</price>
+        <oldprice>14390</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>12</categoryId>
         <picture>/assets/img/products/ram-fury.webp</picture>
@@ -183,9 +183,9 @@
         <param name="Частота">5600 МГц</param>
       </offer>
       <offer id="mvideo-13-10" available="true">
-        <url>https://www.mvideo.ru/listing?q=Samsung+990+PRO+2TB+NVMe+M.2</url>
-        <price>22870</price>
-        <oldprice>25614</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Samsung%20990%20PRO%202TB</url>
+        <price>24590</price>
+        <oldprice>27490</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>13</categoryId>
         <picture>/assets/img/products/ssd-samsung.webp</picture>
@@ -199,9 +199,9 @@
         <param name="Интерфейс">PCIe 4.0 x4</param>
       </offer>
       <offer id="mvideo-13-11" available="true">
-        <url>https://www.mvideo.ru/listing?q=Kingston+KC3000+1TB+NVMe+M.2</url>
-        <price>10910</price>
-        <oldprice>12219</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Kingston%20KC3000%201TB</url>
+        <price>11690</price>
+        <oldprice>13090</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>13</categoryId>
         <picture>/assets/img/products/ssd-samsung.webp</picture>
@@ -215,9 +215,9 @@
         <param name="Интерфейс">PCIe 4.0 x4</param>
       </offer>
       <offer id="mvideo-14-12" available="true">
-        <url>https://www.mvideo.ru/listing?q=Palit+GeForce+RTX+4090+GameRock+24GB</url>
-        <price>228790</price>
-        <oldprice>256245</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Palit%20GeForce%20RTX%204090%20GameRock</url>
+        <price>246390</price>
+        <oldprice>275990</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>14</categoryId>
         <picture>/assets/img/products/gpu-rtx4090.webp</picture>
@@ -231,9 +231,9 @@
         <param name="Шина">384 бит</param>
       </offer>
       <offer id="mvideo-14-13" available="true">
-        <url>https://www.mvideo.ru/listing?q=MSI+GeForce+RTX+4060+Ventus+2X+Black+8G+OC</url>
-        <price>36390</price>
-        <oldprice>40757</oldprice>
+        <url>https://www.mvideo.ru/listing?q=MSI%20GeForce%20RTX%204060%20Ventus%202X</url>
+        <price>39190</price>
+        <oldprice>43890</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>14</categoryId>
         <picture>/assets/img/products/gpu-rtx4060.webp</picture>
@@ -247,9 +247,9 @@
         <param name="Шина">128 бит</param>
       </offer>
       <offer id="mvideo-14-14" available="true">
-        <url>https://www.mvideo.ru/listing?q=ASUS+ROG+Strix+GeForce+RTX+4080+Super+16GB</url>
-        <price>145590</price>
-        <oldprice>163061</oldprice>
+        <url>https://www.mvideo.ru/listing?q=ASUS%20ROG%20Strix%20GeForce%20RTX%204080</url>
+        <price>156790</price>
+        <oldprice>175590</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>14</categoryId>
         <picture>/assets/img/products/gpu-rtx4090.webp</picture>
@@ -263,9 +263,9 @@
         <param name="Шина">256 бит</param>
       </offer>
       <offer id="mvideo-14-15" available="true">
-        <url>https://www.mvideo.ru/listing?q=GIGABYTE+Radeon+RX+7800+XT+Gaming+OC+16GB</url>
-        <price>60310</price>
-        <oldprice>67547</oldprice>
+        <url>https://www.mvideo.ru/listing?q=GIGABYTE%20Radeon%20RX%207800%20XT</url>
+        <price>64890</price>
+        <oldprice>72690</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>14</categoryId>
         <picture>/assets/img/products/gpu-rtx4060.webp</picture>
@@ -279,9 +279,9 @@
         <param name="Шина">256 бит</param>
       </offer>
       <offer id="mvideo-15-16" available="true">
-        <url>https://www.mvideo.ru/listing?q=Corsair+RM850x+850W+Gold</url>
-        <price>17670</price>
-        <oldprice>19790</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Corsair%20RM850x%20850W</url>
+        <price>18990</price>
+        <oldprice>21290</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>15</categoryId>
         <picture>/assets/img/products/psu-corsair.webp</picture>
@@ -295,9 +295,9 @@
         <param name="Модульный">Да</param>
       </offer>
       <offer id="mvideo-15-17" available="true">
-        <url>https://www.mvideo.ru/listing?q=DeepCool+PQ850M+850W+Gold</url>
-        <price>12990</price>
-        <oldprice>14549</oldprice>
+        <url>https://www.mvideo.ru/listing?q=DeepCool%20PQ850M%20850W</url>
+        <price>13990</price>
+        <oldprice>15690</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>15</categoryId>
         <picture>/assets/img/products/psu-corsair.webp</picture>
@@ -311,9 +311,9 @@
         <param name="Модульный">Да</param>
       </offer>
       <offer id="mvideo-16-18" available="true">
-        <url>https://www.mvideo.ru/listing?q=Lian+Li+O11+Dynamic+EVO+Black</url>
-        <price>18710</price>
-        <oldprice>20955</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Lian%20Li%20O11%20Dynamic%20EVO</url>
+        <price>20090</price>
+        <oldprice>22490</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>16</categoryId>
         <picture>/assets/img/products/case-lianli.webp</picture>
@@ -326,9 +326,9 @@
         <param name="Цвет">Черный</param>
       </offer>
       <offer id="mvideo-16-19" available="true">
-        <url>https://www.mvideo.ru/listing?q=DeepCool+CC560+V2+Black</url>
-        <price>5710</price>
-        <oldprice>6395</oldprice>
+        <url>https://www.mvideo.ru/listing?q=DeepCool%20CC560%20V2</url>
+        <price>6090</price>
+        <oldprice>6790</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>16</categoryId>
         <picture>/assets/img/products/case-lianli.webp</picture>
@@ -342,9 +342,9 @@
         <param name="Вентиляторы">4x120мм</param>
       </offer>
       <offer id="mvideo-17-20" available="true">
-        <url>https://www.mvideo.ru/listing?q=DeepCool+AK620+Digital</url>
-        <price>7790</price>
-        <oldprice>8725</oldprice>
+        <url>https://www.mvideo.ru/listing?q=DeepCool%20AK620%20Digital</url>
+        <price>8390</price>
+        <oldprice>9390</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>17</categoryId>
         <picture>/assets/img/products/cooler-ak620.webp</picture>
@@ -358,9 +358,9 @@
         <param name="Сокет">AM5 / LGA1700</param>
       </offer>
       <offer id="mvideo-20-21" available="true">
-        <url>https://www.mvideo.ru/listing?q=Apple+MacBook+Air+13+M3+16GB+512GB+Midnight</url>
-        <price>150790</price>
-        <oldprice>168885</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Apple%20MacBook%20Air%2013%20M3%2016GB%20512GB</url>
+        <price>162390</price>
+        <oldprice>181890</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>20</categoryId>
         <picture>/assets/img/products/laptop-macbook.webp</picture>
@@ -375,9 +375,9 @@
         <param name="SSD">512 ГБ</param>
       </offer>
       <offer id="mvideo-20-22" available="true">
-        <url>https://www.mvideo.ru/listing?q=ASUS+ROG+Zephyrus+G16</url>
-        <price>301590</price>
-        <oldprice>337781</oldprice>
+        <url>https://www.mvideo.ru/listing?q=ASUS%20ROG%20Zephyrus%20G16</url>
+        <price>324790</price>
+        <oldprice>363790</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>20</categoryId>
         <picture>/assets/img/products/laptop-macbook.webp</picture>
@@ -392,9 +392,9 @@
         <param name="RAM">32 ГБ</param>
       </offer>
       <offer id="mvideo-21-23" available="true">
-        <url>https://www.mvideo.ru/listing?q=LG+UltraGear+27GP850-B+27+Nano</url>
-        <price>36390</price>
-        <oldprice>40757</oldprice>
+        <url>https://www.mvideo.ru/listing?q=LG%20UltraGear%2027GP850-B</url>
+        <price>39190</price>
+        <oldprice>43890</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>21</categoryId>
         <picture>/assets/img/products/monitor-lg.webp</picture>
@@ -409,9 +409,9 @@
         <param name="Матрица">Nano IPS</param>
       </offer>
       <offer id="mvideo-21-24" available="true">
-        <url>https://www.mvideo.ru/listing?q=Samsung+Odyssey+G5+27+165Hz+WQHD+Curved+1000R</url>
-        <price>24950</price>
-        <oldprice>27944</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Samsung%20Odyssey%20G5</url>
+        <price>26890</price>
+        <oldprice>30090</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>21</categoryId>
         <picture>/assets/img/products/monitor-lg.webp</picture>
@@ -425,9 +425,9 @@
         <param name="Частота">165 Гц</param>
       </offer>
       <offer id="mvideo-22-25" available="true">
-        <url>https://www.mvideo.ru/listing?q=ARDOR+GAMING+EVO+X034+Core+i5+%2F+RTX+4060+%2F+16GB+DDR5+%2F+1TB+SSD</url>
-        <price>88390</price>
-        <oldprice>98997</oldprice>
+        <url>https://www.mvideo.ru/listing?q=ARDOR%20GAMING%20EVO%20X034</url>
+        <price>95190</price>
+        <oldprice>106590</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>22</categoryId>
         <picture>/assets/img/products/case-lianli.webp</picture>
@@ -442,9 +442,9 @@
         <param name="SSD">1 ТБ NVMe</param>
       </offer>
       <offer id="mvideo-30-26" available="true">
-        <url>https://www.mvideo.ru/listing?q=Apple+iPhone+15+128GB+Black</url>
-        <price>77990</price>
-        <oldprice>87349</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Apple%20iPhone%2015%20128GB</url>
+        <price>83990</price>
+        <oldprice>94090</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>30</categoryId>
         <picture>/assets/img/products/phone-iphone15.webp</picture>
@@ -458,9 +458,9 @@
         <param name="Камера">48 Мп</param>
       </offer>
       <offer id="mvideo-30-27" available="true">
-        <url>https://www.mvideo.ru/listing?q=Apple+iPhone+16+Pro+Max+256GB+Desert+Titanium</url>
-        <price>166390</price>
-        <oldprice>186357</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Apple%20iPhone%2016%20Pro%20Max%20256GB</url>
+        <price>179190</price>
+        <oldprice>200690</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>30</categoryId>
         <picture>/assets/img/products/phone-iphone15.webp</picture>
@@ -474,9 +474,9 @@
         <param name="Корпус">Титан</param>
       </offer>
       <offer id="mvideo-30-28" available="true">
-        <url>https://www.mvideo.ru/listing?q=Samsung+Galaxy+S24+Ultra+256GB+Titanium+Gray</url>
-        <price>114390</price>
-        <oldprice>128117</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Samsung%20Galaxy%20S24%20Ultra%20256GB</url>
+        <price>123190</price>
+        <oldprice>137990</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>30</categoryId>
         <picture>/assets/img/products/phone-iphone15.webp</picture>
@@ -491,9 +491,9 @@
         <param name="Стилус">S Pen</param>
       </offer>
       <offer id="mvideo-30-29" available="true">
-        <url>https://www.mvideo.ru/listing?q=Xiaomi+14+Ultra+512GB+Black</url>
-        <price>119590</price>
-        <oldprice>133941</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Xiaomi%2014%20Ultra%20512GB%20Black%20Leica%20Camera</url>
+        <price>128790</price>
+        <oldprice>144190</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>30</categoryId>
         <picture>/assets/img/products/phone-iphone15.webp</picture>
@@ -506,9 +506,9 @@
         <param name="Камера">Leica Quad Camera 50 Мп 1-дюймовый сенсор</param>
       </offer>
       <offer id="mvideo-31-30" available="true">
-        <url>https://www.mvideo.ru/listing?q=Apple+iPad+Air+11+M2+128GB+Wi-Fi+Space+Gray</url>
-        <price>72790</price>
-        <oldprice>81525</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Apple%20iPad%20Air%2011%20M2%20128GB</url>
+        <price>78390</price>
+        <oldprice>87790</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>31</categoryId>
         <picture>/assets/img/products/tablet-ipad.webp</picture>
@@ -522,9 +522,9 @@
         <param name="Память">128 ГБ</param>
       </offer>
       <offer id="mvideo-31-31" available="true">
-        <url>https://www.mvideo.ru/listing?q=Samsung+Galaxy+Tab+S9+128GB+Wi-Fi+Graphite</url>
-        <price>67590</price>
-        <oldprice>75701</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Samsung%20Galaxy%20Tab%20S9%20128GB</url>
+        <price>72790</price>
+        <oldprice>81490</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>31</categoryId>
         <picture>/assets/img/products/tablet-ipad.webp</picture>
@@ -537,9 +537,9 @@
         <param name="Память">128 ГБ</param>
       </offer>
       <offer id="mvideo-32-32" available="true">
-        <url>https://www.mvideo.ru/listing?q=Apple+Watch+Series+9+GPS+45mm+Midnight+Aluminum</url>
-        <price>43670</price>
-        <oldprice>48910</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Apple%20Watch%20Series%209%2045mm</url>
+        <price>46990</price>
+        <oldprice>52590</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>32</categoryId>
         <picture>/assets/img/products/watch-apple.webp</picture>
@@ -553,9 +553,9 @@
         <param name="Пульсоксиметр">Да</param>
       </offer>
       <offer id="mvideo-32-33" available="true">
-        <url>https://www.mvideo.ru/listing?q=Samsung+Galaxy+Watch6+44mm+Graphite</url>
-        <price>22870</price>
-        <oldprice>25614</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Samsung%20Galaxy%20Watch6%2044mm</url>
+        <price>24590</price>
+        <oldprice>27490</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>32</categoryId>
         <picture>/assets/img/products/watch-apple.webp</picture>
@@ -569,9 +569,9 @@
         <param name="ЭКГ">Да</param>
       </offer>
       <offer id="mvideo-33-34" available="true">
-        <url>https://www.mvideo.ru/listing?q=Sony+WH-1000XM5+Black</url>
-        <price>36390</price>
-        <oldprice>40757</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Sony%20WH-1000XM5%20Black</url>
+        <price>39190</price>
+        <oldprice>43890</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>33</categoryId>
         <picture>/assets/img/products/headphones-sony.webp</picture>
@@ -585,9 +585,9 @@
         <param name="Автономность">30 ч</param>
       </offer>
       <offer id="mvideo-33-35" available="true">
-        <url>https://www.mvideo.ru/listing?q=Apple+AirPods+Pro+2+White</url>
-        <price>23910</price>
-        <oldprice>26779</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Apple%20AirPods%20Pro%202</url>
+        <price>25690</price>
+        <oldprice>28790</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>33</categoryId>
         <picture>/assets/img/products/headphones-sony.webp</picture>
@@ -601,9 +601,9 @@
         <param name="Разъем">USB-C</param>
       </offer>
       <offer id="mvideo-33-36" available="true">
-        <url>https://www.mvideo.ru/listing?q=Marshall+Major+IV+Bluetooth+Black</url>
-        <price>12470</price>
-        <oldprice>13966</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Marshall%20Major%20IV</url>
+        <price>13390</price>
+        <oldprice>14990</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>33</categoryId>
         <picture>/assets/img/products/headphones-sony.webp</picture>
@@ -617,9 +617,9 @@
         <param name="Беспроводная зарядка">Да</param>
       </offer>
       <offer id="mvideo-40-37" available="true">
-        <url>https://www.mvideo.ru/listing?q=Xiaomi+TV+A+Pro+55+2025+4K+UHD</url>
-        <price>40550</price>
-        <oldprice>45416</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Xiaomi%20TV%20A%20Pro%2055%202025%204K%20UHD%20QLED%20Google%20TV</url>
+        <price>43690</price>
+        <oldprice>48890</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>40</categoryId>
         <picture>/assets/img/products/tv-xiaomi.webp</picture>
@@ -634,9 +634,9 @@
         <param name="Smart TV">Google TV</param>
       </offer>
       <offer id="mvideo-40-38" available="true">
-        <url>https://www.mvideo.ru/listing?q=LG</url>
-        <price>145590</price>
-        <oldprice>163061</oldprice>
+        <url>https://www.mvideo.ru/listing?q=LG%20OLED55C3RLA</url>
+        <price>156790</price>
+        <oldprice>175590</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>40</categoryId>
         <picture>/assets/img/products/tv-xiaomi.webp</picture>
@@ -651,9 +651,9 @@
         <param name="Smart TV">webOS</param>
       </offer>
       <offer id="mvideo-50-39" available="true">
-        <url>https://www.mvideo.ru/listing?q=Roborock+S8+Pro+Ultra+White</url>
-        <price>93590</price>
-        <oldprice>104821</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Roborock%20S8%20Pro%20Ultra</url>
+        <price>100790</price>
+        <oldprice>112890</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>50</categoryId>
         <picture>/assets/img/products/vacuum-roborock.webp</picture>
@@ -667,9 +667,9 @@
         <param name="Станция">All-in-One с сушкой</param>
       </offer>
       <offer id="mvideo-50-40" available="true">
-        <url>https://www.mvideo.ru/listing?q=Dreame+L10s+Ultra</url>
-        <price>67590</price>
-        <oldprice>75701</oldprice>
+        <url>https://www.mvideo.ru/listing?q=Dreame%20L10s%20Ultra</url>
+        <price>72790</price>
+        <oldprice>81490</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>50</categoryId>
         <picture>/assets/img/products/vacuum-roborock.webp</picture>

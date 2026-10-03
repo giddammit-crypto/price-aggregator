@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2026-10-03 22:59">
+<yml_catalog date="2026-10-03 23:13">
   <shop>
     <name>AliExpress</name>
     <company>ООО AliExpress</company>
@@ -33,9 +33,9 @@
     </categories>
     <offers>
       <offer id="aliexpress-10-1" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=AMD+Ryzen+7+7800X3D</url>
-        <price>38532</price>
-        <oldprice>43156</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=AMD%20Ryzen%207%207800X3D</url>
+        <price>39890</price>
+        <oldprice>44690</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>10</categoryId>
         <picture>/assets/img/products/amd-ryzen-7-7800x3d-100-000000910.webp</picture>
@@ -51,9 +51,9 @@
         <param name="TDP">120 Вт</param>
       </offer>
       <offer id="aliexpress-10-2" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Intel+Core+i5-12400F</url>
-        <price>9422</price>
-        <oldprice>10553</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Intel%20Core%20i5-12400F</url>
+        <price>9790</price>
+        <oldprice>10990</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>10</categoryId>
         <picture>/assets/img/products/cpu-intel.webp</picture>
@@ -69,9 +69,9 @@
         <param name="TDP">65 Вт</param>
       </offer>
       <offer id="aliexpress-10-3" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=AMD+Ryzen+5+7600X</url>
-        <price>16392</price>
-        <oldprice>18359</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=AMD%20Ryzen%205%207600X</url>
+        <price>16990</price>
+        <oldprice>18990</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>10</categoryId>
         <picture>/assets/img/products/cpu-ryzen.webp</picture>
@@ -87,9 +87,9 @@
         <param name="TDP">105 Вт</param>
       </offer>
       <offer id="aliexpress-10-4" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Intel+Core+i7-14700K</url>
-        <price>35252</price>
-        <oldprice>39482</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Intel%20Core%20i7-14700K</url>
+        <price>36490</price>
+        <oldprice>40890</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>10</categoryId>
         <picture>/assets/img/products/cpu-intel.webp</picture>
@@ -104,9 +104,9 @@
         <param name="TDP">125 Вт</param>
       </offer>
       <offer id="aliexpress-11-5" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=ASUS+TUF+GAMING+B650-PLUS</url>
-        <price>18032</price>
-        <oldprice>20196</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=ASUS%20TUF%20GAMING%20B650-PLUS</url>
+        <price>18690</price>
+        <oldprice>20890</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>11</categoryId>
         <picture>/assets/img/products/mobo-asus.webp</picture>
@@ -120,9 +120,9 @@
         <param name="Форм-фактор">ATX</param>
       </offer>
       <offer id="aliexpress-11-6" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=MSI+MAG+B760+TOMAHAWK+WIFI</url>
-        <price>18442</price>
-        <oldprice>20655</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=MSI%20MAG%20B760%20TOMAHAWK%20WIFI</url>
+        <price>19090</price>
+        <oldprice>21390</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>11</categoryId>
         <picture>/assets/img/products/mobo-asus.webp</picture>
@@ -136,9 +136,9 @@
         <param name="Форм-фактор">ATX</param>
       </offer>
       <offer id="aliexpress-11-7" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=GIGABYTE+B650+AORUS+ELITE+AX</url>
-        <price>19672</price>
-        <oldprice>22033</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=GIGABYTE%20B650%20AORUS%20ELITE%20AX</url>
+        <price>20390</price>
+        <oldprice>22790</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>11</categoryId>
         <picture>/assets/img/products/mobo-asus.webp</picture>
@@ -152,9 +152,9 @@
         <param name="Форм-фактор">ATX</param>
       </offer>
       <offer id="aliexpress-12-8" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Kingston+FURY+Beast+DDR5+32GB+6000MHz</url>
-        <price>10652</price>
-        <oldprice>11930</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Kingston%20FURY%20Beast%20DDR5%2032GB</url>
+        <price>10990</price>
+        <oldprice>12290</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>12</categoryId>
         <picture>/assets/img/products/ram-fury.webp</picture>
@@ -168,9 +168,9 @@
         <param name="Частота">6000 МГц</param>
       </offer>
       <offer id="aliexpress-12-9" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Corsair+Vengeance+DDR5+32GB+5600MHz</url>
-        <price>9422</price>
-        <oldprice>10553</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Corsair%20Vengeance%20DDR5%2032GB</url>
+        <price>9790</price>
+        <oldprice>10990</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>12</categoryId>
         <picture>/assets/img/products/ram-fury.webp</picture>
@@ -184,9 +184,9 @@
         <param name="Частота">5600 МГц</param>
       </offer>
       <offer id="aliexpress-13-10" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Samsung+990+PRO+2TB+NVMe+M.2</url>
-        <price>18032</price>
-        <oldprice>20196</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Samsung%20990%20PRO%202TB</url>
+        <price>18690</price>
+        <oldprice>20890</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>13</categoryId>
         <picture>/assets/img/products/ssd-samsung.webp</picture>
@@ -200,9 +200,9 @@
         <param name="Интерфейс">PCIe 4.0 x4</param>
       </offer>
       <offer id="aliexpress-13-11" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Kingston+KC3000+1TB+NVMe+M.2</url>
-        <price>8602</price>
-        <oldprice>9634</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Kingston%20KC3000%201TB</url>
+        <price>8890</price>
+        <oldprice>9990</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>13</categoryId>
         <picture>/assets/img/products/ssd-samsung.webp</picture>
@@ -216,9 +216,9 @@
         <param name="Интерфейс">PCIe 4.0 x4</param>
       </offer>
       <offer id="aliexpress-14-12" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Palit+GeForce+RTX+4090+GameRock+24GB</url>
-        <price>180392</price>
-        <oldprice>202039</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Palit%20GeForce%20RTX%204090%20GameRock</url>
+        <price>186990</price>
+        <oldprice>209390</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>14</categoryId>
         <picture>/assets/img/products/gpu-rtx4090.webp</picture>
@@ -232,9 +232,9 @@
         <param name="Шина">384 бит</param>
       </offer>
       <offer id="aliexpress-14-13" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=MSI+GeForce+RTX+4060+Ventus+2X+Black+8G+OC</url>
-        <price>28692</price>
-        <oldprice>32135</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=MSI%20GeForce%20RTX%204060%20Ventus%202X</url>
+        <price>29690</price>
+        <oldprice>33290</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>14</categoryId>
         <picture>/assets/img/products/gpu-rtx4060.webp</picture>
@@ -248,9 +248,9 @@
         <param name="Шина">128 бит</param>
       </offer>
       <offer id="aliexpress-14-14" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=ASUS+ROG+Strix+GeForce+RTX+4080+Super+16GB</url>
-        <price>114792</price>
-        <oldprice>128567</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=ASUS%20ROG%20Strix%20GeForce%20RTX%204080</url>
+        <price>118990</price>
+        <oldprice>133290</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>14</categoryId>
         <picture>/assets/img/products/gpu-rtx4090.webp</picture>
@@ -264,9 +264,9 @@
         <param name="Шина">256 бит</param>
       </offer>
       <offer id="aliexpress-14-15" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=GIGABYTE+Radeon+RX+7800+XT+Gaming+OC+16GB</url>
-        <price>47552</price>
-        <oldprice>53258</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=GIGABYTE%20Radeon%20RX%207800%20XT</url>
+        <price>49290</price>
+        <oldprice>55190</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>14</categoryId>
         <picture>/assets/img/products/gpu-rtx4060.webp</picture>
@@ -280,9 +280,9 @@
         <param name="Шина">256 бит</param>
       </offer>
       <offer id="aliexpress-15-16" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Corsair+RM850x+850W+Gold</url>
-        <price>13932</price>
-        <oldprice>15604</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Corsair%20RM850x%20850W</url>
+        <price>14390</price>
+        <oldprice>16090</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>15</categoryId>
         <picture>/assets/img/products/psu-corsair.webp</picture>
@@ -296,9 +296,9 @@
         <param name="Модульный">Да</param>
       </offer>
       <offer id="aliexpress-15-17" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=DeepCool+PQ850M+850W+Gold</url>
-        <price>10242</price>
-        <oldprice>11471</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=DeepCool%20PQ850M%20850W</url>
+        <price>10590</price>
+        <oldprice>11890</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>15</categoryId>
         <picture>/assets/img/products/psu-corsair.webp</picture>
@@ -312,9 +312,9 @@
         <param name="Модульный">Да</param>
       </offer>
       <offer id="aliexpress-16-18" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Lian+Li+O11+Dynamic+EVO+Black</url>
-        <price>14752</price>
-        <oldprice>16522</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Lian%20Li%20O11%20Dynamic%20EVO</url>
+        <price>15290</price>
+        <oldprice>17090</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>16</categoryId>
         <picture>/assets/img/products/case-lianli.webp</picture>
@@ -327,9 +327,9 @@
         <param name="Цвет">Черный</param>
       </offer>
       <offer id="aliexpress-16-19" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=DeepCool+CC560+V2+Black</url>
-        <price>4502</price>
-        <oldprice>5042</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=DeepCool%20CC560%20V2</url>
+        <price>4690</price>
+        <oldprice>5290</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>16</categoryId>
         <picture>/assets/img/products/case-lianli.webp</picture>
@@ -343,9 +343,9 @@
         <param name="Вентиляторы">4x120мм</param>
       </offer>
       <offer id="aliexpress-17-20" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=DeepCool+AK620+Digital</url>
-        <price>6142</price>
-        <oldprice>6879</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=DeepCool%20AK620%20Digital</url>
+        <price>6390</price>
+        <oldprice>7190</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>17</categoryId>
         <picture>/assets/img/products/cooler-ak620.webp</picture>
@@ -359,9 +359,9 @@
         <param name="Сокет">AM5 / LGA1700</param>
       </offer>
       <offer id="aliexpress-20-21" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Apple+MacBook+Air+13+M3+16GB+512GB+Midnight</url>
-        <price>118892</price>
-        <oldprice>133159</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Apple%20MacBook%20Air%2013%20M3%2016GB%20512GB</url>
+        <price>123190</price>
+        <oldprice>137990</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>20</categoryId>
         <picture>/assets/img/products/laptop-macbook.webp</picture>
@@ -376,9 +376,9 @@
         <param name="SSD">512 ГБ</param>
       </offer>
       <offer id="aliexpress-20-22" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=ASUS+ROG+Zephyrus+G16</url>
-        <price>237792</price>
-        <oldprice>266327</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=ASUS%20ROG%20Zephyrus%20G16</url>
+        <price>246490</price>
+        <oldprice>276090</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>20</categoryId>
         <picture>/assets/img/products/laptop-macbook.webp</picture>
@@ -393,9 +393,9 @@
         <param name="RAM">32 ГБ</param>
       </offer>
       <offer id="aliexpress-21-23" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=LG+UltraGear+27GP850-B+27+Nano</url>
-        <price>28692</price>
-        <oldprice>32135</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=LG%20UltraGear%2027GP850-B</url>
+        <price>29690</price>
+        <oldprice>33290</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>21</categoryId>
         <picture>/assets/img/products/monitor-lg.webp</picture>
@@ -410,9 +410,9 @@
         <param name="Матрица">Nano IPS</param>
       </offer>
       <offer id="aliexpress-21-24" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Samsung+Odyssey+G5+27+165Hz+WQHD+Curved+1000R</url>
-        <price>19672</price>
-        <oldprice>22033</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Samsung%20Odyssey%20G5</url>
+        <price>20390</price>
+        <oldprice>22790</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>21</categoryId>
         <picture>/assets/img/products/monitor-lg.webp</picture>
@@ -426,9 +426,9 @@
         <param name="Частота">165 Гц</param>
       </offer>
       <offer id="aliexpress-22-25" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=ARDOR+GAMING+EVO+X034+Core+i5+%2F+RTX+4060+%2F+16GB+DDR5+%2F+1TB+SSD</url>
-        <price>69692</price>
-        <oldprice>78055</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=ARDOR%20GAMING%20EVO%20X034</url>
+        <price>72190</price>
+        <oldprice>80890</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>22</categoryId>
         <picture>/assets/img/products/case-lianli.webp</picture>
@@ -443,9 +443,9 @@
         <param name="SSD">1 ТБ NVMe</param>
       </offer>
       <offer id="aliexpress-30-26" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Apple+iPhone+15+128GB+Black</url>
-        <price>61492</price>
-        <oldprice>68871</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Apple%20iPhone%2015%20128GB</url>
+        <price>63690</price>
+        <oldprice>71290</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>30</categoryId>
         <picture>/assets/img/products/phone-iphone15.webp</picture>
@@ -459,9 +459,9 @@
         <param name="Камера">48 Мп</param>
       </offer>
       <offer id="aliexpress-30-27" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Apple+iPhone+16+Pro+Max+256GB+Desert+Titanium</url>
-        <price>131192</price>
-        <oldprice>146935</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Apple%20iPhone%2016%20Pro%20Max%20256GB</url>
+        <price>135990</price>
+        <oldprice>152290</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>30</categoryId>
         <picture>/assets/img/products/phone-iphone15.webp</picture>
@@ -475,9 +475,9 @@
         <param name="Корпус">Титан</param>
       </offer>
       <offer id="aliexpress-30-28" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Samsung+Galaxy+S24+Ultra+256GB+Titanium+Gray</url>
-        <price>90192</price>
-        <oldprice>101015</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Samsung%20Galaxy%20S24%20Ultra%20256GB</url>
+        <price>93490</price>
+        <oldprice>104690</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>30</categoryId>
         <picture>/assets/img/products/phone-iphone15.webp</picture>
@@ -492,9 +492,9 @@
         <param name="Стилус">S Pen</param>
       </offer>
       <offer id="aliexpress-30-29" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Xiaomi+14+Ultra+512GB+Black</url>
-        <price>94292</price>
-        <oldprice>105607</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Xiaomi%2014%20Ultra%20512GB%20Black%20Leica%20Camera</url>
+        <price>97690</price>
+        <oldprice>109390</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>30</categoryId>
         <picture>/assets/img/products/phone-iphone15.webp</picture>
@@ -507,9 +507,9 @@
         <param name="Камера">Leica Quad Camera 50 Мп 1-дюймовый сенсор</param>
       </offer>
       <offer id="aliexpress-31-30" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Apple+iPad+Air+11+M2+128GB+Wi-Fi+Space+Gray</url>
-        <price>57392</price>
-        <oldprice>64279</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Apple%20iPad%20Air%2011%20M2%20128GB</url>
+        <price>59490</price>
+        <oldprice>66590</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>31</categoryId>
         <picture>/assets/img/products/tablet-ipad.webp</picture>
@@ -523,9 +523,9 @@
         <param name="Память">128 ГБ</param>
       </offer>
       <offer id="aliexpress-31-31" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Samsung+Galaxy+Tab+S9+128GB+Wi-Fi+Graphite</url>
-        <price>53292</price>
-        <oldprice>59687</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Samsung%20Galaxy%20Tab%20S9%20128GB</url>
+        <price>55190</price>
+        <oldprice>61790</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>31</categoryId>
         <picture>/assets/img/products/tablet-ipad.webp</picture>
@@ -538,9 +538,9 @@
         <param name="Память">128 ГБ</param>
       </offer>
       <offer id="aliexpress-32-32" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Apple+Watch+Series+9+GPS+45mm+Midnight+Aluminum</url>
-        <price>34432</price>
-        <oldprice>38564</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Apple%20Watch%20Series%209%2045mm</url>
+        <price>35690</price>
+        <oldprice>39990</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>32</categoryId>
         <picture>/assets/img/products/watch-apple.webp</picture>
@@ -554,9 +554,9 @@
         <param name="Пульсоксиметр">Да</param>
       </offer>
       <offer id="aliexpress-32-33" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Samsung+Galaxy+Watch6+44mm+Graphite</url>
-        <price>18032</price>
-        <oldprice>20196</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Samsung%20Galaxy%20Watch6%2044mm</url>
+        <price>18690</price>
+        <oldprice>20890</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>32</categoryId>
         <picture>/assets/img/products/watch-apple.webp</picture>
@@ -570,9 +570,9 @@
         <param name="ЭКГ">Да</param>
       </offer>
       <offer id="aliexpress-33-34" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Sony+WH-1000XM5+Black</url>
-        <price>28692</price>
-        <oldprice>32135</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Sony%20WH-1000XM5%20Black</url>
+        <price>29690</price>
+        <oldprice>33290</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>33</categoryId>
         <picture>/assets/img/products/headphones-sony.webp</picture>
@@ -586,9 +586,9 @@
         <param name="Автономность">30 ч</param>
       </offer>
       <offer id="aliexpress-33-35" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Apple+AirPods+Pro+2+White</url>
-        <price>18852</price>
-        <oldprice>21114</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Apple%20AirPods%20Pro%202</url>
+        <price>19490</price>
+        <oldprice>21790</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>33</categoryId>
         <picture>/assets/img/products/headphones-sony.webp</picture>
@@ -602,9 +602,9 @@
         <param name="Разъем">USB-C</param>
       </offer>
       <offer id="aliexpress-33-36" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Marshall+Major+IV+Bluetooth+Black</url>
-        <price>9832</price>
-        <oldprice>11012</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Marshall%20Major%20IV</url>
+        <price>10190</price>
+        <oldprice>11390</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>33</categoryId>
         <picture>/assets/img/products/headphones-sony.webp</picture>
@@ -618,9 +618,9 @@
         <param name="Беспроводная зарядка">Да</param>
       </offer>
       <offer id="aliexpress-40-37" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Xiaomi+TV+A+Pro+55+2025+4K+UHD</url>
-        <price>31972</price>
-        <oldprice>35809</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Xiaomi%20TV%20A%20Pro%2055%202025%204K%20UHD%20QLED%20Google%20TV</url>
+        <price>33090</price>
+        <oldprice>37090</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>40</categoryId>
         <picture>/assets/img/products/tv-xiaomi.webp</picture>
@@ -635,9 +635,9 @@
         <param name="Smart TV">Google TV</param>
       </offer>
       <offer id="aliexpress-40-38" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=LG</url>
-        <price>114792</price>
-        <oldprice>128567</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=LG%20OLED55C3RLA</url>
+        <price>118990</price>
+        <oldprice>133290</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>40</categoryId>
         <picture>/assets/img/products/tv-xiaomi.webp</picture>
@@ -652,9 +652,9 @@
         <param name="Smart TV">webOS</param>
       </offer>
       <offer id="aliexpress-50-39" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Roborock+S8+Pro+Ultra+White</url>
-        <price>73792</price>
-        <oldprice>82647</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Roborock%20S8%20Pro%20Ultra</url>
+        <price>76490</price>
+        <oldprice>85690</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>50</categoryId>
         <picture>/assets/img/products/vacuum-roborock.webp</picture>
@@ -668,9 +668,9 @@
         <param name="Станция">All-in-One с сушкой</param>
       </offer>
       <offer id="aliexpress-50-40" available="true">
-        <url>https://aliexpress.ru/wholesale?SearchText=Dreame+L10s+Ultra</url>
-        <price>53292</price>
-        <oldprice>59687</oldprice>
+        <url>https://aliexpress.ru/wholesale?SearchText=Dreame%20L10s%20Ultra</url>
+        <price>55190</price>
+        <oldprice>61790</oldprice>
         <currencyId>RUB</currencyId>
         <categoryId>50</categoryId>
         <picture>/assets/img/products/vacuum-roborock.webp</picture>
