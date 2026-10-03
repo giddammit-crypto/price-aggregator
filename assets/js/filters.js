@@ -12,6 +12,9 @@ export function initFilters() {
 
   if (!catalogGrid && !filterForm && !sortSelect && !sortSelectTop) return;
 
+  // Track active page across interactions
+  let currentActivePage = 1;
+
   // Mark filters as initialized to coordinate with any fallback script
   window.PriceHubFiltersInitialized = true;
 
@@ -62,8 +65,9 @@ export function initFilters() {
   /**
    * Applies client-side sorting and filtering immediately on the DOM elements
    * @param {boolean} updateHistory - Whether to push state to URL
+   * @param {number|null} targetPage - Specific page to navigate to
    */
-  function applyFiltersAndSort(updateHistory = true) {
+  function applyFiltersAndSort(updateHistory = true, targetPage = null) {
     if (!catalogGrid) return;
     const cards = Array.from(catalogGrid.querySelectorAll('.product-card'));
     if (!cards.length) return;
@@ -203,7 +207,8 @@ export function initFilters() {
     // 7. Interactive Client-Side Pagination
     const PAGE_SIZE = 12;
     const totalPages = Math.max(1, Math.ceil(visibleCount / PAGE_SIZE));
-    const activePage = Math.min(Math.max(1, targetPage), totalPages);
+    const reqPage = (targetPage !== null && targetPage !== undefined) ? parseInt(targetPage, 10) : currentActivePage;
+    const activePage = Math.min(Math.max(1, isNaN(reqPage) ? 1 : reqPage), totalPages);
     currentActivePage = activePage;
 
     // Show only cards for the active page slice
@@ -218,40 +223,56 @@ export function initFilters() {
         paginationNav.style.display = 'none';
       } else {
         paginationNav.style.display = 'flex';
-        const prevBtn = document.getElementById('prevPageBtn') || paginationNav.querySelector('a:first-child, button:first-child');
-        const nextBtn = document.getElementById('nextPageBtn') || paginationNav.querySelector('a:last-child, button:last-child');
+        const prevBtn = document.getElementById('prevPageBtn');
+        const nextBtn = document.getElementById('nextPageBtn');
         const curLabel = document.getElementById('currentPageLabel');
         const totLabel = document.getElementById('totalPagesLabel');
         const pagesList = document.getElementById('paginationPagesList');
 
-        if (prevBtn) {
-          if (prevBtn.tagName === 'BUTTON') {
-            prevBtn.disabled = (activePage <= 1);
-          } else {
-            prevBtn.classList.toggle('disabled', activePage <= 1);
-          }
-        }
-        if (nextBtn) {
-          if (nextBtn.tagName === 'BUTTON') {
-            nextBtn.disabled = (activePage >= totalPages);
-          } else {
-            nextBtn.classList.toggle('disabled', activePage >= totalPages);
-          }
-        }
+        if (prevBtn) prevBtn.disabled = (activePage <= 1);
+        if (nextBtn) nextBtn.disabled = (activePage >= totalPages);
         if (curLabel) curLabel.textContent = String(activePage);
         if (totLabel) totLabel.textContent = String(totalPages);
 
         if (pagesList) {
           let pagesHtml = '';
-          for (let p = 1; p <= totalPages; p++) {
-            if (totalPages <= 7 || p === 1 || p === totalPages || Math.abs(p - activePage) <= 1) {
+          const maxButtons = 7;
+          if (totalPages <= maxButtons) {
+            for (let p = 1; p <= totalPages; p++) {
               const isAct = (p === activePage);
-              pagesHtml += `<button type="button" class="btn btn--sm ${isAct ? 'btn--accent' : 'btn--secondary'} page-num-btn" data-page="${p}">${p}</button>`;
-            } else if (p === 2 && activePage > 3) {
-              pagesHtml += `<span class="text-muted" style="padding: 0 4px;">…</span>`;
-            } else if (p === totalPages - 1 && activePage < totalPages - 2) {
-              pagesHtml += `<span class="text-muted" style="padding: 0 4px;">…</span>`;
+              pagesHtml += `<button type="button" class="page-num-btn ${isAct ? 'is-active btn--accent' : ''}" data-page="${p}" aria-label="Страница ${p}" ${isAct ? 'aria-current="page"' : ''}>${p}</button>`;
             }
+          } else {
+            // First page
+            pagesHtml += `<button type="button" class="page-num-btn ${activePage === 1 ? 'is-active btn--accent' : ''}" data-page="1" aria-label="Страница 1" ${activePage === 1 ? 'aria-current="page"' : ''}>1</button>`;
+
+            let startP, endP;
+            if (activePage <= 4) {
+              startP = 2;
+              endP = 5;
+            } else if (activePage >= totalPages - 3) {
+              startP = totalPages - 4;
+              endP = totalPages - 1;
+            } else {
+              startP = activePage - 1;
+              endP = activePage + 1;
+            }
+
+            if (startP > 2) {
+              pagesHtml += `<span class="pagination-ellipsis">…</span>`;
+            }
+
+            for (let p = startP; p <= endP; p++) {
+              const isAct = (p === activePage);
+              pagesHtml += `<button type="button" class="page-num-btn ${isAct ? 'is-active btn--accent' : ''}" data-page="${p}" aria-label="Страница ${p}" ${isAct ? 'aria-current="page"' : ''}>${p}</button>`;
+            }
+
+            if (endP < totalPages - 1) {
+              pagesHtml += `<span class="pagination-ellipsis">…</span>`;
+            }
+
+            // Last page
+            pagesHtml += `<button type="button" class="page-num-btn ${activePage === totalPages ? 'is-active btn--accent' : ''}" data-page="${totalPages}" aria-label="Страница ${totalPages}" ${activePage === totalPages ? 'aria-current="page"' : ''}>${totalPages}</button>`;
           }
           pagesList.innerHTML = pagesHtml;
         }

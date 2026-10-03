@@ -13,29 +13,94 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Initialize Catalog Filters
   initFilters();
 
-  // 3. Mega Menu Toggle
+  // 3. Mega Menu Toggle & Tab Switching
   const catalogBtn = document.getElementById('btnCatalogToggle');
   const mobileCatalogBtn = document.getElementById('mobileCatalogToggle');
   const megaMenu = document.getElementById('megaMenu');
+  const megaBackdrop = document.getElementById('megaMenuBackdrop');
+
+  function openMenu() {
+    if (!megaMenu) return;
+    megaMenu.hidden = false;
+    if (megaBackdrop) megaBackdrop.hidden = false;
+    if (catalogBtn) catalogBtn.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeMenu() {
+    if (!megaMenu) return;
+    megaMenu.hidden = true;
+    if (megaBackdrop) megaBackdrop.hidden = true;
+    if (catalogBtn) catalogBtn.setAttribute('aria-expanded', 'false');
+  }
 
   function toggleMenu() {
     if (!megaMenu) return;
-    const isHidden = megaMenu.hidden;
-    megaMenu.hidden = !isHidden;
-    if (catalogBtn) {
-      catalogBtn.setAttribute('aria-expanded', String(isHidden));
+    if (megaMenu.hidden) {
+      openMenu();
+    } else {
+      closeMenu();
     }
   }
 
-  if (catalogBtn) catalogBtn.addEventListener('click', toggleMenu);
-  if (mobileCatalogBtn) mobileCatalogBtn.addEventListener('click', toggleMenu);
+  if (catalogBtn) catalogBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+  if (mobileCatalogBtn) mobileCatalogBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+  if (megaBackdrop) megaBackdrop.addEventListener('click', closeMenu);
 
-  document.addEventListener('click', (e) => {
-    if (megaMenu && !megaMenu.hidden && !e.target.closest('#btnCatalogToggle') && !e.target.closest('#megaMenu') && !e.target.closest('#mobileCatalogToggle')) {
-      megaMenu.hidden = true;
-      if (catalogBtn) catalogBtn.setAttribute('aria-expanded', 'false');
+  // Close on Escape or click outside
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMenu();
     }
   });
+
+  document.addEventListener('click', (e) => {
+    if (megaMenu && !megaMenu.hidden && 
+        !e.target.closest('#btnCatalogToggle') && 
+        !e.target.closest('#mobileCatalogToggle') && 
+        !e.target.closest('#megaMenu')) {
+      closeMenu();
+    }
+  });
+
+  // Close when clicking any link inside the menu
+  if (megaMenu) {
+    megaMenu.addEventListener('click', (e) => {
+      if (e.target.closest('a')) {
+        closeMenu();
+      }
+    });
+
+    // Parent category tab switching on hover / click
+    const catItems = megaMenu.querySelectorAll('.mega-menu__cat-item');
+    const groups = megaMenu.querySelectorAll('.mega-menu__group');
+
+    function switchMegaTab(parentId) {
+      catItems.forEach(item => {
+        const match = (item.dataset.parentId === String(parentId));
+        item.classList.toggle('is-active', match);
+        item.setAttribute('aria-selected', String(match));
+      });
+      groups.forEach(g => {
+        const match = (g.dataset.parentId === String(parentId));
+        g.classList.toggle('is-active', match);
+        g.hidden = !match;
+      });
+    }
+
+    catItems.forEach(item => {
+      item.addEventListener('mouseenter', () => switchMegaTab(item.dataset.parentId));
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        switchMegaTab(item.dataset.parentId);
+      });
+    });
+  }
 
   // 4. Update Compare & Favorites Counters
   updateCounters();

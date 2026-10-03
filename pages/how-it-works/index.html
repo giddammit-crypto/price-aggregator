@@ -89,18 +89,11 @@
             </div>
             <span class="header-action-btn__label">Избранное</span>
           </a>
-
-          <a href="/price-aggregator/ui-kit" class="header-action-btn" title="UI Kit & Дизайн-система">
-            <div class="header-action-btn__icon">
-              <svg class="icon" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#grid"></use></svg>
-            </div>
-            <span class="header-action-btn__label">UI Kit</span>
-          </a>
         </div>
       </div>
     </div>
 
-    <!-- Category Subheader Strip (Stitch Design) -->
+    <!-- Category Subheader Strip -->
     <div style="background: var(--c-dark-2); border-top: 1px solid rgba(255,255,255,0.08); overflow-x: auto; white-space: nowrap;">
       <div class="container d-flex align-center gap-2" style="height: 40px; font-size: var(--fs-xs); font-weight: 600;">
         <a href="/price-aggregator/catalog/smartphones" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Смартфоны и гаджеты</a>
@@ -113,234 +106,416 @@
       </div>
     </div>
 
-    <!-- Mega Menu Container -->
+    <!-- Mega Menu Backdrop & Container -->
+    <div class="mega-menu-backdrop" id="megaMenuBackdrop" hidden></div>
     <nav class="mega-menu" id="megaMenu" hidden aria-label="Каталог категорий">
       <div class="container mega-menu__inner" id="megaMenuContent">
-        <div class="mega-menu__cats">
-      <div class="mega-menu__cat-item" data-cat-id="1">
-      <span>Комплектующие для ПК</span>
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
-    </div>
-      <div class="mega-menu__cat-item" data-cat-id="2">
-      <span>Ноутбуки и компьютеры</span>
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
-    </div>
-      <div class="mega-menu__cat-item" data-cat-id="3">
-      <span>Смартфоны и гаджеты</span>
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
-    </div>
-      <div class="mega-menu__cat-item" data-cat-id="4">
-      <span>ТВ и умный дом</span>
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
-    </div>
-  </div>
+        
+<div class="mega-menu__layout">
+  <!-- Parent Categories Sidebar -->
+  <aside class="mega-menu__cats" role="tablist" aria-label="Разделы каталога">
+          <button type="button" 
+              class="mega-menu__cat-item is-active" 
+              role="tab" 
+              aria-selected="true"
+              aria-controls="megaGroup-1"
+              id="megaTab-1"
+              data-parent-id="1">
+        <span class="d-flex align-center gap-2">
+          <svg class="icon icon-sm" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#cpu"></use></svg>
+          <span class="font-bold">Комплектующие для ПК</span>
+        </span>
+        <svg class="icon icon-xs text-muted" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
+      </button>
+          <button type="button" 
+              class="mega-menu__cat-item " 
+              role="tab" 
+              aria-selected="false"
+              aria-controls="megaGroup-2"
+              id="megaTab-2"
+              data-parent-id="2">
+        <span class="d-flex align-center gap-2">
+          <svg class="icon icon-sm" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#laptop"></use></svg>
+          <span class="font-bold">Ноутбуки и компьютеры</span>
+        </span>
+        <svg class="icon icon-xs text-muted" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
+      </button>
+          <button type="button" 
+              class="mega-menu__cat-item " 
+              role="tab" 
+              aria-selected="false"
+              aria-controls="megaGroup-3"
+              id="megaTab-3"
+              data-parent-id="3">
+        <span class="d-flex align-center gap-2">
+          <svg class="icon icon-sm" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#smartphone"></use></svg>
+          <span class="font-bold">Смартфоны и гаджеты</span>
+        </span>
+        <svg class="icon icon-xs text-muted" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
+      </button>
+          <button type="button" 
+              class="mega-menu__cat-item " 
+              role="tab" 
+              aria-selected="false"
+              aria-controls="megaGroup-4"
+              id="megaTab-4"
+              data-parent-id="4">
+        <span class="d-flex align-center gap-2">
+          <svg class="icon icon-sm" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#tv"></use></svg>
+          <span class="font-bold">ТВ и умный дом</span>
+        </span>
+        <svg class="icon icon-xs text-muted" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
+      </button>
+      </aside>
 
-<div class="mega-menu__subcats" id="megaSubcats">
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/processors" class="subcat-col__title">
-        Процессоры      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        1355 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/processors?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/processors?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/processors?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/motherboards" class="subcat-col__title">
-        Материнские платы      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        1084 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/motherboards?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/motherboards?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/motherboards?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/ram" class="subcat-col__title">
-        Оперативная память      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        1084 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/ram?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/ram?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/ram?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/storage-ssd" class="subcat-col__title">
-        SSD и накопители      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        1084 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/storage-ssd?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/storage-ssd?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/storage-ssd?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/graphics-cards" class="subcat-col__title">
-        Видеокарты      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        1623 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/graphics-cards?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/graphics-cards?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/graphics-cards?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/power-supplies" class="subcat-col__title">
-        Блоки питания      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        1080 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/power-supplies?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/power-supplies?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/power-supplies?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/cases" class="subcat-col__title">
-        Корпуса      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        1080 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/cases?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/cases?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/cases?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/cooling" class="subcat-col__title">
-        Охлаждение ПК      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        1080 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/cooling?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/cooling?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/cooling?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/laptops" class="subcat-col__title">
-        Ноутбуки      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        1350 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/laptops?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/laptops?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/laptops?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/monitors" class="subcat-col__title">
-        Мониторы      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        1080 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/monitors?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/monitors?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/monitors?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/desktop-pcs" class="subcat-col__title">
-        Готовые ПК      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        810 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/desktop-pcs?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/desktop-pcs?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/desktop-pcs?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/smartphones" class="subcat-col__title">
-        Смартфоны      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        1890 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/smartphones?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/smartphones?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/smartphones?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/tablets" class="subcat-col__title">
-        Планшеты      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        1080 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/tablets?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/tablets?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/tablets?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/smartwatches" class="subcat-col__title">
-        Смарт-часы и браслеты      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        1080 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/smartwatches?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/smartwatches?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/smartwatches?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/headphones" class="subcat-col__title">
-        Наушники и гарнитуры      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        1080 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/headphones?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/headphones?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/headphones?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/televisions" class="subcat-col__title">
-        Телевизоры      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        1080 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/televisions?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/televisions?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/televisions?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-      <div class="subcat-col">
-      <a href="/price-aggregator/catalog/robot-vacuums" class="subcat-col__title">
-        Роботы-пылесосы      </a>
-      <p class="text-muted" style="font-size: var(--fs-xs); margin-bottom: 8px;">
-        1080 товаров
-      </p>
-      <ul class="subcat-col__list">
-        <li><a href="/price-aggregator/catalog/robot-vacuums?sort=price_asc">Недорогие</a></li>
-        <li><a href="/price-aggregator/catalog/robot-vacuums?sort=drop">С хорошей скидкой</a></li>
-        <li><a href="/price-aggregator/catalog/robot-vacuums?sort=popular">Популярные</a></li>
-      </ul>
-    </div>
-  </div>
+  <!-- Subcategory Content Groups -->
+  <div class="mega-menu__content" id="megaMenuContentPanels">
+          <div class="mega-menu__group is-active" 
+           id="megaGroup-1" 
+           role="tabpanel" 
+           aria-labelledby="megaTab-1"
+           data-parent-id="1" 
+           >
+        
+        <div class="mega-menu__group-header">
+          <h3 class="font-bold" style="font-size: var(--fs-lg); color: var(--c-ink);">
+            Комплектующие для ПК          </h3>
+          <a href="/price-aggregator/catalog/pc-components" class="text-accent font-bold" style="font-size: var(--fs-sm);">
+            Все товары раздела &rarr;
+          </a>
+        </div>
+
+        <div class="mega-menu__subcats-grid">
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/processors" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#cpu"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">Процессоры</h4>
+                  <span class="subcat-card__count">1180 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/processors?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/processors?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/processors?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/motherboards" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#circuit-board"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">Материнские платы</h4>
+                  <span class="subcat-card__count">940 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/motherboards?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/motherboards?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/motherboards?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/ram" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#layers"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">Оперативная память</h4>
+                  <span class="subcat-card__count">1220 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/ram?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/ram?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/ram?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/storage-ssd" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#hard-drive"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">SSD и накопители</h4>
+                  <span class="subcat-card__count">1450 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/storage-ssd?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/storage-ssd?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/storage-ssd?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/graphics-cards" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#gpu"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">Видеокарты</h4>
+                  <span class="subcat-card__count">1380 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/graphics-cards?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/graphics-cards?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/graphics-cards?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/power-supplies" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#zap"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">Блоки питания</h4>
+                  <span class="subcat-card__count">820 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/power-supplies?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/power-supplies?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/power-supplies?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/cases" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#box"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">Корпуса</h4>
+                  <span class="subcat-card__count">860 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/cases?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/cases?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/cases?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/cooling" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#wind"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">Охлаждение ПК</h4>
+                  <span class="subcat-card__count">910 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/cooling?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/cooling?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/cooling?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                  </div>
+      </div>
+          <div class="mega-menu__group " 
+           id="megaGroup-2" 
+           role="tabpanel" 
+           aria-labelledby="megaTab-2"
+           data-parent-id="2" 
+           hidden>
+        
+        <div class="mega-menu__group-header">
+          <h3 class="font-bold" style="font-size: var(--fs-lg); color: var(--c-ink);">
+            Ноутбуки и компьютеры          </h3>
+          <a href="/price-aggregator/catalog/laptops-computers" class="text-accent font-bold" style="font-size: var(--fs-sm);">
+            Все товары раздела &rarr;
+          </a>
+        </div>
+
+        <div class="mega-menu__subcats-grid">
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/laptops" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#laptop"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">Ноутбуки</h4>
+                  <span class="subcat-card__count">1560 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/laptops?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/laptops?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/laptops?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/monitors" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#monitor"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">Мониторы</h4>
+                  <span class="subcat-card__count">1280 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/monitors?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/monitors?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/monitors?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/desktop-pcs" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#server"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">Готовые ПК</h4>
+                  <span class="subcat-card__count">490 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/desktop-pcs?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/desktop-pcs?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/desktop-pcs?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                  </div>
+      </div>
+          <div class="mega-menu__group " 
+           id="megaGroup-3" 
+           role="tabpanel" 
+           aria-labelledby="megaTab-3"
+           data-parent-id="3" 
+           hidden>
+        
+        <div class="mega-menu__group-header">
+          <h3 class="font-bold" style="font-size: var(--fs-lg); color: var(--c-ink);">
+            Смартфоны и гаджеты          </h3>
+          <a href="/price-aggregator/catalog/smartphones-gadgets" class="text-accent font-bold" style="font-size: var(--fs-sm);">
+            Все товары раздела &rarr;
+          </a>
+        </div>
+
+        <div class="mega-menu__subcats-grid">
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/smartphones" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#smartphone"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">Смартфоны</h4>
+                  <span class="subcat-card__count">2450 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/smartphones?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/smartphones?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/smartphones?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/tablets" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#tablet"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">Планшеты</h4>
+                  <span class="subcat-card__count">830 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/tablets?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/tablets?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/tablets?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/smartwatches" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#watch"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">Смарт-часы и браслеты</h4>
+                  <span class="subcat-card__count">920 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/smartwatches?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/smartwatches?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/smartwatches?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/headphones" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#headphones"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">Наушники и гарнитуры</h4>
+                  <span class="subcat-card__count">1750 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/headphones?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/headphones?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/headphones?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                  </div>
+      </div>
+          <div class="mega-menu__group " 
+           id="megaGroup-4" 
+           role="tabpanel" 
+           aria-labelledby="megaTab-4"
+           data-parent-id="4" 
+           hidden>
+        
+        <div class="mega-menu__group-header">
+          <h3 class="font-bold" style="font-size: var(--fs-lg); color: var(--c-ink);">
+            ТВ и умный дом          </h3>
+          <a href="/price-aggregator/catalog/tv-smart-home" class="text-accent font-bold" style="font-size: var(--fs-sm);">
+            Все товары раздела &rarr;
+          </a>
+        </div>
+
+        <div class="mega-menu__subcats-grid">
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/televisions" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#tv"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">Телевизоры</h4>
+                  <span class="subcat-card__count">1120 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/televisions?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/televisions?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/televisions?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                      <div class="subcat-card">
+              <a href="/price-aggregator/catalog/robot-vacuums" class="subcat-card__header">
+                <div class="subcat-card__icon-wrap">
+                  <svg class="icon icon-md" aria-hidden="true"><use href="/price-aggregator/assets/icons/sprite.svg#disc"></use></svg>
+                </div>
+                <div class="subcat-card__info">
+                  <h4 class="subcat-card__title">Роботы-пылесосы</h4>
+                  <span class="subcat-card__count">840 товаров</span>
+                </div>
+              </a>
+              <ul class="subcat-card__links">
+                <li><a href="/price-aggregator/catalog/robot-vacuums?sort=drop">🔥 Со скидкой</a></li>
+                <li><a href="/price-aggregator/catalog/robot-vacuums?sort=price_asc">Недорогие</a></li>
+                <li><a href="/price-aggregator/catalog/robot-vacuums?sort=popular">Популярные</a></li>
+              </ul>
+            </div>
+                  </div>
+      </div>
+      </div>
+</div>
       </div>
     </nav>
   </header>
@@ -383,7 +558,7 @@
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Дизайн синхронизирован с Google Stitch Design System. Цены пересчитываются по курсу ЦБ РФ ежедневно.</p>
+          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
         </div>
 
         <div class="footer-col">
