@@ -17,6 +17,7 @@ $price = $offer['price'] ?? null;
 $landed = $offer['landed'] ?? $price;
 $origin = $offer['origin'] ?? 'RU';
 $offerKey = urlencode($offer['k']);
+$isBestOffer = !empty($isBest);
 $donorUrl = !empty($offer['url']) ? $offer['url'] : '';
 $goUrl = $isLinkOnly ? "/go/search/{$shopId}?q=" . urlencode($productTitle ?? '') : "/go/{$productId}/{$offerKey}";
 $directUrl = !empty($donorUrl) ? $donorUrl : $goUrl;

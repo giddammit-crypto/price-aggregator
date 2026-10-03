@@ -83,7 +83,7 @@ $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}"
         </span>
       <?php endif; ?>
 
-      <img src="<?= e($img) ?>" alt="<?= e($title) ?>" style="max-height: 320px; object-fit: contain; width: 100%;" width="320" height="320">
+      <img src="<?= e($img) ?>" alt="<?= e($title) ?>" style="max-height: 320px; object-fit: contain; width: 100%;" width="320" height="320" onerror="this.onerror=null; this.src='/assets/img/p/<?= (int)($product['cat'] ?? 10) ?>.svg';">
     </div>
 
     <!-- Product Title & Buy Box -->

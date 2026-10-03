@@ -37,7 +37,6 @@ function transformHtml(string $html, string $basePrefix): string
         'href="/assets/' => 'href="' . $basePrefix . '/assets/',
         'src="/assets/' => 'src="' . $basePrefix . '/assets/',
         'href="/catalog/' => 'href="' . $basePrefix . '/catalog/',
-        'href="/p/' => 'href="' . $basePrefix . '/p/',
         'href="/search' => 'href="' . $basePrefix . '/search',
         'href="/compare' => 'href="' . $basePrefix . '/compare',
         'href="/favorites' => 'href="' . $basePrefix . '/favorites',
@@ -49,6 +48,9 @@ function transformHtml(string $html, string $basePrefix): string
     ];
 
     $html = str_replace(array_keys($replacements), array_values($replacements), $html);
+    // Guarantee trailing slash on all product links for GitHub Pages
+    $html = preg_replace('/href="\/p\/([^"\/]+)\/?("|\')/', 'href="' . $basePrefix . '/p/$1/$2', $html);
+    $html = preg_replace('/href="' . preg_quote($basePrefix, '/') . '\/p\/([^"\/]+)\/?("|\')/', 'href="' . $basePrefix . '/p/$1/$2', $html);
     $html = str_replace('xlink:href="/assets/icons/sprite.svg', 'xlink:href="' . $basePrefix . '/assets/icons/sprite.svg', $html);
     $html = str_replace('href="/assets/icons/sprite.svg', 'href="' . $basePrefix . '/assets/icons/sprite.svg', $html);
     $html = preg_replace('/<head>/i', "<head>\n  <base href=\"{$basePrefix}/\">", $html);
@@ -104,49 +106,101 @@ foreach ($categories as $cat) {
     echo "   - Category: {$slug}\n";
 }
 
-echo "4. Exporting Top Products (Product Detail Pages)...\n";
+echo "4. Collecting and Exporting Products (Product Detail Pages)...\n";
 $prodController = new \App\Controllers\ProductController();
-$exportedProductsCount = 0;
+$productIdsToExport = [];
 
+// A. Home page products (Drops, Popular, Newest, Featured)
+$homeData = Snapshot::loadArray('home.php', []);
+foreach (['drops', 'popular', 'newest'] as $key) {
+    foreach ($homeData[$key] ?? [] as $item) {
+        if (!empty($item['id'])) {
+            $productIdsToExport[(int)$item['id']] = true;
+        }
+    }
+}
+if (!empty($homeData['featured_drop']['id'])) {
+    $productIdsToExport[(int)$homeData['featured_drop']['id']] = true;
+}
+
+// B. Category items (first 36 items per category)
+foreach ($categories as $cat) {
+    $catId = $cat['id'];
+    $catRows = Snapshot::loadArray("cat/{$catId}.php", []);
+    foreach (array_slice($catRows, 0, 36) as $row) {
+        if (!empty($row['id'])) {
+            $productIdsToExport[(int)$row['id']] = true;
+        }
+    }
+    // Also include top ordered products
+    $orderFile = "cat/{$catId}.order.php";
+    $orderData = Snapshot::loadArray($orderFile, []);
+    $orderedIds = $orderData['popular'] ?? $orderData['price_asc'] ?? [];
+    foreach (array_slice($orderedIds, 0, 20) as $pid) {
+        $productIdsToExport[(int)$pid] = true;
+    }
+}
+
+// C. Expand with neighbor products and similar models
+$expandedIds = $productIdsToExport;
+foreach (array_keys($productIdsToExport) as $pid) {
+    $p = Pack::get((int)$pid);
+    if (!$p) continue;
+    $cRows = Snapshot::loadArray("cat/{$p['cat']}.php", []);
+    $cIdx = -1;
+    foreach ($cRows as $idx => $r) {
+        if ($r['id'] === (int)$pid) { $cIdx = $idx; break; }
+    }
+    if ($cIdx > 0 && isset($cRows[$cIdx - 1]['id'])) {
+        $expandedIds[(int)$cRows[$cIdx - 1]['id']] = true;
+    }
+    if ($cIdx >= 0 && isset($cRows[$cIdx + 1]['id'])) {
+        $expandedIds[(int)$cRows[$cIdx + 1]['id']] = true;
+    }
+    $simCount = 0;
+    foreach ($cRows as $r) {
+        if ($r['id'] !== (int)$pid) {
+            $expandedIds[(int)$r['id']] = true;
+            $simCount++;
+            if ($simCount >= 4) break;
+        }
+    }
+}
+
+$productIdsToExport = array_keys($expandedIds);
+$exportedProductsCount = 0;
 $searchIndex = [];
 $suggestIndex = [];
 
-foreach ($categories as $cat) {
-    $catId = $cat['id'];
-    $orderFile = "cat/{$catId}.order.php";
-    $orderData = Snapshot::loadArray($orderFile, []);
-    $productIds = $orderData['popular'] ?? $orderData['price_asc'] ?? [];
-    $slice = array_slice($productIds, 0, 15);
+foreach ($productIdsToExport as $pid) {
+    $p = Pack::get((int)$pid);
+    if (!$p) continue;
 
-    foreach ($slice as $pid) {
-        $p = Pack::get($pid);
-        if (!$p) continue;
+    $slug = $p['slug'] ?? ('product-' . $pid);
+    $prodResp = $prodController->show(new Request('GET', "/p/{$slug}-{$pid}"), ['slug' => $slug, 'id' => (string)$pid]);
+    savePage($exportDir . "/p/{$slug}-{$pid}", 'index.html', $prodResp->getContent(), $basePrefix);
+    $exportedProductsCount++;
 
-        $slug = $p['slug'] ?? ('product-' . $pid);
-        $prodResp = $prodController->show(new Request('GET', "/p/{$slug}-{$pid}"), ['slug' => $slug, 'id' => (string)$pid]);
-        savePage($exportDir . "/p/{$slug}-{$pid}", 'index.html', $prodResp->getContent(), $basePrefix);
-        $exportedProductsCount++;
+    $catName = $categories[$p['cat']]['name'] ?? 'Каталог';
+    $searchIndex[] = [
+        'id' => $pid,
+        'title' => $p['title'],
+        'brand' => $p['brand'],
+        'cat' => $catName,
+        'price' => $p['agg']['min'] ?? 0,
+        'offers' => $p['agg']['cnt'] ?? 0,
+        'url' => "{$basePrefix}/p/{$slug}-{$pid}/",
+        'image' => "{$basePrefix}" . ($p['img'] ?? "/assets/img/p/" . ($p['cat'] ?? 10) . ".svg"),
+        'specs' => $p['specs'] ?? [],
+        'attrs' => $p['attrs'] ?? []
+    ];
 
-        $searchIndex[] = [
-            'id' => $pid,
-            'title' => $p['title'],
-            'brand' => $p['brand'],
-            'cat' => $cat['name'],
-            'price' => $p['agg']['min'] ?? 0,
-            'offers' => $p['agg']['cnt'] ?? 0,
-            'url' => "{$basePrefix}/p/{$slug}-{$pid}/",
-            'image' => "{$basePrefix}/assets/img/p/" . ($p['cat'] ?? 10) . ".svg",
-            'specs' => $p['specs'] ?? [],
-            'attrs' => $p['attrs'] ?? []
-        ];
-
-        $suggestIndex[] = [
-            'title' => $p['title'],
-            'brand' => $p['brand'],
-            'price' => $p['agg']['min'] ?? 0,
-            'url' => "{$basePrefix}/p/{$slug}-{$pid}/"
-        ];
-    }
+    $suggestIndex[] = [
+        'title' => $p['title'],
+        'brand' => $p['brand'],
+        'price' => $p['agg']['min'] ?? 0,
+        'url' => "{$basePrefix}/p/{$slug}-{$pid}/"
+    ];
 }
 echo "   - Total product pages exported: {$exportedProductsCount}\n";
 

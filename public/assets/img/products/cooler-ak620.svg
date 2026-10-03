@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+      <rect width="300" height="300" rx="16" fill="#F8FAFC"/>
+      <!-- Dual Tower Fin Stack -->
+      <rect x="50" y="70" width="90" height="140" rx="4" fill="#334155" stroke="#1E293B" stroke-width="2"/>
+      <rect x="160" y="70" width="90" height="140" rx="4" fill="#334155" stroke="#1E293B" stroke-width="2"/>
+      <!-- Fin lines -->
+      <line x1="50" y1="90" x2="140" y2="90" stroke="#475569" stroke-width="2"/>
+      <line x1="50" y1="110" x2="140" y2="110" stroke="#475569" stroke-width="2"/>
+      <line x1="50" y1="130" x2="140" y2="130" stroke="#475569" stroke-width="2"/>
+      <line x1="160" y1="90" x2="250" y2="90" stroke="#475569" stroke-width="2"/>
+      <line x1="160" y1="110" x2="250" y2="110" stroke="#475569" stroke-width="2"/>
+      <line x1="160" y1="130" x2="250" y2="130" stroke="#475569" stroke-width="2"/>
+      <!-- Copper Heatpipes -->
+      <path d="M 60 210 L 60 245 L 240 245 L 240 210" fill="none" stroke="#D97706" stroke-width="6"/>
+      <rect x="110" y="240" width="80" height="15" rx="3" fill="#94A3B8"/>
+      <!-- Digital Display Cap -->
+      <rect x="70" y="55" width="160" height="25" rx="4" fill="#000" stroke="#00E5FF"/>
+      <text x="150" y="72" font-family="monospace" font-size="12" font-weight="900" fill="#00E5FF" text-anchor="middle">42 °C</text>
+    </svg>

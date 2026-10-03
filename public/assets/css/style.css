@@ -485,15 +485,30 @@
   }
   .product-card__img-wrap {
     width: 100%;
-    aspect-ratio: 1 / 1;
+    height: 190px;
+    max-height: 190px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: var(--sp-3);
+    overflow: hidden;
+    background: #fff;
+    border-radius: var(--r-sm);
+    position: relative;
+    padding: 8px;
   }
   .product-card__img {
-    max-height: 180px;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
+    transition: transform 0.25s ease;
+    display: block;
+    margin: 0 auto;
+  }
+  .product-card:hover .product-card__img {
+    transform: scale(1.04);
   }
   .product-card__brand {
     font-size: var(--fs-xs);

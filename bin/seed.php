@@ -1069,6 +1069,50 @@ for ($id = 1; $id <= $targetProducts; $id++) {
     $offersCount = count($pricesList);
     $priceDrop = ($id % 7 === 0) ? (float)(10 + ($id % 15)) : 0.0;
 
+    // Determine authentic product image
+    $productImg = "/assets/img/p/{$catId}.svg";
+    if (!empty($base['img'])) {
+        $productImg = $base['img'];
+    } elseif ($catId === 10) {
+        $productImg = (str_contains($title, 'Ryzen')) ? '/assets/img/products/cpu-ryzen.svg' : '/assets/img/products/cpu-intel.svg';
+    } elseif ($catId === 11) {
+        $productImg = '/assets/img/products/mobo-asus.svg';
+    } elseif ($catId === 12) {
+        $productImg = '/assets/img/products/ram-fury.svg';
+    } elseif ($catId === 13) {
+        $productImg = '/assets/img/products/ssd-samsung.svg';
+    } elseif ($catId === 14) {
+        $productImg = (str_contains($title, '4090')) ? '/assets/img/products/gpu-rtx4090.svg' : '/assets/img/products/gpu-rtx4060.svg';
+    } elseif ($catId === 15) {
+        $productImg = '/assets/img/products/psu-corsair.svg';
+    } elseif ($catId === 16) {
+        $productImg = '/assets/img/products/case-lianli.svg';
+    } elseif ($catId === 17) {
+        $productImg = '/assets/img/products/cooler-ak620.svg';
+    } elseif ($catId === 20) {
+        $productImg = '/assets/img/products/laptop-macbook.svg';
+    } elseif ($catId === 21) {
+        $productImg = '/assets/img/products/monitor-lg.svg';
+    } elseif ($catId === 22) {
+        $productImg = '/assets/img/products/case-lianli.svg';
+    } elseif ($catId === 30) {
+        $productImg = '/assets/img/products/phone-iphone15.svg';
+    } elseif ($catId === 31) {
+        $productImg = '/assets/img/products/laptop-macbook.svg';
+    } elseif ($catId === 32) {
+        $productImg = '/assets/img/products/watch-apple.svg';
+    } elseif ($catId === 33) {
+        $productImg = '/assets/img/products/headphones-sony.svg';
+    } elseif ($catId === 40) {
+        $productImg = '/assets/img/products/tv-xiaomi.svg';
+    } elseif ($catId === 50) {
+        $productImg = '/assets/img/products/vacuum-roborock.svg';
+    }
+
+    if (!empty($offers[0])) {
+        $offers[0]['img'] = $productImg;
+    }
+
     $productRecord = [
         'id' => $id,
         'cat' => $catId,
@@ -1077,7 +1121,7 @@ for ($id = 1; $id <= $targetProducts; $id++) {
         'slug' => $slug,
         'mpn' => $mpn,
         'barcode' => $ean,
-        'img' => "/assets/img/p/{$catId}.svg",
+        'img' => $productImg,
         'pub' => 1,
         'created_at' => date('Y-m-d H:i:s', strtotime('-' . ($id % 60) . ' days')),
         'specs' => $specs,

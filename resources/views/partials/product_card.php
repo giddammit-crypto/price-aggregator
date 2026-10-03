@@ -16,7 +16,7 @@ $img = $p['img'] ?? '/assets/img/placeholder.svg';
 $attrs = $p['attrs'] ?? [];
 $isMp = !empty($p['mp']);
 $isCb = !empty($p['cb']);
-$url = "/p/{$slug}-{$id}";
+$url = "/p/{$slug}-{$id}/";
 $pop = (int)($p['pop'] ?? 0);
 $seller = $isCb ? 'crossborder' : ($isMp ? 'marketplace' : 'retail');
 ?>
@@ -40,7 +40,7 @@ $seller = $isCb ? 'crossborder' : ($isMp ? 'marketplace' : 'retail');
   </button>
 
   <a href="<?= e($url) ?>" class="product-card__img-wrap" tabindex="-1">
-    <img src="<?= e($img) ?>" alt="<?= e($title) ?>" class="product-card__img" loading="lazy" width="180" height="180">
+    <img src="<?= e($img) ?>" alt="<?= e($title) ?>" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/<?= (int)($p['cat'] ?? 10) ?>.svg';">
   </a>
 
   <div class="product-card__brand"><?= e($brand) ?></div>
