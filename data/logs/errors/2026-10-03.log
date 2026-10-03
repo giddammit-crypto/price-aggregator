@@ -1,0 +1,3 @@
+[2026-10-03 20:12:34] [ERROR] FxRatesService parse error: Call to undefined function App\Ingest\simplexml_load_string()
+[2026-10-03 20:14:11] [ERROR] FxRatesService parse error: Call to undefined function App\Ingest\simplexml_load_string()
+[2026-10-03 20:14:58] [ERROR] FxRatesService parse error: Call to undefined function App\Ingest\simplexml_load_string()

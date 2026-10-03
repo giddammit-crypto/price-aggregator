@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-fixed-variant":"#424752","on-surface-variant":"#5b4137","secondary-fixed-dim":"#c2c6d4","on-surface":"#191c1e","secondary":"#595e6a","surface-container-high":"#e6e8ea","on-error-container":"#93000a","inverse-on-surface":"#eff1f3","tertiary":"#006947","error-container":"#ffdad6","primary-container":"#ce4700","primary-fixed":"#ffdbcf","inverse-surface":"#2d3133","surface-bright":"#f7f9fb","error":"#ba1a1a","on-primary-fixed-variant":"#812900","on-tertiary-fixed":"#002113","on-primary":"#ffffff","on-primary-container":"#fffbff","primary-fixed-dim":"#ffb59b","on-primary-fixed":"#380d00","surface-container-lowest":"#ffffff","background":"#f7f9fb","outline":"#8f7065","on-tertiary":"#ffffff","tertiary-container":"#00855b","on-tertiary-container":"#f5fff6","on-error":"#ffffff","surface-container-low":"#f2f4f6","surface":"#f7f9fb","secondary-fixed":"#dee2f0","tertiary-fixed":"#6ffbbe","tertiary-fixed-dim":"#4edea3","on-background":"#191c1e","on-secondary":"#ffffff","on-secondary-fixed":"#171c25","outline-variant":"#e4beb2","surface-variant":"#e0e3e5","surface-dim":"#d8dadc","inverse-primary":"#ffb59b","on-secondary-container":"#5f6470","surface-container-highest":"#e0e3e5","surface-container":"#eceef0","surface-tint":"#a93800","primary":"#a53700","on-tertiary-fixed-variant":"#005236","secondary-container":"#dee2f0"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-sm":"0.5rem","margin-tablet":"1.5rem","margin-desktop":"2.5rem",margin:"1rem","space-xl":"2rem","space-md":"0.75rem","gutter-desktop":"1.5rem","space-xs":"0.25rem",gutter:"1rem","space-lg":"1.25rem"},fontFamily:{"label-sm":["Inter"],"body-md":["Inter"],"body-lg":["Inter"],"price-hero":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"label-md":["Inter"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-sm":["Inter"],"price-row":["Plus Jakarta Sans"]},fontSize:{"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"700"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"price-hero":["28px",{lineHeight:"32px",letterSpacing:"-0.02em",fontWeight:"800"}],"headline-lg-mobile":["22px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"700"}],"headline-lg":["30px",{lineHeight:"38px",letterSpacing:"-0.015em",fontWeight:"700"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"800"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"700"}],"label-md":["13px",{lineHeight:"16px",fontWeight:"600"}],"headline-xl-mobile":["28px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"800"}],"headline-md":["22px",{lineHeight:"28px",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"price-row":["17px",{lineHeight:"22px",letterSpacing:"-0.01em",fontWeight:"700"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 shadow-[0_1px_8px_rgba(0,0,0,0.06)]"><div class="w-full bg-inverse-surface text-inverse-on-surface"><div class="max-w-[1440px] mx-auto px-margin-desktop h-10 flex items-center justify-between text-body-sm"><div class="flex items-center gap-space-lg"><button class="flex items-center gap-space-xs text-inverse-on-surface hover:text-primary-fixed transition-colors font-label-md" type="button"><span class="material-symbols-outlined text-[16px] text-primary-fixed">location_on</span><span>Москва</span><span class="text-[11px] opacity-75 font-body-sm">(Магазины и склады)</span><span class="material-symbols-outlined text-[14px]">expand_more</span></button><div class="hidden md:flex items-center gap-space-xs text-tertiary-fixed font-label-sm"><span class="material-symbols-outlined text-[15px]">bolt</span><span>Доставка за 2 часа</span></div><div class="hidden lg:flex items-center gap-space-xs text-inverse-on-surface opacity-90"><span class="material-symbols-outlined text-[15px] text-tertiary-fixed">verified</span><span>Гарантия лучшей цены</span></div></div><div class="flex items-center gap-space-lg"><a class="text-inverse-on-surface hover:text-primary-fixed transition-colors" data-path="for-business" href="#">Бизнесу</a><a class="text-inverse-on-surface hover:text-primary-fixed transition-colors" data-path="order-tracking" href="#">Где заказ?</a><a class="text-inverse-on-surface hover:text-primary-fixed transition-colors" data-path="help" href="#">Помощь</a><div class="hidden sm:flex items-center gap-space-xs text-primary-fixed font-label-md"><span class="material-symbols-outlined text-[14px]">call</span><span>8 800 770-79-99</span></div></div></div></div><div class="w-full bg-surface-container-lowest"><div class="max-w-[1440px] mx-auto px-margin-desktop h-20 flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-lg shrink-0"><a class="flex items-center gap-space-md group" data-path="home" href="#"><img alt="ElectroPulse Aggregator Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDamaa24Oo_fEDBPDulFKG278G8DqSRu82CqrreL0znt0sDZ6ofFqocbwQgzR04xW4AwcKlIiGjkSIQV-7Vi5H1E1AYJG5q4gcG-wSOWJKdiy2H1FWTBKJK501eAn04eN7pTyiwrLXVOoP3JjO6OrdcdU4AMrzsD2BuaThkeLp4tuCW3CM2pp4_CxkEnWirAsjTnsgdTZDpb9BLndOi2TPEWsobTrSk36FHA0D6G6hfEszIEuON3k8h"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-extrabold leading-none group-hover:text-primary-container transition-colors">ТЕХНОПУЛЬС</span><span class="text-body-sm font-label-sm text-secondary uppercase tracking-wider text-[9px] mt-0.5">Умный агрегатор цен</span></div></a><button class="bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm px-space-lg py-space-sm rounded-lg flex items-center gap-space-sm transition-colors shadow-sm" type="button"><span class="material-symbols-outlined text-[20px]">menu</span><span>Каталог товаров</span></button></div><div class="flex-1 max-w-3xl min-w-[280px]"><div class="relative flex items-center rounded-lg bg-surface-container-low border border-outline-variant focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20"><button class="flex items-center gap-space-xs px-space-md py-space-sm text-on-surface-variant font-label-md text-label-md border-r border-outline-variant hover:text-on-surface hover:bg-surface-container shrink-0 transition-colors" type="button"><span>Везде</span><span class="material-symbols-outlined text-[16px]">arrow_drop_down</span></button><input class="w-full bg-transparent px-space-md py-space-sm text-body-md font-body-md text-on-surface placeholder:text-secondary focus:outline-none" placeholder="Поиск среди 3 500 000 товаров в DNS, Ситилинк, М.Видео, Ozon, Я.Маркет..." type="text"/><div class="flex items-center pr-space-sm gap-space-xs text-secondary"><button class="p-space-xs hover:text-on-surface rounded-full" title="Очистить поиск" type="button"><span class="material-symbols-outlined text-[18px]">close</span></button><button class="p-space-xs hover:text-primary rounded-full" title="Поиск по фото или штрихкоду" type="button"><span class="material-symbols-outlined text-[18px]">photo_camera</span></button><button class="bg-primary hover:bg-primary-container text-on-primary p-space-xs rounded ml-space-xs flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[18px]">search</span></button></div></div></div><div class="flex items-center gap-space-sm shrink-0"><a class="flex flex-col items-center justify-center px-space-sm py-1 text-on-surface-variant hover:text-primary transition-colors relative group" data-path="compare" href="#"><span class="material-symbols-outlined text-[22px]">balance</span><span class="font-label-sm text-label-sm mt-0.5">Сравнение</span><span class="absolute top-0 right-3 bg-primary text-on-primary font-label-sm text-[10px] w-4 h-4 rounded-full flex items-center justify-center">3</span></a><a class="flex flex-col items-center justify-center px-space-sm py-1 text-on-surface-variant hover:text-primary transition-colors relative group" data-path="price-dynamics" href="#"><span class="material-symbols-outlined text-[22px] text-tertiary">trending_down</span><span class="font-label-sm text-label-sm mt-0.5">Снижения</span><span class="absolute top-0 right-1 bg-tertiary-container text-on-tertiary font-label-sm text-[9px] px-1 rounded-full flex items-center justify-center">-25%</span></a><a class="flex flex-col items-center justify-center px-space-sm py-1 text-on-surface-variant hover:text-primary transition-colors relative group" data-path="favorites" href="#"><span class="material-symbols-outlined text-[22px]">favorite</span><span class="font-label-sm text-label-sm mt-0.5">Избранное</span><span class="absolute top-0 right-2 bg-secondary text-on-secondary font-label-sm text-[10px] w-4 h-4 rounded-full flex items-center justify-center">7</span></a><a class="flex flex-col items-center justify-center px-space-sm py-1 text-on-surface-variant hover:text-primary transition-colors group" data-path="cart-and-lists" href="#"><span class="material-symbols-outlined text-[22px]">shopping_bag</span><span class="font-label-sm text-label-sm mt-0.5">Корзина</span></a><div class="h-8 w-px bg-surface-container mx-space-xs"></div><a class="flex items-center gap-space-sm pl-space-xs py-1 text-on-surface group" data-path="user-profile" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/20 group-hover:ring-primary transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqvG0QHjcotnbsyStqJx_Sb50R6CRCveDiyr03iKtVl7vC-KRiLGvy80E7jpK4uZ1idSVvRvXSzOHGM8MtF7wllw9hJV_9ff_JjXQ32EV_b1o_NnGpchYIv1Vw0hn6wqkEYm2NMjBCMZXhCyHjDVeJdQqJd8tUc3nQx0ikv-KfxtDKxRcxdrf-O5W_kZJ_ChgAyVL5p4JvNpKwvzA1QEsXG8vfJ5chqPkTfxYAAZLPcget0N1Y8JMF"/><div class="hidden xl:flex flex-col text-left"><span class="font-label-md text-label-md leading-tight group-hover:text-primary transition-colors">Алексей М.</span><span class="font-body-sm text-body-sm text-secondary text-[11px]">Мой профиль</span></div></a></div></div></div><div class="w-full bg-surface-container-low border-t border-outline-variant/30"><div class="max-w-[1440px] mx-auto px-margin-desktop h-12 flex items-center justify-between overflow-x-auto"><nav class="flex items-center gap-space-xs shrink-0" data-active-classes="bg-surface-container-highest text-on-surface font-bold rounded"><a class="font-label-md text-label-md px-space-md py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="smartphones-and-gadgets" href="#">Смартфоны и гаджеты</a><a class="font-label-md text-label-md px-space-md py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="laptops-and-pc" href="#">Ноутбуки и ПК</a><a class="font-label-md text-label-md px-space-md py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="pc-components" href="#">Комплектующие (DNS/Ситилинк)</a><a class="font-label-md text-label-md px-space-md py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="tv-and-audio" href="#">ТВ и аудио</a><a class="font-label-md text-label-md px-space-md py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="home-appliances" href="#">Бытовая техника</a><a class="font-label-md text-label-md px-space-md py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="gaming" href="#">Гейминг</a><a class="font-label-md text-label-md px-space-md py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="daily-top-deals" href="#">🔥 Максимальные скидки дня</a><a class="font-label-md text-label-md px-space-md py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="store-promotions" href="#">Акции магазинов</a></nav><div class="hidden 2xl:flex items-center gap-space-sm text-body-sm font-label-sm text-secondary shrink-0"><span class="flex h-2 w-2 rounded-full bg-tertiary"></span><span>Мониторинг цен обновлен: 4 мин назад</span></div></div></div></header><main class="w-full pt-[176px] bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Live Price Fluctuation Alert Bar -->
+<div class="w-full bg-surface-container-high py-space-xs px-margin-desktop">
+<div class="max-w-[1440px] mx-auto flex items-center justify-between gap-space-md text-on-surface">
+<div class="flex items-center gap-space-sm font-label-md text-label-md">
+<span class="flex h-2.5 w-2.5 rounded-full bg-tertiary animate-pulse shrink-0"></span>
+<span class="text-tertiary font-bold tracking-tight">В эфире:</span>
+<span class="text-on-surface">Обновлено 42 сек назад —</span>
+<span class="font-bold text-primary">14 280 цен снижено</span>
+<span class="hidden md:inline text-secondary">в ритейлерах электроники сегодня</span>
+</div>
+<div class="hidden lg:flex items-center gap-space-lg text-body-sm font-body-sm text-secondary">
+<span class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>DNS, Ситилинк, Ozon синхронизированы</span>
+<span class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-primary">bolt</span>24 930 активных акций</span>
+</div>
+</div>
+</div>
+<!-- Hero & Aggregator Spotlight Bento Grid -->
+<section class="max-w-[1440px] mx-auto w-full px-margin-desktop pt-space-lg pb-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Main High-Impact Banner -->
+<div class="lg:col-span-8 bg-inverse-surface rounded-xl p-space-xl relative overflow-hidden flex flex-col justify-between shadow-md">
+<!-- Technical Ambient Layer -->
+<div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-primary/15 blur-3xl pointer-events-none"></div>
+<div class="absolute right-10 top-1/2 -translate-y-1/2 hidden xl:block opacity-25 pointer-events-none">
+<svg class="text-primary-fixed" fill="none" height="280" viewbox="0 0 100 100" width="280">
+<circle cx="50" cy="50" r="46" stroke="currentColor" stroke-dasharray="3 3" stroke-width="0.8"></circle>
+<circle cx="50" cy="50" r="34" stroke="currentColor" stroke-width="1.2"></circle>
+<path d="M50 10 L50 90 M10 50 L90 50" stroke="currentColor" stroke-width="0.5"></path>
+</svg>
+</div>
+<div class="relative z-10">
+<div class="flex flex-wrap items-center gap-space-sm mb-space-md">
+<span class="bg-primary text-on-primary font-label-sm text-label-sm uppercase px-space-md py-1 rounded-full flex items-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+              Экономия до 42%
+            </span>
+<span class="bg-tertiary-container text-on-tertiary font-label-sm text-label-sm px-space-md py-1 rounded-full flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+              3 500 000+ товаров проверено
+            </span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-inverse-on-surface max-w-2xl leading-none font-black tracking-tight mb-space-md">
+            Сравнивайте цены ритейлеров <span class="text-primary-fixed underline decoration-primary decoration-4 underline-offset-4">в один клик</span>
+</h1>
+<p class="font-body-lg text-body-lg text-secondary-fixed-dim max-w-xl leading-relaxed">
+            Мониторим полки DNS, Ситилинк, М.Видео, Ozon и Маркета 24/7. Автоматически находим скрытые скидки, купоны и максимальный кешбэк баллами.
+          </p>
+</div>
+<!-- Retailer Price Delta Live Strip -->
+<div class="relative z-10 pt-space-xl">
+<div class="bg-surface-container-lowest/10 backdrop-blur-md rounded-lg p-space-md flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-primary text-on-primary flex items-center justify-center font-headline-sm text-headline-sm">
+                ₽
+              </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-surface-bright">Индекс выгоды DNS vs Маркетплейсы</span>
+<span class="font-body-sm text-body-sm text-secondary-fixed-dim">Разница на флагманах электроники до 18 400 ₽</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex -space-x-2">
+<span class="inline-block px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-sm font-bold">DNS</span>
+<span class="inline-block px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm shadow-sm font-bold">Ситилинк</span>
+<span class="inline-block px-2.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm shadow-sm font-bold">М.Видео</span>
+<span class="inline-block px-2.5 py-1 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm shadow-sm font-bold">Ozon</span>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md px-space-lg py-space-sm rounded-lg transition-transform active:scale-95 shadow-sm" type="button">
+                Начать поиск
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Hero Side Card: Instant Deal Spotter -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-space-lg flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center justify-between pb-space-md">
+<span class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary">bolt</span>
+              Экспресс-монитор
+            </span>
+<span class="font-label-sm text-label-sm bg-tertiary-fixed text-on-tertiary-fixed px-2 py-0.5 rounded font-bold">
+              LIVE
+            </span>
+</div>
+<div class="flex flex-col gap-space-sm mt-space-xs">
+<!-- Row 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="font-bold text-on-surface truncate">GeForce RTX 4080 Super</span>
+<span class="text-tertiary font-bold font-label-md text-label-md">-12 300 ₽</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-body-sm font-body-sm text-secondary">
+<span>DNS: 104 990 ₽</span>
+<span class="text-primary font-bold">Ozon: 92 690 ₽</span>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="font-bold text-on-surface truncate">Sony WH-1000XM5</span>
+<span class="text-tertiary font-bold font-label-md text-label-md">-4 800 ₽</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-body-sm font-body-sm text-secondary">
+<span>М.Видео: 34 990 ₽</span>
+<span class="text-primary font-bold">Я.Маркет: 30 190 ₽</span>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="font-bold text-on-surface truncate">iPad Air M2 128GB</span>
+<span class="text-tertiary font-bold font-label-md text-label-md">-6 150 ₽</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-body-sm font-body-sm text-secondary">
+<span>Ситилинк: 68 990 ₽</span>
+<span class="text-primary font-bold">DNS: 62 840 ₽</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-md bg-surface-container-low rounded-lg p-space-sm">
+<div class="flex items-center justify-between text-body-sm font-body-sm text-secondary mb-space-xs">
+<span>Средний чек экономии сегодня</span>
+<span class="font-bold text-on-surface">6 450 ₽</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2 overflow-hidden">
+<div class="bg-tertiary h-2 rounded-full" style="width: 74%"></div>
+</div>
+<div class="text-[11px] text-secondary mt-1 font-body-sm">Базируется на 84 920 переходах в магазины за 24 ч</div>
+</div>
+</div>
+</div>
+<!-- Quick Filter Quick-Bar -->
+<div class="mt-space-md flex items-center gap-space-xs overflow-x-auto pb-1">
+<button class="bg-surface-container-lowest text-on-surface hover:bg-surface-container-high px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap flex items-center gap-space-xs shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-tertiary">verified_user</span>
+        Только официальная гарантия
+      </button>
+<button class="bg-surface-container-lowest text-on-surface hover:bg-surface-container-high px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap flex items-center gap-space-xs shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">schedule</span>
+        В наличии сегодня (самовывоз 15 мин)
+      </button>
+<button class="bg-surface-container-lowest text-on-surface hover:bg-surface-container-high px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap flex items-center gap-space-xs shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-tertiary">savings</span>
+        Максимальный кешбэк (до 25%)
+      </button>
+<button class="bg-surface-container-lowest text-on-surface hover:bg-surface-container-high px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap flex items-center gap-space-xs shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">change_circle</span>
+        Уценка и Trade-in
+      </button>
+<button class="bg-surface-container-lowest text-on-surface hover:bg-surface-container-high px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap flex items-center gap-space-xs shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">credit_score</span>
+        Рассрочка 0-0-24 без переплат
+      </button>
+</div>
+</section>
+<!-- Interactive Multi-Merchant Comparison Block (Хит недели) -->
+<section class="max-w-[1440px] mx-auto w-full px-margin-desktop py-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-sm">
+<div>
+<div class="flex items-center gap-space-xs text-primary font-label-md text-label-md uppercase tracking-wider mb-1">
+<span class="material-symbols-outlined text-[18px]">equalizer</span>
+          Интеллектуальный матчинг цен
+        </div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight">
+          Быстрое сравнение цен на хит недели
+        </h2>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-low p-1 rounded-lg">
+<button class="px-space-md py-1 rounded bg-surface-container-lowest font-label-md text-label-md text-on-surface shadow-sm" type="button">
+          Apple iPhone 16 Pro Max
+        </button>
+<button class="px-space-md py-1 rounded font-label-md text-label-md text-secondary hover:text-on-surface transition-colors" type="button">
+          PlayStation 5 Slim
+        </button>
+<button class="px-space-md py-1 rounded font-label-md text-label-md text-secondary hover:text-on-surface transition-colors" type="button">
+          Galaxy S24 Ultra
+        </button>
+</div>
+</div>
+<!-- Product Card + Comparison Matrix -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg lg:p-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- Left: Product Specs & Visual -->
+<div class="lg:col-span-4 flex flex-col justify-between">
+<div>
+<div class="relative bg-surface-container-low rounded-xl p-space-lg flex items-center justify-center overflow-hidden mb-space-md">
+<span class="absolute top-3 left-3 bg-tertiary-container text-on-tertiary font-label-sm text-label-sm px-2 py-0.5 rounded">
+                -9 400 ₽ за 30 дней
+              </span>
+<img class="w-56 h-56 object-contain drop-shadow-lg transition-transform hover:scale-105" data-alt="Modern flagship smartphone Apple iPhone 16 Pro Max in titanium finish isolated on clean neutral white surface with crisp reflective studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnunsI9gysSVoWgnrDRLhUBbv7JQoxMOML0D6FtvjzcLjOTT9eDr_RL294Pt656pb5daKs0jD7f6iinNZTd3lMNttiyaTEVU9XKgZyB2HJcMlXE4DTBhaDSCyrOVKvNQF5gMeN4Tsf_gNHU-pcQWRSwzGx9o8bvXNdSUlzZM70LJJiZkT0zfq6bEdqIhG0e1UacqIqGDFBJ7Y1nfkR8pdbPa7bfM0N4uBVI5H25hSwvk3CESIhgJs9"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold leading-tight">
+              Смартфон Apple iPhone 16 Pro Max 256GB (Natural Titanium)
+            </h3>
+<div class="flex items-center gap-space-sm mt-space-xs text-body-sm font-body-sm">
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface ml-1">4.9</span>
+</div>
+<span class="text-secondary">(348 отзывов реальных покупателей)</span>
+</div>
+<!-- Key Specs Chips -->
+<div class="flex flex-wrap gap-space-xs mt-space-md">
+<span class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm px-2.5 py-1 rounded">Super Retina XDR 120Hz</span>
+<span class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm px-2.5 py-1 rounded">Apple A18 Pro</span>
+<span class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm px-2.5 py-1 rounded">Камера 48+48+12 Мп (5x Zoom)</span>
+<span class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm px-2.5 py-1 rounded">Гарантия 12 мес</span>
+</div>
+</div>
+<!-- Price Sparkline Widget -->
+<div class="mt-space-lg p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between text-body-sm font-body-sm mb-space-xs">
+<span class="font-bold text-on-surface">Динамика цен (30 дней)</span>
+<span class="text-tertiary font-bold font-label-md text-label-md">Падение на 8.2%</span>
+</div>
+<!-- Minimal Clean SVG Sparkline -->
+<div class="w-full h-12">
+<svg class="w-full h-full text-tertiary overflow-visible" viewbox="0 0 200 40">
+<path d="M0 8 L30 10 L60 7 L90 15 L120 18 L150 26 L180 32 L200 35" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<circle cx="200" cy="35" fill="currentColor" r="4"></circle>
+</svg>
+</div>
+<div class="flex justify-between text-[11px] text-secondary font-body-sm mt-1">
+<span>01 мая: 117 850 ₽</span>
+<span class="font-bold text-on-surface">Сегодня: 108 450 ₽</span>
+</div>
+</div>
+</div>
+<!-- Right: Multi-Merchant Live Matrix Table -->
+<div class="lg:col-span-8 flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between text-body-sm font-label-md text-secondary uppercase tracking-wider px-space-sm pb-1">
+<span>Магазин и условия</span>
+<span>Наличие и логистика</span>
+<span class="text-right">Стоимость</span>
+</div>
+<!-- Merchant Row: Ozon (Best Price) -->
+<div class="bg-surface-container-low hover:bg-surface-container p-space-md rounded-xl transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed text-on-primary-fixed font-headline-sm text-headline-sm flex items-center justify-center shrink-0">
+                  OZ
+                </div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Ozon</span>
+<span class="bg-tertiary text-on-tertiary font-label-sm text-label-sm px-2 py-0.5 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+                      Официальный продавец
+                    </span>
+<span class="bg-primary text-on-primary font-label-sm text-label-sm px-2 py-0.5 rounded font-bold">
+                      ★ Лучшая цена
+                    </span>
+</div>
+<div class="text-body-sm font-body-sm text-secondary mt-0.5">
+                    Скидка при оплате Ozon Картой • Гарантия оригинальности
+                  </div>
+</div>
+</div>
+<div class="flex items-center justify-between sm:justify-end gap-space-xl">
+<div class="text-left sm:text-right">
+<div class="text-tertiary font-label-md text-label-md flex items-center gap-1 sm:justify-end">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+                    Доставка завтра
+                  </div>
+<div class="text-body-sm font-body-sm text-secondary">Курьером до двери: 0 ₽</div>
+</div>
+<div class="text-right shrink-0">
+<div class="font-price-hero text-price-hero text-primary font-black leading-none">
+                    108 450 ₽
+                  </div>
+<span class="text-[11px] text-secondary line-through font-body-sm">117 990 ₽</span>
+</div>
+</div>
+</div>
+<!-- Merchant Row: DNS (Fastest Pickup) -->
+<div class="bg-surface-container-lowest hover:bg-surface-container-low p-space-md rounded-xl transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-primary text-on-primary font-headline-sm text-headline-sm flex items-center justify-center shrink-0">
+                  DNS
+                </div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">DNS Ритейл</span>
+<span class="bg-surface-container-high text-on-surface font-label-sm text-label-sm px-2 py-0.5 rounded font-semibold">
+                      Федеральная сеть
+                    </span>
+</div>
+<div class="text-body-sm font-body-sm text-secondary mt-0.5">
+                    Официальный сервисный центр • 12 мес гарантия DNS
+                  </div>
+</div>
+</div>
+<div class="flex items-center justify-between sm:justify-end gap-space-xl">
+<div class="text-left sm:text-right">
+<div class="text-on-surface font-label-md text-label-md flex items-center gap-1 sm:justify-end font-bold">
+<span class="material-symbols-outlined text-[16px] text-tertiary">store</span>
+                    В 14 магазинах Москвы
+                  </div>
+<div class="text-body-sm font-body-sm text-tertiary">Самовывоз через 15 мин</div>
+</div>
+<div class="text-right shrink-0">
+<div class="font-price-hero text-price-hero text-on-surface font-black leading-none">
+                    114 999 ₽
+                  </div>
+<span class="text-[11px] text-secondary font-body-sm">+2 300 бонусов Pro</span>
+</div>
+</div>
+</div>
+<!-- Merchant Row: Яндекс Маркет -->
+<div class="bg-surface-container-lowest hover:bg-surface-container-low p-space-md rounded-xl transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-secondary-fixed text-on-secondary-fixed font-headline-sm text-headline-sm flex items-center justify-center shrink-0">
+                  ЯМ
+                </div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Яндекс Маркет</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-2 py-0.5 rounded">
+                      Кешбэк Плюса
+                    </span>
+</div>
+<div class="text-body-sm font-body-sm text-secondary mt-0.5">
+                    Возврат 5 500 баллов • Оплата частями через Сплит 0-0-6
+                  </div>
+</div>
+</div>
+<div class="flex items-center justify-between sm:justify-end gap-space-xl">
+<div class="text-left sm:text-right">
+<div class="text-on-surface font-label-md text-label-md">ПВЗ рядом с вами</div>
+<div class="text-body-sm font-body-sm text-secondary">Послезавтра к 10:00</div>
+</div>
+<div class="text-right shrink-0">
+<div class="font-price-hero text-price-hero text-on-surface font-black leading-none">
+                    111 200 ₽
+                  </div>
+<span class="text-[11px] text-tertiary font-bold font-body-sm">Эффективная: 105 700 ₽</span>
+</div>
+</div>
+</div>
+<!-- Merchant Row: Ситилинк -->
+<div class="bg-surface-container-lowest hover:bg-surface-container-low p-space-md rounded-xl transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high text-on-surface font-headline-sm text-headline-sm flex items-center justify-center shrink-0">
+                  CIT
+                </div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Ситилинк</span>
+</div>
+<div class="text-body-sm font-body-sm text-secondary mt-0.5">
+                    Бонусы Клуба 3 400 • Экспресс доставка за 2 ч
+                  </div>
+</div>
+</div>
+<div class="flex items-center justify-between sm:justify-end gap-space-xl">
+<div class="text-left sm:text-right">
+<div class="text-on-surface font-label-md text-label-md">На центральном складе</div>
+<div class="text-body-sm font-body-sm text-secondary">Выдача сегодня после 16:00</div>
+</div>
+<div class="text-right shrink-0">
+<div class="font-price-hero text-price-hero text-on-surface font-black leading-none">
+                    115 490 ₽
+                  </div>
+<span class="text-[11px] text-secondary font-body-sm">В рассрочку: 4 812 ₽/мес</span>
+</div>
+</div>
+</div>
+<!-- Merchant Row: М.Видео -->
+<div class="bg-surface-container-lowest hover:bg-surface-container-low p-space-md rounded-xl transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-error-container text-on-error-container font-headline-sm text-headline-sm flex items-center justify-center shrink-0">
+                  МВ
+                </div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">М.Видео</span>
+</div>
+<div class="text-body-sm font-body-sm text-secondary mt-0.5">
+                    Рассрочка 0-0-24 • 6 000 бонусов M.Club на следующую покупку
+                  </div>
+</div>
+</div>
+<div class="flex items-center justify-between sm:justify-end gap-space-xl">
+<div class="text-left sm:text-right">
+<div class="text-on-surface font-label-md text-label-md">В наличии в 6 ТЦ</div>
+<div class="text-body-sm font-body-sm text-secondary">Забрать через 2 часа</div>
+</div>
+<div class="text-right shrink-0">
+<div class="font-price-hero text-price-hero text-on-surface font-black leading-none">
+                    119 999 ₽
+                  </div>
+<span class="text-[11px] text-secondary font-body-sm">Без первого взноса</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom CTA Action Cluster -->
+<div class="mt-space-lg pt-space-md flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<button class="bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm px-space-xl py-space-md rounded-lg flex items-center gap-space-sm shadow-md transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]">shopping_cart_checkout</span>
+                Перейти к лучшему предложению (108 450 ₽)
+              </button>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md px-space-md py-space-sm rounded-lg flex items-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">balance</span>
+                В таблицу сравнения
+              </button>
+<button class="bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md px-space-md py-space-sm rounded-lg flex items-center gap-space-xs transition-colors" title="Следить за падением цены" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">notifications_active</span>
+                Следить за ценой
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Popular DNS-Style Category Matrix Grid -->
+<section class="max-w-[1440px] mx-auto w-full px-margin-desktop py-space-xl">
+<div class="flex items-center justify-between mb-space-lg">
+<div>
+<span class="text-secondary font-label-md text-label-md uppercase tracking-wider">Каталог товаров электроники</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight">
+          Популярные категории с максимальным охватом цен
+        </h2>
+</div>
+<a class="hidden md:flex items-center gap-space-xs text-primary hover:text-primary-container font-label-md text-label-md font-bold" href="#">
+<span>Все 148 категорий агрегатора</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md">
+<!-- Category 1 -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low p-space-lg rounded-xl shadow-sm transition-all group flex flex-col justify-between h-44" href="#">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[28px]">smartphone</span>
+</div>
+<span class="bg-surface-container-high text-on-surface-variant text-[11px] font-bold px-2 py-0.5 rounded font-label-sm">
+            ТОП-1
+          </span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors font-bold">
+            Смартфоны и часы
+          </div>
+<div class="text-body-sm font-body-sm text-secondary mt-0.5">48 200 предложений в 24 сетях</div>
+</div>
+</a>
+<!-- Category 2 -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low p-space-lg rounded-xl shadow-sm transition-all group flex flex-col justify-between h-44" href="#">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[28px]">laptop_mac</span>
+</div>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed text-[11px] font-bold px-2 py-0.5 rounded font-label-sm">
+            -28% Скидки
+          </span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors font-bold">
+            Ноутбуки и ультрабуки
+          </div>
+<div class="text-body-sm font-body-sm text-secondary mt-0.5">18 940 предложений</div>
+</div>
+</a>
+<!-- Category 3 -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low p-space-lg rounded-xl shadow-sm transition-all group flex flex-col justify-between h-44" href="#">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[28px]">memory</span>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed text-[11px] font-bold px-2 py-0.5 rounded font-label-sm">
+            DNS База
+          </span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors font-bold">
+            Комплектующие для ПК
+          </div>
+<div class="text-body-sm font-body-sm text-secondary mt-0.5">86 400 видеокарт, CPU, плат</div>
+</div>
+</a>
+<!-- Category 4 -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low p-space-lg rounded-xl shadow-sm transition-all group flex flex-col justify-between h-44" href="#">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[28px]">tv</span>
+</div>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors font-bold">
+            Телевизоры и саундбары
+          </div>
+<div class="text-body-sm font-body-sm text-secondary mt-0.5">12 100 предложений OLED / QLED</div>
+</div>
+</a>
+<!-- Category 5 -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low p-space-lg rounded-xl shadow-sm transition-all group flex flex-col justify-between h-44" href="#">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[28px]">home_iot_device</span>
+</div>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors font-bold">
+            Бытовая техника и Дом
+          </div>
+<div class="text-body-sm font-body-sm text-secondary mt-0.5">115 000 товаров с доставкой</div>
+</div>
+</a>
+<!-- Category 6 -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low p-space-lg rounded-xl shadow-sm transition-all group flex flex-col justify-between h-44" href="#">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[28px]">sports_esports</span>
+</div>
+<span class="bg-tertiary text-on-tertiary text-[11px] font-bold px-2 py-0.5 rounded font-label-sm">
+            PS5 / Xbox
+          </span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors font-bold">
+            Гейминг и консоли
+          </div>
+<div class="text-body-sm font-body-sm text-secondary mt-0.5">9 800 консолей и дисков</div>
+</div>
+</a>
+<!-- Category 7 -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low p-space-lg rounded-xl shadow-sm transition-all group flex flex-col justify-between h-44" href="#">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[28px]">headphones</span>
+</div>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors font-bold">
+            Наушники и аудио
+          </div>
+<div class="text-body-sm font-body-sm text-secondary mt-0.5">34 500 TWS и Hi-Fi систем</div>
+</div>
+</a>
+<!-- Category 8 -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low p-space-lg rounded-xl shadow-sm transition-all group flex flex-col justify-between h-44" href="#">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[28px]">tablet_mac</span>
+</div>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors font-bold">
+            Планшеты и ридеры
+          </div>
+<div class="text-body-sm font-body-sm text-secondary mt-0.5">11 200 предложений</div>
+</div>
+</a>
+</div>
+</section>
+<!-- 'Обвал цен дня' (Maximum Daily Price Drops / Steal Deals Section) -->
+<section class="max-w-[1440px] mx-auto w-full px-margin-desktop py-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-sm">
+<div>
+<div class="flex items-center gap-space-xs text-primary font-label-md text-label-md uppercase tracking-wider mb-1">
+<span class="material-symbols-outlined text-[18px]">trending_down</span>
+          Аналитический фильтр выгоды
+        </div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight">
+          🔥 Обвал цен дня: рекордные падения в магазинах
+        </h2>
+</div>
+<div class="text-body-sm font-body-sm text-secondary">
+        Скидки проверены по медианной цене за последние 60 дней
+      </div>
+</div>
+<!-- Product 4-Card Grid with DNS Style -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+<!-- Deal 1 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div>
+<div class="relative bg-surface-container-low rounded-lg p-space-md flex items-center justify-center overflow-hidden mb-space-sm">
+<span class="absolute top-2 left-2 bg-primary text-on-primary font-label-sm text-label-sm px-2 py-0.5 rounded font-extrabold shadow-sm">
+              -15%
+            </span>
+<span class="absolute top-2 right-2 bg-surface-container-lowest text-secondary hover:text-primary p-1 rounded-full shadow-sm cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</span>
+<img class="w-44 h-40 object-contain group-hover:scale-105 transition-transform" data-alt="Palit GeForce RTX 4070 SUPER Dual graphic card isolated on clean studio background with industrial cooling fan details and sleek gaming aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVm5KGNBGB_bYJzc5k5a4mSL218NbTl6kWRkREb6hMtjQFa1cIHuLRrqmhsdZ-RzPMrmBbqmS2_KGxBGtvjkR059Sd9wG8U6WKbJC04yZUsakGvSygRHdja20pxU-jmSLQrYXcvo0R_LhdcffSAyOOpxlFzfhdIeaaPwj2ies-0RPfmb2zUuel-N4UsYN2NiMCzUaGuit0O1iz7haU-KZ4dRz9ERecZ5ZHK4IbP0EzzZmSQR3CBnLf"/>
+</div>
+<div class="flex items-center gap-space-xs text-body-sm font-body-sm text-secondary mb-1">
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface ml-0.5">4.8</span>
+</div>
+<span>• 112 отзывов</span>
+</div>
+<a class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors font-bold line-clamp-2" href="#">
+            Видеокарта Palit GeForce RTX 4070 SUPER Dual 12GB
+          </a>
+<!-- Merchant Tag Badge -->
+<div class="mt-space-xs">
+<span class="inline-flex items-center gap-1 bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[12px]">store</span>
+              Лучшая цена в DNS
+            </span>
+</div>
+<!-- Price Range Summary -->
+<div class="mt-space-sm p-space-xs bg-surface-container-low rounded text-body-sm font-body-sm text-secondary">
+            Сравнить 12 магазинов: <span class="font-bold text-on-surface">от 63 990 ₽ до 78 500 ₽</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm">
+<div class="flex items-baseline gap-space-sm">
+<span class="font-price-hero text-price-hero text-on-surface font-extrabold leading-none">63 990 ₽</span>
+<span class="text-body-sm font-body-sm text-secondary line-through">74 990 ₽</span>
+</div>
+<button class="w-full mt-space-sm bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md py-space-sm rounded-lg flex items-center justify-center gap-space-xs transition-colors shadow-sm font-bold" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+            Сравнить 12 цен
+          </button>
+</div>
+</div>
+<!-- Deal 2 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div>
+<div class="relative bg-surface-container-low rounded-lg p-space-md flex items-center justify-center overflow-hidden mb-space-sm">
+<span class="absolute top-2 left-2 bg-primary text-on-primary font-label-sm text-label-sm px-2 py-0.5 rounded font-extrabold shadow-sm">
+              -20 000 ₽
+            </span>
+<span class="absolute top-2 right-2 bg-surface-container-lowest text-secondary hover:text-primary p-1 rounded-full shadow-sm cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</span>
+<img class="w-44 h-40 object-contain group-hover:scale-105 transition-transform" data-alt="ASUS ROG Strix G16 gaming laptop open showing keyboard backlight and sharp high resolution gaming display on minimalist desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBe4Znm1o3PRxJP_5XhWOmpAoAf9Q4OCriGbnT8HX7PpyYEY4FvDzdSrU5PrpdMN2gh_hTuHm9elrhAOC7_qPX1t5_tqpsBf5uL6bedPrS3kVE3rOZm_JFoNtAhn2zxtL7ya4BNrnnYqh-ogI23fYERf2zuGA8eXxYbM_EKQ3swneiDI8yzy2UB6Xm6o8iaeU55WXBLw6pe1ay-AJB855SaD5Ofwyf4IsHdaidXOof2MeuWdkkFm3V"/>
+</div>
+<div class="flex items-center gap-space-xs text-body-sm font-body-sm text-secondary mb-1">
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface ml-0.5">4.9</span>
+</div>
+<span>• 84 отзыва</span>
+</div>
+<a class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors font-bold line-clamp-2" href="#">
+            Ноутбук ASUS ROG Strix G16 (i7-13650HX, 16GB, RTX 4060)
+          </a>
+<!-- Merchant Tag Badge -->
+<div class="mt-space-xs">
+<span class="inline-flex items-center gap-1 bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[12px]">storefront</span>
+              Лучшая цена в Ситилинк
+            </span>
+</div>
+<!-- Price Range Summary -->
+<div class="mt-space-sm p-space-xs bg-surface-container-low rounded text-body-sm font-body-sm text-secondary">
+            Сравнить 8 магазинов: <span class="font-bold text-on-surface">от 139 990 ₽ до 162 000 ₽</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm">
+<div class="flex items-baseline gap-space-sm">
+<span class="font-price-hero text-price-hero text-on-surface font-extrabold leading-none">139 990 ₽</span>
+<span class="text-body-sm font-body-sm text-secondary line-through">159 990 ₽</span>
+</div>
+<button class="w-full mt-space-sm bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md py-space-sm rounded-lg flex items-center justify-center gap-space-xs transition-colors shadow-sm font-bold" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+            Сравнить 8 цен
+          </button>
+</div>
+</div>
+<!-- Deal 3 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div>
+<div class="relative bg-surface-container-low rounded-lg p-space-md flex items-center justify-center overflow-hidden mb-space-sm">
+<span class="absolute top-2 left-2 bg-tertiary text-on-tertiary font-label-sm text-label-sm px-2 py-0.5 rounded font-extrabold shadow-sm">
+              ХИТ ПРОДАЖ
+            </span>
+<span class="absolute top-2 right-2 bg-surface-container-lowest text-secondary hover:text-primary p-1 rounded-full shadow-sm cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</span>
+<img class="w-44 h-40 object-contain group-hover:scale-105 transition-transform" data-alt="LG OLED55C3 55 inch 4K HDR television screen showcasing vibrant deep blacks and vivid cinematic colors on sleek dark stand" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpd3PAWbuTOY32UbkYtzTxHI2w0i4NXLQ558GXHo1sbn30QMPaPA4wAn0oCeopO4cRQQY3ywPH8jcKhf-iVZ0bp9lhqZGjJ2MQdMTi_WWsGgkO42neZos32LnMsho4AMLiLyQr8FF6GwOpwq7Ez1dhfvYi--llvNiXvjXYVH3mSoK3KzCNvHTmAZJzlySSwsUTd8HAVXUGYd4I2Ky9XN6G0Hkh4yEMPfX2YdMuqgmuACRadzIAjv_j"/>
+</div>
+<div class="flex items-center gap-space-xs text-body-sm font-body-sm text-secondary mb-1">
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface ml-0.5">5.0</span>
+</div>
+<span>• 205 отзывов</span>
+</div>
+<a class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors font-bold line-clamp-2" href="#">
+            Телевизор LG OLED55C3 55" 4K 120Hz evo Cinema
+          </a>
+<!-- Merchant Tag Badge -->
+<div class="mt-space-xs">
+<span class="inline-flex items-center gap-1 bg-surface-container-high text-on-surface px-2 py-0.5 rounded font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[12px]">local_mall</span>
+              Лучшая цена на Ozon
+            </span>
+</div>
+<!-- Price Range Summary -->
+<div class="mt-space-sm p-space-xs bg-surface-container-low rounded text-body-sm font-body-sm text-secondary">
+            Сравнить 19 магазинов: <span class="font-bold text-on-surface">от 142 500 ₽ до 179 990 ₽</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm">
+<div class="flex items-baseline gap-space-sm">
+<span class="font-price-hero text-price-hero text-on-surface font-extrabold leading-none">142 500 ₽</span>
+<span class="text-body-sm font-body-sm text-secondary line-through">164 990 ₽</span>
+</div>
+<button class="w-full mt-space-sm bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md py-space-sm rounded-lg flex items-center justify-center gap-space-xs transition-colors shadow-sm font-bold" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+            Сравнить 19 цен
+          </button>
+</div>
+</div>
+<!-- Deal 4 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div>
+<div class="relative bg-surface-container-low rounded-lg p-space-md flex items-center justify-center overflow-hidden mb-space-sm">
+<span class="absolute top-2 left-2 bg-primary text-on-primary font-label-sm text-label-sm px-2 py-0.5 rounded font-extrabold shadow-sm">
+              -21%
+            </span>
+<span class="absolute top-2 right-2 bg-surface-container-lowest text-secondary hover:text-primary p-1 rounded-full shadow-sm cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</span>
+<img class="w-44 h-40 object-contain group-hover:scale-105 transition-transform" data-alt="Dreame L10s Ultra robot vacuum cleaner and self-cleaning charging base station in clean white modern smart home kitchen interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIqFlzcTWU5turFqGi5lJEG89QqSAYVs15n2y5-P8psIb7BS9DdSABdWo3zmpb_1WsI9Du0rHKeQoAfkfhfXEKMO9ZZOji_cq6c2i7sZeT0s-xcC8XotUsTXCGdgLN0RCfJuSymyf_1N1AV6PbKvuRiAhu6QcXHvcKLTHcEYzIZJM0xnetCPRSNQohSXTxJ1cCOg-hVPppnpkoHMVJ7djYsU7Z5s0bBBrpc0VyzgA7sUT0sSVI0wPq"/>
+</div>
+<div class="flex items-center gap-space-xs text-body-sm font-body-sm text-secondary mb-1">
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface ml-0.5">4.7</span>
+</div>
+<span>• 168 отзывов</span>
+</div>
+<a class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors font-bold line-clamp-2" href="#">
+            Пылесос робот Dreame L10s Ultra со станцией очистки
+          </a>
+<!-- Merchant Tag Badge -->
+<div class="mt-space-xs">
+<span class="inline-flex items-center gap-1 bg-error-container text-on-error-container px-2 py-0.5 rounded font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[12px]">store</span>
+              Лучшая цена в М.Видео
+            </span>
+</div>
+<!-- Price Range Summary -->
+<div class="mt-space-sm p-space-xs bg-surface-container-low rounded text-body-sm font-body-sm text-secondary">
+            Сравнить 15 магазинов: <span class="font-bold text-on-surface">от 54 990 ₽ до 72 900 ₽</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm">
+<div class="flex items-baseline gap-space-sm">
+<span class="font-price-hero text-price-hero text-on-surface font-extrabold leading-none">54 990 ₽</span>
+<span class="text-body-sm font-body-sm text-secondary line-through">69 990 ₽</span>
+</div>
+<button class="w-full mt-space-sm bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md py-space-sm rounded-lg flex items-center justify-center gap-space-xs transition-colors shadow-sm font-bold" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+            Сравнить 15 цен
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- PC Configurator Feature Showcase (Signature DNS Tribute) -->
+<section class="max-w-[1440px] mx-auto w-full px-margin-desktop py-space-xl">
+<div class="bg-inverse-surface rounded-xl p-space-xl text-inverse-on-surface relative overflow-hidden shadow-lg">
+<div class="absolute right-0 top-0 w-1/3 h-full bg-primary/10 blur-3xl pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center relative z-10">
+<div class="lg:col-span-8">
+<div class="flex items-center gap-space-xs text-primary-fixed font-label-md text-label-md uppercase tracking-wider mb-space-xs">
+<span class="material-symbols-outlined text-[20px]">build_circle</span>
+            Инженерная фишка ТехноПульс
+          </div>
+<h2 class="font-headline-xl text-headline-xl font-black tracking-tight leading-tight mb-space-sm">
+            Онлайн-конфигуратор ПК с кросс-проверкой цен по всем сетям
+          </h2>
+<p class="font-body-lg text-body-lg text-secondary-fixed-dim max-w-2xl leading-relaxed mb-space-lg">
+            Соберите комплектующие в одном месте. Наш алгоритм проверит совместимость процессора, материнской платы и кулера, а затем автоматически распределит заказ: видеокарту возьмет в DNS, память в Ситилинк, а блок питания на Ozon — для максимальной экономии.
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md mb-space-lg">
+<div class="bg-surface-container-lowest/10 p-space-md rounded-lg">
+<div class="font-price-hero text-price-hero text-tertiary-fixed font-black">18 500 ₽</div>
+<div class="text-body-sm font-body-sm text-secondary-fixed-dim mt-0.5">Средняя экономия на одной сборке</div>
+</div>
+<div class="bg-surface-container-lowest/10 p-space-md rounded-lg">
+<div class="font-price-hero text-price-hero text-surface-bright font-black">100%</div>
+<div class="text-body-sm font-body-sm text-secondary-fixed-dim mt-0.5">Гарантия аппаратной совместимости</div>
+</div>
+<div class="bg-surface-container-lowest/10 p-space-md rounded-lg">
+<div class="font-price-hero text-price-hero text-primary-fixed font-black">2 клика</div>
+<div class="text-body-sm font-body-sm text-secondary-fixed-dim mt-0.5">Экспорт корзины во все магазины</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-md">
+<button class="bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm px-space-xl py-space-md rounded-lg flex items-center gap-space-sm shadow-md transition-all active:scale-95 font-bold" type="button">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+              Собрать ПК по лучшим ценам
+            </button>
+<button class="bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-surface-bright font-label-md text-label-md px-space-lg py-space-md rounded-lg flex items-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+              Смотреть 40+ готовых конфигураций
+            </button>
+</div>
+</div>
+<!-- PC Visual Component Preview -->
+<div class="lg:col-span-4 bg-surface-container-lowest/10 backdrop-blur-md rounded-xl p-space-lg">
+<div class="font-label-md text-label-md text-surface-bright mb-space-sm font-bold flex items-center justify-between">
+<span>Пример умной сборки:</span>
+<span class="text-tertiary-fixed font-bold font-label-md text-label-md">-21 400 ₽</span>
+</div>
+<div class="flex flex-col gap-space-xs text-body-sm font-body-sm">
+<div class="flex justify-between py-1 bg-surface-container-lowest/5 px-2 rounded">
+<span class="text-secondary-fixed-dim">CPU: Core i5-14600KF</span>
+<span class="text-surface-bright font-bold">Ситилинк</span>
+</div>
+<div class="flex justify-between py-1 bg-surface-container-lowest/5 px-2 rounded">
+<span class="text-secondary-fixed-dim">GPU: RTX 4070 Ti SUPER</span>
+<span class="text-surface-bright font-bold">DNS</span>
+</div>
+<div class="flex justify-between py-1 bg-surface-container-lowest/5 px-2 rounded">
+<span class="text-secondary-fixed-dim">Motherboard: Z790 DDR5</span>
+<span class="text-surface-bright font-bold">Ozon</span>
+</div>
+<div class="flex justify-between py-1 bg-surface-container-lowest/5 px-2 rounded">
+<span class="text-secondary-fixed-dim">RAM: 32GB Kingston Fury</span>
+<span class="text-surface-bright font-bold">Я.Маркет</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-secondary-fixed-dim">Итог по раздельному заказу:</span>
+<span class="font-headline-sm text-headline-sm text-tertiary-fixed font-extrabold">174 200 ₽</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Verified Retailers & Data Engine Transparency -->
+<section class="max-w-[1440px] mx-auto w-full px-margin-desktop py-space-xl">
+<div class="bg-surface-container-low rounded-xl p-space-lg lg:p-space-xl">
+<div class="text-center max-w-2xl mx-auto mb-space-lg">
+<span class="font-label-md text-label-md text-primary uppercase tracking-wider font-bold">Прозрачность и доверие</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight mt-1">
+          Ежеминутная синхронизация с базами крупнейших ритейлеров
+        </h3>
+<p class="font-body-md text-body-md text-secondary mt-space-xs">
+          Мы агрегируем только легальные магазины с официальной гарантией и подтвержденными складскими остатками в РФ.
+        </p>
+</div>
+<!-- Retailer Logo Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-space-md items-center justify-items-center opacity-85">
+<div class="w-full py-space-md px-space-sm bg-surface-container-lowest rounded-lg flex items-center justify-center font-headline-sm text-headline-sm text-primary font-black shadow-sm">
+          DNS
+        </div>
+<div class="w-full py-space-md px-space-sm bg-surface-container-lowest rounded-lg flex items-center justify-center font-headline-sm text-headline-sm text-on-surface font-black shadow-sm">
+          СИТИЛИНК
+        </div>
+<div class="w-full py-space-md px-space-sm bg-surface-container-lowest rounded-lg flex items-center justify-center font-headline-sm text-headline-sm text-error font-black shadow-sm">
+          М.ВИДЕО
+        </div>
+<div class="w-full py-space-md px-space-sm bg-surface-container-lowest rounded-lg flex items-center justify-center font-headline-sm text-headline-sm text-on-surface font-black shadow-sm">
+          OZON
+        </div>
+<div class="w-full py-space-md px-space-sm bg-surface-container-lowest rounded-lg flex items-center justify-center font-headline-sm text-headline-sm text-on-surface font-black shadow-sm">
+          ЯНДЕКС МАРКЕТ
+        </div>
+<div class="w-full py-space-md px-space-sm bg-surface-container-lowest rounded-lg flex items-center justify-center font-headline-sm text-headline-sm text-on-surface font-black shadow-sm">
+          re:Store
+        </div>
+</div>
+<!-- Trust Badges Bar -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg mt-space-xl pt-space-lg">
+<div class="flex items-start gap-space-md">
+<div class="p-space-sm rounded-lg bg-surface-container-highest text-primary shrink-0">
+<span class="material-symbols-outlined text-[24px]">update</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">Свежесть данных до 15 сек</div>
+<div class="font-body-md text-body-md text-secondary mt-0.5">
+              Цены и наличие проверяются в режиме реального времени через прямые интеграции API.
+            </div>
+</div>
+</div>
+<div class="flex items-start gap-space-md">
+<div class="p-space-sm rounded-lg bg-surface-container-highest text-tertiary shrink-0">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">Честные скидки без накруток</div>
+<div class="font-body-md text-body-md text-secondary mt-0.5">
+              Отсекаем искусственное завышение перед акциями. Графики показывают реальную историю за 90 дней.
+            </div>
+</div>
+</div>
+<div class="flex items-start gap-space-md">
+<div class="p-space-sm rounded-lg bg-surface-container-highest text-secondary shrink-0">
+<span class="material-symbols-outlined text-[24px]">security</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">Гарантия ритейлеров</div>
+<div class="font-body-md text-body-md text-secondary mt-0.5">
+              Все покупки оформляются напрямую в авторизованных сетях с сохранением чека и сервисного обслуживания.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-inverse-surface text-inverse-on-surface mt-space-xl border-t border-outline-variant/20"><div class="max-w-[1440px] mx-auto px-margin-desktop py-space-xl"><div class="bg-surface-container-low/10 rounded-xl p-space-lg mb-space-xl flex flex-col lg:flex-row items-center justify-between gap-space-lg"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-surface-bright">Уведомления о снижении цен</span><span class="font-body-md text-body-md text-secondary-fixed-dim mt-1">Получайте мгновенные алерты, когда нужная видеокарта или смартфон упадет в цене до желаемой</span></div><div class="flex w-full lg:w-auto items-center gap-space-sm"><input class="bg-surface text-on-surface font-body-md text-body-md px-space-lg py-space-sm rounded-lg min-w-[280px] focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Ваш email или Telegram @username" type="email"/><button class="bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md px-space-lg py-space-sm rounded-lg shrink-0 transition-colors" type="button">Подписаться</button></div></div><div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-space-xl pb-space-xl border-b border-surface-variant/20"><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-surface-bright uppercase tracking-wider">Магазины-партнеры</span><ul class="flex flex-col gap-space-xs text-body-sm font-body-sm text-secondary-fixed-dim"><li><a class="hover:text-primary-fixed transition-colors" href="#">DNS (ДНС Ритейл)</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Ситилинк</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">М.Видео</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Эльдорадо</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Яндекс Маркет</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Ozon (Озон)</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Мегамаркет</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Re:Store / restore:</a></li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-surface-bright uppercase tracking-wider">Инструменты агрегатора</span><ul class="flex flex-col gap-space-xs text-body-sm font-body-sm text-secondary-fixed-dim"><li><a class="hover:text-primary-fixed transition-colors" data-path="compare" href="#">Таблица прямого сравнения</a></li><li><a class="hover:text-primary-fixed transition-colors" data-path="price-dynamics" href="#">История графиков цен (30/90 дн)</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Калькулятор сборки ПК</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Проверка кэшбэка и баллов</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Карта наличия на складах</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Аналитика переплат и наценок</a></li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-surface-bright uppercase tracking-wider">Покупателям</span><ul class="flex flex-col gap-space-xs text-body-sm font-body-sm text-secondary-fixed-dim"><li><a class="hover:text-primary-fixed transition-colors" href="#">Как работает агрегатор</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Гарантия и возврат в сетях</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Критерии верификации продавцов</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Промокоды и купоны</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Правила публикации отзывов</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Политика обработки данных</a></li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-surface-bright uppercase tracking-wider">Компания</span><ul class="flex flex-col gap-space-xs text-body-sm font-body-sm text-secondary-fixed-dim"><li><a class="hover:text-primary-fixed transition-colors" href="#">О проекте ТехноПульс</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Подключение интернет-магазина</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">API данных для ритейлеров</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Вакансии для инженеров</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Пресс-служба и медиакит</a></li><li><a class="hover:text-primary-fixed transition-colors" href="#">Контакты редакции</a></li></ul></div><div class="col-span-2 md:col-span-4 lg:col-span-1 flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-surface-bright uppercase tracking-wider">Мобильные приложения</span><p class="font-body-sm text-body-sm text-secondary-fixed-dim">Сканируйте штрихкоды в торговом зале DNS или М.Видео и проверяйте цены онлайн:</p><div class="flex flex-col gap-space-xs mt-1"><button class="bg-surface-container-high/15 hover:bg-surface-container-high/25 text-surface-bright px-space-md py-space-xs rounded-lg flex items-center gap-space-sm border border-surface-variant/30 text-left transition-colors" type="button"><span class="material-symbols-outlined text-[24px]">android</span><div><div class="text-[10px] text-secondary-fixed-dim leading-none">Доступно в</div><div class="font-label-md text-label-md">RuStore &amp; Google Play</div></div></button><button class="bg-surface-container-high/15 hover:bg-surface-container-high/25 text-surface-bright px-space-md py-space-xs rounded-lg flex items-center gap-space-sm border border-surface-variant/30 text-left transition-colors" type="button"><span class="material-symbols-outlined text-[24px]">file_download</span><div><div class="text-[10px] text-secondary-fixed-dim leading-none">Загрузите в</div><div class="font-label-md text-label-md">Apple App Store</div></div></button></div></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md text-body-sm font-body-sm text-secondary-fixed-dim"><div>© 2025 ООО «ТехноПульс». Независимый агрегатор цен и наличия в электронике. Все товарные знаки принадлежат их правообладателям.</div><div class="flex items-center gap-space-lg"><a class="hover:text-primary-fixed transition-colors" href="#">Пользовательское соглашение</a><a class="hover:text-primary-fixed transition-colors" href="#">Конфиденциальность</a><a class="hover:text-primary-fixed transition-colors" href="#">Карта сайта</a></div></div></div></footer></body></html>
