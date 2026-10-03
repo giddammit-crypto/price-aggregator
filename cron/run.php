@@ -83,10 +83,12 @@ function runJobWithLock(string $jobName, string $jobFile, string $locksDir, stri
 
         $duration = round(microtime(true) - $startTime, 3);
         $cursorFile = $cursorsDir . '/' . $jobName . '.json';
+        $previous = \App\Storage\Fs::readJson($cursorFile, []);
         $cursorData = [
             'job' => $jobName,
-            'last_run' => time(),
-            'last_run_date' => date('Y-m-d H:i:s'),
+            'last_run' => $returnVar === 0 ? time() : (int)($previous['last_run'] ?? 0),
+            'last_run_date' => $returnVar === 0 ? date('Y-m-d H:i:s') : ($previous['last_run_date'] ?? null),
+            'last_attempt' => time(),
             'duration_sec' => $duration,
             'exit_code' => $returnVar
         ];
@@ -103,6 +105,7 @@ if ($action === 'dispatch') {
     echo "--- Dispatcher starting [" . date('Y-m-d H:i:s') . "] ---\n";
     $timeLimit = 50; // Max 50s budget per cron tick
     $start = time();
+    $failed = false;
 
     foreach ($jobsSchedule as $name => $cfg) {
         if ((time() - $start) > $timeLimit) {
@@ -119,14 +122,16 @@ if ($action === 'dispatch') {
 
         $elapsed = time() - $lastRun;
         if ($elapsed >= $cfg['interval']) {
-            runJobWithLock($name, $cfg['file'], $locksDir, $cursorsDir);
+            if (!runJobWithLock($name, $cfg['file'], $locksDir, $cursorsDir)) {
+                $failed = true;
+            }
         } else {
             $nextIn = $cfg['interval'] - $elapsed;
             echo "[IDLE] Job '{$name}' not due yet (next in {$nextIn}s).\n";
         }
     }
     echo "--- Dispatcher completed ---\n";
-    exit(0);
+    exit($failed ? 1 : 0);
 }
 
 // Single job direct execution

@@ -16,6 +16,8 @@ class Snapshot
     public static function init(string $baseDir): void
     {
         self::$baseDir = rtrim($baseDir, '/') . '/';
+        self::$currentId = null;
+        self::$fileCache = [];
         if (!is_dir(self::$baseDir)) {
             @mkdir(self::$baseDir, 0775, true);
         }
@@ -23,6 +25,9 @@ class Snapshot
 
     public static function getActiveId(): ?string
     {
+        if (self::$baseDir === '') {
+            self::init(dirname(__DIR__, 2) . '/data/snapshots');
+        }
         if (self::$currentId !== null) {
             return self::$currentId;
         }

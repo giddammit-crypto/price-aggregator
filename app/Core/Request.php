@@ -30,14 +30,14 @@ class Request
         $this->path = $parsedUrl['path'] ?? '/';
         $this->path = rtrim($this->path, '/') ?: '/';
 
-        $this->queryParams = !empty($queryParams) ? $queryParams : $_GET;
-        $this->postParams = !empty($postParams) ? $postParams : $_POST;
-        $this->cookies = !empty($cookies) ? $cookies : $_COOKIE;
+        $this->queryParams = $queryParams;
+        $this->postParams = $postParams;
+        $this->cookies = $cookies;
     }
 
     public static function createFromGlobals(): self
     {
-        return new self();
+        return new self(null, null, $_GET, $_POST, $_SERVER, $_COOKIE);
     }
 
     public function getMethod(): string
@@ -98,10 +98,7 @@ class Request
 
     public function getClientIp(): string
     {
-        if (!empty($this->serverParams['HTTP_X_FORWARDED_FOR'])) {
-            $parts = explode(',', $this->serverParams['HTTP_X_FORWARDED_FOR']);
-            return trim($parts[0]);
-        }
+        // Forwarded headers are client-controlled unless the web server is explicitly trusted.
         return $this->serverParams['REMOTE_ADDR'] ?? '127.0.0.1';
     }
 

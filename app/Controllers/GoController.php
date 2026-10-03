@@ -45,16 +45,6 @@ class GoController
         $shops = Config::get('shops', []);
         $shop = $shops[$shopId] ?? null;
 
-        // Log click
-        $this->clickLog->log(
-            $productId,
-            $offerKey,
-            $shopId,
-            $request->getClientIp(),
-            $request->getUserAgent(),
-            (string)$request->getQuery('sub', '')
-        );
-
         // Build target affiliate URL
         if (!empty($targetOffer['url'])) {
             $targetUrl = $targetOffer['url'];
@@ -66,6 +56,19 @@ class GoController
                 $targetUrl = str_replace('{url}', urlencode($searchUrl), $shop['affiliate_template']);
             }
         }
+
+        if (!self::isSafeTarget($targetUrl)) {
+            return Response::redirect("/p/{$product['slug']}-{$productId}");
+        }
+
+        $this->clickLog->log(
+            $productId,
+            $offerKey,
+            $shopId,
+            $request->getClientIp(),
+            $request->getUserAgent(),
+            (string)$request->getQuery('sub', '')
+        );
 
         return Response::redirect($targetUrl, 302, [
             'X-Robots-Tag' => 'noindex, nofollow',
@@ -85,7 +88,11 @@ class GoController
             return Response::redirect('/', 302);
         }
 
-        // Log search click
+        $targetUrl = str_replace('{q}', urlencode($query), $shop['search_url_template'] ?? 'https://google.com');
+        if (!self::isSafeTarget($targetUrl)) {
+            return Response::redirect('/');
+        }
+
         $this->clickLog->log(
             0,
             "search:{$shopId}",
@@ -95,11 +102,18 @@ class GoController
             'link_only_search'
         );
 
-        $targetUrl = str_replace('{q}', urlencode($query), $shop['search_url_template'] ?? 'https://google.com');
-
         return Response::redirect($targetUrl, 302, [
             'X-Robots-Tag' => 'noindex, nofollow',
             'Referrer-Policy' => 'no-referrer-when-downgrade'
         ]);
+    }
+
+    private static function isSafeTarget(string $url): bool
+    {
+        $parts = parse_url($url);
+        return is_array($parts)
+            && in_array(strtolower($parts['scheme'] ?? ''), ['https', 'http'], true)
+            && !empty($parts['host'])
+            && !preg_match('/[\r\n]/', $url);
     }
 }

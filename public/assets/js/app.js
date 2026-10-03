@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     megaMenu.hidden = false;
     if (megaBackdrop) megaBackdrop.hidden = false;
     if (catalogBtn) catalogBtn.setAttribute('aria-expanded', 'true');
+    if (mobileCatalogBtn) mobileCatalogBtn.setAttribute('aria-expanded', 'true');
   }
 
   function closeMenu() {
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     megaMenu.hidden = true;
     if (megaBackdrop) megaBackdrop.hidden = true;
     if (catalogBtn) catalogBtn.setAttribute('aria-expanded', 'false');
+    if (mobileCatalogBtn) mobileCatalogBtn.setAttribute('aria-expanded', 'false');
   }
 
   function toggleMenu() {
@@ -111,10 +113,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (favBtn) {
       e.preventDefault();
       const id = parseInt(favBtn.dataset.favId, 10);
-      const { added } = Storage.toggle('favorites', id);
-      favBtn.classList.toggle('is-active', added);
+      if (!Number.isSafeInteger(id) || id <= 0) return;
+      const { added, saved } = Storage.toggle('favorites', id);
+      if (!saved) { showToast('Не удалось сохранить избранное: хранилище браузера недоступно'); return; }
       updateCounters();
       showToast(added ? 'Товар добавлен в избранное' : 'Товар удален из избранного');
+      if (location.pathname.endsWith('/favorites') || location.pathname.endsWith('/favorites/')) {
+        if (location.hostname.endsWith('github.io')) location.reload();
+        else location.href = collectionUrl('favorites');
+      }
       return;
     }
 
@@ -122,10 +129,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (compareBtn) {
       e.preventDefault();
       const id = parseInt(compareBtn.dataset.compareId, 10);
-      const { added, list } = Storage.toggle('compare', id);
-      compareBtn.classList.toggle('is-active', added);
+      if (!Number.isSafeInteger(id) || id <= 0) return;
+      if (!Storage.has('compare', id) && Storage.get('compare').length >= 6) {
+        showToast('Можно сравнить не более 6 товаров');
+        return;
+      }
+      const { added, list, saved } = Storage.toggle('compare', id);
+      if (!saved) { showToast('Не удалось сохранить сравнение: хранилище браузера недоступно'); return; }
       updateCounters();
       showToast(added ? `Товар добавлен в сравнение (${list.length})` : 'Товар удален из сравнения');
+      if (location.pathname.endsWith('/compare') || location.pathname.endsWith('/compare/')) {
+        if (location.hostname.endsWith('github.io')) location.reload();
+        else location.href = collectionUrl('compare');
+      }
       return;
     }
   });
@@ -134,11 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const cookieBanner = document.getElementById('cookieBanner');
   const acceptCookieBtn = document.getElementById('acceptCookieBtn');
   if (cookieBanner && acceptCookieBtn) {
-    if (!localStorage.getItem('cookie_accepted')) {
+    let accepted = false;
+    try { accepted = !!localStorage.getItem('cookie_accepted'); } catch (_) { /* storage disabled */ }
+    if (!accepted) {
       cookieBanner.hidden = false;
     }
     acceptCookieBtn.addEventListener('click', () => {
-      localStorage.setItem('cookie_accepted', '1');
+      try { localStorage.setItem('cookie_accepted', '1'); } catch (_) { /* storage disabled */ }
       cookieBanner.hidden = true;
     });
   }
@@ -160,16 +178,28 @@ export function updateCounters() {
     favEl.hidden = favList.length === 0;
   }
 
+  for (const [id, key] of [['hdrCompareBtn', 'compare'], ['hdrFavBtn', 'favorites'], ['mobileCompareBtn', 'compare'], ['mobileFavBtn', 'favorites']]) {
+    const link = document.getElementById(id);
+    if (link && !location.hostname.endsWith('github.io')) link.href = collectionUrl(key);
+  }
+
   // Sync active states on page buttons
   document.querySelectorAll('[data-fav-id]').forEach(btn => {
     const id = parseInt(btn.dataset.favId, 10);
     btn.classList.toggle('is-active', favList.includes(id));
+    btn.setAttribute('aria-pressed', String(favList.includes(id)));
   });
 
   document.querySelectorAll('[data-compare-id]').forEach(btn => {
     const id = parseInt(btn.dataset.compareId, 10);
     btn.classList.toggle('is-active', compareList.includes(id));
+    btn.setAttribute('aria-pressed', String(compareList.includes(id)));
   });
+}
+
+function collectionUrl(key) {
+  const ids = Storage.get(key).filter(id => Number.isSafeInteger(id) && id > 0);
+  return `/${key}${ids.length ? `?ids=${ids.join(',')}` : ''}`;
 }
 
 export function showToast(message) {

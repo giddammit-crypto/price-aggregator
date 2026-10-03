@@ -15,12 +15,10 @@ declare(strict_types=1);
       <p class="text-muted" style="font-size: var(--fs-sm);">Сравните характеристики и минимальные цены выбранных моделей</p>
     </div>
 
-    <?php if (!empty($products)): ?>
-      <label class="filter-checkbox font-bold">
+      <label class="filter-checkbox font-bold" id="compareDiffControl" <?= empty($products) ? 'hidden' : '' ?>>
         <input type="checkbox" id="toggleDiffsOnly">
         <span>Показывать только отличия</span>
       </label>
-    <?php endif; ?>
   </div>
 
   <div id="compareEmptyState" <?= !empty($products) ? 'hidden' : '' ?> style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: 48px; text-align: center; max-width: 600px; margin: 0 auto;">
@@ -32,7 +30,7 @@ declare(strict_types=1);
     <a href="/catalog/smartphones" class="btn btn--accent">Перейти в каталог</a>
   </div>
 
-  <div id="compareTableWrap" <?= empty($products) ? 'style="display:none;"' : '' ?> style="background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); overflow-x: auto; box-shadow: var(--sh-1);">
+  <div id="compareTableWrap" style="<?= empty($products) ? 'display:none;' : '' ?> background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); overflow-x: auto; box-shadow: var(--sh-1);">
     <table style="width: 100%; border-collapse: collapse; min-width: 700px; font-size: var(--fs-sm);">
       <thead id="compareThead">
         <tr style="border-bottom: 2px solid var(--c-line); background: var(--c-bg);">
@@ -40,7 +38,7 @@ declare(strict_types=1);
           <?php if (!empty($products)): ?>
             <?php foreach ($products as $p): ?>
               <th style="padding: 16px; text-align: center; vertical-align: top; width: 220px;">
-                <img src="<?= e($p['img'] ?? '/assets/img/placeholder.svg') ?>" alt="" style="max-height: 100px; margin: 0 auto 8px;" width="100" height="100">
+                <img src="<?= e(\App\Services\VerifiedProductImage::forProduct($p) ?? '/assets/img/placeholder.svg') ?>" alt="" style="max-height: 100px; margin: 0 auto 8px;" width="100" height="100">
                 <a href="/p/<?= e($p['slug']) ?>-<?= $p['id'] ?>" class="font-bold" style="display: block; line-height: 1.3; margin-bottom: 6px;">
                   <?= e($p['title']) ?>
                 </a>
@@ -98,6 +96,13 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
+  stored = stored.filter(id => Number.isSafeInteger(id) && id > 0).slice(0, 6);
+  if (!window.location.hostname.endsWith('github.io') && thead?.querySelectorAll('th').length <= 1) {
+    const query = stored.join(',');
+    if (query && new URLSearchParams(location.search).get('ids') !== query) location.replace('/compare?ids=' + query);
+    return;
+  }
+
   function setupDiffToggle() {
     if (diffToggle) {
       diffToggle.addEventListener('change', (e) => {
@@ -116,8 +121,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Hydrate client-side from search_index.json
   const prefix = window.location.pathname.startsWith('/price-aggregator') ? '/price-aggregator' : '';
+  const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const localUrl = value => {
+    try { const url = new URL(value, location.origin); return url.origin === location.origin ? escape(url.href) : '#'; }
+    catch (_) { return '#'; }
+  };
   fetch(prefix + '/api/search_index.json')
-    .then(r => r.json())
+    .then(r => { if (!r.ok) throw new Error('Index unavailable'); return r.json(); })
     .then(items => {
       const cmpItems = items.filter(item => stored.includes(item.id));
       if (cmpItems.length > 0 && tableWrap && thead && tbody) {
@@ -131,14 +141,14 @@ document.addEventListener('DOMContentLoaded', () => {
             <th style="padding: 16px; text-align: left; width: 220px; position: sticky; left: 0; background: var(--c-bg); z-index: 2;">Модель</th>
             ${cmpItems.map(p => `
               <th style="padding: 16px; text-align: center; vertical-align: top; width: 220px;">
-                <img src="${p.image}" alt="" style="max-height: 100px; margin: 0 auto 8px;" width="100" height="100">
-                <a href="${p.url}" class="font-bold" style="display: block; line-height: 1.3; margin-bottom: 6px;">
-                  ${p.title}
+                <img src="${localUrl(p.image)}" alt="" style="max-height: 100px; margin: 0 auto 8px;" width="100" height="100">
+                <a href="${localUrl(p.url)}" class="font-bold" style="display: block; line-height: 1.3; margin-bottom: 6px;">
+                  ${escape(p.title)}
                 </a>
                 <div style="font-size: 1.25rem; font-weight: 800; color: var(--c-accent); margin-bottom: 8px;">
                   ${(p.price || 0).toLocaleString('ru-RU')} ₽
                 </div>
-                <button type="button" class="btn btn--outline btn--sm" data-compare-id="${p.id}">Удалить</button>
+                <button type="button" class="btn btn--outline btn--sm" data-compare-id="${Number(p.id)}">Удалить</button>
               </th>
             `).join('')}
           </tr>
@@ -151,23 +161,22 @@ document.addEventListener('DOMContentLoaded', () => {
           bodyHtml += `
             <tr class="compare-row ${isSame ? 'is-same' : 'is-different'}" style="border-bottom: 1px solid var(--c-line);">
               <td style="padding: 12px 16px; font-weight: 600; color: var(--c-ink-2); position: sticky; left: 0; background: var(--c-surface); z-index: 1;">
-                ${k}
+                ${escape(k)}
               </td>
-              ${vals.map(v => `<td style="padding: 12px 16px; text-align: center;">${v}</td>`).join('')}
+              ${vals.map(v => `<td style="padding: 12px 16px; text-align: center;">${escape(v)}</td>`).join('')}
             </tr>
           `;
         });
         tbody.innerHTML = bodyHtml;
 
         tableWrap.style.display = 'block';
+        document.getElementById('compareDiffControl').hidden = false;
         if (emptyState) emptyState.hidden = true;
         setupDiffToggle();
       }
     })
     .catch(() => {
-      if (!window.location.search.includes('ids=')) {
-        window.location.replace('/compare?ids=' + stored.join(','));
-      }
+      if (emptyState) { emptyState.hidden = false; emptyState.querySelector('h2').textContent = 'Не удалось загрузить сравнение'; }
     });
 });
 </script>

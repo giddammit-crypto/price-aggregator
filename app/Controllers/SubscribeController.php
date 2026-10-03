@@ -6,17 +6,9 @@ namespace App\Controllers;
 use App\Core\Request;
 use App\Core\Response;
 use App\Core\Csrf;
-use App\Storage\Repositories\FileSubsRepository;
 
 class SubscribeController
 {
-    private FileSubsRepository $subsRepo;
-
-    public function __construct()
-    {
-        $this->subsRepo = new FileSubsRepository();
-    }
-
     public function subscribe(Request $request): Response
     {
         $token = (string)$request->getPost('_csrf', '');
@@ -31,12 +23,13 @@ class SubscribeController
 
         $productId = (int)$request->getPost('product_id', 0);
         $targetPrice = (float)$request->getPost('target_price', 0);
+        if ($productId <= 0 || !is_finite($targetPrice) || $targetPrice <= 0) {
+            return Response::json(['error' => 'Укажите товар и целевую цену выше нуля.'], 400);
+        }
 
-        $record = $this->subsRepo->subscribe($email, $productId, $targetPrice);
-
-        return Response::json([
-            'success' => true,
-            'message' => 'Спасибо! На ваш e-mail отправлена ссылка для подтверждения подписки на снижение цены.'
-        ]);
+        // No outbound mail transport or confirmation route is configured. An
+        // unconfirmable record would never be notified: do not store personal
+        // data or claim that an email has been sent.
+        return Response::json(['error' => 'Уведомления временно недоступны: отправка подтверждений не настроена.'], 503);
     }
 }

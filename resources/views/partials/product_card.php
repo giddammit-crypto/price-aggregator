@@ -5,18 +5,25 @@
  */
 declare(strict_types=1);
 
-$id = (int)$p['id'];
-$title = $p['t'];
-$slug = $p['slug'];
-$brand = $p['b'];
-$minPrice = (int)$p['p'];
-$offersCnt = (int)$p['c'];
-$drop = (float)($p['d'] ?? 0.0);
-$img = $p['img'] ?? '/assets/img/placeholder.svg';
-$attrs = $p['attrs'] ?? [];
-$isMp = !empty($p['mp']);
-$isCb = !empty($p['cb']);
-$url = "/p/{$slug}-{$id}/";
+$id = (int)($p['id'] ?? 0);
+// Snapshot rows can outlive the published product. Resolve the target by ID,
+// exactly as the product route does, before offering navigation or actions.
+$product = $id > 0 ? \App\Storage\Pack::get($id) : null;
+$published = is_array($product)
+    && (int)($product['id'] ?? 0) === $id
+    && !empty($product['pub'])
+    && !empty($product['slug'])
+    && preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*$/', (string)$product['slug']) === 1;
+$title = (string)($product['title'] ?? $p['t'] ?? 'Товар');
+$brand = (string)($product['brand'] ?? $p['b'] ?? '');
+$minPrice = $published ? (int)($product['agg']['min'] ?? 0) : 0;
+$offersCnt = $published ? (int)($product['agg']['cnt'] ?? count($product['offers'] ?? [])) : 0;
+$drop = $published ? (float)($product['agg']['drop'] ?? 0) : 0;
+$attrs = $published ? ($product['attrs'] ?? []) : [];
+$isMp = $published && !empty($product['agg']['mp']);
+$isCb = $published && !empty($product['agg']['cb']);
+$url = $published ? "/p/{$product['slug']}-{$id}/" : null;
+$verifiedImage = $published ? \App\Services\VerifiedProductImage::forProduct($product) : null;
 $pop = (int)($p['pop'] ?? 0);
 $seller = $isCb ? 'crossborder' : ($isMp ? 'marketplace' : 'retail');
 ?>
@@ -25,9 +32,6 @@ $seller = $isCb ? 'crossborder' : ($isMp ? 'marketplace' : 'retail');
     <?php if ($drop >= 8.0): ?>
       <span class="badge badge--drop">−<?= round($drop) ?>%</span>
     <?php endif; ?>
-    <?php if ($offersCnt >= 4): ?>
-      <span class="badge badge--best">Выгода</span>
-    <?php endif; ?>
     <?php if ($isCb): ?>
       <span class="badge badge--crossborder">Из Китая</span>
     <?php elseif ($isMp): ?>
@@ -35,18 +39,21 @@ $seller = $isCb ? 'crossborder' : ($isMp ? 'marketplace' : 'retail');
     <?php endif; ?>
   </div>
 
-  <button type="button" class="product-card__fav" data-fav-id="<?= $id ?>" title="В избранное" aria-label="Добавить в избранное">
-    <svg class="icon icon-sm"><use href="/assets/icons/sprite.svg#heart"></use></svg>
-  </button>
+  <?php if ($published): ?>
+    <button type="button" class="product-card__fav" data-fav-id="<?= $id ?>" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  <?php endif; ?>
 
-  <a href="<?= e($url) ?>" class="product-card__img-wrap" tabindex="-1">
-    <img src="<?= e($img) ?>" alt="<?= e($title) ?>" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/<?= (int)($p['cat'] ?? 10) ?>.svg';">
-  </a>
+  <?php if ($published): ?><a href="<?= e($url) ?>" class="product-card__img-wrap" tabindex="-1"><?php else: ?><div class="product-card__img-wrap"><?php endif; ?>
+    <img src="<?= e($verifiedImage ?? '/assets/img/placeholder.svg') ?>" alt="<?= $verifiedImage ? e('Фото ' . $title) : '' ?>" class="product-card__img" loading="lazy" width="180" height="180">
+  <?php if ($published): ?></a><?php else: ?></div><?php endif; ?>
+  <?php if (!$verifiedImage): ?><span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span><?php endif; ?>
 
   <div class="product-card__brand"><?= e($brand) ?></div>
-  <a href="<?= e($url) ?>" class="product-card__title" title="<?= e($title) ?>">
+  <?php if ($published): ?><a href="<?= e($url) ?>" class="product-card__title" title="<?= e($title) ?>"><?php else: ?><span class="product-card__title"><?php endif; ?>
     <?= e($title) ?>
-  </a>
+  <?php if ($published): ?></a><?php else: ?></span><?php endif; ?>
 
   <div class="product-card__specs">
     <?php 
@@ -64,15 +71,21 @@ $seller = $isCb ? 'crossborder' : ($isMp ? 'marketplace' : 'retail');
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-      <span class="product-card__price-label">от</span>
-      <span class="product-card__price"><?= formatPrice($minPrice) ?></span>
-      <span class="product-card__shops-cnt">
-        <?= $offersCnt ?> <?= ($offersCnt === 1 ? 'предложение' : ($offersCnt < 5 ? 'предложения' : 'предложений')) ?>
-      </span>
+      <?php if ($published && $minPrice > 0 && $offersCnt > 0): ?>
+        <span class="product-card__price-label">от</span>
+        <span class="product-card__price"><?= formatPrice($minPrice) ?></span>
+        <span class="product-card__shops-cnt">
+          <?= $offersCnt ?> <?= ($offersCnt === 1 ? 'предложение' : ($offersCnt < 5 ? 'предложения' : 'предложений')) ?>
+        </span>
+      <?php else: ?>
+        <span class="text-muted"><?= $published ? 'Подтверждённых цен пока нет' : 'Товар временно недоступен' ?></span>
+      <?php endif; ?>
     </div>
 
-    <button type="button" class="btn btn--sm btn--secondary" data-compare-id="<?= $id ?>" title="Сравнить" aria-label="Сравнить товар">
-      <svg class="icon icon-sm"><use href="/assets/icons/sprite.svg#scale"></use></svg>
-    </button>
+    <?php if ($published): ?>
+      <button type="button" class="btn btn--sm btn--secondary" data-compare-id="<?= $id ?>" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+    <?php endif; ?>
   </div>
 </article>

@@ -39,7 +39,7 @@ $brands = $facets['brand'] ?? [];
     </div>
 
     <!-- Mobile Filter Toggle Button -->
-    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn">
+    <button type="button" class="btn btn--secondary btn--sm catalog-filters-btn" id="openFiltersBtn" aria-controls="filterSidebar" aria-expanded="false">
       <svg class="icon icon-sm"><use href="/assets/icons/sprite.svg#filter"></use></svg>
       <span>Фильтры</span>
     </button>

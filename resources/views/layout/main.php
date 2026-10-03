@@ -39,18 +39,13 @@ $cspNonce = App\Core\Response::getCspNonce();
   <?= $view->getSection('styles') ?>
 </head>
 <body class="site-body">
-  <!-- Live Price Fluctuation Alert Bar (Stitch Design) -->
+  <!-- Service information: never present hard-coded counters as live measurements. -->
   <div style="background: var(--c-surface-high); border-bottom: 1px solid var(--c-line); font-size: var(--fs-xs); padding: 6px 0; color: var(--c-ink);">
     <div class="container d-flex justify-between align-center flex-wrap gap-2">
       <div class="d-flex align-center gap-2">
-        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--c-ok); animation: pulse 1.5s infinite;"></span>
-        <span style="color:var(--c-ok); font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">В эфире:</span>
-        <span>Обновлено только что &mdash;</span>
-        <strong style="color:var(--c-accent);">14 280 цен снижено</strong>
-        <span class="text-muted" style="display:none; @media(min-width:768px){display:inline;}">в ритейлерах электроники сегодня</span>
+        <span>Демонстрационный каталог: цены и ссылки на поиск магазинов не подтверждены товарными фидами. Перед покупкой уточните данные у продавца.</span>
       </div>
       <div class="d-flex align-center gap-4 text-muted" style="font-size:11px;">
-        <span><svg class="icon icon-sm" style="color:var(--c-ok); vertical-align:-2px;"><use href="/assets/icons/sprite.svg#check"></use></svg> DNS, Ситилинк, Ozon, AliExpress синхронизированы</span>
         <a href="/pages/how-it-works" style="color:var(--c-accent); font-weight:600;">Методология &rarr;</a>
       </div>
     </div>
@@ -76,7 +71,7 @@ $cspNonce = App\Core\Response::getCspNonce();
           <form action="/search" method="GET" class="search-form" id="searchForm" role="search">
             <div class="search-input-wrap">
               <input type="search" name="q" id="searchInput" class="search-input" 
-                     placeholder="Поиск среди 20 000 товаров в DNS, Ситилинк, Ozon, AliExpress..." 
+                     placeholder="Поиск моделей в демонстрационном каталоге..."
                      value="<?= e($_GET['q'] ?? '') ?>" autocomplete="off" required>
               <button type="submit" class="search-btn" aria-label="Искать">
                 <svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#search"></use></svg>
@@ -144,7 +139,7 @@ $cspNonce = App\Core\Response::getCspNonce();
             <span class="header-logo__badge">Price</span><span class="header-logo__accent">Hub</span>
           </div>
           <p class="footer-desc">Независимый сервис сравнения цен на цифровую и бытовую технику в интернет-магазинах и маркетплейсах РФ и Китая.</p>
-          <p class="footer-currency">Цены и скидки обновляются каждый час. Сравнение лучших предложений в магазинах РФ и маркетплейсах.</p>
+          <p class="footer-currency">Перед покупкой уточняйте актуальные цены и наличие в магазине.</p>
         </div>
 
         <div class="footer-col">
@@ -190,15 +185,15 @@ $cspNonce = App\Core\Response::getCspNonce();
       <svg class="icon"><use href="/assets/icons/sprite.svg#home"></use></svg>
       <span>Главная</span>
     </a>
-    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle">
+    <button type="button" class="mobile-nav__item" id="mobileCatalogToggle" aria-expanded="false" aria-controls="megaMenu">
       <svg class="icon"><use href="/assets/icons/sprite.svg#grid"></use></svg>
       <span>Каталог</span>
     </button>
-    <a href="/compare" class="mobile-nav__item">
+    <a href="/compare" class="mobile-nav__item" id="mobileCompareBtn">
       <svg class="icon"><use href="/assets/icons/sprite.svg#scale"></use></svg>
       <span>Сравнение</span>
     </a>
-    <a href="/favorites" class="mobile-nav__item">
+    <a href="/favorites" class="mobile-nav__item" id="mobileFavBtn">
       <svg class="icon"><use href="/assets/icons/sprite.svg#heart"></use></svg>
       <span>Избранное</span>
     </a>

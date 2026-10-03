@@ -15,11 +15,18 @@ class ProductController
 {
     public function show(Request $request, array $params): Response
     {
-        $id = (int)($params['id'] ?? 0);
+        $rawId = (string)($params['id'] ?? '');
+        if (!preg_match('/^[1-9][0-9]*$/D', $rawId) || (string)(int)$rawId !== $rawId) {
+            return Response::html('<h1>Товар не найден</h1>', 404);
+        }
+        $id = (int)$rawId;
         $product = Pack::get($id);
 
         if (!$product || empty($product['pub'])) {
             return Response::html('<h1>Товар не найден</h1>', 404);
+        }
+        if (isset($params['slug']) && $params['slug'] !== $product['slug']) {
+            return Response::redirect('/p/' . $product['slug'] . '-' . $id, 301);
         }
 
         $categories = Snapshot::loadArray('categories.php', []);
@@ -33,16 +40,6 @@ class ProductController
         // Price History from FileHistoryRepository
         $historyRepo = new FileHistoryRepository(dirname(__DIR__, 2) . '/data/history');
         $historyPoints = $historyRepo->getHistory($id, 90);
-
-        // If history is empty, synthesize a plausible 30-day baseline for the chart
-        if (empty($historyPoints) && !empty($product['agg']['min'])) {
-            $base = (float)$product['agg']['min'];
-            $historyPoints = [
-                ['date' => date('Y-m-d', strtotime('-30 days')), 'min' => round($base * 1.10)],
-                ['date' => date('Y-m-d', strtotime('-15 days')), 'min' => round($base * 1.05)],
-                ['date' => date('Y-m-d'), 'min' => $base]
-            ];
-        }
 
         // Similar products from same category and Next/Previous navigation
         $catRows = Snapshot::loadArray("cat/{$product['cat']}.php", []);

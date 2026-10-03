@@ -15,6 +15,8 @@ require_once $root . '/app/helpers.php';
 use App\Core\Config;
 use App\Core\View;
 use App\Core\Request;
+use App\Services\StaticProductLinks;
+use App\Services\VerifiedProductImage;
 use App\Storage\Pack;
 use App\Storage\Snapshot;
 
@@ -23,16 +25,32 @@ View::init($root . '/resources/views');
 Pack::init($root . '/data/catalog/products');
 Snapshot::init($root . '/data/snapshots');
 
-$exportDir = $root . '/gh-pages-export';
-if (is_dir($exportDir)) {
-    exec("rm -rf " . escapeshellarg($exportDir));
+$targetDir = $root . '/gh-pages-export';
+$exportDir = $root . '/.gh-pages-export-build-' . bin2hex(random_bytes(6));
+if (!mkdir($exportDir, 0775, true)) {
+    throw new RuntimeException('Cannot create staging directory for static export');
 }
-@mkdir($exportDir, 0775, true);
+
+function removeGeneratedTree(string $directory): void
+{
+    if (!is_dir($directory) || is_link($directory)) return;
+    $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory, FilesystemIterator::SKIP_DOTS), RecursiveIteratorIterator::CHILD_FIRST);
+    foreach ($files as $file) {
+        $file->isDir() && !$file->isLink() ? rmdir($file->getPathname()) : unlink($file->getPathname());
+    }
+    rmdir($directory);
+}
+
+// A failed build never replaces the live export or leaves a large temporary tree.
+register_shutdown_function(static fn() => removeGeneratedTree($exportDir));
 
 $basePrefix = '/price-aggregator';
 
 function transformHtml(string $html, string $basePrefix): string
 {
+    // The static demo has no PHP receiver for reports. Do not publish a dead link.
+    $html = str_replace('<a href="/pages/report">Сообщить о неверной цене</a>',
+        '<span title="Форма доступна только на PHP-сайте">Сообщить о неверной цене (в демо недоступно)</span>', $html);
     $replacements = [
         'href="/assets/' => 'href="' . $basePrefix . '/assets/',
         'src="/assets/' => 'src="' . $basePrefix . '/assets/',
@@ -122,6 +140,9 @@ foreach (['drops', 'popular', 'newest'] as $key) {
 if (!empty($homeData['featured_drop']['id'])) {
     $productIdsToExport[(int)$homeData['featured_drop']['id']] = true;
 }
+foreach (VerifiedProductImage::approvedIds() as $id) {
+    $productIdsToExport[$id] = true;
+}
 
 // B. Category items (first 36 items per category)
 foreach ($categories as $cat) {
@@ -174,10 +195,16 @@ $suggestIndex = [];
 
 foreach ($productIdsToExport as $pid) {
     $p = Pack::get((int)$pid);
-    if (!$p) continue;
+    if (!$p || empty($p['pub'])) continue;
 
     $slug = $p['slug'] ?? ('product-' . $pid);
+    if (!preg_match('/^[a-z0-9-]+$/', (string)$slug)) {
+        continue;
+    }
     $prodResp = $prodController->show(new Request('GET', "/p/{$slug}-{$pid}"), ['slug' => $slug, 'id' => (string)$pid]);
+    if ($prodResp->getStatusCode() !== 200 || !str_contains($prodResp->getContent(), '"@type": "Product"')) {
+        continue; // Never publish a 404 page under a product's 200 URL.
+    }
     savePage($exportDir . "/p/{$slug}-{$pid}", 'index.html', $prodResp->getContent(), $basePrefix);
     $exportedProductsCount++;
 
@@ -190,7 +217,7 @@ foreach ($productIdsToExport as $pid) {
         'price' => $p['agg']['min'] ?? 0,
         'offers' => $p['agg']['cnt'] ?? 0,
         'url' => "{$basePrefix}/p/{$slug}-{$pid}/",
-        'image' => "{$basePrefix}" . ($p['img'] ?? "/assets/img/p/" . ($p['cat'] ?? 10) . ".svg"),
+        'image' => "{$basePrefix}" . (VerifiedProductImage::forProduct($p) ?? '/assets/img/placeholder.svg'),
         'specs' => $p['specs'] ?? [],
         'attrs' => $p['attrs'] ?? []
     ];
@@ -214,9 +241,56 @@ $searchResp = $searchController->index(new Request('GET', '/search', ['q' => '']
 savePage($exportDir . '/search', 'index.html', $searchResp->getContent(), $basePrefix);
 
 echo "6. Copying Assets, Icons and Images...\n";
-exec("cp -r " . escapeshellarg($root . '/public/assets') . " " . escapeshellarg($exportDir . '/assets'));
+exec("cp -r " . escapeshellarg($root . '/public/assets') . " " . escapeshellarg($exportDir . '/assets'), $copyOutput, $copyStatus);
+if ($copyStatus !== 0) {
+    throw new RuntimeException('Cannot copy static assets');
+}
 @copy($root . '/public/robots.txt', $exportDir . '/robots.txt');
 @copy($root . '/public/sitemap.xml', $exportDir . '/sitemap.xml');
 touch($exportDir . '/.nojekyll');
 
-echo "=== Export Complete! Static Site ready in: {$exportDir} ===\n";
+echo "7. Removing links to products outside the exported set...\n";
+$availablePaths = [];
+foreach ($searchIndex as $item) {
+    $path = StaticProductLinks::productPath($item['url'], $basePrefix);
+    $availablePaths[$path] = true;
+}
+$htmlFiles = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($exportDir, FilesystemIterator::SKIP_DOTS));
+$removedLinks = 0;
+foreach ($htmlFiles as $file) {
+    if (!$file->isFile() || $file->getExtension() !== 'html') continue;
+    $before = file_get_contents($file->getPathname());
+    if ($before === false) throw new RuntimeException('Cannot read generated page');
+    $after = StaticProductLinks::prune($before, $availablePaths, $basePrefix);
+    if ($after !== $before) {
+        $removedLinks++;
+        if (file_put_contents($file->getPathname(), $after) === false) {
+            throw new RuntimeException('Cannot rewrite generated page');
+        }
+    }
+}
+
+$check = StaticProductLinks::check($exportDir, $basePrefix);
+printf("   - Pages checked: %d; product links: %d; pages with pruned links: %d; failures: %d\n",
+    $check['pages'], $check['links'], $removedLinks, count($check['errors']));
+if ($check['errors']) {
+    throw new RuntimeException('Static export failed validation: ' . implode('; ', array_slice($check['errors'], 0, 3)));
+}
+
+// The old published tree remains untouched unless a complete replacement passes validation.
+$backupDir = $root . '/.gh-pages-export-backup-' . bin2hex(random_bytes(6));
+if (is_link($targetDir)) {
+    throw new RuntimeException('Refusing to overwrite a symlinked export directory');
+}
+if (is_dir($targetDir) && !rename($targetDir, $backupDir)) {
+    throw new RuntimeException('Could not stage the previous export for replacement');
+}
+if (!rename($exportDir, $targetDir)) {
+    if (is_dir($backupDir)) rename($backupDir, $targetDir);
+    throw new RuntimeException('Could not publish the validated export');
+}
+if (is_dir($backupDir)) {
+    // Only the previous generated artifact at this unique backup path is removed.
+    removeGeneratedTree($backupDir);
+}
+echo "=== Export Complete! Static Site ready in: {$targetDir} ===\n";

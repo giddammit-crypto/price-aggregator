@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Admin;
 
 use App\Core\Config;
+use App\Core\Csrf;
 use App\Core\Request;
 use App\Core\Response;
 use App\Core\View;
@@ -15,6 +16,7 @@ class AdminController
 {
     private function isAuthenticated(Request $request): bool
     {
+        Csrf::getToken(); // Start the session before checking the persisted login.
         return !empty($_SESSION['admin_auth']);
     }
 
@@ -69,6 +71,7 @@ class AdminController
             $hash = (string)($secrets['admin_password_hash'] ?? '');
 
             if ($hash && password_verify($password, $hash)) {
+                session_regenerate_id(true);
                 $_SESSION['admin_auth'] = [
                     'logged_in_at' => time(),
                     'user' => 'admin'
@@ -196,6 +199,10 @@ class AdminController
     {
         if (!$this->isAuthenticated($request)) {
             return Response::json(['ok' => false, 'error' => 'Unauthorized'], 401);
+        }
+
+        if (!Csrf::validate((string)$request->getPost('_csrf', ''))) {
+            return Response::json(['ok' => false, 'error' => 'Invalid CSRF token'], 403);
         }
 
         $offerKey = (string)$request->getPost('offer_key', '');

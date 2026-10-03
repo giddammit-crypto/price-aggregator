@@ -15,6 +15,7 @@ class Pack
     public static function init(string $baseDir): void
     {
         self::$baseDir = rtrim($baseDir, '/') . '/';
+        self::$indexCache = [];
         if (!is_dir(self::$baseDir)) {
             @mkdir(self::$baseDir, 0775, true);
         }
@@ -25,11 +26,19 @@ class Pack
         return sprintf('p%03d', $productId % 256);
     }
 
+    private static function ensureInitialized(): void
+    {
+        if (self::$baseDir === '') {
+            self::init(dirname(__DIR__, 2) . '/data/catalog/products');
+        }
+    }
+
     /**
      * Read product by ID in O(1) using fseek and index offset
      */
     public static function get(int $productId): ?array
     {
+        self::ensureInitialized();
         $shard = self::getShardName($productId);
         $idx = self::loadIndex($shard);
 
@@ -65,6 +74,7 @@ class Pack
      */
     public static function getMultiple(array $productIds): array
     {
+        self::ensureInitialized();
         $results = [];
         $byShard = [];
         foreach ($productIds as $id) {
@@ -108,6 +118,7 @@ class Pack
      */
     public static function loadIndex(string $shard): array
     {
+        self::ensureInitialized();
         if (isset(self::$indexCache[$shard])) {
             return self::$indexCache[$shard];
         }
@@ -129,6 +140,7 @@ class Pack
      */
     public static function writePack(string $shard, array $products): bool
     {
+        self::ensureInitialized();
         $ndjsonFile = self::$baseDir . $shard . '.ndjson';
         $idxFile = self::$baseDir . $shard . '.idx.php';
 
@@ -158,6 +170,7 @@ class Pack
      */
     public static function getAllFromShard(string $shard): array
     {
+        self::ensureInitialized();
         $ndjsonFile = self::$baseDir . $shard . '.ndjson';
         if (!file_exists($ndjsonFile)) {
             return [];

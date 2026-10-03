@@ -61,6 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
+  stored = stored.filter(id => Number.isSafeInteger(id) && id > 0).slice(0, 40);
+  if (!window.location.hostname.endsWith('github.io') && !grid?.children.length) {
+    const query = stored.join(',');
+    if (query && new URLSearchParams(location.search).get('ids') !== query) location.replace('/favorites?ids=' + query);
+    return;
+  }
+
   // If server already rendered products for these IDs, nothing more needed
   if (grid && grid.children.length > 0) {
     return;
@@ -68,28 +75,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // On static GitHub Pages or direct navigation, hydrate from api/search_index.json
   const prefix = window.location.pathname.startsWith('/price-aggregator') ? '/price-aggregator' : '';
+  const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const localUrl = value => {
+    try { const url = new URL(value, location.origin); return url.origin === location.origin ? escape(url.href) : '#'; }
+    catch (_) { return '#'; }
+  };
   fetch(prefix + '/api/search_index.json')
-    .then(r => r.json())
+    .then(r => { if (!r.ok) throw new Error('Index unavailable'); return r.json(); })
     .then(items => {
       const favItems = items.filter(item => stored.includes(item.id));
       if (favItems.length > 0 && grid) {
         grid.innerHTML = favItems.map(p => `
-          <article class="product-card" data-product-id="${p.id}">
-            <button type="button" class="product-card__fav is-active" data-fav-id="${p.id}" title="В избранное">
+          <article class="product-card" data-product-id="${Number(p.id)}">
+            <button type="button" class="product-card__fav is-active" data-fav-id="${Number(p.id)}" title="В избранное">
               <svg class="icon icon-sm"><use href="${prefix}/assets/icons/sprite.svg#heart"></use></svg>
             </button>
-            <a href="${p.url}" class="product-card__img-wrap" tabindex="-1">
-              <img src="${p.image}" alt="${p.title}" class="product-card__img" loading="lazy" width="180" height="180">
+            <a href="${localUrl(p.url)}" class="product-card__img-wrap" tabindex="-1">
+              <img src="${localUrl(p.image)}" alt="${escape(p.title)}" class="product-card__img" loading="lazy" width="180" height="180">
             </a>
-            <div class="product-card__brand">${p.brand}</div>
-            <a href="${p.url}" class="product-card__title" title="${p.title}">${p.title}</a>
+            <div class="product-card__brand">${escape(p.brand)}</div>
+            <a href="${localUrl(p.url)}" class="product-card__title" title="${escape(p.title)}">${escape(p.title)}</a>
             <div class="product-card__footer">
               <div class="product-card__price-wrap">
                 <span class="product-card__price-label">от</span>
                 <span class="product-card__price">${(p.price || 0).toLocaleString('ru-RU')} ₽</span>
-                <span class="product-card__shops-cnt">${p.offers} предложений</span>
+                <span class="product-card__shops-cnt">${Number(p.offers) || 0} предложений</span>
               </div>
-              <button type="button" class="btn btn--sm btn--secondary" data-compare-id="${p.id}" title="Сравнить">
+              <button type="button" class="btn btn--sm btn--secondary" data-compare-id="${Number(p.id)}" title="Сравнить">
                 <svg class="icon icon-sm"><use href="${prefix}/assets/icons/sprite.svg#scale"></use></svg>
               </button>
             </div>
@@ -100,9 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
     .catch(() => {
-      if (!window.location.search.includes('ids=')) {
-        window.location.replace('/favorites?ids=' + stored.join(','));
-      }
+      if (emptyState) { emptyState.hidden = false; emptyState.querySelector('h2').textContent = 'Не удалось загрузить избранное'; }
     });
 });
 </script>

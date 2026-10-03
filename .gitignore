@@ -11,11 +11,14 @@ data/state/locks/*
 !data/state/locks/.gitkeep
 data/state/http_cache/*
 !data/state/http_cache/.gitkeep
+data/state/ratelimit/
+data/state/sessions/
 
 # Logs
 data/logs/*.log
 data/logs/clicks/*.ndjson
 !data/logs/clicks/.gitkeep
+data/logs/errors/*.log
 
 # System & Editor
 .DS_Store

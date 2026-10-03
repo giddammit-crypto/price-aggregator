@@ -56,7 +56,9 @@ class Response
     public static function html(string $html, int $status = 200, array $headers = []): self
     {
         $res = new self($html, $status, $headers);
-        $res->setHeader('Content-Type', 'text/html; charset=UTF-8');
+        if (!isset($headers['Content-Type'])) {
+            $res->setHeader('Content-Type', 'text/html; charset=UTF-8');
+        }
         return $res;
     }
 

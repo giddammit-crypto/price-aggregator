@@ -10,7 +10,15 @@
  */
 declare(strict_types=1);
 
-$featuredDrop = !empty($drops) ? $drops[0] : null;
+$featuredDrop = null;
+foreach ($drops as $candidate) {
+    $record = !empty($candidate['id']) ? \App\Storage\Pack::get((int)$candidate['id']) : null;
+    if ($record && !empty($record['pub']) && !empty($record['slug'])
+        && preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*$/', (string)$record['slug'])) {
+        $featuredDrop = $record;
+        break;
+    }
+}
 ?>
 
 <div class="container">
@@ -25,13 +33,13 @@ $featuredDrop = !empty($drops) ? $drops[0] : null;
         <div style="position: relative; z-index: 2;">
           <div class="d-flex gap-2 flex-wrap mb-4">
             <span class="badge" style="background: var(--c-accent); color: #FFF;">
-              🔥 Экономия до 42%
+              Сравнение предложений
             </span>
             <span class="badge" style="background: rgba(0, 133, 91, 0.25); color: #4edea3; border: 1px solid rgba(0, 133, 91, 0.4);">
-              ✓ 20 000+ товаров проверено
+              Цены и магазины
             </span>
             <span class="badge" style="background: rgba(255,255,255,0.1); color: #FFF;">
-              ⚡ Обновление цен 24/7
+              История цен при наличии замеров
             </span>
           </div>
 
@@ -57,8 +65,8 @@ $featuredDrop = !empty($drops) ? $drops[0] : null;
               ₽
             </div>
             <div>
-              <div style="font-weight: 700; font-size: var(--fs-sm); color: #FFF;">Индекс выгоды DNS vs Маркетплейсы</div>
-              <div class="text-muted" style="font-size: var(--fs-xs); color: rgba(255,255,255,0.6);">Разница на флагманах электроники до 18 400 ₽</div>
+              <div style="font-weight: 700; font-size: var(--fs-sm); color: #FFF;">Сравнение предложений</div>
+              <div class="text-muted" style="font-size: var(--fs-xs); color: rgba(255,255,255,0.6);">Проверяйте цену и наличие непосредственно в магазине.</div>
             </div>
           </div>
 
@@ -75,24 +83,24 @@ $featuredDrop = !empty($drops) ? $drops[0] : null;
       <div style="grid-column: span 4; background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); padding: var(--sp-6); display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--sh-1); @media (max-width: 1024px) { grid-column: span 12; }">
         <div>
           <div class="d-flex justify-between align-center mb-4">
-            <span class="badge badge--drop">🔥 Лучший сброс цены</span>
-            <span class="text-muted" style="font-size: var(--fs-xs);">Сегодня</span>
+            <span class="badge badge--drop">Изменение цены</span>
           </div>
 
           <?php if ($featuredDrop): ?>
             <div style="text-align: center; margin-bottom: var(--sp-4);">
-              <img src="<?= e($featuredDrop['img'] ?? '/assets/img/placeholder.svg') ?>" alt="" style="max-height: 160px; margin: 0 auto; object-fit: contain;" width="160" height="160">
+              <img src="/assets/img/placeholder.svg" alt="" style="max-height: 160px; margin: 0 auto; object-fit: contain;" width="160" height="160">
+              <p class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</p>
             </div>
 
-            <div class="product-card__brand" style="font-size: var(--fs-xs);"><?= e($featuredDrop['b']) ?></div>
-            <a href="/p/<?= e($featuredDrop['slug']) ?>-<?= $featuredDrop['id'] ?>" class="font-bold" style="font-size: var(--fs-md); display: block; line-height: 1.3; margin-bottom: var(--sp-2);">
-              <?= e($featuredDrop['t']) ?>
+            <div class="product-card__brand" style="font-size: var(--fs-xs);"><?= e($featuredDrop['brand']) ?></div>
+            <a href="/p/<?= e($featuredDrop['slug']) ?>-<?= (int)$featuredDrop['id'] ?>/" class="font-bold" style="font-size: var(--fs-md); display: block; line-height: 1.3; margin-bottom: var(--sp-2);">
+              <?= e($featuredDrop['title']) ?>
             </a>
 
             <div class="d-flex align-center gap-2 mb-4">
-              <span class="badge badge--drop">−<?= round($featuredDrop['d']) ?>%</span>
+              <?php if (($featuredDrop['agg']['drop'] ?? 0) >= 8): ?><span class="badge badge--drop">−<?= round($featuredDrop['agg']['drop']) ?>%</span><?php endif; ?>
               <span style="font-size: 1.5rem; font-weight: 900; color: var(--c-ink);">
-                <?= formatPrice($featuredDrop['p']) ?>
+                <?= ($featuredDrop['agg']['min'] ?? 0) > 0 ? formatPrice($featuredDrop['agg']['min']) : 'Цена не подтверждена' ?>
               </span>
             </div>
           <?php endif; ?>
@@ -100,11 +108,10 @@ $featuredDrop = !empty($drops) ? $drops[0] : null;
 
         <div>
           <div style="background: var(--c-bg); border-radius: var(--r-sm); padding: var(--sp-3); font-size: var(--fs-xs); color: var(--c-ink-2); margin-bottom: var(--sp-4);">
-            ✓ Проверено на складах Ситилинк, Ozon, Регард.<br>
-            ✓ Гарантия официального ритейлера.
+            Цена и наличие зависят от магазина и могут измениться к моменту покупки.
           </div>
           <?php if ($featuredDrop): ?>
-            <a href="/p/<?= e($featuredDrop['slug']) ?>-<?= $featuredDrop['id'] ?>" class="btn btn--accent" style="width: 100%;">
+            <a href="/p/<?= e($featuredDrop['slug']) ?>-<?= (int)$featuredDrop['id'] ?>/" class="btn btn--accent" style="width: 100%;">
               Смотреть цены во всех магазинах &rarr;
             </a>
           <?php endif; ?>
@@ -143,7 +150,6 @@ $featuredDrop = !empty($drops) ? $drops[0] : null;
           <svg class="icon" style="color: var(--c-bad);"><use href="/assets/icons/sprite.svg#trending-down"></use></svg>
           <h2 style="font-family: var(--ff-head); font-size: var(--fs-xl); font-weight: 800;">Максимальное падение цены</h2>
         </div>
-        <span class="badge badge--drop">Скидки до −25%</span>
       </div>
 
       <div class="product-grid">
@@ -193,12 +199,8 @@ $featuredDrop = !empty($drops) ? $drops[0] : null;
   <section style="background: linear-gradient(135deg, var(--c-accent-50) 0%, #FFF 100%); border: 1px solid rgba(249, 87, 0, 0.3); border-radius: var(--r-lg); padding: var(--sp-6); margin-bottom: var(--sp-6);">
     <div style="max-width: 620px;">
       <h3 style="font-family: var(--ff-head); font-size: var(--fs-lg); font-weight: 800; margin-bottom: var(--sp-2);">Уведомления о снижении цены</h3>
-      <p class="text-muted" style="font-size: var(--fs-sm); margin-bottom: var(--sp-4);">Подпишитесь на уведомления в карточке любого товара. Мы пришлем письмо, как только цена достигнет целевой отметки.</p>
-      <form action="/api/subscribe" method="POST" class="d-flex gap-2" id="homeSubscribeForm">
-        <?= csrf_field() ?>
-        <input type="email" name="email" placeholder="Ваш e-mail адрес..." required style="flex: 1; padding: 10px 16px; border: 1px solid var(--c-line); border-radius: var(--r-md); background: #FFF;">
-        <button type="submit" class="btn btn--accent">Подписаться</button>
-      </form>
+      <p class="text-muted" style="font-size: var(--fs-sm); margin-bottom: var(--sp-4);">Подписка оформляется для конкретного товара и целевой цены. Отправка уведомлений станет доступна после подключения почтового сервиса.</p>
+      <a href="/catalog/smartphones" class="btn btn--accent">Смотреть товары</a>
     </div>
   </section>
 </div>

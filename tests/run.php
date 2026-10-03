@@ -95,8 +95,38 @@ $mSim = $matcher->matchOffer(['title' => 'Apple iPhone 15 128GB Black смарт
 assertTest('Token similarity high match', $mSim['matched'] && $mSim['product_id'] === 102);
 echo "\n";
 
-// 4. File Storage Integrity (FSCK)
-echo "[TEST SUITE 4] FSCK Shard & Offset Integrity\n";
+// 4. Isolated controller/route regressions
+echo "[TEST SUITE 4] Controllers, routes and HTTP boundaries\n";
+passthru(escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg($root . '/tests/routes_test.php'), $retRoutes);
+if ($retRoutes === 0) {
+    $passed++;
+} else {
+    $failed++;
+}
+echo "\n";
+
+// 5. Static product links in a small isolated export fixture
+echo "[TEST SUITE 5] Static Product Link Closure\n";
+passthru(escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg($root . '/tests/static_links_test.php'), $retStatic);
+if ($retStatic === 0) {
+    $passed++;
+} else {
+    $failed++;
+}
+echo "\n";
+
+// 6. Exact SKU-to-photo mapping
+echo "[TEST SUITE 6] Verified Product Image\n";
+passthru(escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg($root . '/tests/verified_photo_test.php'), $retPhoto);
+if ($retPhoto === 0) {
+    $passed++;
+} else {
+    $failed++;
+}
+echo "\n";
+
+// 7. File Storage Integrity (FSCK)
+echo "[TEST SUITE 7] FSCK Shard & Offset Integrity\n";
 passthru('php ' . escapeshellarg($root . '/bin/fsck.php'), $retFsck);
 if ($retFsck === 0) {
     $passed++;
@@ -105,8 +135,8 @@ if ($retFsck === 0) {
 }
 echo "\n";
 
-// 5. Smoke Tests across HTTP Routes
-echo "[TEST SUITE 5] HTTP Routes Smoke Tests\n";
+// 8. Smoke Tests across HTTP Routes
+echo "[TEST SUITE 8] HTTP Routes Smoke Tests\n";
 passthru('php ' . escapeshellarg($root . '/bin/smoke.php'), $retSmoke);
 if ($retSmoke === 0) {
     $passed++;

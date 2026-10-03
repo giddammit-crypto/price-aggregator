@@ -27,6 +27,9 @@ class ApiController
     public function history(Request $request, array $params): Response
     {
         $id = (int)($params['id'] ?? 0);
+        if ($id <= 0) {
+            return Response::json(['error' => 'Invalid product ID'], 400);
+        }
         $repo = new FileHistoryRepository();
         $history = $repo->getHistory($id, 90);
         return Response::json($history);

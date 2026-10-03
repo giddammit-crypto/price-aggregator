@@ -20,7 +20,9 @@ $offerKey = urlencode($offer['k']);
 $isBestOffer = !empty($isBest);
 $donorUrl = !empty($offer['url']) ? $offer['url'] : '';
 $goUrl = $isLinkOnly ? "/go/search/{$shopId}?q=" . urlencode($productTitle ?? '') : "/go/{$productId}/{$offerKey}";
-$directUrl = !empty($donorUrl) ? $donorUrl : $goUrl;
+$directUrl = is_string($donorUrl) && preg_match('~^https?://~i', $donorUrl) ? $donorUrl : $goUrl;
+$searchOnly = $isLinkOnly || (parse_url($directUrl, PHP_URL_QUERY) !== null
+    && (bool)preg_match('~/(?:search|sitesearch|listing|catalog)(?:/|\.html|$)~i', (string)parse_url($directUrl, PHP_URL_PATH)));
 ?>
 <div class="offer-row <?= $isBestOffer ? 'offer-row--best' : '' ?>">
   <div class="offer-shop">
@@ -54,7 +56,7 @@ $directUrl = !empty($donorUrl) ? $donorUrl : $goUrl;
   </div>
 
   <div class="offer-price-col">
-    <?php if ($isLinkOnly): ?>
+    <?php if ($searchOnly): ?>
       <span class="text-muted" style="font-size: var(--fs-xs);">Цена на сайте</span>
     <?php else: ?>
       <div class="offer-price"><?= formatPrice($landed) ?></div>
@@ -65,7 +67,7 @@ $directUrl = !empty($donorUrl) ? $donorUrl : $goUrl;
   </div>
 
   <div>
-    <?php if ($isLinkOnly): ?>
+    <?php if ($searchOnly): ?>
       <a href="<?= e($directUrl) ?>" target="_blank" rel="sponsored nofollow noopener" class="btn btn--outline btn--sm">
         Искать на <?= e($shopDef['name']) ?>
         <svg class="icon icon-sm"><use href="/assets/icons/sprite.svg#arrow-up-right"></use></svg>

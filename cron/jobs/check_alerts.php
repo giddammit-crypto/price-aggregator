@@ -24,32 +24,15 @@ $activeSubs = $subsRepo->getAllActive();
 $triggered = 0;
 $checked = 0;
 
-$alertsLog = $root . '/data/logs/alerts_sent.ndjson';
-
 foreach ($activeSubs as $sub) {
     $checked++;
     $productId = (int)$sub['product_id'];
-    $targetPrice = (float)$sub['target_price'];
-
-    $prod = $prodRepo->find($productId);
-    if (!$prod) {
-        continue;
-    }
-
-    $currentMinPrice = (float)($prod['min_price'] ?? 0);
-    if ($currentMinPrice > 0 && $currentMinPrice <= $targetPrice) {
+    $prod = $prodRepo->findById($productId);
+    if (\App\Services\PriceAlertService::isEligible($sub, $prod)) {
         $triggered++;
-        $entry = [
-            'date' => date('Y-m-d H:i:s'),
-            'email' => $sub['email'],
-            'product_id' => $productId,
-            'product_title' => $prod['title'],
-            'target_price' => $targetPrice,
-            'current_price' => $currentMinPrice,
-            'url' => url('/p/' . ($prod['slug'] ?? 'prod') . '-' . $productId)
-        ];
-        \App\Storage\Fs::appendLine($alertsLog, (string)json_encode($entry, JSON_UNESCAPED_UNICODE));
     }
 }
 
-echo sprintf("[%s] check_alerts finished: checked %d subs, triggered %d price alerts.\n", date('Y-m-d H:i:s'), $checked, $triggered);
+// There is no configured mail delivery or confirmation route yet. Never log
+// private addresses as "sent" or imply that a notification was delivered.
+echo sprintf("[%s] check_alerts finished: checked %d subs, %d eligible (delivery not configured).\n", date('Y-m-d H:i:s'), $checked, $triggered);

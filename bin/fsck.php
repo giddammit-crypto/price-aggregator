@@ -61,23 +61,34 @@ for ($i = 0; $i < 256; $i++) {
     }
 
     $shardsChecked++;
-    $fp = fopen($dataFile, 'rb');
+    $fp = @fopen($dataFile, 'rb');
     if (!$fp) {
         $errors[] = "Cannot open shard data file: {$dataFile}";
         continue;
     }
 
-    // Spot-check up to 5 random records per shard
+    $size = filesize($dataFile);
+    // Spot-check up to 5 records per shard (not a complete pack audit).
     $keys = array_keys($idx);
     $samples = count($keys) > 5 ? (array)array_rand(array_flip($keys), 5) : $keys;
 
     foreach ($samples as $id) {
         $recordsChecked++;
-        [$offset, $len] = $idx[$id];
-        fseek($fp, $offset);
+        $entry = $idx[$id];
+        if (!is_array($entry) || count($entry) !== 2 || !isset($entry[0], $entry[1])
+            || !is_int($entry[0]) || !is_int($entry[1]) || $entry[0] < 0 || $entry[1] < 1
+            || $entry[0] + $entry[1] > $size) {
+            $errors[] = "Invalid index offset for record {$id} in shard {$shardName}";
+            break;
+        }
+        [$offset, $len] = $entry;
+        if (fseek($fp, $offset) !== 0) {
+            $errors[] = "Cannot seek record {$id} in shard {$shardName}";
+            break;
+        }
         $raw = fread($fp, $len);
         $json = @json_decode((string)$raw, true);
-        if (!$json || ($json['id'] ?? null) !== $id) {
+        if (strlen((string)$raw) !== $len || !$json || (int)($json['id'] ?? 0) !== (int)$id) {
             $errors[] = "Corrupt record {$id} in shard {$shardName} at offset {$offset}";
             break;
         }
@@ -117,6 +128,6 @@ if (!empty($warnings)) {
         echo "  [WARN] {$w}\n";
     }
 } else {
-    echo "PASSED: File storage integrity score: 100%. All shards, indexes and snapshots OK.\n";
+    echo "PASSED: Snapshot files present and sampled shard records valid (not a complete audit).\n";
 }
 exit(0);

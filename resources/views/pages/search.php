@@ -32,7 +32,6 @@ declare(strict_types=1);
             'c' => $p['agg']['cnt'] ?? count($p['offers'] ?? []),
             'd' => $p['agg']['drop'] ?? 0,
             'pop' => $p['popularity'] ?? 0,
-            'img' => $p['img'] ?? '/assets/img/placeholder.svg',
             'attrs' => $p['attrs'] ?? [],
             'mp' => $p['agg']['mp'] ?? 0,
             'cb' => $p['agg']['cb'] ?? 0
@@ -67,40 +66,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // If server already rendered results (dynamic PHP mode), keep them
   if (grid && grid.children.length > 0) return;
+  // The PHP search service is authoritative. Static export has a separate JSON index.
+  if (!window.location.hostname.endsWith('github.io')) return;
 
   const prefix = window.location.pathname.startsWith('/price-aggregator') ? '/price-aggregator' : '';
-  const startTime = performance.now();
+  const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const localUrl = value => {
+    try { const url = new URL(value, location.origin); return url.origin === location.origin ? escape(url.href) : '#'; }
+    catch (_) { return '#'; }
+  };
 
   fetch(prefix + '/api/search_index.json')
-    .then(r => r.json())
+    .then(r => { if (!r.ok) throw new Error('Search index unavailable'); return r.json(); })
     .then(items => {
       const qLower = q.toLowerCase();
-      const matched = items.filter(p => 
+      const matched = items.filter(p => Number.isSafeInteger(Number(p.id)) && Number(p.id) > 0 &&
+        typeof p.url === 'string' && new RegExp(`^${prefix}/p/[a-z0-9-]+-${Number(p.id)}/?$`).test(p.url) && (
         p.title.toLowerCase().includes(qLower) || 
         (p.brand && p.brand.toLowerCase().includes(qLower)) ||
-        (p.cat && p.cat.toLowerCase().includes(qLower))
+        (p.cat && p.cat.toLowerCase().includes(qLower)))
       );
 
       if (countEl) countEl.textContent = `Найдено ${matched.length} товаров`;
 
       if (matched.length > 0 && grid) {
         grid.innerHTML = matched.map(p => `
-          <article class="product-card" data-product-id="${p.id}">
-            <button type="button" class="product-card__fav" data-fav-id="${p.id}" title="В избранное">
+          <article class="product-card" data-product-id="${Number(p.id)}">
+            <button type="button" class="product-card__fav" data-fav-id="${Number(p.id)}" title="В избранное">
               <svg class="icon icon-sm"><use href="${prefix}/assets/icons/sprite.svg#heart"></use></svg>
             </button>
-            <a href="${p.url}" class="product-card__img-wrap" tabindex="-1">
-              <img src="${p.image}" alt="${p.title}" class="product-card__img" loading="lazy" width="180" height="180">
+            <a href="${localUrl(p.url)}" class="product-card__img-wrap" tabindex="-1">
+              <img src="${prefix}/assets/img/placeholder.svg" alt="" class="product-card__img" loading="lazy" width="180" height="180">
             </a>
-            <div class="product-card__brand">${p.brand}</div>
-            <a href="${p.url}" class="product-card__title" title="${p.title}">${p.title}</a>
+            <span class="text-muted" style="font-size: var(--fs-xs);">Фото модели пока не подтверждено</span>
+            <div class="product-card__brand">${escape(p.brand)}</div>
+            <a href="${localUrl(p.url)}" class="product-card__title" title="${escape(p.title)}">${escape(p.title)}</a>
             <div class="product-card__footer">
               <div class="product-card__price-wrap">
                 <span class="product-card__price-label">от</span>
                 <span class="product-card__price">${(p.price || 0).toLocaleString('ru-RU')} ₽</span>
-                <span class="product-card__shops-cnt">${p.offers} предложений</span>
+                <span class="product-card__shops-cnt">${Number(p.offers) || 0} предложений</span>
               </div>
-              <button type="button" class="btn btn--sm btn--secondary" data-compare-id="${p.id}" title="Сравнить">
+              <button type="button" class="btn btn--sm btn--secondary" data-compare-id="${Number(p.id)}" title="Сравнить">
                 <svg class="icon icon-sm"><use href="${prefix}/assets/icons/sprite.svg#scale"></use></svg>
               </button>
             </div>
@@ -108,11 +115,16 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
         grid.style.display = 'grid';
         if (emptyState) emptyState.hidden = true;
+        document.querySelectorAll('#searchGrid [data-fav-id], #searchGrid [data-compare-id]').forEach(button => {
+          const key = button.hasAttribute('data-fav-id') ? 'favorites' : 'compare';
+          const id = Number(button.dataset.favId || button.dataset.compareId);
+          try { button.classList.toggle('is-active', (JSON.parse(localStorage.getItem(key)) || []).includes(id)); } catch (_) {}
+        });
       } else {
         if (grid) grid.style.display = 'none';
         if (emptyState) emptyState.hidden = false;
       }
     })
-    .catch(() => {});
+    .catch(() => { if (countEl) countEl.textContent = 'Не удалось загрузить результаты поиска. Попробуйте позже.'; });
 });
 </script>

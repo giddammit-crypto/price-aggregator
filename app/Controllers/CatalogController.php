@@ -42,7 +42,7 @@ class CatalogController
         $sorted = $this->sortRows($filtered, $request->getQuery('sort', 'popular'));
 
         $total = count($sorted);
-        $page = max(1, (int)$request->getQuery('page', 1));
+        $page = max(1, min(100000, (int)$request->getQuery('page', 1)));
         $offset = ($page - 1) * self::PER_PAGE;
         $items = array_slice($sorted, $offset, self::PER_PAGE);
         $totalPages = (int)ceil($total / self::PER_PAGE);
@@ -69,14 +69,17 @@ class CatalogController
 
     public function filterPartial(Request $request): Response
     {
-        $catId = (int)$request->getQuery('catId', 14);
+        $catId = (int)$request->getQuery('catId', 0);
+        if (!array_key_exists($catId, Snapshot::loadArray('categories.php', []))) {
+            return Response::json(['error' => 'Категория не найдена'], 404);
+        }
         $allRows = Snapshot::loadArray("cat/{$catId}.php", []);
 
         $filtered = $this->filterRows($allRows, $request);
         $sorted = $this->sortRows($filtered, $request->getQuery('sort', 'popular'));
 
         $total = count($sorted);
-        $page = max(1, (int)$request->getQuery('page', 1));
+        $page = max(1, min(100000, (int)$request->getQuery('page', 1)));
         $offset = ($page - 1) * self::PER_PAGE;
         $items = array_slice($sorted, $offset, self::PER_PAGE);
 

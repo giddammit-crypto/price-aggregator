@@ -19,7 +19,8 @@ $minPrice = $product['agg']['min'] ?? 0;
 $maxPrice = $product['agg']['max'] ?? $minPrice;
 $shopsCnt = $product['agg']['shops'] ?? 1;
 $offersCnt = $product['agg']['cnt'] ?? count($offers);
-$img = $product['img'] ?? '/assets/img/placeholder.svg';
+$verifiedImage = \App\Services\VerifiedProductImage::forProduct($product);
+$img = $verifiedImage ?? '/assets/img/placeholder.svg';
 $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}";
 ?>
 
@@ -29,7 +30,7 @@ $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}"
   "@context": "https://schema.org/",
   "@type": "Product",
   "name": <?= json_encode($title, JSON_UNESCAPED_UNICODE) ?>,
-  "image": [<?= json_encode($img) ?>],
+  <?php if ($verifiedImage): ?>"image": [<?= json_encode($verifiedImage) ?>],<?php endif; ?>
   "description": <?= json_encode("Сравнение цен на {$title} в магазинах РФ и маркетплейсах.", JSON_UNESCAPED_UNICODE) ?>,
   "brand": {
     "@type": "Brand",
@@ -58,14 +59,16 @@ $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}"
 
     <!-- Product Pager (навигация по товарам категории) -->
     <div class="product-pager d-flex align-center gap-2">
-      <?php if (!empty($prevProduct)): ?>
-        <a href="/p/<?= e($prevProduct['slug']) ?>-<?= $prevProduct['id'] ?>" class="btn btn--secondary btn--sm" title="<?= e($prevProduct['title']) ?>">
+      <?php $prevTarget = !empty($prevProduct['id']) ? \App\Storage\Pack::get((int)$prevProduct['id']) : null; ?>
+      <?php if ($prevTarget && !empty($prevTarget['pub']) && !empty($prevTarget['slug']) && preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*$/', $prevTarget['slug'])): ?>
+        <a href="/p/<?= e($prevTarget['slug']) ?>-<?= (int)$prevTarget['id'] ?>/" class="btn btn--secondary btn--sm" title="<?= e($prevTarget['title']) ?>">
           <svg class="icon icon-sm"><use href="/assets/icons/sprite.svg#chevron-right" style="transform: rotate(180deg);"></use></svg>
           <span>Предыдущий товар</span>
         </a>
       <?php endif; ?>
-      <?php if (!empty($nextProduct)): ?>
-        <a href="/p/<?= e($nextProduct['slug']) ?>-<?= $nextProduct['id'] ?>" class="btn btn--secondary btn--sm" title="<?= e($nextProduct['title']) ?>">
+      <?php $nextTarget = !empty($nextProduct['id']) ? \App\Storage\Pack::get((int)$nextProduct['id']) : null; ?>
+      <?php if ($nextTarget && !empty($nextTarget['pub']) && !empty($nextTarget['slug']) && preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*$/', $nextTarget['slug'])): ?>
+        <a href="/p/<?= e($nextTarget['slug']) ?>-<?= (int)$nextTarget['id'] ?>/" class="btn btn--secondary btn--sm" title="<?= e($nextTarget['title']) ?>">
           <span>Следующий товар</span>
           <svg class="icon icon-sm"><use href="/assets/icons/sprite.svg#chevron-right"></use></svg>
         </a>
@@ -83,7 +86,8 @@ $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}"
         </span>
       <?php endif; ?>
 
-      <img src="<?= e($img) ?>" alt="<?= e($title) ?>" style="max-height: 320px; object-fit: contain; width: 100%;" width="320" height="320" onerror="this.onerror=null; this.src='/assets/img/p/<?= (int)($product['cat'] ?? 10) ?>.svg';">
+      <img src="<?= e($img) ?>" alt="<?= $verifiedImage ? e('Фото ' . $title) : '' ?>" style="max-height: 320px; object-fit: contain; width: 100%;" width="320" height="320">
+      <?php if (!$verifiedImage): ?><p class="text-muted" style="font-size: var(--fs-xs);">Фото этой модели пока не подтверждено</p><?php endif; ?>
     </div>
 
     <!-- Product Title & Buy Box -->
@@ -136,7 +140,7 @@ $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}"
               <span class="badge badge--best" style="margin-bottom: 4px;">Выгоднее всего</span>
               <div class="font-bold"><?= e(ucfirst($bestOffer['shop'])) ?> &bull; <?= formatPrice($bestOffer['landed']) ?></div>
             </div>
-            <?php $bestTargetUrl = !empty($bestOffer['url']) ? $bestOffer['url'] : ("/go/{$id}/" . urlencode($bestOffer['k'])); ?>
+            <?php $bestTargetUrl = !empty($bestOffer['url']) && preg_match('~^https?://~i', $bestOffer['url']) ? $bestOffer['url'] : ("/go/{$id}/" . urlencode($bestOffer['k'])); ?>
             <a href="<?= e($bestTargetUrl) ?>" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent">
               В магазин &rarr;
             </a>
@@ -145,6 +149,19 @@ $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}"
       </div>
     </div>
   </div>
+
+  <!-- A price alert needs an actual product and a target price. The API returns JSON. -->
+  <section style="margin-bottom: var(--sp-8);">
+    <h2 style="font-size: var(--fs-lg); font-weight: 800;">Уведомить о снижении цены</h2>
+    <form id="priceAlertForm" action="/api/subscribe" method="POST" class="d-flex gap-2 flex-wrap mt-4">
+      <?= csrf_field() ?>
+      <input type="hidden" name="product_id" value="<?= $id ?>">
+      <label>E-mail <input type="email" name="email" required autocomplete="email" class="search-input"></label>
+      <label>Желаемая цена, ₽ <input type="number" name="target_price" min="1" step="1" required class="search-input"></label>
+      <button type="submit" class="btn btn--accent">Подписаться</button>
+    </form>
+    <p id="priceAlertStatus" role="status" aria-live="polite"></p>
+  </section>
 
   <!-- Offers Table & Tabs -->
   <section style="margin-bottom: var(--sp-8);">
@@ -191,10 +208,12 @@ $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}"
         <h2 style="font-size: var(--fs-lg); font-weight: 800;">Динамика минимальной цены (30–90 дней)</h2>
         <p class="text-muted" style="font-size: var(--fs-xs);">График фиксирует минимальную подтвержденную цену на товар среди всех магазинов.</p>
       </div>
-      <span class="badge badge--best">В наличии</span>
     </div>
 
     <!-- SVG Price Line Chart -->
+    <?php if (empty($historyPoints)): ?>
+      <p class="text-muted" role="status">Пока нет подтверждённых замеров цены для графика.</p>
+    <?php else: ?>
     <div style="width: 100%; height: 180px; position: relative;">
       <?php
       $points = $historyPoints;
@@ -234,6 +253,7 @@ $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}"
         <?php endforeach; ?>
       </svg>
     </div>
+    <?php endif; ?>
   </section>
 
   <!-- Technical Specifications -->
@@ -265,6 +285,27 @@ $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}"
 <script>
 // Interactive offer filter chips on product page
 document.addEventListener('DOMContentLoaded', () => {
+  const alertForm = document.getElementById('priceAlertForm');
+  const alertStatus = document.getElementById('priceAlertStatus');
+  if (location.hostname.endsWith('github.io') && alertForm) {
+    alertForm.hidden = true;
+    alertStatus.textContent = 'Уведомления о цене доступны только на сайте с подключённым сервером.';
+  }
+  alertForm?.addEventListener('submit', async event => {
+    event.preventDefault();
+    const button = alertForm.querySelector('button[type="submit"]');
+    button.disabled = true;
+    alertStatus.textContent = 'Отправляем запрос…';
+    try {
+      const response = await fetch(alertForm.action, { method: 'POST', body: new FormData(alertForm) });
+      const data = await response.json();
+      alertStatus.textContent = response.ok && data.success ? data.message : (data.error || 'Не удалось оформить подписку. Попробуйте позже.');
+    } catch (_) {
+      alertStatus.textContent = 'Сервис подписки недоступен. Попробуйте позже.';
+    } finally {
+      button.disabled = false;
+    }
+  });
   const chips = document.querySelectorAll('#offerFilterChips .chip');
   chips.forEach(chip => {
     chip.addEventListener('click', () => {

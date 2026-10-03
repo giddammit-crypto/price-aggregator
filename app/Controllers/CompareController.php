@@ -17,7 +17,7 @@ class CompareController
 
         $products = [];
         if (!empty($ids)) {
-            $products = Pack::getMultiple(array_slice($ids, 0, 6)); // cap compare at 6 items
+            $products = array_filter(Pack::getMultiple(array_slice($ids, 0, 6)), static fn(array $p): bool => !empty($p['pub'])); // cap compare at 6 items
         }
 
         // Collect all distinct specification keys
@@ -46,7 +46,7 @@ class CompareController
 
         $products = [];
         if (!empty($ids)) {
-            $products = Pack::getMultiple(array_slice($ids, 0, 40));
+            $products = array_filter(Pack::getMultiple(array_slice($ids, 0, 40)), static fn(array $p): bool => !empty($p['pub']));
         }
 
         $view = new View([
