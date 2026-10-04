@@ -55,6 +55,8 @@ $router->get('/go/search/{shopId}', [\App\Controllers\GoController::class, 'redi
 
 // API Endpoints
 $router->get('/api/suggest', [\App\Controllers\ApiController::class, 'suggest']);
+$router->get('/api/suggest.json', [\App\Controllers\ApiController::class, 'suggestIndex']);
+$router->get('/api/search_index.json', [\App\Controllers\ApiController::class, 'searchIndex']);
 $router->get('/api/history/{id}', [\App\Controllers\ApiController::class, 'history']);
 $router->get('/api/catalog-filter', [\App\Controllers\CatalogController::class, 'filterPartial']);
 $router->post('/api/subscribe', [\App\Controllers\SubscribeController::class, 'subscribe']);

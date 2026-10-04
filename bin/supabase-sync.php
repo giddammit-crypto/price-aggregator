@@ -24,7 +24,7 @@ $shops = [
     ['id' => 'onlinetrade', 'name' => 'ОнлайнТрейд', 'kind' => 'retail', 'mode' => 'prices', 'url_template' => 'https://www.onlinetrade.ru/sitesearch.html?query={q}', 'color' => '#1D70B8'],
     ['id' => 'mvideo', 'name' => 'М.Видео', 'kind' => 'retail', 'mode' => 'prices', 'url_template' => 'https://www.mvideo.ru/listing?q={q}', 'color' => '#E30613'],
     ['id' => 'ozon', 'name' => 'Ozon', 'kind' => 'marketplace', 'mode' => 'prices', 'url_template' => 'https://www.ozon.ru/search/?text={q}', 'color' => '#005BFF'],
-    ['id' => 'wildberries', 'name' => 'Wildberries', 'kind' => 'marketplace', 'mode' => 'link_only', 'url_template' => 'https://www.wildberries.ru/catalog/0/search.aspx?search={q}', 'color' => '#CB11AB'],
+    ['id' => 'wildberries', 'name' => 'Wildberries', 'kind' => 'marketplace', 'mode' => 'link_only', 'url_template' => 'https://www.wildberries.ru/catalog/0/search.aspx?page=1&sort=popular&search={q}', 'color' => '#CB11AB'],
     ['id' => 'megamarket', 'name' => 'Мегамаркет', 'kind' => 'marketplace', 'mode' => 'prices', 'url_template' => 'https://megamarket.ru/catalog/?q={q}', 'color' => '#270560'],
     ['id' => 'yandex_market', 'name' => 'Яндекс Маркет', 'kind' => 'marketplace', 'mode' => 'prices', 'url_template' => 'https://market.yandex.ru/search?text={q}', 'color' => '#FC3F1D'],
     ['id' => 'aliexpress', 'name' => 'AliExpress', 'kind' => 'crossborder', 'mode' => 'prices', 'url_template' => 'https://aliexpress.ru/wholesale?SearchText={q}', 'color' => '#FF4747'],

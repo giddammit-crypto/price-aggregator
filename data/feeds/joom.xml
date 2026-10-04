@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2026-10-03 23:13">
+<yml_catalog date="2026-10-04 05:39">
   <shop>
     <name>Joom</name>
     <company>ООО Joom</company>
-    <url>https://www.citilink.ru</url>
+    <url>https://www.joom.ru</url>
     <currencies>
+      <currency id="RUR" rate="1"/>
       <currency id="RUB" rate="1"/>
     </currencies>
     <categories>
@@ -33,13 +34,14 @@
     <offers>
       <offer id="joom-10-1" available="true">
         <url>https://www.joom.ru/ru/search/AMD%20Ryzen%207%207800X3D</url>
-        <price>46990</price>
-        <oldprice>52590</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>48390</price>
+        <oldprice>54190</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>10</categoryId>
         <picture>/assets/img/products/amd-ryzen-7-7800x3d-100-000000910.webp</picture>
         <name>Процессор AMD Ryzen 7 7800X3D OEM</name>
         <vendor>AMD</vendor>
+        <model>Ryzen 7 7800X3D</model>
         <vendorCode>100-000000910</vendorCode>
         <barcode>730143314930</barcode>
         <delivery>true</delivery>
@@ -51,13 +53,14 @@
       </offer>
       <offer id="joom-10-2" available="true">
         <url>https://www.joom.ru/ru/search/Intel%20Core%20i5-12400F</url>
-        <price>11490</price>
-        <oldprice>12890</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>10090</price>
+        <oldprice>11290</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>10</categoryId>
         <picture>/assets/img/products/cpu-intel.webp</picture>
         <name>Процессор Intel Core i5-12400F OEM</name>
         <vendor>Intel</vendor>
+        <model>Core i5-12400F</model>
         <vendorCode>CM8071504821107</vendorCode>
         <barcode>5032037237758</barcode>
         <delivery>true</delivery>
@@ -69,13 +72,14 @@
       </offer>
       <offer id="joom-10-3" available="true">
         <url>https://www.joom.ru/ru/search/AMD%20Ryzen%205%207600X</url>
-        <price>19990</price>
-        <oldprice>22390</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>17590</price>
+        <oldprice>19690</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>10</categoryId>
         <picture>/assets/img/products/cpu-ryzen.webp</picture>
         <name>Процессор AMD Ryzen 5 7600X OEM</name>
         <vendor>AMD</vendor>
+        <model>Ryzen 5 7600X</model>
         <vendorCode>100-000000593</vendorCode>
         <barcode>730143314442</barcode>
         <delivery>true</delivery>
@@ -87,13 +91,14 @@
       </offer>
       <offer id="joom-10-4" available="true">
         <url>https://www.joom.ru/ru/search/Intel%20Core%20i7-14700K</url>
-        <price>42990</price>
-        <oldprice>48090</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>37790</price>
+        <oldprice>42290</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>10</categoryId>
         <picture>/assets/img/products/cpu-intel.webp</picture>
         <name>Процессор Intel Core i7-14700K OEM</name>
         <vendor>Intel</vendor>
+        <model>Core i7-14700K</model>
         <vendorCode>CM8071505092101</vendorCode>
         <barcode>5032037278638</barcode>
         <delivery>true</delivery>
@@ -104,13 +109,14 @@
       </offer>
       <offer id="joom-11-5" available="true">
         <url>https://www.joom.ru/ru/search/ASUS%20TUF%20GAMING%20B650-PLUS</url>
-        <price>21990</price>
-        <oldprice>24590</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>19390</price>
+        <oldprice>21690</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>11</categoryId>
         <picture>/assets/img/products/mobo-asus.webp</picture>
         <name>Материнская плата ASUS TUF GAMING B650-PLUS</name>
         <vendor>ASUS</vendor>
+        <model>TUF GAMING B650-PLUS</model>
         <vendorCode>TUF-GAMING-B650-PLUS</vendorCode>
         <barcode>4711081912569</barcode>
         <delivery>true</delivery>
@@ -119,14 +125,15 @@
         <param name="Форм-фактор">ATX</param>
       </offer>
       <offer id="joom-11-6" available="true">
-        <url>https://www.joom.ru/ru/search/MSI%20MAG%20B760%20TOMAHAWK%20WIFI</url>
-        <price>22490</price>
-        <oldprice>25190</oldprice>
-        <currencyId>RUB</currencyId>
+        <url>https://www.joom.ru/ru/search/MSI%20MAG%20B760%20TOMAHAWK</url>
+        <price>19790</price>
+        <oldprice>22190</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>11</categoryId>
         <picture>/assets/img/products/mobo-asus.webp</picture>
         <name>Материнская плата MSI MAG B760 TOMAHAWK WIFI</name>
         <vendor>MSI</vendor>
+        <model>MAG B760 TOMAHAWK WIFI</model>
         <vendorCode>MAG-B760-TOMAHAWK-WIFI</vendorCode>
         <barcode>4711377030519</barcode>
         <delivery>true</delivery>
@@ -136,13 +143,14 @@
       </offer>
       <offer id="joom-11-7" available="true">
         <url>https://www.joom.ru/ru/search/GIGABYTE%20B650%20AORUS%20ELITE%20AX</url>
-        <price>23990</price>
-        <oldprice>26890</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>21090</price>
+        <oldprice>23590</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>11</categoryId>
         <picture>/assets/img/products/mobo-asus.webp</picture>
         <name>Материнская плата GIGABYTE B650 AORUS ELITE AX</name>
         <vendor>GIGABYTE</vendor>
+        <model>B650 AORUS ELITE AX</model>
         <vendorCode>B650-AORUS-ELITE-AX</vendorCode>
         <barcode>4719331849887</barcode>
         <delivery>true</delivery>
@@ -152,13 +160,14 @@
       </offer>
       <offer id="joom-12-8" available="true">
         <url>https://www.joom.ru/ru/search/Kingston%20FURY%20Beast%20DDR5%2032GB</url>
-        <price>12990</price>
-        <oldprice>14490</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>11390</price>
+        <oldprice>12790</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <picture>/assets/img/products/ram-fury.webp</picture>
         <name>Оперативная память Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz</name>
         <vendor>Kingston</vendor>
+        <model>FURY Beast DDR5 32GB</model>
         <vendorCode>KF560C36BBEK2-32</vendorCode>
         <barcode>740617327717</barcode>
         <delivery>true</delivery>
@@ -168,13 +177,14 @@
       </offer>
       <offer id="joom-12-9" available="true">
         <url>https://www.joom.ru/ru/search/Corsair%20Vengeance%20DDR5%2032GB</url>
-        <price>11490</price>
-        <oldprice>12890</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>10090</price>
+        <oldprice>11290</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <picture>/assets/img/products/ram-fury.webp</picture>
         <name>Оперативная память Corsair Vengeance DDR5 32GB (2x16GB) 5600MHz</name>
         <vendor>Corsair</vendor>
+        <model>Vengeance DDR5 32GB</model>
         <vendorCode>CMK32GX5M2B5600C36</vendorCode>
         <barcode>840006659792</barcode>
         <delivery>true</delivery>
@@ -184,13 +194,14 @@
       </offer>
       <offer id="joom-13-10" available="true">
         <url>https://www.joom.ru/ru/search/Samsung%20990%20PRO%202TB</url>
-        <price>21990</price>
-        <oldprice>24590</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>19390</price>
+        <oldprice>21690</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>13</categoryId>
         <picture>/assets/img/products/ssd-samsung.webp</picture>
         <name>SSD накопитель Samsung 990 PRO 2TB NVMe M.2</name>
         <vendor>Samsung</vendor>
+        <model>990 PRO 2TB</model>
         <vendorCode>MZ-V9P2T0BW</vendorCode>
         <barcode>8806094215038</barcode>
         <delivery>true</delivery>
@@ -200,13 +211,14 @@
       </offer>
       <offer id="joom-13-11" available="true">
         <url>https://www.joom.ru/ru/search/Kingston%20KC3000%201TB</url>
-        <price>10490</price>
-        <oldprice>11690</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>9190</price>
+        <oldprice>10290</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>13</categoryId>
         <picture>/assets/img/products/ssd-samsung.webp</picture>
         <name>SSD накопитель Kingston KC3000 1TB NVMe M.2</name>
         <vendor>Kingston</vendor>
+        <model>KC3000 1TB</model>
         <vendorCode>SKC3000S/1024G</vendorCode>
         <barcode>740617324341</barcode>
         <delivery>true</delivery>
@@ -216,13 +228,14 @@
       </offer>
       <offer id="joom-14-12" available="true">
         <url>https://www.joom.ru/ru/search/Palit%20GeForce%20RTX%204090%20GameRock</url>
-        <price>219990</price>
-        <oldprice>246390</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>193590</price>
+        <oldprice>216790</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>14</categoryId>
         <picture>/assets/img/products/gpu-rtx4090.webp</picture>
         <name>Видеокарта Palit GeForce RTX 4090 GameRock 24GB</name>
         <vendor>Palit</vendor>
+        <model>GeForce RTX 4090 GameRock</model>
         <vendorCode>NED4090S19SB-1020G</vendorCode>
         <barcode>4710562243406</barcode>
         <delivery>true</delivery>
@@ -232,13 +245,14 @@
       </offer>
       <offer id="joom-14-13" available="true">
         <url>https://www.joom.ru/ru/search/MSI%20GeForce%20RTX%204060%20Ventus%202X</url>
-        <price>34990</price>
-        <oldprice>39190</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>30790</price>
+        <oldprice>34490</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>14</categoryId>
         <picture>/assets/img/products/gpu-rtx4060.webp</picture>
         <name>Видеокарта MSI GeForce RTX 4060 Ventus 2X Black 8G OC</name>
         <vendor>MSI</vendor>
+        <model>GeForce RTX 4060 Ventus 2X Black 8G OC</model>
         <vendorCode>RTX-4060-VENTUS-2X-8G-OC</vendorCode>
         <barcode>4711377098458</barcode>
         <delivery>true</delivery>
@@ -247,14 +261,15 @@
         <param name="Шина">128 бит</param>
       </offer>
       <offer id="joom-14-14" available="true">
-        <url>https://www.joom.ru/ru/search/ASUS%20ROG%20Strix%20GeForce%20RTX%204080</url>
-        <price>139990</price>
-        <oldprice>156790</oldprice>
-        <currencyId>RUB</currencyId>
+        <url>https://www.joom.ru/ru/search/ASUS%20ROG%20Strix%20GeForce%20RTX%204080%20Super</url>
+        <price>123190</price>
+        <oldprice>137990</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>14</categoryId>
         <picture>/assets/img/products/gpu-rtx4090.webp</picture>
         <name>Видеокарта ASUS ROG Strix GeForce RTX 4080 Super 16GB</name>
         <vendor>ASUS</vendor>
+        <model>ROG Strix GeForce RTX 4080 Super 16GB</model>
         <vendorCode>ROG-STRIX-RTX4080S-O16G</vendorCode>
         <barcode>4711387472015</barcode>
         <delivery>true</delivery>
@@ -263,14 +278,15 @@
         <param name="Шина">256 бит</param>
       </offer>
       <offer id="joom-14-15" available="true">
-        <url>https://www.joom.ru/ru/search/GIGABYTE%20Radeon%20RX%207800%20XT</url>
-        <price>57990</price>
-        <oldprice>64890</oldprice>
-        <currencyId>RUB</currencyId>
+        <url>https://www.joom.ru/ru/search/GIGABYTE%20Radeon%20RX%207800%20XT%20Gaming%20OC</url>
+        <price>50990</price>
+        <oldprice>57090</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>14</categoryId>
         <picture>/assets/img/products/gpu-rtx4060.webp</picture>
         <name>Видеокарта GIGABYTE Radeon RX 7800 XT Gaming OC 16GB</name>
         <vendor>GIGABYTE</vendor>
+        <model>Radeon RX 7800 XT Gaming OC 16GB</model>
         <vendorCode>GV-R78XTGAMING OC-16GD</vendorCode>
         <barcode>4719331314125</barcode>
         <delivery>true</delivery>
@@ -279,14 +295,15 @@
         <param name="Шина">256 бит</param>
       </offer>
       <offer id="joom-15-16" available="true">
-        <url>https://www.joom.ru/ru/search/Corsair%20RM850x%20850W</url>
-        <price>16990</price>
-        <oldprice>18990</oldprice>
-        <currencyId>RUB</currencyId>
+        <url>https://www.joom.ru/ru/search/Corsair%20RM850x%20850W%20Gold</url>
+        <price>14990</price>
+        <oldprice>16790</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>15</categoryId>
         <picture>/assets/img/products/psu-corsair.webp</picture>
-        <name>Блок питания Corsair RM850x 850W Gold</name>
+        <name>Блок питания Corsair RM850x 850W Gold (CP-9020200-EU)</name>
         <vendor>Corsair</vendor>
+        <model>RM850x 850W Gold</model>
         <vendorCode>CP-9020200-EU</vendorCode>
         <barcode>840006629993</barcode>
         <delivery>true</delivery>
@@ -295,14 +312,15 @@
         <param name="Модульный">Да</param>
       </offer>
       <offer id="joom-15-17" available="true">
-        <url>https://www.joom.ru/ru/search/DeepCool%20PQ850M%20850W</url>
-        <price>12490</price>
-        <oldprice>13990</oldprice>
-        <currencyId>RUB</currencyId>
+        <url>https://www.joom.ru/ru/search/DeepCool%20PQ850M%20850W%20Gold</url>
+        <price>10990</price>
+        <oldprice>12290</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>15</categoryId>
         <picture>/assets/img/products/psu-corsair.webp</picture>
         <name>Блок питания DeepCool PQ850M 850W Gold</name>
         <vendor>DeepCool</vendor>
+        <model>PQ850M 850W Gold</model>
         <vendorCode>R-PQA00M-FA0B-EU</vendorCode>
         <barcode>6933412711674</barcode>
         <delivery>true</delivery>
@@ -312,13 +330,14 @@
       </offer>
       <offer id="joom-16-18" available="true">
         <url>https://www.joom.ru/ru/search/Lian%20Li%20O11%20Dynamic%20EVO</url>
-        <price>17990</price>
-        <oldprice>20090</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>15790</price>
+        <oldprice>17690</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>16</categoryId>
         <picture>/assets/img/products/case-lianli.webp</picture>
         <name>Корпус Lian Li O11 Dynamic EVO Black</name>
         <vendor>Lian Li</vendor>
+        <model>O11 Dynamic EVO Black</model>
         <vendorCode>G99.O11DEX.00</vendorCode>
         <barcode>4718466010735</barcode>
         <delivery>true</delivery>
@@ -327,13 +346,14 @@
       </offer>
       <offer id="joom-16-19" available="true">
         <url>https://www.joom.ru/ru/search/DeepCool%20CC560%20V2</url>
-        <price>5490</price>
-        <oldprice>6090</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>4790</price>
+        <oldprice>5390</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>16</categoryId>
         <picture>/assets/img/products/case-lianli.webp</picture>
-        <name>Корпус DeepCool CC560 V2 Black</name>
+        <name>Корпус DeepCool CC560 V2 Black (4x120mm Fans)</name>
         <vendor>DeepCool</vendor>
+        <model>CC560 V2 Black</model>
         <vendorCode>R-CC560-BKGAA4-G-2</vendorCode>
         <barcode>6933412774594</barcode>
         <delivery>true</delivery>
@@ -343,13 +363,14 @@
       </offer>
       <offer id="joom-17-20" available="true">
         <url>https://www.joom.ru/ru/search/DeepCool%20AK620%20Digital</url>
-        <price>7490</price>
-        <oldprice>8390</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>6590</price>
+        <oldprice>7390</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>17</categoryId>
         <picture>/assets/img/products/cooler-ak620.webp</picture>
-        <name>Кулер для процессора DeepCool AK620 Digital</name>
+        <name>Кулер для процессора DeepCool AK620 Digital (TDP 260 Вт)</name>
         <vendor>DeepCool</vendor>
+        <model>AK620 Digital</model>
         <vendorCode>R-AK620-BKADMN-G</vendorCode>
         <barcode>6933412728221</barcode>
         <delivery>true</delivery>
@@ -359,13 +380,14 @@
       </offer>
       <offer id="joom-20-21" available="true">
         <url>https://www.joom.ru/ru/search/Apple%20MacBook%20Air%2013%20M3%2016GB%20512GB</url>
-        <price>144990</price>
-        <oldprice>162390</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>127590</price>
+        <oldprice>142890</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>20</categoryId>
         <picture>/assets/img/products/laptop-macbook.webp</picture>
         <name>Ноутбук Apple MacBook Air 13 M3 16GB 512GB Midnight</name>
         <vendor>Apple</vendor>
+        <model>MacBook Air 13 M3 16GB 512GB</model>
         <vendorCode>MC8K4LL/A</vendorCode>
         <barcode>195949234567</barcode>
         <delivery>true</delivery>
@@ -376,13 +398,14 @@
       </offer>
       <offer id="joom-20-22" available="true">
         <url>https://www.joom.ru/ru/search/ASUS%20ROG%20Zephyrus%20G16</url>
-        <price>289990</price>
-        <oldprice>324790</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>255190</price>
+        <oldprice>285790</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>20</categoryId>
         <picture>/assets/img/products/laptop-macbook.webp</picture>
         <name>Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED)</name>
         <vendor>ASUS</vendor>
+        <model>ROG Zephyrus G16</model>
         <vendorCode>GU605MZ-QR065W</vendorCode>
         <barcode>4711387514210</barcode>
         <delivery>true</delivery>
@@ -393,13 +416,14 @@
       </offer>
       <offer id="joom-21-23" available="true">
         <url>https://www.joom.ru/ru/search/LG%20UltraGear%2027GP850-B</url>
-        <price>34990</price>
-        <oldprice>39190</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>30790</price>
+        <oldprice>34490</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>21</categoryId>
         <picture>/assets/img/products/monitor-lg.webp</picture>
         <name>Монитор LG UltraGear 27GP850-B 27 Nano IPS 165Hz QHD</name>
         <vendor>LG</vendor>
+        <model>UltraGear 27GP850-B</model>
         <vendorCode>27GP850-B</vendorCode>
         <barcode>8806091216503</barcode>
         <delivery>true</delivery>
@@ -409,14 +433,15 @@
         <param name="Матрица">Nano IPS</param>
       </offer>
       <offer id="joom-21-24" available="true">
-        <url>https://www.joom.ru/ru/search/Samsung%20Odyssey%20G5</url>
-        <price>23990</price>
-        <oldprice>26890</oldprice>
-        <currencyId>RUB</currencyId>
+        <url>https://www.joom.ru/ru/search/Samsung%20Odyssey%20G5%2027</url>
+        <price>21090</price>
+        <oldprice>23590</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>21</categoryId>
         <picture>/assets/img/products/monitor-lg.webp</picture>
         <name>Монитор Samsung Odyssey G5 27 165Hz WQHD Curved 1000R</name>
         <vendor>Samsung</vendor>
+        <model>Odyssey G5 27</model>
         <vendorCode>LS27AG550EIXCI</vendorCode>
         <barcode>8806092823617</barcode>
         <delivery>true</delivery>
@@ -426,13 +451,14 @@
       </offer>
       <offer id="joom-22-25" available="true">
         <url>https://www.joom.ru/ru/search/ARDOR%20GAMING%20EVO%20X034</url>
-        <price>84990</price>
-        <oldprice>95190</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>74790</price>
+        <oldprice>83790</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>22</categoryId>
         <picture>/assets/img/products/case-lianli.webp</picture>
         <name>ПК ARDOR GAMING EVO X034 Core i5 / RTX 4060 / 16GB DDR5 / 1TB SSD</name>
         <vendor>ARDOR GAMING</vendor>
+        <model>EVO X034</model>
         <vendorCode>EVO-X034</vendorCode>
         <barcode>4627192837192</barcode>
         <delivery>true</delivery>
@@ -443,13 +469,14 @@
       </offer>
       <offer id="joom-30-26" available="true">
         <url>https://www.joom.ru/ru/search/Apple%20iPhone%2015%20128GB</url>
-        <price>74990</price>
-        <oldprice>83990</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>61590</price>
+        <oldprice>68990</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>30</categoryId>
         <picture>/assets/img/products/phone-iphone15.webp</picture>
         <name>Смартфон Apple iPhone 15 128GB Black</name>
         <vendor>Apple</vendor>
+        <model>iPhone 15 128GB</model>
         <vendorCode>MTP03ZD/A</vendorCode>
         <barcode>195949038234</barcode>
         <delivery>true</delivery>
@@ -459,13 +486,14 @@
       </offer>
       <offer id="joom-30-27" available="true">
         <url>https://www.joom.ru/ru/search/Apple%20iPhone%2016%20Pro%20Max%20256GB</url>
-        <price>159990</price>
-        <oldprice>179190</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>134590</price>
+        <oldprice>150690</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>30</categoryId>
         <picture>/assets/img/products/phone-iphone15.webp</picture>
         <name>Смартфон Apple iPhone 16 Pro Max 256GB Desert Titanium</name>
         <vendor>Apple</vendor>
+        <model>iPhone 16 Pro Max 256GB</model>
         <vendorCode>MYWW3HN/A</vendorCode>
         <barcode>195949823101</barcode>
         <delivery>true</delivery>
@@ -475,13 +503,14 @@
       </offer>
       <offer id="joom-30-28" available="true">
         <url>https://www.joom.ru/ru/search/Samsung%20Galaxy%20S24%20Ultra%20256GB</url>
-        <price>109990</price>
-        <oldprice>123190</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>86190</price>
+        <oldprice>96490</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>30</categoryId>
         <picture>/assets/img/products/phone-iphone15.webp</picture>
         <name>Смартфон Samsung Galaxy S24 Ultra 256GB Titanium Gray</name>
         <vendor>Samsung</vendor>
+        <model>Galaxy S24 Ultra 256GB</model>
         <vendorCode>SM-S928B-256</vendorCode>
         <barcode>8806095304724</barcode>
         <delivery>true</delivery>
@@ -491,14 +520,15 @@
         <param name="Стилус">S Pen</param>
       </offer>
       <offer id="joom-30-29" available="true">
-        <url>https://www.joom.ru/ru/search/Xiaomi%2014%20Ultra%20512GB%20Black%20Leica%20Camera</url>
-        <price>114990</price>
-        <oldprice>128790</oldprice>
-        <currencyId>RUB</currencyId>
+        <url>https://www.joom.ru/ru/search/Xiaomi%2014%20Ultra%20512GB</url>
+        <price>101190</price>
+        <oldprice>113290</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>30</categoryId>
         <picture>/assets/img/products/phone-iphone15.webp</picture>
         <name>Смартфон Xiaomi 14 Ultra 512GB Black Leica Camera</name>
         <vendor>Xiaomi</vendor>
+        <model>14 Ultra 512GB</model>
         <vendorCode>24030PN60G</vendorCode>
         <barcode>6941812762312</barcode>
         <delivery>true</delivery>
@@ -507,13 +537,14 @@
       </offer>
       <offer id="joom-31-30" available="true">
         <url>https://www.joom.ru/ru/search/Apple%20iPad%20Air%2011%20M2%20128GB</url>
-        <price>69990</price>
-        <oldprice>78390</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>61590</price>
+        <oldprice>68990</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>31</categoryId>
         <picture>/assets/img/products/tablet-ipad.webp</picture>
         <name>Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray</name>
         <vendor>Apple</vendor>
+        <model>iPad Air 11 M2 128GB</model>
         <vendorCode>MU9D3LL/A</vendorCode>
         <barcode>195949392101</barcode>
         <delivery>true</delivery>
@@ -523,13 +554,14 @@
       </offer>
       <offer id="joom-31-31" available="true">
         <url>https://www.joom.ru/ru/search/Samsung%20Galaxy%20Tab%20S9%20128GB</url>
-        <price>64990</price>
-        <oldprice>72790</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>57190</price>
+        <oldprice>64090</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>31</categoryId>
         <picture>/assets/img/products/tablet-ipad.webp</picture>
         <name>Планшет Samsung Galaxy Tab S9 128GB Wi-Fi Graphite</name>
         <vendor>Samsung</vendor>
+        <model>Galaxy Tab S9 128GB</model>
         <vendorCode>SM-X710N</vendorCode>
         <barcode>8806095062143</barcode>
         <delivery>true</delivery>
@@ -538,13 +570,14 @@
       </offer>
       <offer id="joom-32-32" available="true">
         <url>https://www.joom.ru/ru/search/Apple%20Watch%20Series%209%2045mm</url>
-        <price>41990</price>
-        <oldprice>46990</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>36990</price>
+        <oldprice>41390</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>32</categoryId>
         <picture>/assets/img/products/watch-apple.webp</picture>
         <name>Смарт-часы Apple Watch Series 9 GPS 45mm Midnight Aluminum</name>
         <vendor>Apple</vendor>
+        <model>Watch Series 9 GPS 45mm</model>
         <vendorCode>MR993LL/A</vendorCode>
         <barcode>195949012450</barcode>
         <delivery>true</delivery>
@@ -554,13 +587,14 @@
       </offer>
       <offer id="joom-32-33" available="true">
         <url>https://www.joom.ru/ru/search/Samsung%20Galaxy%20Watch6%2044mm</url>
-        <price>21990</price>
-        <oldprice>24590</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>19390</price>
+        <oldprice>21690</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>32</categoryId>
         <picture>/assets/img/products/watch-apple.webp</picture>
-        <name>Смарт-часы Samsung Galaxy Watch6 44mm Graphite</name>
+        <name>Смарт-часы Samsung Galaxy Watch6 44mm Graphite (SM-R940)</name>
         <vendor>Samsung</vendor>
+        <model>Galaxy Watch6 44mm</model>
         <vendorCode>SM-R940NZKASER</vendorCode>
         <barcode>8806095078120</barcode>
         <delivery>true</delivery>
@@ -569,14 +603,15 @@
         <param name="ЭКГ">Да</param>
       </offer>
       <offer id="joom-33-34" available="true">
-        <url>https://www.joom.ru/ru/search/Sony%20WH-1000XM5%20Black</url>
-        <price>34990</price>
-        <oldprice>39190</oldprice>
-        <currencyId>RUB</currencyId>
+        <url>https://www.joom.ru/ru/search/Sony%20WH-1000XM5</url>
+        <price>30790</price>
+        <oldprice>34490</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>33</categoryId>
         <picture>/assets/img/products/headphones-sony.webp</picture>
         <name>Беспроводные наушники Sony WH-1000XM5 Black ANC</name>
         <vendor>Sony</vendor>
+        <model>WH-1000XM5</model>
         <vendorCode>WH1000XM5/B</vendorCode>
         <barcode>4548736132573</barcode>
         <delivery>true</delivery>
@@ -586,13 +621,14 @@
       </offer>
       <offer id="joom-33-35" available="true">
         <url>https://www.joom.ru/ru/search/Apple%20AirPods%20Pro%202</url>
-        <price>22990</price>
-        <oldprice>25690</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>20190</price>
+        <oldprice>22590</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>33</categoryId>
         <picture>/assets/img/products/headphones-sony.webp</picture>
         <name>Беспроводные наушники Apple AirPods Pro 2 (USB-C) White</name>
         <vendor>Apple</vendor>
+        <model>AirPods Pro 2</model>
         <vendorCode>MTJV3ZM/A</vendorCode>
         <barcode>195949052456</barcode>
         <delivery>true</delivery>
@@ -602,13 +638,14 @@
       </offer>
       <offer id="joom-33-36" available="true">
         <url>https://www.joom.ru/ru/search/Marshall%20Major%20IV</url>
-        <price>11990</price>
-        <oldprice>13390</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>10590</price>
+        <oldprice>11890</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>33</categoryId>
         <picture>/assets/img/products/headphones-sony.webp</picture>
         <name>Беспроводные наушники Marshall Major IV Bluetooth Black</name>
         <vendor>Marshall</vendor>
+        <model>Major IV</model>
         <vendorCode>1005773</vendorCode>
         <barcode>7340055379458</barcode>
         <delivery>true</delivery>
@@ -617,14 +654,15 @@
         <param name="Беспроводная зарядка">Да</param>
       </offer>
       <offer id="joom-40-37" available="true">
-        <url>https://www.joom.ru/ru/search/Xiaomi%20TV%20A%20Pro%2055%202025%204K%20UHD%20QLED%20Google%20TV</url>
-        <price>38990</price>
-        <oldprice>43690</oldprice>
-        <currencyId>RUB</currencyId>
+        <url>https://www.joom.ru/ru/search/Xiaomi%20TV%20A%20Pro%2055%202025</url>
+        <price>34290</price>
+        <oldprice>38390</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>40</categoryId>
         <picture>/assets/img/products/tv-xiaomi.webp</picture>
         <name>Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV</name>
         <vendor>Xiaomi</vendor>
+        <model>TV A Pro 55 2025</model>
         <vendorCode>ELA5478EU</vendorCode>
         <barcode>6941812769120</barcode>
         <delivery>true</delivery>
@@ -634,14 +672,15 @@
         <param name="Smart TV">Google TV</param>
       </offer>
       <offer id="joom-40-38" available="true">
-        <url>https://www.joom.ru/ru/search/LG%20OLED55C3RLA</url>
-        <price>139990</price>
-        <oldprice>156790</oldprice>
-        <currencyId>RUB</currencyId>
+        <url>https://www.joom.ru/ru/search/LG%20OLED55C3RLA%2055</url>
+        <price>123190</price>
+        <oldprice>137990</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>40</categoryId>
         <picture>/assets/img/products/tv-xiaomi.webp</picture>
         <name>Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV</name>
         <vendor>LG</vendor>
+        <model>OLED55C3RLA 55</model>
         <vendorCode>OLED55C3RLA</vendorCode>
         <barcode>8806091823120</barcode>
         <delivery>true</delivery>
@@ -652,13 +691,14 @@
       </offer>
       <offer id="joom-50-39" available="true">
         <url>https://www.joom.ru/ru/search/Roborock%20S8%20Pro%20Ultra</url>
-        <price>89990</price>
-        <oldprice>100790</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>79190</price>
+        <oldprice>88690</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>50</categoryId>
         <picture>/assets/img/products/vacuum-roborock.webp</picture>
         <name>Робот-пылесос Roborock S8 Pro Ultra White станция самоочистки</name>
         <vendor>Roborock</vendor>
+        <model>S8 Pro Ultra</model>
         <vendorCode>S8PU02-00</vendorCode>
         <barcode>6970995786438</barcode>
         <delivery>true</delivery>
@@ -668,13 +708,14 @@
       </offer>
       <offer id="joom-50-40" available="true">
         <url>https://www.joom.ru/ru/search/Dreame%20L10s%20Ultra</url>
-        <price>64990</price>
-        <oldprice>72790</oldprice>
-        <currencyId>RUB</currencyId>
+        <price>57190</price>
+        <oldprice>64090</oldprice>
+        <currencyId>RUR</currencyId>
         <categoryId>50</categoryId>
         <picture>/assets/img/products/vacuum-roborock.webp</picture>
         <name>Робот-пылесос Dreame L10s Ultra станция с промывкой швабр</name>
         <vendor>Dreame</vendor>
+        <model>L10s Ultra</model>
         <vendorCode>RLS6LADC</vendorCode>
         <barcode>6973734689124</barcode>
         <delivery>true</delivery>

@@ -6,6 +6,8 @@
 
 declare(strict_types=1);
 
+ini_set('memory_limit', '512M');
+
 $root = dirname(__DIR__);
 require_once $root . '/app/Core/Autoloader.php';
 \App\Core\Autoloader::register();
@@ -320,9 +322,13 @@ $shopsConfig = [
 ];
 $shopKeys = array_keys($shopsConfig);
 
-// Clean previous catalog shards
+// Clean previous catalog shards and history logs
+@mkdir($catalogDir, 0775, true);
 $oldFiles = glob($catalogDir . '/p*.*') ?: [];
 foreach ($oldFiles as $f) { @unlink($f); }
+
+$oldHistory = glob($historyDir . '/h*/*.log') ?: [];
+foreach ($oldHistory as $hf) { @unlink($hf); }
 
 $shardHandles = [];
 $shardIndices = [];
@@ -332,6 +338,9 @@ for ($s = 0; $s < 256; $s++) {
     $sName = sprintf('p%03d', $s);
     $filePath = $catalogDir . '/' . $sName . '.ndjson';
     $shardHandles[$s] = fopen($filePath, 'wb');
+    if ($shardHandles[$s] === false) {
+        throw new \RuntimeException("Failed to open shard file: {$filePath}");
+    }
     $shardIndices[$s] = [];
 }
 
@@ -351,7 +360,14 @@ $memoryVariants = [
     10 => ['OEM', 'BOX']
 ];
 
+$date60 = date('Y-m-d', strtotime('-60 days'));
+$date30 = date('Y-m-d', strtotime('-30 days'));
+$dateToday = date('Y-m-d');
+$numShops = count($shopKeys);
+$numColors = count($colors);
+
 $productIdCounter = 0;
+try {
 
 foreach ($categoryTargets as $catId => $quota) {
     if (!isset($categoriesCatalog[$catId])) {
@@ -420,8 +436,8 @@ foreach ($categoryTargets as $catId => $quota) {
             $donorSearchUrl = \App\Services\DonorUrlHelper::buildStoreUrl($shop['url_template'], $cleanDonorQuery);
 
             $priceVariance = (($id * 11 + $o * 17) % 21 - 10) / 100.0;
-            $offerPrice = (int)round($basePrice * (1 + $priceVariance));
-            if ($offerPrice < 1000) $offerPrice = 1000;
+            $offerPrice = (int)(round(($basePrice * (1 + $priceVariance)) / 100) * 100 - 10);
+            if ($offerPrice < 990) $offerPrice = 990;
 
             $landed = $offerPrice;
             $origin = 'RU';
@@ -586,9 +602,9 @@ foreach ($categoryTargets as $catId => $quota) {
 
         // Create price history for top products
         if ($id <= 500) {
-            $historyRepo->append($id, "citilink:{$id}_0", round($minPrice * 1.08), 1, date('Y-m-d', strtotime('-60 days')));
-            $historyRepo->append($id, "citilink:{$id}_0", round($minPrice * 1.04), 1, date('Y-m-d', strtotime('-30 days')));
-            $historyRepo->append($id, "citilink:{$id}_0", $minPrice, 1, date('Y-m-d'));
+            $historyRepo->append($id, "citilink:{$id}_0", (int)(round(($minPrice * 1.08) / 100) * 100 - 10), 1, $date60);
+            $historyRepo->append($id, "citilink:{$id}_0", (int)(round(($minPrice * 1.04) / 100) * 100 - 10), 1, $date30);
+            $historyRepo->append($id, "citilink:{$id}_0", $minPrice, 1, $dateToday);
         }
 
         if ($id % 5000 === 0) {
@@ -596,11 +612,18 @@ foreach ($categoryTargets as $catId => $quota) {
         }
     }
 }
+} finally {
+    // Guaranteed cleanup of all 256 open shard file handles
+    for ($s = 0; $s < 256; $s++) {
+        if (isset($shardHandles[$s]) && is_resource($shardHandles[$s])) {
+            fclose($shardHandles[$s]);
+        }
+    }
+}
 
-// Close handles and write index arrays
+// Write index arrays for 256 shards
 echo "Writing index arrays for 256 shards...\n";
 for ($s = 0; $s < 256; $s++) {
-    fclose($shardHandles[$s]);
     $sName = sprintf('p%03d', $s);
     $idxFile = $catalogDir . '/' . $sName . '.idx.php';
     \App\Storage\Fs::atomicWritePhpArray($idxFile, $shardIndices[$s]);
@@ -615,4 +638,10 @@ echo "Building active search and catalog snapshot...\n";
 $builder = new \App\Services\BuildIndexService($root);
 $resMsg = $builder->run();
 echo "[OK] {$resMsg}\n";
+
+// Generate active search index for client-side search & filtering
+echo "Generating client-side search and suggestion index...\n";
+$indexData = \App\Services\SearchIndexGenerator::write($root . '/public/api', '');
+echo "[OK] Generated search_index.json (" . count($indexData['search']) . " items) and suggest.json in public/api/\n";
+
 echo "=== Seeder Finished Successfully! ===\n";

@@ -145,6 +145,34 @@ if ($retSmoke === 0) {
 }
 echo "\n";
 
+// 9. Partner Feeds Validation & Ingestion Tests
+echo "[TEST SUITE 9] Partner Feeds Validation & Repository Ingestion\n";
+passthru('php ' . escapeshellarg($root . '/tests/feed_test.php'), $retFeeds);
+if ($retFeeds === 0) {
+    $passed++;
+} else {
+    $failed++;
+}
+// 10. Donor Store URLs & Model Cleaning (All 17 Categories)
+echo "[TEST SUITE 10] Donor Store URLs & Model Cleaning (All 17 Categories)\n";
+passthru('php ' . escapeshellarg($root . '/tests/donor_url_test.php'), $retDonor);
+if ($retDonor === 0) {
+    $passed++;
+} else {
+    $failed++;
+}
+echo "\n";
+
+// 11. Client-Side JS Catalog Filter & Sort
+echo "[TEST SUITE 11] Client-Side JS Catalog Filter & Sort (Node.js)\n";
+passthru('node ' . escapeshellarg($root . '/tests/catalog_filter_test.js'), $retJsFilter);
+if ($retJsFilter === 0) {
+    $passed++;
+} else {
+    $failed++;
+}
+echo "\n";
+
 echo "========================================================\n";
 if ($failed === 0) {
     echo "  ALL TESTS PASSED! ({$passed} checks passed, 0 failures) \n";

@@ -27,8 +27,9 @@ $verifiedImage = $published ? \App\Services\VerifiedProductImage::forProduct($pr
 $productImg = $verifiedImage ?? $product['img'] ?? $p['img'] ?? '/assets/img/placeholder.svg';
 $pop = (int)($p['pop'] ?? 0);
 $seller = $isCb ? 'crossborder' : ($isMp ? 'marketplace' : 'retail');
+$oldPrice = ($drop >= 5.0 && $minPrice > 0) ? (int)round($minPrice / (1 - ($drop / 100.0))) : 0;
 ?>
-<article class="product-card" data-product-id="<?= $id ?>" data-price="<?= $minPrice ?>" data-drop="<?= $drop ?>" data-pop="<?= $pop ?>" data-brand="<?= e(mb_strtolower((string)$brand)) ?>" data-seller="<?= $seller ?>">
+<article class="product-card" data-product-id="<?= $id ?>" data-price="<?= $minPrice ?>" data-drop="<?= $drop ?>" data-pop="<?= $pop ?>" data-brand="<?= e(mb_strtolower((string)$brand)) ?>" data-seller="<?= $seller ?>" data-mp="<?= $isMp ? 1 : 0 ?>" data-cb="<?= $isCb ? 1 : 0 ?>">
   <div class="product-card__badges">
     <?php if ($drop >= 8.0): ?>
       <span class="badge badge--drop">−<?= round($drop) ?>%</span>
@@ -72,8 +73,13 @@ $seller = $isCb ? 'crossborder' : ($isMp ? 'marketplace' : 'retail');
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
       <?php if ($published && $minPrice > 0 && $offersCnt > 0): ?>
-        <span class="product-card__price-label">от</span>
-        <span class="product-card__price"><?= formatPrice($minPrice) ?></span>
+        <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price"><?= formatPrice($minPrice) ?></span>
+          <?php if ($oldPrice > $minPrice): ?>
+            <span class="product-card__old-price" title="Старая цена"><?= formatPrice($oldPrice) ?></span>
+          <?php endif; ?>
+        </div>
         <span class="product-card__shops-cnt">
           <?= $offersCnt ?> <?= ($offersCnt === 1 ? 'предложение' : ($offersCnt < 5 ? 'предложения' : 'предложений')) ?>
         </span>

@@ -109,16 +109,33 @@ $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}"
       </div>
 
       <!-- Best Price CTA Box -->
-      <div style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
+      <div class="product-hero__cta-box" style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
         <div class="d-flex justify-between align-center flex-wrap gap-2 mb-4">
           <div>
             <span class="text-muted" style="font-size: var(--fs-xs);">Лучшая цена в магазинах:</span>
-            <div style="font-size: 2rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px;">
-              <?= formatPrice($minPrice) ?>
+            <?php 
+            $heroDrop = (float)($product['agg']['drop'] ?? 0);
+            $heroOldPrice = ($heroDrop >= 5.0 && $minPrice > 0) ? (int)round($minPrice / (1 - ($heroDrop / 100.0))) : ($maxPrice > $minPrice ? (int)$maxPrice : 0);
+            ?>
+            <div class="d-flex align-baseline gap-2 flex-wrap" style="margin-top: 2px;">
+              <div class="product-hero__min-price" style="font-size: 2.1rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px; line-height: 1.1;">
+                <?= formatPrice($minPrice) ?>
+              </div>
+              <?php if ($heroOldPrice > $minPrice): ?>
+                <span class="product-hero__old-price" title="Цена до скидки" style="font-size: 1.2rem; color: var(--c-ink-3); text-decoration: line-through; font-weight: 600;">
+                  <?= formatPrice($heroOldPrice) ?>
+                </span>
+                <span class="badge badge--drop" style="font-size: 11px;">−<?= round($heroDrop ?: (($heroOldPrice - $minPrice) / $heroOldPrice * 100)) ?>%</span>
+              <?php endif; ?>
             </div>
-            <span class="text-muted" style="font-size: var(--fs-xs);">
-              в <?= $shopsCnt ?> магазинах (<?= $offersCnt ?> предложений)
-            </span>
+            <div class="d-flex align-center gap-2 mt-1">
+              <span class="text-muted" style="font-size: var(--fs-xs);">
+                в <?= $shopsCnt ?> магазинах (<?= $offersCnt ?> предложений)
+              </span>
+              <?php if ($heroOldPrice > $minPrice): ?>
+                <span class="badge badge--best" style="font-size: 11px;">Выгода до <?= formatPrice($heroOldPrice - $minPrice) ?></span>
+              <?php endif; ?>
+            </div>
           </div>
 
           <div class="d-flex gap-2">
@@ -133,15 +150,47 @@ $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}"
           </div>
         </div>
 
-        <?php if ($bestOffer): ?>
-          <div class="d-flex justify-between align-center" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3); border: 1px solid var(--c-line);">
-            <div>
-              <span class="badge badge--best" style="margin-bottom: 4px;">Выгоднее всего</span>
-              <div class="font-bold"><?= e(ucfirst($bestOffer['shop'])) ?> &bull; <?= formatPrice($bestOffer['landed']) ?></div>
+        <?php if ($bestOffer): 
+          $allShops = \App\Core\Config::get('shops', []);
+          $bestShopKey = (string)($bestOffer['shop'] ?? '');
+          $bestShopDef = $allShops[$bestShopKey] ?? ['name' => ucfirst($bestShopKey), 'color' => '#f95700'];
+          $bestShopColor = $bestShopDef['color'] ?? '#f95700';
+          $bestTargetUrl = !empty($bestOffer['url']) && preg_match('~^https?://~i', $bestOffer['url']) ? $bestOffer['url'] : ("/go/{$id}/" . urlencode((string)$bestOffer['k']));
+          $bestShopAbbrs = [
+              'wildberries' => 'WB',
+              'ozon' => 'OZON',
+              'dns' => 'DNS',
+              'citilink' => 'CITI',
+              'mvideo' => 'М.В',
+              'yandex_market' => 'Я.М',
+              'megamarket' => 'ММ',
+              'regard' => 'REG',
+              'onlinetrade' => 'ОТ',
+              'aliexpress' => 'ALI',
+              'joom' => 'JM',
+              'avito' => 'АВ',
+          ];
+          $bestShopAbbr = $bestShopAbbrs[$bestShopKey] ?? mb_strtoupper(mb_substr((string)$bestShopDef['name'], 0, 3));
+        ?>
+          <div class="product-hero__best-offer" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3) var(--sp-4); border: 1px solid var(--c-line); display: flex; justify-content: space-between; align-items: center; gap: var(--sp-3);">
+            <div class="d-flex align-center gap-3">
+              <span class="offer-shop__logo offer-shop__logo--<?= e($bestShopKey) ?>" style="background-color: <?= e($bestShopColor) ?>; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--r-sm); color: #fff; font-weight: 800; font-size: 11px;">
+                <?= e($bestShopAbbr) ?>
+              </span>
+              <div>
+                <div class="d-flex align-center gap-2">
+                  <span class="badge badge--best">Выгоднее всего</span>
+                  <?php if (!empty($bestOffer['note'])): ?>
+                    <span class="badge badge--warn" style="font-size: 11px;"><?= e($bestOffer['note']) ?></span>
+                  <?php endif; ?>
+                </div>
+                <div class="font-bold mt-1" style="font-size: var(--fs-md);">
+                  <span style="color: <?= e($bestShopColor) ?>;"><?= e($bestShopDef['name']) ?></span> &bull; <?= formatPrice($bestOffer['landed']) ?>
+                </div>
+              </div>
             </div>
-            <?php $bestTargetUrl = !empty($bestOffer['url']) && preg_match('~^https?://~i', $bestOffer['url']) ? $bestOffer['url'] : ("/go/{$id}/" . urlencode($bestOffer['k'])); ?>
-            <a href="<?= e($bestTargetUrl) ?>" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent">
-              В магазин &rarr;
+            <a href="<?= e($bestTargetUrl) ?>" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--shop">
+              <span>В магазин</span> &rarr;
             </a>
           </div>
         <?php endif; ?>
@@ -186,7 +235,8 @@ $canonicalUrl = \App\Core\Config::get('app.url') . "/p/{$product['slug']}-{$id}"
             'productId' => $id,
             'productTitle' => $title,
             'offer' => $offer,
-            'isBest' => $isBest
+            'isBest' => $isBest,
+            'productDrop' => (float)($product['agg']['drop'] ?? 0)
           ]) ?>
         </div>
       <?php endforeach; ?>

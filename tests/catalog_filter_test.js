@@ -32,6 +32,22 @@ class MockElement {
     this.value = '';
     this.checked = false;
     this.textContent = '';
+    const self = this;
+    this.classList = {
+      add(...classes) {
+        for (const c of classes) {
+          if (!self.className.includes(c)) self.className = (self.className + ' ' + c).trim();
+        }
+      },
+      remove(...classes) {
+        for (const c of classes) {
+          self.className = self.className.replace(new RegExp(`\\b${c}\\b`, 'g'), '').trim();
+        }
+      },
+      contains(c) {
+        return self.className.includes(c);
+      }
+    };
   }
 
   getAttribute(name) {
@@ -59,6 +75,55 @@ class MockElement {
     return child;
   }
 
+  replaceChildren(...nodes) {
+    this.children = [];
+    for (const node of nodes) {
+      if (typeof node === 'string') {
+        const textNode = new MockElement('#text');
+        textNode.textContent = node;
+        this.appendChild(textNode);
+      } else {
+        this.appendChild(node);
+      }
+    }
+  }
+
+  append(...nodes) {
+    for (const node of nodes) {
+      if (typeof node === 'string') {
+        const textNode = new MockElement('#text');
+        textNode.textContent = node;
+        this.appendChild(textNode);
+      } else {
+        this.appendChild(node);
+      }
+    }
+  }
+
+  remove() {
+    if (this.parentElement) {
+      const idx = this.parentElement.children.indexOf(this);
+      if (idx !== -1) this.parentElement.children.splice(idx, 1);
+    }
+  }
+
+  matches(selector) {
+    return matchesSelector(this, selector);
+  }
+
+  closest(selector) {
+    let cur = this;
+    while (cur) {
+      if (matchesSelector(cur, selector)) return cur;
+      cur = cur.parentElement;
+    }
+    return null;
+  }
+
+  scrollIntoView() {}
+
+  focus() {}
+
   addEventListener(event, handler) {
     if (!this.eventListeners[event]) this.eventListeners[event] = [];
     this.eventListeners[event].push(handler);
@@ -66,7 +131,7 @@ class MockElement {
 
   dispatchEvent(event) {
     const list = this.eventListeners[event.type] || [];
-    event.target = this;
+    if (!event.target) event.target = this;
     for (const fn of list) {
       fn(event);
     }
@@ -100,6 +165,14 @@ class MockElement {
       else input.value = '';
     });
   }
+
+  get elements() {
+    return {
+      namedItem: (name) => {
+        return this.querySelector(`input[name="${name}"], select[name="${name}"]`);
+      }
+    };
+  }
 }
 
 class MockDocumentFragment {
@@ -120,6 +193,9 @@ function matchesSelector(el, selector) {
   if (selector === '.product-card') return el.className.includes('product-card');
   if (selector === '.catalog-empty-msg') return el.className.includes('catalog-empty-msg');
   if (selector === 'a[href]') return el.tagName === 'A' && el.attributes.has('href');
+  if (selector === 'button') return el.tagName === 'BUTTON';
+  if (selector === 'select') return el.tagName === 'SELECT';
+  if (selector === 'input, select') return el.tagName === 'INPUT' || el.tagName === 'SELECT';
   if (selector.startsWith('input[name="') && selector.endsWith('"]')) {
     const name = selector.match(/input\[name="([^"]+)"\]/)[1];
     return el.tagName === 'INPUT' && el.attributes.get('name') === name;
@@ -137,6 +213,9 @@ function matchesSelector(el, selector) {
   if (selector === 'input[type="number"], input[type="text"]') {
     return el.tagName === 'INPUT' && (el.attributes.get('type') === 'number' || el.attributes.get('type') === 'text');
   }
+  if (selector === 'input[type="number"]') {
+    return el.tagName === 'INPUT' && el.attributes.get('type') === 'number';
+  }
   if (selector === 'input[type="radio"]') {
     return el.tagName === 'INPUT' && el.attributes.get('type') === 'radio';
   }
@@ -147,6 +226,33 @@ function matchesSelector(el, selector) {
 }
 
 // 2. Mock Global Environment
+globalThis.FormData = class MockFormData {
+  constructor(form) {
+    this.entriesList = [];
+    if (form) {
+      const inputs = form.querySelectorAll('input, select');
+      for (const input of inputs) {
+        const name = input.getAttribute('name');
+        if (!name) continue;
+        const type = input.getAttribute('type');
+        if (type === 'checkbox' || type === 'radio') {
+          if (input.checked) this.entriesList.push([name, input.value || 'on']);
+        } else {
+          if (input.value !== undefined && input.value !== '') {
+            this.entriesList.push([name, input.value]);
+          }
+        }
+      }
+    }
+  }
+  [Symbol.iterator]() {
+    return this.entriesList[Symbol.iterator]();
+  }
+  entries() {
+    return this.entriesList[Symbol.iterator]();
+  }
+};
+
 const elementsById = new Map();
 const mockDocument = {
   getElementById(id) {
@@ -161,7 +267,9 @@ const mockDocument = {
   querySelector(selector) {
     if (selector === 'main > nav') return elementsById.get('paginationNav') || null;
     return null;
-  }
+  },
+  addEventListener(event, handler) {},
+  removeEventListener(event, handler) {}
 };
 
 let pushedUrls = [];
@@ -181,7 +289,7 @@ const mockLocation = {
   pathname: '/catalog/smartphones',
   search: '',
   protocol: 'http:',
-  hostname: 'localhost',
+  hostname: 'pricehub.github.io',
   reload() {
     throw new Error('location.reload() was called! It must never be called on client-side filter!');
   }
@@ -213,11 +321,13 @@ function setupDom() {
   elementsById.set('filterCount', filterCount);
 
   const sortSelect = new MockElement('select', 'sortSelect');
+  sortSelect.setAttribute('name', 'sort');
   sortSelect.value = 'popular';
   elementsById.set('sortSelect', sortSelect);
 
   const filterForm = new MockElement('form', 'filterForm');
   elementsById.set('filterForm', filterForm);
+  filterForm.appendChild(sortSelect);
 
   const catIdInput = new MockElement('input');
   catIdInput.setAttribute('type', 'hidden');

@@ -16,10 +16,12 @@ data/state/sessions/
 data/state/cursors/
 
 # Logs
+data/logs/**/*.log
 data/logs/*.log
 data/logs/clicks/*.ndjson
 !data/logs/clicks/.gitkeep
 data/logs/errors/*.log
+data/logs/app/
 
 # System & Editor
 .DS_Store

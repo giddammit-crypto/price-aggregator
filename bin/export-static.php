@@ -55,13 +55,16 @@ function transformHtml(string $html, string $basePrefix): string
         'href="/assets/' => 'href="' . $basePrefix . '/assets/',
         'src="/assets/' => 'src="' . $basePrefix . '/assets/',
         'href="/catalog/' => 'href="' . $basePrefix . '/catalog/',
-        'href="/search' => 'href="' . $basePrefix . '/search',
+        'href="/search?' => 'href="' . $basePrefix . '/search/?',
+        'href="/search"' => 'href="' . $basePrefix . '/search/"',
+        'href="/search/' => 'href="' . $basePrefix . '/search/',
         'href="/compare' => 'href="' . $basePrefix . '/compare',
         'href="/favorites' => 'href="' . $basePrefix . '/favorites',
         'href="/ui-kit' => 'href="' . $basePrefix . '/ui-kit',
         'href="/pages/' => 'href="' . $basePrefix . '/pages/',
         'href="/"' => 'href="' . $basePrefix . '/"',
         'action="/search"' => 'action="' . $basePrefix . '/search/"',
+        'action="/search/"' => 'action="' . $basePrefix . '/search/"',
         'action="/api/subscribe"' => 'action="#" onsubmit="alert(\'Подписка успешно оформлена!\'); return false;"',
     ];
 
@@ -71,7 +74,7 @@ function transformHtml(string $html, string $basePrefix): string
     $html = preg_replace('/href="' . preg_quote($basePrefix, '/') . '\/p\/([^"\/]+)\/?("|\')/', 'href="' . $basePrefix . '/p/$1/$2', $html);
     $html = str_replace('xlink:href="/assets/icons/sprite.svg', 'xlink:href="' . $basePrefix . '/assets/icons/sprite.svg', $html);
     $html = str_replace('href="/assets/icons/sprite.svg', 'href="' . $basePrefix . '/assets/icons/sprite.svg', $html);
-    $html = preg_replace('/<head>/i', "<head>\n  <base href=\"{$basePrefix}/\">", $html);
+    $html = preg_replace('/<head>/i', "<head>\n  <meta name=\"pricehub-static\" content=\"1\">\n  <base href=\"{$basePrefix}/\">", $html);
 
     return $html;
 }
@@ -209,23 +212,38 @@ foreach ($productIdsToExport as $pid) {
     $exportedProductsCount++;
 
     $catName = $categories[$p['cat']]['name'] ?? 'Каталог';
+    $minPrice = (int)($p['agg']['min'] ?? 0);
+    $offersCnt = (int)($p['agg']['cnt'] ?? count($p['offers'] ?? []));
+    $drop = (float)($p['agg']['drop'] ?? 0.0);
+    $isMp = !empty($p['agg']['mp']) || !empty($p['agg']['has_mp']);
+    $isCb = !empty($p['agg']['cb']) || !empty($p['agg']['has_cb']);
+    $seller = $isCb ? 'crossborder' : ($isMp ? 'marketplace' : 'retail');
+    $pop = (int)($p['popularity'] ?? ($offersCnt * 10));
+    $verifiedImg = VerifiedProductImage::forProduct($p);
+    $img = $verifiedImg ?? $p['img'] ?? '/assets/img/placeholder.svg';
+
     $searchIndex[] = [
         'id' => $pid,
-        'title' => $p['title'],
-        'brand' => $p['brand'],
-        'cat' => $catName,
-        'price' => $p['agg']['min'] ?? 0,
-        'offers' => $p['agg']['cnt'] ?? 0,
+        'title' => (string)$p['title'],
+        'brand' => (string)($p['brand'] ?? ''),
+        'cat' => (string)$catName,
+        'price' => $minPrice,
+        'offers' => $offersCnt,
+        'drop' => $drop,
+        'seller' => $seller,
+        'mp' => $isMp ? 1 : 0,
+        'cb' => $isCb ? 1 : 0,
+        'pop' => $pop,
         'url' => "{$basePrefix}/p/{$slug}-{$pid}/",
-        'image' => "{$basePrefix}" . (VerifiedProductImage::forProduct($p) ?? $p['img'] ?? '/assets/img/placeholder.svg'),
+        'image' => "{$basePrefix}{$img}",
         'specs' => $p['specs'] ?? [],
         'attrs' => $p['attrs'] ?? []
     ];
 
     $suggestIndex[] = [
-        'title' => $p['title'],
-        'brand' => $p['brand'],
-        'price' => $p['agg']['min'] ?? 0,
+        'title' => (string)$p['title'],
+        'brand' => (string)($p['brand'] ?? ''),
+        'price' => $minPrice,
         'url' => "{$basePrefix}/p/{$slug}-{$pid}/"
     ];
 }
@@ -235,6 +253,9 @@ echo "5. Building Client-Side Search Engine for GitHub Pages...\n";
 @mkdir($exportDir . '/api', 0775, true);
 file_put_contents($exportDir . '/api/search_index.json', json_encode($searchIndex, JSON_UNESCAPED_UNICODE));
 file_put_contents($exportDir . '/api/suggest.json', json_encode(array_slice($suggestIndex, 0, 100), JSON_UNESCAPED_UNICODE));
+@mkdir($root . '/public/api', 0775, true);
+file_put_contents($root . '/public/api/search_index.json', json_encode($searchIndex, JSON_UNESCAPED_UNICODE));
+file_put_contents($root . '/public/api/suggest.json', json_encode(array_slice($suggestIndex, 0, 100), JSON_UNESCAPED_UNICODE));
 
 $searchController = new \App\Controllers\SearchController();
 $searchResp = $searchController->index(new Request('GET', '/search', ['q' => '']));

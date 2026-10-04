@@ -14,6 +14,7 @@ class FxRatesService
 
     private const FALLBACK_RATES = [
         'RUB' => 1.0,
+        'RUR' => 1.0,
         'USD' => 92.50,
         'EUR' => 101.20,
         'CNY' => 12.85,
@@ -101,6 +102,13 @@ class FxRatesService
     {
         $from = strtoupper(trim($from));
         $to = strtoupper(trim($to));
+
+        if ($from === 'RUR') {
+            $from = 'RUB';
+        }
+        if ($to === 'RUR') {
+            $to = 'RUB';
+        }
 
         if ($from === $to) {
             return $amount;

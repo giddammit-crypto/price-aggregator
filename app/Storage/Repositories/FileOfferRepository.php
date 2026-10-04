@@ -33,8 +33,11 @@ class FileOfferRepository implements OfferRepositoryInterface
                 $line = trim($line);
                 if ($line !== '') {
                     $row = json_decode($line, true);
-                    if (is_array($row) && isset($row['k'])) {
-                        $items[$row['k']] = $row;
+                    if (is_array($row)) {
+                        $k = $row['k'] ?? $row['key'] ?? null;
+                        if ($k !== null) {
+                            $items[$k] = $row;
+                        }
                     }
                 }
             }
@@ -65,5 +68,26 @@ class FileOfferRepository implements OfferRepositoryInterface
             $shards[] = basename($file, '.ndjson');
         }
         return $shards;
+    }
+
+    public function countShopOffers(string $shop): int
+    {
+        $shards = $this->getAllShopShards($shop);
+        $total = 0;
+        foreach ($shards as $shard) {
+            $items = $this->getShopShardItems($shop, $shard);
+            $total += count($items);
+        }
+        return $total;
+    }
+
+    public function getOfferByKey(string $shop, string $key): ?array
+    {
+        // Extract external ID from key 'shop:extId'
+        $parts = explode(':', $key, 2);
+        $extId = $parts[1] ?? $key;
+        $shard = self::getShardName($extId);
+        $items = $this->getShopShardItems($shop, $shard);
+        return $items[$key] ?? $items[$extId] ?? null;
     }
 }

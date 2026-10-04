@@ -31,6 +31,9 @@ class OfferNormalizer
 
         $rawPrice = (float)($raw['price'] ?? 0);
         $currency = strtoupper((string)($raw['currencyId'] ?? $raw['currency'] ?? 'RUB'));
+        if ($currency === 'RUR') {
+            $currency = 'RUB';
+        }
         $priceRub = $this->fx->convert($rawPrice, $currency, 'RUB');
 
         $rawOldPrice = isset($raw['oldprice']) ? (float)$raw['oldprice'] : null;
@@ -74,9 +77,11 @@ class OfferNormalizer
 
         return [
             'key' => "{$shopId}:{$extId}",
+            'k' => "{$shopId}:{$extId}",
             'shop' => $shopId,
             'external_id' => $extId,
             'title' => $cleanTitle ?: $title,
+            't' => $cleanTitle ?: $title,
             'price' => $priceRub,
             'old_price' => ($oldPriceRub && $oldPriceRub > $priceRub) ? $oldPriceRub : null,
             'currency' => 'RUB',
@@ -90,6 +95,7 @@ class OfferNormalizer
             'ean' => $ean,
             'mpn' => $mpn,
             'vendor' => $raw['vendor'] ?? null,
+            'model' => $raw['model'] ?? null,
             'specs' => $specs,
             'image_url' => $raw['picture'] ?? $raw['image_url'] ?? null,
             'updated_at' => date('Y-m-d H:i:s')

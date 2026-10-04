@@ -34,4 +34,42 @@ class ApiController
         $history = $repo->getHistory($id, 90);
         return Response::json($history);
     }
+
+    public function searchIndex(Request $request): Response
+    {
+        $rootPath = dirname(__DIR__, 2);
+        $file = $rootPath . '/public/api/search_index.json';
+        if (!file_exists($file)) {
+            \App\Services\SearchIndexGenerator::write($rootPath . '/public/api');
+        }
+
+        $content = @file_get_contents($file);
+        if ($content === false) {
+            return Response::json(['error' => 'Index unavailable'], 500);
+        }
+
+        return new Response($content, 200, [
+            'Content-Type' => 'application/json; charset=UTF-8',
+            'Cache-Control' => 'public, max-age=3600'
+        ]);
+    }
+
+    public function suggestIndex(Request $request): Response
+    {
+        $rootPath = dirname(__DIR__, 2);
+        $file = $rootPath . '/public/api/suggest.json';
+        if (!file_exists($file)) {
+            \App\Services\SearchIndexGenerator::write($rootPath . '/public/api');
+        }
+
+        $content = @file_get_contents($file);
+        if ($content === false) {
+            return Response::json(['error' => 'Suggest unavailable'], 500);
+        }
+
+        return new Response($content, 200, [
+            'Content-Type' => 'application/json; charset=UTF-8',
+            'Cache-Control' => 'public, max-age=3600'
+        ]);
+    }
 }

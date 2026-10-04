@@ -16,6 +16,7 @@ class FeedImporter
     private OfferNormalizer $normalizer;
     private TrustFilter $filter;
     private HttpClient $http;
+    private FeedValidator $validator;
 
     public function __construct(
         string $itemsDir = '',
@@ -23,7 +24,8 @@ class FeedImporter
         ?YmlReader $reader = null,
         ?OfferNormalizer $normalizer = null,
         ?TrustFilter $filter = null,
-        ?HttpClient $http = null
+        ?HttpClient $http = null,
+        ?FeedValidator $validator = null
     ) {
         $root = dirname(__DIR__, 2);
         $this->itemsDir = rtrim($itemsDir ?: ($root . '/data/items'), '/') . '/';
@@ -34,10 +36,16 @@ class FeedImporter
         $this->normalizer = $normalizer ?: new OfferNormalizer();
         $this->filter = $filter ?: new TrustFilter();
         $this->http = $http ?: new HttpClient();
+        $this->validator = $validator ?: new FeedValidator($this->reader);
 
         if (!is_dir($this->cursorsDir)) {
             @mkdir($this->cursorsDir, 0775, true);
         }
+    }
+
+    public function validateFeed(string $feedPath, bool $strict = true): array
+    {
+        return $this->validator->validateFeedFile($feedPath, $strict);
     }
 
     /**
@@ -108,17 +116,25 @@ class FeedImporter
             }
         }
 
-        // Atomically replace shop shards
-        if (!is_dir($shopDir)) {
-            @mkdir($shopDir, 0775, true);
-        }
+        try {
+            // Atomically replace shop shards
+            if (!is_dir($shopDir)) {
+                @mkdir($shopDir, 0775, true);
+            }
 
-        $tempFiles = glob($tempShopDir . '*.ndjson') ?: [];
-        foreach ($tempFiles as $tFile) {
-            $base = basename($tFile);
-            @rename($tFile, $shopDir . $base);
+            $tempFiles = glob($tempShopDir . '*.ndjson') ?: [];
+            foreach ($tempFiles as $tFile) {
+                $base = basename($tFile);
+                @rename($tFile, $shopDir . $base);
+            }
+        } finally {
+            // Guarantee temp directory is removed
+            $remaining = glob($tempShopDir . '*') ?: [];
+            foreach ($remaining as $r) {
+                @unlink($r);
+            }
+            @rmdir($tempShopDir);
         }
-        @rmdir($tempShopDir);
 
         $duration = round(microtime(true) - $start, 3);
         $result = [

@@ -100,11 +100,11 @@ class YmlReader
             $available = filter_var($am[1], FILTER_VALIDATE_BOOLEAN);
         }
 
-        $name = $this->extractTag($xml, 'name') ?: $this->extractTag($xml, 'model');
+        $model = $this->extractTag($xml, 'model') ?: '';
+        $name = $this->extractTag($xml, 'name') ?: $model;
         if (!$name) {
             $prefix = $this->extractTag($xml, 'typePrefix');
             $vendor = $this->extractTag($xml, 'vendor');
-            $model = $this->extractTag($xml, 'model');
             if ($model || $vendor) {
                 $name = trim("{$prefix} {$vendor} {$model}");
             }
@@ -151,6 +151,7 @@ class YmlReader
             'id' => $id,
             'available' => $available,
             'name' => html_entity_decode((string)$name, ENT_QUOTES | ENT_HTML5, 'UTF-8'),
+            'model' => html_entity_decode((string)$model, ENT_QUOTES | ENT_HTML5, 'UTF-8'),
             'price' => $price,
             'oldprice' => $oldPrice,
             'currencyId' => $currencyId,

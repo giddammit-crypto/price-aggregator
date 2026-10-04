@@ -35,6 +35,8 @@ $router->get('/favorites', [\App\Controllers\CompareController::class, 'favorite
 $router->get('/go/{productId}/{offerKey}', [\App\Controllers\GoController::class, 'redirectOffer']);
 $router->get('/go/search/{shopId}', [\App\Controllers\GoController::class, 'redirectSearch']);
 $router->get('/api/suggest', [\App\Controllers\ApiController::class, 'suggest']);
+$router->get('/api/suggest.json', [\App\Controllers\ApiController::class, 'suggestIndex']);
+$router->get('/api/search_index.json', [\App\Controllers\ApiController::class, 'searchIndex']);
 $router->get('/api/history/{id}', [\App\Controllers\ApiController::class, 'history']);
 $router->get('/api/catalog-filter', [\App\Controllers\CatalogController::class, 'filterPartial']);
 $router->post('/api/subscribe', [\App\Controllers\SubscribeController::class, 'subscribe']);
@@ -70,6 +72,8 @@ $routesToTest = [
     ['GET', '/compare?ids=1', 200, 'Сравнение товаров'],
     ['GET', '/favorites?ids=1', 200, 'Избранные товары'],
     ['GET', '/api/suggest?q=asus', 200, 'suggestions'],
+    ['GET', '/api/suggest.json', 200, '"title"'],
+    ['GET', '/api/search_index.json', 200, '"title"'],
     ['GET', '/api/history/1', 200, 'min'],
     ['GET', '/api/history/0', 400, 'Invalid product ID'],
     ['GET', '/api/catalog-filter?catId=30&sort=price_asc', 200, 'count'],
