@@ -1,0 +1,68 @@
+/**
+ * PriceHub Main Stylesheet (main.css)
+ * Web Design System & Store UI Component Rules
+ */
+@import "./style.css";
+
+/* High-contrast and prominent store badges */
+.badge--wb-wallet {
+  background-color: #FDF0FA;
+  color: #9E0085;
+  border: 1px solid #F5B8EB;
+  font-weight: 700;
+}
+.badge--ozon-card {
+  background-color: #EBF3FF;
+  color: #0047C7;
+  border: 1px solid #B8D5FF;
+  font-weight: 700;
+}
+.badge--yandex-plus {
+  background-color: #FFF1EE;
+  color: #D82505;
+  border: 1px solid #FFCDC4;
+  font-weight: 700;
+}
+.badge--bonus {
+  background-color: #FFF8E1;
+  color: #8C5300;
+  border: 1px solid #FFE082;
+  font-weight: 700;
+}
+.badge--warranty {
+  background-color: #E8F5E9;
+  color: #006846;
+  border: 1px solid #C8E6C9;
+  font-weight: 600;
+}
+
+/* Store Logos and Brand Accents */
+.shop-name--wildberries { color: #CB11AB !important; }
+.shop-name--ozon { color: #005BFF !important; }
+.shop-name--dns { color: #EC6608 !important; }
+.shop-name--citilink { color: #FF5000 !important; }
+.shop-name--mvideo { color: #E31E24 !important; }
+.shop-name--yandex_market { color: #FC3F1D !important; }
+
+.offer-shop__logo--wildberries { background-color: #CB11AB !important; color: #FFF; }
+.offer-shop__logo--ozon { background-color: #005BFF !important; color: #FFF; }
+.offer-shop__logo--dns { background-color: #EC6608 !important; color: #FFF; }
+.offer-shop__logo--citilink { background-color: #FF5000 !important; color: #FFF; }
+.offer-shop__logo--mvideo { background-color: #E31E24 !important; color: #FFF; }
+.offer-shop__logo--yandex_market { background-color: #FC3F1D !important; color: #FFF; }
+
+/* Responsive offers table enhancements */
+@media (max-width: 768px) {
+  .offer-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+  .offer-row .btn {
+    width: 100%;
+    min-height: 46px;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}

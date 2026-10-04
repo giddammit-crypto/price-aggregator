@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <meta name="pricehub-static" content="1">
   <base href="/price-aggregator/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -85,7 +86,7 @@
         <a href="/price-aggregator/catalog/processors" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Процессоры</a>
         <a href="/price-aggregator/catalog/storage-ssd" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">SSD накопители</a>
         <a href="/price-aggregator/catalog/televisions" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">ТВ и Аудио</a>
-        <a href="/price-aggregator/search?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
+        <a href="/price-aggregator/search/?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
       </div>
     </div>
 
@@ -538,11 +539,11 @@
 
     <!-- Product Pager (навигация по товарам категории) -->
     <div class="product-pager d-flex align-center gap-2">
-                    <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-11669/" class="btn btn--secondary btn--sm" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD">
+                    <a href="/price-aggregator/p/pk-hp-victus-15l-tg02-core-i5-rtx-4060-16gb-512gb-ssd-11893/" class="btn btn--secondary btn--sm" title="ПК HP Victus 15L TG02 Core i5 / RTX 4060 / 16GB / 512GB SSD">
           <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right" style="transform: rotate(180deg);"></use></svg>
           <span>Предыдущий товар</span>
         </a>
-                          <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-12047/" class="btn btn--secondary btn--sm" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD">
+                          <a href="/price-aggregator/p/pk-asus-rog-strix-gt15-core-i7-rtx-4070-32gb-1tb-ssd-11872/" class="btn btn--secondary btn--sm" title="ПК ASUS ROG Strix GT15 Core i7 / RTX 4070 / 32GB / 1TB SSD">
           <span>Следующий товар</span>
           <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
         </a>
@@ -578,15 +579,23 @@
       </div>
 
       <!-- Best Price CTA Box -->
-      <div style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
+      <div class="product-hero__cta-box" style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
         <div class="d-flex justify-between align-center flex-wrap gap-2 mb-4">
           <div>
             <span class="text-muted" style="font-size: var(--fs-xs);">Лучшая цена в магазинах:</span>
-            <div style="font-size: 2rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px;">
-              93 490 ₽            </div>
-            <span class="text-muted" style="font-size: var(--fs-xs);">
-              в 1 магазинах (6 предложений)
-            </span>
+                        <div class="d-flex align-baseline gap-2 flex-wrap" style="margin-top: 2px;">
+              <div class="product-hero__min-price" style="font-size: 2.1rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px; line-height: 1.1;">
+                93 490 ₽              </div>
+                              <span class="product-hero__old-price" title="Цена до скидки" style="font-size: 1.2rem; color: var(--c-ink-3); text-decoration: line-through; font-weight: 600;">
+                  122 090 ₽                </span>
+                <span class="badge badge--drop" style="font-size: 11px;">−23%</span>
+                          </div>
+            <div class="d-flex align-center gap-2 mt-1">
+              <span class="text-muted" style="font-size: var(--fs-xs);">
+                в 1 магазинах (6 предложений)
+              </span>
+                              <span class="badge badge--best" style="font-size: 11px;">Выгода до 28 600 ₽</span>
+                          </div>
           </div>
 
           <div class="d-flex gap-2">
@@ -601,13 +610,21 @@
           </div>
         </div>
 
-                  <div class="d-flex justify-between align-center" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3); border: 1px solid var(--c-line);">
-            <div>
-              <span class="badge badge--best" style="margin-bottom: 4px;">Выгоднее всего</span>
-              <div class="font-bold">Aliexpress &bull; 93 490 ₽</div>
+                  <div class="product-hero__best-offer" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3) var(--sp-4); border: 1px solid var(--c-line); display: flex; justify-content: space-between; align-items: center; gap: var(--sp-3);">
+            <div class="d-flex align-center gap-3">
+              <span class="offer-shop__logo offer-shop__logo--aliexpress" style="background-color: #FF4747; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--r-sm); color: #fff; font-weight: 800; font-size: 11px;">
+                ALI              </span>
+              <div>
+                <div class="d-flex align-center gap-2">
+                  <span class="badge badge--best">Выгоднее всего</span>
+                                      <span class="badge badge--warn" style="font-size: 11px;">Доставка из Китая 12–18 дней</span>
+                                  </div>
+                <div class="font-bold mt-1" style="font-size: var(--fs-md);">
+                  <span style="color: #FF4747;">AliExpress</span> &bull; 93 490 ₽                </div>
+              </div>
             </div>
-                        <a href="https://aliexpress.ru/wholesale?SearchText=MSI%20MAG%20Infinite%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent">
-              В магазин &rarr;
+            <a href="https://aliexpress.ru/wholesale?SearchText=MSI%20MAG%20Infinite%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--shop">
+              <span>В магазин</span> &rarr;
             </a>
           </div>
               </div>
@@ -618,7 +635,7 @@
   <section style="margin-bottom: var(--sp-8);">
     <h2 style="font-size: var(--fs-lg); font-weight: 800;">Уведомить о снижении цены</h2>
     <form id="priceAlertForm" action="#" onsubmit="alert('Подписка успешно оформлена!'); return false;" method="POST" class="d-flex gap-2 flex-wrap mt-4">
-      <input type="hidden" name="_csrf" value="305b591fab50390ed5cfb66ad6c9b5867c145957f1ddcafc639859361aa01fc4">      <input type="hidden" name="product_id" value="12041">
+      <input type="hidden" name="_csrf" value="2fb131d7b41c306fa9d30cc02b3a9340f5c453c6c64e104c8697c0cc0dc2ceec">      <input type="hidden" name="product_id" value="12041">
       <label>E-mail <input type="email" name="email" required autocomplete="email" class="search-input"></label>
       <label>Желаемая цена, ₽ <input type="number" name="target_price" min="1" step="1" required class="search-input"></label>
       <button type="submit" class="btn btn--accent">Подписаться</button>
@@ -645,9 +662,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FC3F1D;">
-      Яндекс Маркет    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--yandex_market" style="background-color: #FC3F1D;" title="Яндекс Маркет" aria-hidden="true">
+        Я.М      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--yandex_market" style="color: #FC3F1D;">
+          Яндекс Маркет        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -658,16 +681,25 @@
         </span>
                 
     
-          <span class="badge badge--warn">Баллы Яндекс Плюс</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">107 790 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">112 280 ₽</span>
+    
+          <div class="offer-price ">
+        107 790 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--yandex-plus" title="Кэшбэк или скидка баллами Яндекс Плюс">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          Баллы Яндекс Плюс        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://market.yandex.ru/search?text=MSI%20MAG%20Infinite%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://market.yandex.ru/search?text=MSI%20MAG%20Infinite%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Яндекс Маркет">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -676,9 +708,15 @@
               <div data-offer-kind="crossborder" data-offer-mode="prices">
           <div class="offer-row offer-row--best">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FF4747;">
-      AliExpress    </div>
-    <span class="badge badge--marketplace">Из Китая / Прямая доставка</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--aliexpress" style="background-color: #FF4747;" title="AliExpress" aria-hidden="true">
+        ALI      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--aliexpress" style="color: #FF4747;">
+          AliExpress        </div>
+        <span class="badge badge--shop-kind">Из Китая / Прямая доставка</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -695,12 +733,19 @@
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">93 490 ₽</div>
-            </div>
+    
+          <div class="offer-price offer-price--best">
+        93 490 ₽      </div>
+          
+    <div class="offer-price__badges">
+              <span class="badge badge--best">Лучшая цена</span>
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://aliexpress.ru/wholesale?SearchText=MSI%20MAG%20Infinite%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://aliexpress.ru/wholesale?SearchText=MSI%20MAG%20Infinite%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин AliExpress">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -709,24 +754,38 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #EC6608;">
-      DNS    </div>
-    <span class="badge badge--marketplace">Сеть магазинов</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--dns" style="background-color: #EC6608;" title="DNS" aria-hidden="true">
+        DNS      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--dns" style="color: #EC6608;">
+          DNS        </div>
+        <span class="badge badge--shop-kind">Сеть магазинов</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Гарантия DNS 12–36 мес.</span>
+          <span class="badge badge--warranty">
+        <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Гарантия DNS 12–36 мес.      </span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">122 090 ₽</div>
-            </div>
+    
+          <div class="offer-price ">
+        122 090 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.dns-shop.ru/search/?q=MSI%20MAG%20Infinite%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.dns-shop.ru/search/?q=MSI%20MAG%20Infinite%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин DNS">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -735,9 +794,15 @@
               <div data-offer-kind="classifieds" data-offer-mode="link_only">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #00AAFF;">
-      Авито    </div>
-    <span class="badge badge--marketplace">Частные / Б/у</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--avito" style="background-color: #00AAFF;" title="Авито" aria-hidden="true">
+        АВ      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--avito" style="color: #00AAFF;">
+          Авито        </div>
+        <span class="badge badge--shop-kind">Частные / Б/у</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -747,12 +812,17 @@
       </div>
 
   <div class="offer-price-col">
+    
           <span class="text-muted" style="font-size: var(--fs-xs);">Уточняйте на сайте</span>
-      </div>
+    
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.avito.ru/rossiya?q=MSI%20MAG%20Infinite%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.avito.ru/rossiya?q=MSI%20MAG%20Infinite%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Авито">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -761,24 +831,38 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FF5000;">
-      Ситилинк    </div>
-    <span class="badge badge--marketplace">Федеральная сеть</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--citilink" style="background-color: #FF5000;" title="Ситилинк" aria-hidden="true">
+        CITI      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--citilink" style="color: #FF5000;">
+          Ситилинк        </div>
+        <span class="badge badge--shop-kind">Федеральная сеть</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Гарантия Ситилинк</span>
+          <span class="badge badge--warranty">
+        <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Гарантия Ситилинк      </span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">115 490 ₽</div>
-            </div>
+    
+          <div class="offer-price ">
+        115 490 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.citilink.ru/search/?text=MSI%20MAG%20Infinite%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.citilink.ru/search/?text=MSI%20MAG%20Infinite%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Ситилинк">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -787,24 +871,38 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #0055A5;">
-      Регард    </div>
-    <span class="badge badge--marketplace">Специализированный ПК</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--regard" style="background-color: #0055A5;" title="Регард" aria-hidden="true">
+        REG      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--regard" style="color: #0055A5;">
+          Регард        </div>
+        <span class="badge badge--shop-kind">Специализированный ПК</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Гарантия Регард</span>
+          <span class="badge badge--warranty">
+        <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Гарантия Регард      </span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">112 190 ₽</div>
-            </div>
+    
+          <div class="offer-price ">
+        112 190 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.regard.ru/catalog?search=MSI%20MAG%20Infinite%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.regard.ru/catalog?search=MSI%20MAG%20Infinite%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Регард">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -813,24 +911,39 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #1D70B8;">
-      ОнлайнТрейд    </div>
-    <span class="badge badge--marketplace">Гипермаркет</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--onlinetrade" style="background-color: #1D70B8;" title="ОнлайнТрейд" aria-hidden="true">
+        ОТ      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--onlinetrade" style="color: #1D70B8;">
+          ОнлайнТрейд        </div>
+        <span class="badge badge--shop-kind">Гипермаркет</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Клубная цена ON-бонусы</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">116 590 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">121 450 ₽</span>
+    
+          <div class="offer-price ">
+        116 590 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--bonus" title="Бонусная программа магазина">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Клубная цена ON-бонусы        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.onlinetrade.ru/sitesearch.html?query=MSI%20MAG%20Infinite%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.onlinetrade.ru/sitesearch.html?query=MSI%20MAG%20Infinite%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин ОнлайнТрейд">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -876,60 +989,19 @@
       <section style="margin-bottom: var(--sp-8);">
       <h2 style="font-size: var(--fs-xl); font-weight: 800; margin-bottom: var(--sp-4);">Похожие модели</h2>
       <div class="product-grid">
-                  <article class="product-card" data-product-id="11663" data-price="94590" data-drop="0" data-pop="118" data-brand="msi" data-seller="crossborder">
+                  <article class="product-card" data-product-id="12080" data-price="126090" data-drop="0" data-pop="120" data-brand="acer" data-seller="crossborder" data-mp="1" data-cb="1">
   <div class="product-card__badges">
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="11663" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="12080" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-11663/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Фото ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-  <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-11663/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD">    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>cpu_type:</span>
-        <strong>Intel Core i5</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>gpu_chip:</span>
-        <strong>GeForce RTX 4060 Ti</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>ram_gb:</span>
-        <strong>16</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">94 590 ₽</span>
-        <span class="product-card__shops-cnt">
-          7 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11663" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="11990" data-price="137690" data-drop="0" data-pop="116" data-brand="acer" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="11990" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-11990/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Фото ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-12080/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Фото ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
   <div class="product-card__brand">Acer</div>
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-11990/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD  </a>
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-12080/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -947,30 +1019,33 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">137 690 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">126 090 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11990" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12080" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="12056" data-price="137690" data-drop="0" data-pop="115" data-brand="acer" data-seller="marketplace">
+                  <article class="product-card" data-product-id="11606" data-price="136290" data-drop="21" data-pop="119" data-brand="acer" data-seller="marketplace" data-mp="1" data-cb="0">
   <div class="product-card__badges">
+          <span class="badge badge--drop">−21%</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="12056" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="11606" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-12056/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Фото ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-11606/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Фото ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
   <div class="product-card__brand">Acer</div>
-  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-12056/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD  </a>
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-11606/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -988,31 +1063,76 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">137 690 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">136 290 ₽</span>
+                      <span class="product-card__old-price" title="Старая цена">172 519 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="12056" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11606" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="11627" data-price="103390" data-drop="12" data-pop="114" data-brand="msi" data-seller="marketplace">
+                  <article class="product-card" data-product-id="11870" data-price="136290" data-drop="0" data-pop="119" data-brand="acer" data-seller="marketplace" data-mp="1" data-cb="0">
   <div class="product-card__badges">
-          <span class="badge badge--drop">−12%</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="11627" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="11870" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-11627/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Фото ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-11870/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Фото ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Acer</div>
+  <a href="/price-aggregator/p/pk-acer-predator-orion-3000-core-i7-rtx-4070-16gb-1tb-ssd-11870/" class="product-card__title" title="ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD">    ПК Acer Predator Orion 3000 Core i7 / RTX 4070 / 16GB / 1TB SSD  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>cpu_type:</span>
+        <strong>Intel Core i7</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>gpu_chip:</span>
+        <strong>GeForce RTX 4070</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>ram_gb:</span>
+        <strong>16</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">136 290 ₽</span>
+                  </div>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11870" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="11915" data-price="95690" data-drop="0" data-pop="119" data-brand="msi" data-seller="crossborder" data-mp="1" data-cb="1">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="11915" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-11915/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/case-lianli.webp" alt="Фото ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-11627/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD">    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD  </a>
+  <a href="/price-aggregator/p/pk-msi-mag-infinite-s3-core-i5-rtx-4060-ti-16gb-ddr5-1tb-ssd-11915/" class="product-card__title" title="ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD">    ПК MSI MAG Infinite S3 Core i5 / RTX 4060 Ti / 16GB DDR5 / 1TB SSD  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
@@ -1030,13 +1150,15 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">103 390 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">95 690 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11627" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11915" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>

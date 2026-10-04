@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <meta name="pricehub-static" content="1">
   <base href="/price-aggregator/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -85,7 +86,7 @@
         <a href="/price-aggregator/catalog/processors" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Процессоры</a>
         <a href="/price-aggregator/catalog/storage-ssd" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">SSD накопители</a>
         <a href="/price-aggregator/catalog/televisions" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">ТВ и Аудио</a>
-        <a href="/price-aggregator/search?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
+        <a href="/price-aggregator/search/?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
       </div>
     </div>
 
@@ -538,11 +539,11 @@
 
     <!-- Product Pager (навигация по товарам категории) -->
     <div class="product-pager d-flex align-center gap-2">
-                    <a href="/price-aggregator/p/protsessor-amd-ryzen-7-7800x3d-oem-529/" class="btn btn--secondary btn--sm" title="Процессор AMD Ryzen 7 7800X3D OEM">
+                    <a href="/price-aggregator/p/protsessor-amd-ryzen-9-7950x-oem-53/" class="btn btn--secondary btn--sm" title="Процессор AMD Ryzen 9 7950X OEM">
           <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right" style="transform: rotate(180deg);"></use></svg>
           <span>Предыдущий товар</span>
         </a>
-                          <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-595/" class="btn btn--secondary btn--sm" title="Процессор AMD Ryzen 5 7600X OEM">
+                          <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-331/" class="btn btn--secondary btn--sm" title="Процессор AMD Ryzen 5 7600X OEM">
           <span>Следующий товар</span>
           <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
         </a>
@@ -586,15 +587,23 @@
       </div>
 
       <!-- Best Price CTA Box -->
-      <div style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
+      <div class="product-hero__cta-box" style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
         <div class="d-flex justify-between align-center flex-wrap gap-2 mb-4">
           <div>
             <span class="text-muted" style="font-size: var(--fs-xs);">Лучшая цена в магазинах:</span>
-            <div style="font-size: 2rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px;">
-              9 790 ₽            </div>
-            <span class="text-muted" style="font-size: var(--fs-xs);">
-              в 1 магазинах (6 предложений)
-            </span>
+                        <div class="d-flex align-baseline gap-2 flex-wrap" style="margin-top: 2px;">
+              <div class="product-hero__min-price" style="font-size: 2.1rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px; line-height: 1.1;">
+                9 790 ₽              </div>
+                              <span class="product-hero__old-price" title="Цена до скидки" style="font-size: 1.2rem; color: var(--c-ink-3); text-decoration: line-through; font-weight: 600;">
+                  12 990 ₽                </span>
+                <span class="badge badge--drop" style="font-size: 11px;">−25%</span>
+                          </div>
+            <div class="d-flex align-center gap-2 mt-1">
+              <span class="text-muted" style="font-size: var(--fs-xs);">
+                в 1 магазинах (6 предложений)
+              </span>
+                              <span class="badge badge--best" style="font-size: 11px;">Выгода до 3 200 ₽</span>
+                          </div>
           </div>
 
           <div class="d-flex gap-2">
@@ -609,13 +618,21 @@
           </div>
         </div>
 
-                  <div class="d-flex justify-between align-center" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3); border: 1px solid var(--c-line);">
-            <div>
-              <span class="badge badge--best" style="margin-bottom: 4px;">Выгоднее всего</span>
-              <div class="font-bold">Aliexpress &bull; 9 790 ₽</div>
+                  <div class="product-hero__best-offer" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3) var(--sp-4); border: 1px solid var(--c-line); display: flex; justify-content: space-between; align-items: center; gap: var(--sp-3);">
+            <div class="d-flex align-center gap-3">
+              <span class="offer-shop__logo offer-shop__logo--aliexpress" style="background-color: #FF4747; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--r-sm); color: #fff; font-weight: 800; font-size: 11px;">
+                ALI              </span>
+              <div>
+                <div class="d-flex align-center gap-2">
+                  <span class="badge badge--best">Выгоднее всего</span>
+                                      <span class="badge badge--warn" style="font-size: 11px;">Доставка из Китая 12–18 дней</span>
+                                  </div>
+                <div class="font-bold mt-1" style="font-size: var(--fs-md);">
+                  <span style="color: #FF4747;">AliExpress</span> &bull; 9 790 ₽                </div>
+              </div>
             </div>
-                        <a href="https://aliexpress.ru/wholesale?SearchText=Intel%20Core%20i5-12400F" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent">
-              В магазин &rarr;
+            <a href="https://aliexpress.ru/wholesale?SearchText=Intel%20Core%20i5-12400F" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--shop">
+              <span>В магазин</span> &rarr;
             </a>
           </div>
               </div>
@@ -626,7 +643,7 @@
   <section style="margin-bottom: var(--sp-8);">
     <h2 style="font-size: var(--fs-lg); font-weight: 800;">Уведомить о снижении цены</h2>
     <form id="priceAlertForm" action="#" onsubmit="alert('Подписка успешно оформлена!'); return false;" method="POST" class="d-flex gap-2 flex-wrap mt-4">
-      <input type="hidden" name="_csrf" value="305b591fab50390ed5cfb66ad6c9b5867c145957f1ddcafc639859361aa01fc4">      <input type="hidden" name="product_id" value="58">
+      <input type="hidden" name="_csrf" value="2fb131d7b41c306fa9d30cc02b3a9340f5c453c6c64e104c8697c0cc0dc2ceec">      <input type="hidden" name="product_id" value="58">
       <label>E-mail <input type="email" name="email" required autocomplete="email" class="search-input"></label>
       <label>Желаемая цена, ₽ <input type="number" name="target_price" min="1" step="1" required class="search-input"></label>
       <button type="submit" class="btn btn--accent">Подписаться</button>
@@ -653,24 +670,39 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #E31E24;">
-      М.Видео    </div>
-    <span class="badge badge--marketplace">Федеральная сеть</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--mvideo" style="background-color: #E31E24;" title="М.Видео" aria-hidden="true">
+        М.В      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--mvideo" style="color: #E31E24;">
+          М.Видео        </div>
+        <span class="badge badge--shop-kind">Федеральная сеть</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Бонусы М.Видео до 10%</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">12 990 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">13 530 ₽</span>
+    
+          <div class="offer-price ">
+        12 990 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--bonus" title="Бонусная программа магазина">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Бонусы М.Видео до 10%        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.mvideo.ru/listing?q=Intel%20Core%20i5-12400F" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.mvideo.ru/listing?q=Intel%20Core%20i5-12400F" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин М.Видео">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -679,9 +711,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #005BFF;">
-      Ozon    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--ozon" style="background-color: #005BFF;" title="Ozon" aria-hidden="true">
+        OZON      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--ozon" style="color: #005BFF;">
+          Ozon        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -693,16 +731,25 @@
                     <span class="badge badge--official">Официальный</span>
           
     
-          <span class="badge badge--warn">Цена с Ozon Картой</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">10 990 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">11 570 ₽</span>
+    
+          <div class="offer-price ">
+        10 990 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--ozon-card" title="Специальная цена с Ozon Картой">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+          Цена с Ozon Картой        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.ozon.ru/search/?text=Intel%20Core%20i5-12400F" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.ozon.ru/search/?text=Intel%20Core%20i5-12400F" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Ozon">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -711,9 +758,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #CB11AB;">
-      Wildberries    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--wildberries" style="background-color: #CB11AB;" title="Wildberries" aria-hidden="true">
+        WB      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--wildberries" style="color: #CB11AB;">
+          Wildberries        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -724,16 +777,25 @@
         </span>
                 
     
-          <span class="badge badge--warn">Скидка с WB Кошельком</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">10 790 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">11 480 ₽</span>
+    
+          <div class="offer-price ">
+        10 790 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--wb-wallet" title="Специальная цена при оплате WB Кошельком">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          Скидка с WB Кошельком        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.wildberries.ru/catalog/0/search.aspx?page=1&amp;sort=popular&amp;search=Intel%20Core%20i5-12400F" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.wildberries.ru/catalog/0/search.aspx?page=1&amp;sort=popular&amp;search=Intel%20Core%20i5-12400F" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Wildberries">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -742,9 +804,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #7B1FA2;">
-      Мегамаркет    </div>
-    <span class="badge badge--marketplace">СберМаркет / Бонусы</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--megamarket" style="background-color: #7B1FA2;" title="Мегамаркет" aria-hidden="true">
+        ММ      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--megamarket" style="color: #7B1FA2;">
+          Мегамаркет        </div>
+        <span class="badge badge--shop-kind">СберМаркет / Бонусы</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -755,16 +823,25 @@
         </span>
                 
     
-          <span class="badge badge--warn">Кэшбэк до 15% бонусами</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">11 490 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">11 970 ₽</span>
+    
+          <div class="offer-price ">
+        11 490 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--bonus" title="Бонусная программа магазина">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Кэшбэк до 15% бонусами        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://megamarket.ru/catalog/?q=Intel%20Core%20i5-12400F" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://megamarket.ru/catalog/?q=Intel%20Core%20i5-12400F" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Мегамаркет">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -773,9 +850,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FC3F1D;">
-      Яндекс Маркет    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--yandex_market" style="background-color: #FC3F1D;" title="Яндекс Маркет" aria-hidden="true">
+        Я.М      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--yandex_market" style="color: #FC3F1D;">
+          Яндекс Маркет        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -787,16 +870,25 @@
                     <span class="badge badge--official">Официальный</span>
           
     
-          <span class="badge badge--warn">Баллы Яндекс Плюс</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">11 090 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">11 550 ₽</span>
+    
+          <div class="offer-price ">
+        11 090 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--yandex-plus" title="Кэшбэк или скидка баллами Яндекс Плюс">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          Баллы Яндекс Плюс        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://market.yandex.ru/search?text=Intel%20Core%20i5-12400F" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://market.yandex.ru/search?text=Intel%20Core%20i5-12400F" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Яндекс Маркет">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -805,9 +897,15 @@
               <div data-offer-kind="crossborder" data-offer-mode="prices">
           <div class="offer-row offer-row--best">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FF4747;">
-      AliExpress    </div>
-    <span class="badge badge--marketplace">Из Китая / Прямая доставка</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--aliexpress" style="background-color: #FF4747;" title="AliExpress" aria-hidden="true">
+        ALI      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--aliexpress" style="color: #FF4747;">
+          AliExpress        </div>
+        <span class="badge badge--shop-kind">Из Китая / Прямая доставка</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -824,12 +922,19 @@
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">9 790 ₽</div>
-            </div>
+    
+          <div class="offer-price offer-price--best">
+        9 790 ₽      </div>
+          
+    <div class="offer-price__badges">
+              <span class="badge badge--best">Лучшая цена</span>
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://aliexpress.ru/wholesale?SearchText=Intel%20Core%20i5-12400F" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://aliexpress.ru/wholesale?SearchText=Intel%20Core%20i5-12400F" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин AliExpress">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -861,24 +966,18 @@
         <line x1="30" y1="120" x2="770" y2="120" stroke="#E4E7EB"/>
         
         <!-- Polyline curve -->
-        <polyline points="30,120 215,30 400,120 585,34 770,120" fill="none" stroke="var(--c-accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="30,30 400,75 770,120" fill="none" stroke="var(--c-accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
         <!-- Dots -->
-                  <circle cx="30" cy="120" r="5" fill="#FFF" stroke="var(--c-accent)" stroke-width="2"/>
-          <text x="30" y="110" font-size="11" font-weight="bold" fill="var(--c-ink)" text-anchor="middle">10 548 ₽</text>
-          <text x="30" y="136" font-size="10" fill="var(--c-ink-3)" text-anchor="middle">04.08</text>
-                  <circle cx="215" cy="30" r="5" fill="#FFF" stroke="var(--c-accent)" stroke-width="2"/>
-          <text x="215" y="20" font-size="11" font-weight="bold" fill="var(--c-ink)" text-anchor="middle">160 742 ₽</text>
-          <text x="215" y="136" font-size="10" fill="var(--c-ink-3)" text-anchor="middle">01.09</text>
-                  <circle cx="400" cy="120" r="5" fill="#FFF" stroke="var(--c-accent)" stroke-width="2"/>
-          <text x="400" y="110" font-size="11" font-weight="bold" fill="var(--c-ink)" text-anchor="middle">10 158 ₽</text>
-          <text x="400" y="136" font-size="10" fill="var(--c-ink-3)" text-anchor="middle">03.09</text>
-                  <circle cx="585" cy="34" r="5" fill="#FFF" stroke="var(--c-accent)" stroke-width="2"/>
-          <text x="585" y="24" font-size="11" font-weight="bold" fill="var(--c-ink)" text-anchor="middle">153 387 ₽</text>
-          <text x="585" y="136" font-size="10" fill="var(--c-ink-3)" text-anchor="middle">18.09</text>
+                  <circle cx="30" cy="30" r="5" fill="#FFF" stroke="var(--c-accent)" stroke-width="2"/>
+          <text x="30" y="20" font-size="11" font-weight="bold" fill="var(--c-ink)" text-anchor="middle">10 590 ₽</text>
+          <text x="30" y="136" font-size="10" fill="var(--c-ink-3)" text-anchor="middle">05.08</text>
+                  <circle cx="400" cy="75" r="5" fill="#FFF" stroke="var(--c-accent)" stroke-width="2"/>
+          <text x="400" y="65" font-size="11" font-weight="bold" fill="var(--c-ink)" text-anchor="middle">10 190 ₽</text>
+          <text x="400" y="136" font-size="10" fill="var(--c-ink-3)" text-anchor="middle">04.09</text>
                   <circle cx="770" cy="120" r="5" fill="#FFF" stroke="var(--c-accent)" stroke-width="2"/>
-          <text x="770" y="110" font-size="11" font-weight="bold" fill="var(--c-ink)" text-anchor="middle">9 767 ₽</text>
-          <text x="770" y="136" font-size="10" fill="var(--c-ink-3)" text-anchor="middle">03.10</text>
+          <text x="770" y="110" font-size="11" font-weight="bold" fill="var(--c-ink)" text-anchor="middle">9 790 ₽</text>
+          <text x="770" y="136" font-size="10" fill="var(--c-ink-3)" text-anchor="middle">04.10</text>
               </svg>
     </div>
       </section>
@@ -922,19 +1021,19 @@
       <section style="margin-bottom: var(--sp-8);">
       <h2 style="font-size: var(--fs-xl); font-weight: 800; margin-bottom: var(--sp-4);">Похожие модели</h2>
       <div class="product-grid">
-                  <article class="product-card" data-product-id="134" data-price="50490" data-drop="0" data-pop="120" data-brand="intel" data-seller="crossborder">
+                  <article class="product-card" data-product-id="1046" data-price="54490" data-drop="0" data-pop="120" data-brand="intel" data-seller="marketplace" data-mp="1" data-cb="0">
   <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
+              <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="134" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="1046" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-134/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Фото Процессор Intel Core i9-14900K OEM" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-1046/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Фото Процессор Intel Core i9-14900K OEM" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
   <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-134/" class="product-card__title" title="Процессор Intel Core i9-14900K OEM">    Процессор Intel Core i9-14900K OEM  </a>
+  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-1046/" class="product-card__title" title="Процессор Intel Core i9-14900K OEM">    Процессор Intel Core i9-14900K OEM  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -952,30 +1051,32 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">50 490 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">54 490 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="134" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1046" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="410" data-price="9890" data-drop="0" data-pop="120" data-brand="intel" data-seller="crossborder">
+                  <article class="product-card" data-product-id="794" data-price="9990" data-drop="0" data-pop="120" data-brand="intel" data-seller="crossborder" data-mp="1" data-cb="1">
   <div class="product-card__badges">
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="410" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="794" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-410/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Фото Процессор Intel Core i5-12400F OEM" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-794/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Фото Процессор Intel Core i5-12400F OEM" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
   <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-410/" class="product-card__title" title="Процессор Intel Core i5-12400F OEM">    Процессор Intel Core i5-12400F OEM  </a>
+  <a href="/price-aggregator/p/protsessor-intel-core-i5-12400f-oem-794/" class="product-card__title" title="Процессор Intel Core i5-12400F OEM">    Процессор Intel Core i5-12400F OEM  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -993,95 +1094,101 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">9 890 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">9 990 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="410" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="794" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="716" data-price="40390" data-drop="0" data-pop="120" data-brand="intel" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="716" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-716/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Фото Процессор Intel Core i7-14700K OEM" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-  <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i7-14700k-oem-716/" class="product-card__title" title="Процессор Intel Core i7-14700K OEM">    Процессор Intel Core i7-14700K OEM  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>socket:</span>
-        <strong>LGA1700</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>cores:</span>
-        <strong>20</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>threads:</span>
-        <strong>28</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">40 390 ₽</span>
-        <span class="product-card__shops-cnt">
-          7 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="716" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="278" data-price="49890" data-drop="0" data-pop="119" data-brand="intel" data-seller="crossborder">
+                  <article class="product-card" data-product-id="827" data-price="17390" data-drop="0" data-pop="120" data-brand="amd" data-seller="crossborder" data-mp="1" data-cb="1">
   <div class="product-card__badges">
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="278" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="827" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-278/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/cpu-intel.webp" alt="Фото Процессор Intel Core i9-14900K OEM" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-827/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Фото Процессор AMD Ryzen 5 7600X OEM" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
-  <div class="product-card__brand">Intel</div>
-  <a href="/price-aggregator/p/protsessor-intel-core-i9-14900k-oem-278/" class="product-card__title" title="Процессор Intel Core i9-14900K OEM">    Процессор Intel Core i9-14900K OEM  </a>
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-5-7600x-oem-827/" class="product-card__title" title="Процессор AMD Ryzen 5 7600X OEM">    Процессор AMD Ryzen 5 7600X OEM  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
-        <strong>LGA1700</strong>
+        <strong>AM5</strong>
       </div>
           <div class="product-card__spec-item">
         <span>cores:</span>
-        <strong>24</strong>
+        <strong>6</strong>
       </div>
           <div class="product-card__spec-item">
         <span>threads:</span>
-        <strong>32</strong>
+        <strong>12</strong>
       </div>
       </div>
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">49 890 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">17 390 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="278" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="827" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="431" data-price="18690" data-drop="0" data-pop="120" data-brand="amd" data-seller="crossborder" data-mp="1" data-cb="1">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="431" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-431/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/cpu-ryzen.webp" alt="Фото Процессор AMD Ryzen 7 5700X3D OEM" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">AMD</div>
+  <a href="/price-aggregator/p/protsessor-amd-ryzen-7-5700x3d-oem-431/" class="product-card__title" title="Процессор AMD Ryzen 7 5700X3D OEM">    Процессор AMD Ryzen 7 5700X3D OEM  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>socket:</span>
+        <strong>AM4</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>cores:</span>
+        <strong>8</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>threads:</span>
+        <strong>16</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">18 690 ₽</span>
+                  </div>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="431" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>

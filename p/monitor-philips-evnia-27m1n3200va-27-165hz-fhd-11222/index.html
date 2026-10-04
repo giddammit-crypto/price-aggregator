@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <meta name="pricehub-static" content="1">
   <base href="/price-aggregator/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -85,7 +86,7 @@
         <a href="/price-aggregator/catalog/processors" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Процессоры</a>
         <a href="/price-aggregator/catalog/storage-ssd" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">SSD накопители</a>
         <a href="/price-aggregator/catalog/televisions" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">ТВ и Аудио</a>
-        <a href="/price-aggregator/search?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
+        <a href="/price-aggregator/search/?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
       </div>
     </div>
 
@@ -538,14 +539,11 @@
 
     <!-- Product Pager (навигация по товарам категории) -->
     <div class="product-pager d-flex align-center gap-2">
-                    <a href="/price-aggregator/p/monitor-lg-ultragear-27gp850-b-27-nano-ips-165hz-qhd-11201/" class="btn btn--secondary btn--sm" title="Монитор LG UltraGear 27GP850-B 27 Nano IPS 165Hz QHD">
+                    <a href="/price-aggregator/p/monitor-aoc-gaming-24g2spu-23-8-ips-165hz-fhd-10453/" class="btn btn--secondary btn--sm" title="Монитор AOC Gaming 24G2SPU 23.8 IPS 165Hz FHD">
           <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right" style="transform: rotate(180deg);"></use></svg>
           <span>Предыдущий товар</span>
         </a>
-                          <a href="/price-aggregator/p/monitor-xiaomi-mi-curved-gaming-monitor-34-144hz-uwqhd-10771/" class="btn btn--secondary btn--sm" title="Монитор Xiaomi Mi Curved Gaming Monitor 34 144Hz UWQHD">
-          <span>Следующий товар</span>
-          <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
-        </a>
+                          
           </div>
   </div>
 
@@ -578,15 +576,23 @@
       </div>
 
       <!-- Best Price CTA Box -->
-      <div style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
+      <div class="product-hero__cta-box" style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
         <div class="d-flex justify-between align-center flex-wrap gap-2 mb-4">
           <div>
             <span class="text-muted" style="font-size: var(--fs-xs);">Лучшая цена в магазинах:</span>
-            <div style="font-size: 2rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px;">
-              15 690 ₽            </div>
-            <span class="text-muted" style="font-size: var(--fs-xs);">
-              в 1 магазинах (7 предложений)
-            </span>
+                        <div class="d-flex align-baseline gap-2 flex-wrap" style="margin-top: 2px;">
+              <div class="product-hero__min-price" style="font-size: 2.1rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px; line-height: 1.1;">
+                15 690 ₽              </div>
+                              <span class="product-hero__old-price" title="Цена до скидки" style="font-size: 1.2rem; color: var(--c-ink-3); text-decoration: line-through; font-weight: 600;">
+                  20 090 ₽                </span>
+                <span class="badge badge--drop" style="font-size: 11px;">−22%</span>
+                          </div>
+            <div class="d-flex align-center gap-2 mt-1">
+              <span class="text-muted" style="font-size: var(--fs-xs);">
+                в 1 магазинах (7 предложений)
+              </span>
+                              <span class="badge badge--best" style="font-size: 11px;">Выгода до 4 400 ₽</span>
+                          </div>
           </div>
 
           <div class="d-flex gap-2">
@@ -601,13 +607,21 @@
           </div>
         </div>
 
-                  <div class="d-flex justify-between align-center" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3); border: 1px solid var(--c-line);">
-            <div>
-              <span class="badge badge--best" style="margin-bottom: 4px;">Выгоднее всего</span>
-              <div class="font-bold">Aliexpress &bull; 15 690 ₽</div>
+                  <div class="product-hero__best-offer" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3) var(--sp-4); border: 1px solid var(--c-line); display: flex; justify-content: space-between; align-items: center; gap: var(--sp-3);">
+            <div class="d-flex align-center gap-3">
+              <span class="offer-shop__logo offer-shop__logo--aliexpress" style="background-color: #FF4747; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--r-sm); color: #fff; font-weight: 800; font-size: 11px;">
+                ALI              </span>
+              <div>
+                <div class="d-flex align-center gap-2">
+                  <span class="badge badge--best">Выгоднее всего</span>
+                                      <span class="badge badge--warn" style="font-size: 11px;">Доставка из Китая 12–18 дней</span>
+                                  </div>
+                <div class="font-bold mt-1" style="font-size: var(--fs-md);">
+                  <span style="color: #FF4747;">AliExpress</span> &bull; 15 690 ₽                </div>
+              </div>
             </div>
-                        <a href="https://aliexpress.ru/wholesale?SearchText=Philips%20Evnia%2027M1N3200VA" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent">
-              В магазин &rarr;
+            <a href="https://aliexpress.ru/wholesale?SearchText=Philips%20Evnia%2027M1N3200VA" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--shop">
+              <span>В магазин</span> &rarr;
             </a>
           </div>
               </div>
@@ -618,7 +632,7 @@
   <section style="margin-bottom: var(--sp-8);">
     <h2 style="font-size: var(--fs-lg); font-weight: 800;">Уведомить о снижении цены</h2>
     <form id="priceAlertForm" action="#" onsubmit="alert('Подписка успешно оформлена!'); return false;" method="POST" class="d-flex gap-2 flex-wrap mt-4">
-      <input type="hidden" name="_csrf" value="305b591fab50390ed5cfb66ad6c9b5867c145957f1ddcafc639859361aa01fc4">      <input type="hidden" name="product_id" value="11222">
+      <input type="hidden" name="_csrf" value="2fb131d7b41c306fa9d30cc02b3a9340f5c453c6c64e104c8697c0cc0dc2ceec">      <input type="hidden" name="product_id" value="11222">
       <label>E-mail <input type="email" name="email" required autocomplete="email" class="search-input"></label>
       <label>Желаемая цена, ₽ <input type="number" name="target_price" min="1" step="1" required class="search-input"></label>
       <button type="submit" class="btn btn--accent">Подписаться</button>
@@ -645,24 +659,39 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #1D70B8;">
-      ОнлайнТрейд    </div>
-    <span class="badge badge--marketplace">Гипермаркет</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--onlinetrade" style="background-color: #1D70B8;" title="ОнлайнТрейд" aria-hidden="true">
+        ОТ      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--onlinetrade" style="color: #1D70B8;">
+          ОнлайнТрейд        </div>
+        <span class="badge badge--shop-kind">Гипермаркет</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Клубная цена ON-бонусы</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">18 890 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">19 680 ₽</span>
+    
+          <div class="offer-price ">
+        18 890 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--bonus" title="Бонусная программа магазина">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Клубная цена ON-бонусы        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.onlinetrade.ru/sitesearch.html?query=Philips%20Evnia%2027M1N3200VA" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.onlinetrade.ru/sitesearch.html?query=Philips%20Evnia%2027M1N3200VA" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин ОнлайнТрейд">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -671,24 +700,39 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #E31E24;">
-      М.Видео    </div>
-    <span class="badge badge--marketplace">Федеральная сеть</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--mvideo" style="background-color: #E31E24;" title="М.Видео" aria-hidden="true">
+        М.В      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--mvideo" style="color: #E31E24;">
+          М.Видео        </div>
+        <span class="badge badge--shop-kind">Федеральная сеть</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Бонусы М.Видео до 10%</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">20 090 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">20 930 ₽</span>
+    
+          <div class="offer-price ">
+        20 090 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--bonus" title="Бонусная программа магазина">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Бонусы М.Видео до 10%        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.mvideo.ru/listing?q=Philips%20Evnia%2027M1N3200VA" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.mvideo.ru/listing?q=Philips%20Evnia%2027M1N3200VA" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин М.Видео">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -697,9 +741,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #005BFF;">
-      Ozon    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--ozon" style="background-color: #005BFF;" title="Ozon" aria-hidden="true">
+        OZON      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--ozon" style="color: #005BFF;">
+          Ozon        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -710,16 +760,25 @@
         </span>
                 
     
-          <span class="badge badge--warn">Цена с Ozon Картой</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">17 090 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">17 990 ₽</span>
+    
+          <div class="offer-price ">
+        17 090 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--ozon-card" title="Специальная цена с Ozon Картой">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+          Цена с Ozon Картой        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.ozon.ru/search/?text=Philips%20Evnia%2027M1N3200VA" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.ozon.ru/search/?text=Philips%20Evnia%2027M1N3200VA" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Ozon">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -728,9 +787,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #CB11AB;">
-      Wildberries    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--wildberries" style="background-color: #CB11AB;" title="Wildberries" aria-hidden="true">
+        WB      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--wildberries" style="color: #CB11AB;">
+          Wildberries        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -741,16 +806,25 @@
         </span>
                 
     
-          <span class="badge badge--warn">Скидка с WB Кошельком</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">17 090 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">18 180 ₽</span>
+    
+          <div class="offer-price ">
+        17 090 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--wb-wallet" title="Специальная цена при оплате WB Кошельком">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          Скидка с WB Кошельком        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.wildberries.ru/catalog/0/search.aspx?page=1&amp;sort=popular&amp;search=Philips%20Evnia%2027M1N3200VA" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.wildberries.ru/catalog/0/search.aspx?page=1&amp;sort=popular&amp;search=Philips%20Evnia%2027M1N3200VA" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Wildberries">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -759,9 +833,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #7B1FA2;">
-      Мегамаркет    </div>
-    <span class="badge badge--marketplace">СберМаркет / Бонусы</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--megamarket" style="background-color: #7B1FA2;" title="Мегамаркет" aria-hidden="true">
+        ММ      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--megamarket" style="color: #7B1FA2;">
+          Мегамаркет        </div>
+        <span class="badge badge--shop-kind">СберМаркет / Бонусы</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -773,16 +853,25 @@
                     <span class="badge badge--official">Официальный</span>
           
     
-          <span class="badge badge--warn">Кэшбэк до 15% бонусами</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">17 790 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">18 530 ₽</span>
+    
+          <div class="offer-price ">
+        17 790 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--bonus" title="Бонусная программа магазина">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Кэшбэк до 15% бонусами        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://megamarket.ru/catalog/?q=Philips%20Evnia%2027M1N3200VA" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://megamarket.ru/catalog/?q=Philips%20Evnia%2027M1N3200VA" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Мегамаркет">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -791,9 +880,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FC3F1D;">
-      Яндекс Маркет    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--yandex_market" style="background-color: #FC3F1D;" title="Яндекс Маркет" aria-hidden="true">
+        Я.М      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--yandex_market" style="color: #FC3F1D;">
+          Яндекс Маркет        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -805,16 +900,25 @@
                     <span class="badge badge--official">Официальный</span>
           
     
-          <span class="badge badge--warn">Баллы Яндекс Плюс</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">17 590 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">18 320 ₽</span>
+    
+          <div class="offer-price ">
+        17 590 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--yandex-plus" title="Кэшбэк или скидка баллами Яндекс Плюс">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          Баллы Яндекс Плюс        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://market.yandex.ru/search?text=Philips%20Evnia%2027M1N3200VA" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://market.yandex.ru/search?text=Philips%20Evnia%2027M1N3200VA" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Яндекс Маркет">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -823,9 +927,15 @@
               <div data-offer-kind="crossborder" data-offer-mode="prices">
           <div class="offer-row offer-row--best">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FF4747;">
-      AliExpress    </div>
-    <span class="badge badge--marketplace">Из Китая / Прямая доставка</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--aliexpress" style="background-color: #FF4747;" title="AliExpress" aria-hidden="true">
+        ALI      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--aliexpress" style="color: #FF4747;">
+          AliExpress        </div>
+        <span class="badge badge--shop-kind">Из Китая / Прямая доставка</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -842,12 +952,19 @@
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">15 690 ₽</div>
-            </div>
+    
+          <div class="offer-price offer-price--best">
+        15 690 ₽      </div>
+          
+    <div class="offer-price__badges">
+              <span class="badge badge--best">Лучшая цена</span>
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://aliexpress.ru/wholesale?SearchText=Philips%20Evnia%2027M1N3200VA" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://aliexpress.ru/wholesale?SearchText=Philips%20Evnia%2027M1N3200VA" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин AliExpress">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -893,144 +1010,19 @@
       <section style="margin-bottom: var(--sp-8);">
       <h2 style="font-size: var(--fs-xl); font-weight: 800; margin-bottom: var(--sp-4);">Похожие модели</h2>
       <div class="product-grid">
-                  <article class="product-card" data-product-id="10442" data-price="20590" data-drop="0" data-pop="120" data-brand="samsung" data-seller="crossborder">
+                  <article class="product-card" data-product-id="11552" data-price="27790" data-drop="0" data-pop="120" data-brand="huawei" data-seller="crossborder" data-mp="1" data-cb="1">
   <div class="product-card__badges">
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="10442" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="11552" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/monitor-samsung-odyssey-g5-27-165hz-wqhd-curved-1000r-10442/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/monitor-lg.webp" alt="Фото Монитор Samsung Odyssey G5 27 165Hz WQHD Curved 1000R" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-  <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/monitor-samsung-odyssey-g5-27-165hz-wqhd-curved-1000r-10442/" class="product-card__title" title="Монитор Samsung Odyssey G5 27 165Hz WQHD Curved 1000R">    Монитор Samsung Odyssey G5 27 165Hz WQHD Curved 1000R  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>diagonal:</span>
-        <strong>27&quot;</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>resolution:</span>
-        <strong>2560x1440</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>hz:</span>
-        <strong>165Hz</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">20 590 ₽</span>
-        <span class="product-card__shops-cnt">
-          7 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10442" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="11585" data-price="30390" data-drop="15" data-pop="119" data-brand="lg" data-seller="crossborder">
-  <div class="product-card__badges">
-          <span class="badge badge--drop">−15%</span>
-              <span class="badge badge--crossborder">Из Китая</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="11585" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/monitor-lg-ultragear-27gp850-b-27-nano-ips-165hz-qhd-11585/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/monitor-lg.webp" alt="Фото Монитор LG UltraGear 27GP850-B 27 Nano IPS 165Hz QHD" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-  <div class="product-card__brand">LG</div>
-  <a href="/price-aggregator/p/monitor-lg-ultragear-27gp850-b-27-nano-ips-165hz-qhd-11585/" class="product-card__title" title="Монитор LG UltraGear 27GP850-B 27 Nano IPS 165Hz QHD">    Монитор LG UltraGear 27GP850-B 27 Nano IPS 165Hz QHD  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>diagonal:</span>
-        <strong>27&quot;</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>resolution:</span>
-        <strong>2560x1440</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>hz:</span>
-        <strong>165Hz</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">30 390 ₽</span>
-        <span class="product-card__shops-cnt">
-          7 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11585" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="11078" data-price="16890" data-drop="0" data-pop="119" data-brand="philips" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="11078" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/monitor-philips-evnia-27m1n3200va-27-165hz-fhd-11078/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/monitor-lg.webp" alt="Фото Монитор Philips Evnia 27M1N3200VA 27 165Hz FHD" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-  <div class="product-card__brand">Philips</div>
-  <a href="/price-aggregator/p/monitor-philips-evnia-27m1n3200va-27-165hz-fhd-11078/" class="product-card__title" title="Монитор Philips Evnia 27M1N3200VA 27 165Hz FHD">    Монитор Philips Evnia 27M1N3200VA 27 165Hz FHD  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>diagonal:</span>
-        <strong>27&quot;</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>resolution:</span>
-        <strong>1920x1080</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>hz:</span>
-        <strong>165Hz</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">16 890 ₽</span>
-        <span class="product-card__shops-cnt">
-          7 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11078" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="11144" data-price="30090" data-drop="24" data-pop="119" data-brand="huawei" data-seller="marketplace">
-  <div class="product-card__badges">
-          <span class="badge badge--drop">−24%</span>
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="11144" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/monitor-huawei-mateview-gt-34-standard-edition-165hz-11144/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/monitor-lg.webp" alt="Фото Монитор HUAWEI MateView GT 34 Standard Edition 165Hz" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/monitor-huawei-mateview-gt-34-standard-edition-165hz-11552/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/monitor-lg.webp" alt="Фото Монитор HUAWEI MateView GT 34 Standard Edition 165Hz" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
   <div class="product-card__brand">HUAWEI</div>
-  <a href="/price-aggregator/p/monitor-huawei-mateview-gt-34-standard-edition-165hz-11144/" class="product-card__title" title="Монитор HUAWEI MateView GT 34 Standard Edition 165Hz">    Монитор HUAWEI MateView GT 34 Standard Edition 165Hz  </a>
+  <a href="/price-aggregator/p/monitor-huawei-mateview-gt-34-standard-edition-165hz-11552/" class="product-card__title" title="Монитор HUAWEI MateView GT 34 Standard Edition 165Hz">    Монитор HUAWEI MateView GT 34 Standard Edition 165Hz  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -1048,13 +1040,146 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">30 090 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">27 790 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11144" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11552" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="10385" data-price="33190" data-drop="0" data-pop="120" data-brand="lg" data-seller="marketplace" data-mp="1" data-cb="0">
+  <div class="product-card__badges">
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="10385" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/monitor-lg-ultragear-27gp850-b-27-nano-ips-165hz-qhd-10385/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/monitor-lg.webp" alt="Фото Монитор LG UltraGear 27GP850-B 27 Nano IPS 165Hz QHD" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">LG</div>
+  <a href="/price-aggregator/p/monitor-lg-ultragear-27gp850-b-27-nano-ips-165hz-qhd-10385/" class="product-card__title" title="Монитор LG UltraGear 27GP850-B 27 Nano IPS 165Hz QHD">    Монитор LG UltraGear 27GP850-B 27 Nano IPS 165Hz QHD  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>diagonal:</span>
+        <strong>27&quot;</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>resolution:</span>
+        <strong>2560x1440</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>hz:</span>
+        <strong>165Hz</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">33 190 ₽</span>
+                  </div>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10385" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="10418" data-price="22590" data-drop="0" data-pop="120" data-brand="samsung" data-seller="marketplace" data-mp="1" data-cb="0">
+  <div class="product-card__badges">
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="10418" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/monitor-samsung-odyssey-g5-27-165hz-wqhd-curved-1000r-10418/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/monitor-lg.webp" alt="Фото Монитор Samsung Odyssey G5 27 165Hz WQHD Curved 1000R" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Samsung</div>
+  <a href="/price-aggregator/p/monitor-samsung-odyssey-g5-27-165hz-wqhd-curved-1000r-10418/" class="product-card__title" title="Монитор Samsung Odyssey G5 27 165Hz WQHD Curved 1000R">    Монитор Samsung Odyssey G5 27 165Hz WQHD Curved 1000R  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>diagonal:</span>
+        <strong>27&quot;</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>resolution:</span>
+        <strong>2560x1440</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>hz:</span>
+        <strong>165Hz</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">22 590 ₽</span>
+                  </div>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10418" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="11375" data-price="52190" data-drop="15" data-pop="119" data-brand="msi" data-seller="marketplace" data-mp="1" data-cb="0">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−15%</span>
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="11375" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/monitor-msi-mag-274upf-27-4k-uhd-144hz-rapid-ips-11375/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/monitor-lg.webp" alt="Фото Монитор MSI MAG 274UPF 27 4K UHD 144Hz Rapid IPS" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">MSI</div>
+  <a href="/price-aggregator/p/monitor-msi-mag-274upf-27-4k-uhd-144hz-rapid-ips-11375/" class="product-card__title" title="Монитор MSI MAG 274UPF 27 4K UHD 144Hz Rapid IPS">    Монитор MSI MAG 274UPF 27 4K UHD 144Hz Rapid IPS  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>diagonal:</span>
+        <strong>27&quot;</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>resolution:</span>
+        <strong>3840x2160</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>hz:</span>
+        <strong>144Hz</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">52 190 ₽</span>
+                      <span class="product-card__old-price" title="Старая цена">61 400 ₽</span>
+                  </div>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="11375" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>

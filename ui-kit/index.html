@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <meta name="pricehub-static" content="1">
   <base href="/price-aggregator/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -85,7 +86,7 @@
         <a href="/price-aggregator/catalog/processors" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Процессоры</a>
         <a href="/price-aggregator/catalog/storage-ssd" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">SSD накопители</a>
         <a href="/price-aggregator/catalog/televisions" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">ТВ и Аудио</a>
-        <a href="/price-aggregator/search?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
+        <a href="/price-aggregator/search/?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
       </div>
     </div>
 
@@ -563,9 +564,15 @@
     <div class="offers-table">
       <div class="offer-row offer-row--best">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FF5000;">
-      Ситилинк    </div>
-    <span class="badge badge--marketplace">Федеральная сеть</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--citilink" style="background-color: #FF5000;" title="Ситилинк" aria-hidden="true">
+        CITI      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--citilink" style="color: #FF5000;">
+          Ситилинк        </div>
+        <span class="badge badge--shop-kind">Федеральная сеть</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -577,16 +584,25 @@
                     <span class="badge badge--official">Официальный</span>
           
     
-          <span class="badge badge--warn">Гарантия 36 мес.</span>
+          <span class="badge badge--warranty">
+        <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Гарантия 36 мес.      </span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">64 990 ₽</div>
-            </div>
+    
+          <div class="offer-price offer-price--best">
+        64 990 ₽      </div>
+          
+    <div class="offer-price__badges">
+              <span class="badge badge--best">Лучшая цена</span>
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="/go/14001/citilink%3A14001_0" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="/go/14001/citilink%3A14001_0" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Ситилинк">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -594,9 +610,15 @@
 
       <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #005BFF;">
-      Ozon    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--ozon" style="background-color: #005BFF;" title="Ozon" aria-hidden="true">
+        OZON      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--ozon" style="color: #005BFF;">
+          Ozon        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -608,16 +630,25 @@
                     <span class="badge badge--official">Официальный</span>
           
     
-          <span class="badge badge--warn">с Ozon Картой</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">66 500 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">70 000 ₽</span>
+    
+          <div class="offer-price ">
+        66 500 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--ozon-card" title="Специальная цена с Ozon Картой">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+          с Ozon Картой        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="/go/14001/ozon%3A14001_1" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="/go/14001/ozon%3A14001_1" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Ozon">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -625,9 +656,15 @@
 
       <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FF4747;">
-      AliExpress    </div>
-    <span class="badge badge--marketplace">Из Китая / Прямая доставка</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--aliexpress" style="background-color: #FF4747;" title="AliExpress" aria-hidden="true">
+        ALI      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--aliexpress" style="color: #FF4747;">
+          AliExpress        </div>
+        <span class="badge badge--shop-kind">Из Китая / Прямая доставка</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -643,13 +680,19 @@
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">60 390 ₽</div>
+    
+          <div class="offer-price ">
+        60 390 ₽      </div>
               <div class="offer-price-note">с доставкой</div>
-            </div>
+          
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="/go/14001/aliexpress%3A14001_2" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="/go/14001/aliexpress%3A14001_2" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин AliExpress">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -657,9 +700,15 @@
 
       <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #CB11AB;">
-      Wildberries    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--wildberries" style="background-color: #CB11AB;" title="Wildberries" aria-hidden="true">
+        WB      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--wildberries" style="color: #CB11AB;">
+          Wildberries        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -668,12 +717,17 @@
       </div>
 
   <div class="offer-price-col">
+    
           <span class="text-muted" style="font-size: var(--fs-xs);">Уточняйте на сайте</span>
-      </div>
+    
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="/go/search/wildberries?q=ASUS+ROG+Strix+GeForce+RTX+4070+SUPER" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="/go/search/wildberries?q=ASUS+ROG+Strix+GeForce+RTX+4070+SUPER" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Wildberries">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <meta name="pricehub-static" content="1">
   <base href="/price-aggregator/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -85,7 +86,7 @@
         <a href="/price-aggregator/catalog/processors" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Процессоры</a>
         <a href="/price-aggregator/catalog/storage-ssd" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">SSD накопители</a>
         <a href="/price-aggregator/catalog/televisions" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">ТВ и Аудио</a>
-        <a href="/price-aggregator/search?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
+        <a href="/price-aggregator/search/?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
       </div>
     </div>
 
@@ -538,11 +539,11 @@
 
     <!-- Product Pager (навигация по товарам категории) -->
     <div class="product-pager d-flex align-center gap-2">
-                    <a href="/price-aggregator/p/televizor-hisense-55u7kq-55-mini-led-144hz-vidaa-os-18413/" class="btn btn--secondary btn--sm" title="Телевизор Hisense 55U7KQ 55 Mini-LED 144Hz VIDAA OS">
+                    <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-18151/" class="btn btn--secondary btn--sm" title="Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight">
           <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right" style="transform: rotate(180deg);"></use></svg>
           <span>Предыдущий товар</span>
         </a>
-                          <a href="/price-aggregator/p/televizor-tcl-55c645-55-qled-4k-hdr10-google-tv-18484/" class="btn btn--secondary btn--sm" title="Телевизор TCL 55C645 55 QLED 4K HDR10+ Google TV">
+                          <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-18691/" class="btn btn--secondary btn--sm" title="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS">
           <span>Следующий товар</span>
           <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
         </a>
@@ -578,15 +579,23 @@
       </div>
 
       <!-- Best Price CTA Box -->
-      <div style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
+      <div class="product-hero__cta-box" style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
         <div class="d-flex justify-between align-center flex-wrap gap-2 mb-4">
           <div>
             <span class="text-muted" style="font-size: var(--fs-xs);">Лучшая цена в магазинах:</span>
-            <div style="font-size: 2rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px;">
-              31 390 ₽            </div>
-            <span class="text-muted" style="font-size: var(--fs-xs);">
-              в 1 магазинах (6 предложений)
-            </span>
+                        <div class="d-flex align-baseline gap-2 flex-wrap" style="margin-top: 2px;">
+              <div class="product-hero__min-price" style="font-size: 2.1rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px; line-height: 1.1;">
+                31 390 ₽              </div>
+                              <span class="product-hero__old-price" title="Цена до скидки" style="font-size: 1.2rem; color: var(--c-ink-3); text-decoration: line-through; font-weight: 600;">
+                  41 790 ₽                </span>
+                <span class="badge badge--drop" style="font-size: 11px;">−25%</span>
+                          </div>
+            <div class="d-flex align-center gap-2 mt-1">
+              <span class="text-muted" style="font-size: var(--fs-xs);">
+                в 1 магазинах (6 предложений)
+              </span>
+                              <span class="badge badge--best" style="font-size: 11px;">Выгода до 10 400 ₽</span>
+                          </div>
           </div>
 
           <div class="d-flex gap-2">
@@ -601,13 +610,21 @@
           </div>
         </div>
 
-                  <div class="d-flex justify-between align-center" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3); border: 1px solid var(--c-line);">
-            <div>
-              <span class="badge badge--best" style="margin-bottom: 4px;">Выгоднее всего</span>
-              <div class="font-bold">Aliexpress &bull; 31 390 ₽</div>
+                  <div class="product-hero__best-offer" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3) var(--sp-4); border: 1px solid var(--c-line); display: flex; justify-content: space-between; align-items: center; gap: var(--sp-3);">
+            <div class="d-flex align-center gap-3">
+              <span class="offer-shop__logo offer-shop__logo--aliexpress" style="background-color: #FF4747; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--r-sm); color: #fff; font-weight: 800; font-size: 11px;">
+                ALI              </span>
+              <div>
+                <div class="d-flex align-center gap-2">
+                  <span class="badge badge--best">Выгоднее всего</span>
+                                      <span class="badge badge--warn" style="font-size: 11px;">Доставка из Китая 12–18 дней</span>
+                                  </div>
+                <div class="font-bold mt-1" style="font-size: var(--fs-md);">
+                  <span style="color: #FF4747;">AliExpress</span> &bull; 31 390 ₽                </div>
+              </div>
             </div>
-                        <a href="https://aliexpress.ru/wholesale?SearchText=Haier" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent">
-              В магазин &rarr;
+            <a href="https://aliexpress.ru/wholesale?SearchText=Haier%2055%20Smart%20TV%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--shop">
+              <span>В магазин</span> &rarr;
             </a>
           </div>
               </div>
@@ -618,7 +635,7 @@
   <section style="margin-bottom: var(--sp-8);">
     <h2 style="font-size: var(--fs-lg); font-weight: 800;">Уведомить о снижении цены</h2>
     <form id="priceAlertForm" action="#" onsubmit="alert('Подписка успешно оформлена!'); return false;" method="POST" class="d-flex gap-2 flex-wrap mt-4">
-      <input type="hidden" name="_csrf" value="305b591fab50390ed5cfb66ad6c9b5867c145957f1ddcafc639859361aa01fc4">      <input type="hidden" name="product_id" value="18934">
+      <input type="hidden" name="_csrf" value="2fb131d7b41c306fa9d30cc02b3a9340f5c453c6c64e104c8697c0cc0dc2ceec">      <input type="hidden" name="product_id" value="18934">
       <label>E-mail <input type="email" name="email" required autocomplete="email" class="search-input"></label>
       <label>Желаемая цена, ₽ <input type="number" name="target_price" min="1" step="1" required class="search-input"></label>
       <button type="submit" class="btn btn--accent">Подписаться</button>
@@ -645,24 +662,39 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #E31E24;">
-      М.Видео    </div>
-    <span class="badge badge--marketplace">Федеральная сеть</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--mvideo" style="background-color: #E31E24;" title="М.Видео" aria-hidden="true">
+        М.В      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--mvideo" style="color: #E31E24;">
+          М.Видео        </div>
+        <span class="badge badge--shop-kind">Федеральная сеть</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Бонусы М.Видео до 10%</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">41 790 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">43 530 ₽</span>
+    
+          <div class="offer-price ">
+        41 790 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--bonus" title="Бонусная программа магазина">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Бонусы М.Видео до 10%        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.mvideo.ru/listing?q=Haier" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.mvideo.ru/listing?q=Haier%2055%20Smart%20TV%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин М.Видео">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -671,9 +703,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #005BFF;">
-      Ozon    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--ozon" style="background-color: #005BFF;" title="Ozon" aria-hidden="true">
+        OZON      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--ozon" style="color: #005BFF;">
+          Ozon        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -685,16 +723,25 @@
                     <span class="badge badge--official">Официальный</span>
           
     
-          <span class="badge badge--warn">Цена с Ozon Картой</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">35 490 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">37 360 ₽</span>
+    
+          <div class="offer-price ">
+        35 490 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--ozon-card" title="Специальная цена с Ozon Картой">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+          Цена с Ozon Картой        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.ozon.ru/search/?text=Haier" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.ozon.ru/search/?text=Haier%2055%20Smart%20TV%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Ozon">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -703,9 +750,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #CB11AB;">
-      Wildberries    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--wildberries" style="background-color: #CB11AB;" title="Wildberries" aria-hidden="true">
+        WB      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--wildberries" style="color: #CB11AB;">
+          Wildberries        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -716,16 +769,25 @@
         </span>
                 
     
-          <span class="badge badge--warn">Скидка с WB Кошельком</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">34 790 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">37 010 ₽</span>
+    
+          <div class="offer-price ">
+        34 790 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--wb-wallet" title="Специальная цена при оплате WB Кошельком">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          Скидка с WB Кошельком        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.wildberries.ru/catalog/0/search.aspx?page=1&amp;sort=popular&amp;search=Haier" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.wildberries.ru/catalog/0/search.aspx?page=1&amp;sort=popular&amp;search=Haier%2055%20Smart%20TV%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Wildberries">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -734,9 +796,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #7B1FA2;">
-      Мегамаркет    </div>
-    <span class="badge badge--marketplace">СберМаркет / Бонусы</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--megamarket" style="background-color: #7B1FA2;" title="Мегамаркет" aria-hidden="true">
+        ММ      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--megamarket" style="color: #7B1FA2;">
+          Мегамаркет        </div>
+        <span class="badge badge--shop-kind">СберМаркет / Бонусы</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -747,16 +815,25 @@
         </span>
                 
     
-          <span class="badge badge--warn">Кэшбэк до 15% бонусами</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">36 990 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">38 530 ₽</span>
+    
+          <div class="offer-price ">
+        36 990 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--bonus" title="Бонусная программа магазина">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Кэшбэк до 15% бонусами        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://megamarket.ru/catalog/?q=Haier" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://megamarket.ru/catalog/?q=Haier%2055%20Smart%20TV%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Мегамаркет">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -765,9 +842,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FC3F1D;">
-      Яндекс Маркет    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--yandex_market" style="background-color: #FC3F1D;" title="Яндекс Маркет" aria-hidden="true">
+        Я.М      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--yandex_market" style="color: #FC3F1D;">
+          Яндекс Маркет        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -779,16 +862,25 @@
                     <span class="badge badge--official">Официальный</span>
           
     
-          <span class="badge badge--warn">Баллы Яндекс Плюс</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">35 890 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">37 390 ₽</span>
+    
+          <div class="offer-price ">
+        35 890 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--yandex-plus" title="Кэшбэк или скидка баллами Яндекс Плюс">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          Баллы Яндекс Плюс        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://market.yandex.ru/search?text=Haier" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://market.yandex.ru/search?text=Haier%2055%20Smart%20TV%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Яндекс Маркет">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -797,9 +889,15 @@
               <div data-offer-kind="crossborder" data-offer-mode="prices">
           <div class="offer-row offer-row--best">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FF4747;">
-      AliExpress    </div>
-    <span class="badge badge--marketplace">Из Китая / Прямая доставка</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--aliexpress" style="background-color: #FF4747;" title="AliExpress" aria-hidden="true">
+        ALI      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--aliexpress" style="color: #FF4747;">
+          AliExpress        </div>
+        <span class="badge badge--shop-kind">Из Китая / Прямая доставка</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -816,12 +914,19 @@
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">31 390 ₽</div>
-            </div>
+    
+          <div class="offer-price offer-price--best">
+        31 390 ₽      </div>
+          
+    <div class="offer-price__badges">
+              <span class="badge badge--best">Лучшая цена</span>
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://aliexpress.ru/wholesale?SearchText=Haier" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://aliexpress.ru/wholesale?SearchText=Haier%2055%20Smart%20TV%20S3" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин AliExpress">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -867,19 +972,20 @@
       <section style="margin-bottom: var(--sp-8);">
       <h2 style="font-size: var(--fs-xl); font-weight: 800; margin-bottom: var(--sp-4);">Похожие модели</h2>
       <div class="product-grid">
-                  <article class="product-card" data-product-id="18239" data-price="71190" data-drop="0" data-pop="120" data-brand="philips" data-seller="marketplace">
+                  <article class="product-card" data-product-id="18305" data-price="36990" data-drop="15" data-pop="119" data-brand="xiaomi" data-seller="marketplace" data-mp="1" data-cb="0">
   <div class="product-card__badges">
+          <span class="badge badge--drop">−15%</span>
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="18239" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="18305" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-18239/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Фото Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-18305/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Фото Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
-  <div class="product-card__brand">Philips</div>
-  <a href="/price-aggregator/p/televizor-philips-55pus8808-55-the-one-120hz-4k-ambilight-18239/" class="product-card__title" title="Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight">    Телевизор Philips 55PUS8808 55 The One 120Hz 4K Ambilight  </a>
+  <div class="product-card__brand">Xiaomi</div>
+  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-18305/" class="product-card__title" title="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV">    Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -897,30 +1003,76 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">71 190 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">36 990 ₽</span>
+                      <span class="product-card__old-price" title="Старая цена">43 518 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18239" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18305" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="19154" data-price="120390" data-drop="0" data-pop="120" data-brand="lg" data-seller="crossborder">
+                  <article class="product-card" data-product-id="19142" data-price="32190" data-drop="0" data-pop="119" data-brand="haier" data-seller="crossborder" data-mp="1" data-cb="1">
   <div class="product-card__badges">
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="19154" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="19142" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/televizor-lg-oled55c3rla-55-4k-120hz-webos-smart-tv-19154/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Фото Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/televizor-haier-55-smart-tv-s3-4k-uhd-android-tv-19142/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Фото Телевизор Haier 55 Smart TV S3 4K UHD Android TV" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Haier</div>
+  <a href="/price-aggregator/p/televizor-haier-55-smart-tv-s3-4k-uhd-android-tv-19142/" class="product-card__title" title="Телевизор Haier 55 Smart TV S3 4K UHD Android TV">    Телевизор Haier 55 Smart TV S3 4K UHD Android TV  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>diagonal:</span>
+        <strong>55&quot;</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>resolution:</span>
+        <strong>3840x2160</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>smart_tv:</span>
+        <strong>Android TV</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">32 190 ₽</span>
+                  </div>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19142" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="18890" data-price="120390" data-drop="0" data-pop="119" data-brand="lg" data-seller="crossborder" data-mp="1" data-cb="1">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="18890" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/televizor-lg-oled55c3rla-55-4k-120hz-webos-smart-tv-18890/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Фото Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
   <div class="product-card__brand">LG</div>
-  <a href="/price-aggregator/p/televizor-lg-oled55c3rla-55-4k-120hz-webos-smart-tv-19154/" class="product-card__title" title="Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV">    Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV  </a>
+  <a href="/price-aggregator/p/televizor-lg-oled55c3rla-55-4k-120hz-webos-smart-tv-18890/" class="product-card__title" title="Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV">    Телевизор LG OLED55C3RLA 55 4K 120Hz webOS Smart TV  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -938,31 +1090,32 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">120 390 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">120 390 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="19154" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18890" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="18977" data-price="33890" data-drop="12" data-pop="119" data-brand="xiaomi" data-seller="crossborder">
+                  <article class="product-card" data-product-id="18152" data-price="99990" data-drop="0" data-pop="119" data-brand="sony" data-seller="crossborder" data-mp="1" data-cb="1">
   <div class="product-card__badges">
-          <span class="badge badge--drop">−12%</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="18977" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="18152" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-18977/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Фото Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-18152/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Фото Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
-  <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/televizor-xiaomi-tv-a-pro-55-2025-4k-uhd-qled-google-tv-18977/" class="product-card__title" title="Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV">    Телевизор Xiaomi TV A Pro 55 2025 4K UHD QLED Google TV  </a>
+  <div class="product-card__brand">Sony</div>
+  <a href="/price-aggregator/p/televizor-sony-bravia-55x85l-55-4k-120hz-full-array-led-18152/" class="product-card__title" title="Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED">    Телевизор Sony BRAVIA 55X85L 55 4K 120Hz Full Array LED  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>diagonal:</span>
@@ -980,54 +1133,15 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">33 890 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">99 990 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18977" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="18251" data-price="59190" data-drop="0" data-pop="119" data-brand="samsung" data-seller="crossborder">
-  <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="18251" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-18251/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/tv-xiaomi.webp" alt="Фото Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-  <div class="product-card__brand">Samsung</div>
-  <a href="/price-aggregator/p/televizor-samsung-qe55q60cau-55-qled-4k-tizen-os-18251/" class="product-card__title" title="Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS">    Телевизор Samsung QE55Q60CAU 55 QLED 4K Tizen OS  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>diagonal:</span>
-        <strong>55&quot;</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>resolution:</span>
-        <strong>3840x2160</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>smart_tv:</span>
-        <strong>Tizen OS</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">59 190 ₽</span>
-        <span class="product-card__shops-cnt">
-          7 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18251" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="18152" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>

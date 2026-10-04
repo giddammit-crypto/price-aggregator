@@ -3,14 +3,17 @@
  */
 
 import { Storage } from './storage.js';
-import { initSearch } from './search.js';
+import { initSearch, initSearchResults } from './search.js';
 import { initFilters } from './filters.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize Search Autocomplete
   initSearch();
 
-  // 2. Initialize Catalog Filters
+  // 2. Initialize Search Results Page Interactive Controller
+  initSearchResults();
+
+  // 3. Initialize Catalog Filters
   initFilters();
 
   // 3. Mega Menu Toggle & Tab Switching

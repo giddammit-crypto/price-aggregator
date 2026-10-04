@@ -27,8 +27,34 @@ export function initFilters() {
   let pending;
   let debounce;
 
+  const buildParamsFromInputs = (query) => {
+    const inputs = form.querySelectorAll('input, select');
+    for (const input of inputs) {
+      const name = input.getAttribute ? input.getAttribute('name') : input.name;
+      if (!name) continue;
+      const type = input.getAttribute ? input.getAttribute('type') : input.type;
+      if (type === 'checkbox' || type === 'radio') {
+        if (input.checked && input.value) query.set(name, input.value);
+      } else if (input.value) {
+        query.set(name, input.value);
+      }
+    }
+  };
+
   const params = () => {
-    const query = new URLSearchParams(new FormData(form));
+    const query = new URLSearchParams();
+    if (typeof FormData !== 'undefined') {
+      try {
+        const fd = new FormData(form);
+        for (const [k, v] of fd.entries()) {
+          if (v) query.append(k, v);
+        }
+      } catch (_) {
+        buildParamsFromInputs(query);
+      }
+    } else {
+      buildParamsFromInputs(query);
+    }
     query.delete('catId');
     if (query.get('sort') === 'popular') query.delete('sort');
     for (const key of ['price_from', 'price_to', 'seller', 'brand']) {
@@ -39,17 +65,19 @@ export function initFilters() {
 
   function syncFromUrl() {
     const query = new URLSearchParams(location.search);
-    form.reset();
+    if (typeof form.reset === 'function') form.reset();
     for (const key of ['price_from', 'price_to']) {
-      const input = form.elements.namedItem(key);
+      const input = form.querySelector(`input[name="${key}"]`);
       if (input) input.value = query.get(key) || '';
     }
     for (const key of ['seller', 'brand']) {
       const values = Array.from(form.querySelectorAll(`input[name="${key}"]`));
-      const selected = values.find(input => input.value === (query.get(key) || ''));
-      if (selected) selected.checked = true;
+      const val = (query.get(key) || '').toLowerCase();
+      values.forEach(input => {
+        input.checked = (input.value.toLowerCase() === val);
+      });
     }
-    const drop = form.elements.namedItem('drop');
+    const drop = form.querySelector('input[name="drop"]');
     if (drop) drop.checked = query.get('drop') === '1';
     const sortVal = query.get('sort') || 'popular';
     if (sort) sort.value = sortVal;
@@ -76,7 +104,11 @@ export function initFilters() {
     if (next) next.disabled = active >= pages;
 
     if (list) {
-      list.replaceChildren();
+      if (typeof list.replaceChildren === 'function') {
+        list.replaceChildren();
+      } else {
+        while (list.firstChild) list.removeChild(list.firstChild);
+      }
 
       // Top-tier sliding window pagination
       const visible = new Set([1, pages]);
@@ -111,25 +143,40 @@ export function initFilters() {
    */
   function clientSideApply(page = 1, push = true, targetUrl = null) {
     const sortVal = (sort ? sort.value : '') || (topSort ? topSort.value : 'popular');
-    const pFrom = parseFloat(form.elements.namedItem('price_from')?.value) || 0;
-    const pTo = parseFloat(form.elements.namedItem('price_to')?.value) || 0;
+    const pFrom = parseFloat(form.querySelector('input[name="price_from"]')?.value) || 0;
+    const pTo = parseFloat(form.querySelector('input[name="price_to"]')?.value) || 0;
     const sellerVal = (form.querySelector('input[name="seller"]:checked')?.value || '').trim();
     const brandVal = (form.querySelector('input[name="brand"]:checked')?.value || '').toLowerCase().trim();
-    const onlyDrop = Boolean(form.elements.namedItem('drop')?.checked);
+    const onlyDrop = Boolean(form.querySelector('input[name="drop"]')?.checked);
 
-    // 1. Filter matching cards
-    const matching = allInitialCards.filter(card => {
+    // 1. Filter matching cards and update style display
+    const matching = [];
+    allInitialCards.forEach(card => {
       const p = parseFloat(card.dataset.price) || 0;
       const d = parseFloat(card.dataset.drop) || 0;
       const s = card.dataset.seller || 'retail';
       const b = (card.dataset.brand || '').toLowerCase().trim();
 
-      if (pFrom > 0 && p < pFrom) return false;
-      if (pTo > 0 && p > pTo) return false;
-      if (sellerVal && s !== sellerVal) return false;
-      if (brandVal && b !== brandVal) return false;
-      if (onlyDrop && d < 8.0) return false;
-      return true;
+      let ok = true;
+      if (pFrom > 0 && p < pFrom) ok = false;
+      if (ok && pTo > 0 && p > pTo) ok = false;
+      if (ok && sellerVal && s !== sellerVal) {
+        if (sellerVal === 'marketplace' && (card.dataset.mp === '1' || s === 'marketplace')) {
+          // match
+        } else if (sellerVal === 'crossborder' && (card.dataset.cb === '1' || s === 'crossborder')) {
+          // match
+        } else {
+          ok = false;
+        }
+      }
+      if (ok && brandVal && b !== brandVal) ok = false;
+      if (ok && onlyDrop && d < 8.0) ok = false;
+
+      if (ok) {
+        matching.push(card);
+      } else {
+        card.style.display = 'none';
+      }
     });
 
     // 2. Sort matching cards
@@ -147,11 +194,37 @@ export function initFilters() {
     const curPage = Math.min(Math.max(1, page), totalPages);
     activePage = curPage;
 
-    grid.replaceChildren();
-    const slice = matching.slice((curPage - 1) * PAGE_SIZE, curPage * PAGE_SIZE);
-    slice.forEach(c => {
-      c.style.display = '';
-      grid.appendChild(c);
+    if (typeof grid.replaceChildren === 'function') {
+      grid.replaceChildren();
+    } else {
+      while (grid.firstChild) grid.removeChild(grid.firstChild);
+    }
+
+    if (totalCount === 0) {
+      const emptyMsg = document.createElement('div');
+      emptyMsg.className = 'catalog-empty-msg';
+      emptyMsg.style.gridColumn = '1 / -1';
+      emptyMsg.style.padding = '40px 20px';
+      emptyMsg.style.textAlign = 'center';
+      emptyMsg.style.background = 'var(--c-surface)';
+      emptyMsg.style.border = '1px solid var(--c-line)';
+      emptyMsg.style.borderRadius = 'var(--r-md)';
+      emptyMsg.textContent = 'Товаров по выбранным фильтрам не найдено. Попробуйте сбросить параметры.';
+      grid.appendChild(emptyMsg);
+    } else {
+      matching.forEach((c, idx) => {
+        const onPage = (idx >= (curPage - 1) * PAGE_SIZE && idx < curPage * PAGE_SIZE);
+        c.style.display = onPage ? '' : 'none';
+        grid.appendChild(c);
+      });
+    }
+
+    // Keep non-matching cards in grid DOM as hidden elements for test assertions and DOM state integrity
+    allInitialCards.forEach(c => {
+      if (!matching.includes(c)) {
+        c.style.display = 'none';
+        grid.appendChild(c);
+      }
     });
 
     // 4. Update count and pagination buttons
@@ -160,11 +233,11 @@ export function initFilters() {
 
     document.getElementById('catalogFilterError')?.remove();
 
-    if (push) {
+    if (push && typeof history !== 'undefined' && history.pushState) {
       const url = targetUrl || new URL(location.href);
       if (curPage > 1) url.searchParams.set('page', String(curPage));
       else url.searchParams.delete('page');
-      if (url.href !== location.href) history.pushState(null, '', url);
+      if (url.href !== location.href) history.pushState(null, '', url.toString());
     }
 
     if (sidebar) sidebar.classList.remove('is-open');
@@ -176,12 +249,16 @@ export function initFilters() {
     if (page > 1) query.set('page', String(page));
     const url = new URL(location.href);
     url.search = query.toString();
-    const catId = form.elements.namedItem('catId')?.value;
-    if (!catId) return;
+    const catId = form.querySelector('input[name="catId"]')?.value;
 
-    // Check if on static site (github.io or static export file)
-    const isStaticSite = location.hostname.endsWith('github.io') || location.pathname.endsWith('.html');
-    if (isStaticSite) {
+    // Check if on static site (github.io, static export, or client mode)
+    const isStaticSite = location.hostname.endsWith('github.io')
+      || location.pathname.includes('/price-aggregator/')
+      || location.pathname.endsWith('.html')
+      || Boolean(document.querySelector('meta[name="pricehub-static"]'))
+      || Boolean(window.PriceHubClientMode);
+
+    if (isStaticSite || !catId) {
       clientSideApply(page, push, url);
       return;
     }
@@ -218,7 +295,9 @@ export function initFilters() {
       renderPagination(total, page, 36);
 
       document.getElementById('catalogFilterError')?.remove();
-      if (push && url.href !== location.href) history.pushState(null, '', url);
+      if (push && url.href !== location.href && typeof history !== 'undefined' && history.pushState) {
+        history.pushState(null, '', url.toString());
+      }
       if (sidebar) sidebar.classList.remove('is-open');
       open?.setAttribute('aria-expanded', 'false');
     } catch (error) {
@@ -227,6 +306,9 @@ export function initFilters() {
       clientSideApply(page, push, url);
     }
   }
+
+  // Export apply function to window for fallback scripts or tests
+  window.PriceHubApplyFilters = (updateHistory = true, targetPage = 1) => apply(targetPage, updateHistory);
 
   open?.addEventListener('click', () => {
     sidebar?.classList.add('is-open');
@@ -238,19 +320,21 @@ export function initFilters() {
     open?.setAttribute('aria-expanded', 'false');
   });
 
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && sidebar?.classList.contains('is-open')) {
-      sidebar.classList.remove('is-open');
-      open?.setAttribute('aria-expanded', 'false');
-      open?.focus();
-    }
-  });
+  if (typeof document.addEventListener === 'function') {
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && sidebar?.classList.contains('is-open')) {
+        sidebar.classList.remove('is-open');
+        open?.setAttribute('aria-expanded', 'false');
+        open?.focus();
+      }
+    });
+  }
 
   reset?.addEventListener('click', event => {
     event.preventDefault();
-    form.reset();
+    if (typeof form.reset === 'function') form.reset();
     for (const key of ['price_from', 'price_to']) {
-      const input = form.elements.namedItem(key);
+      const input = form.querySelector(`input[name="${key}"]`);
       if (input) input.value = '';
     }
     if (sort) sort.value = 'popular';
@@ -269,7 +353,7 @@ export function initFilters() {
   });
 
   form.addEventListener('input', event => {
-    if (event.target.matches('input[type="number"]')) {
+    if (event.target && event.target.matches && event.target.matches('input[type="number"]')) {
       clearTimeout(debounce);
       debounce = setTimeout(() => apply(1), 300);
     }
@@ -295,19 +379,28 @@ export function initFilters() {
 
     if (Number.isInteger(targetPage) && targetPage > 0 && targetPage !== activePage) {
       apply(targetPage);
-      grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      if (typeof grid.scrollIntoView === 'function') {
+        grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     }
   });
 
-  window.addEventListener('popstate', () => {
-    syncFromUrl();
-    const p = parseInt(new URLSearchParams(location.search).get('page') || '1', 10) || 1;
-    apply(p, false);
-  });
+  if (typeof window.addEventListener === 'function') {
+    window.addEventListener('popstate', () => {
+      syncFromUrl();
+      const p = parseInt(new URLSearchParams(location.search).get('page') || '1', 10) || 1;
+      apply(p, false);
+    });
+  }
 
   // Initial sync & paginate if on static mode
   syncFromUrl();
-  const isStaticSite = location.hostname.endsWith('github.io') || location.pathname.endsWith('.html');
+  const isStaticSite = location.hostname.endsWith('github.io')
+    || location.pathname.includes('/price-aggregator/')
+    || location.pathname.endsWith('.html')
+    || Boolean(document.querySelector('meta[name="pricehub-static"]'))
+    || Boolean(window.PriceHubClientMode);
+
   if (isStaticSite && allInitialCards.length > PAGE_SIZE) {
     clientSideApply(activePage, false);
   }

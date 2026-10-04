@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <meta name="pricehub-static" content="1">
   <base href="/price-aggregator/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -85,7 +86,7 @@
         <a href="/price-aggregator/catalog/processors" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Процессоры</a>
         <a href="/price-aggregator/catalog/storage-ssd" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">SSD накопители</a>
         <a href="/price-aggregator/catalog/televisions" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">ТВ и Аудио</a>
-        <a href="/price-aggregator/search?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
+        <a href="/price-aggregator/search/?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
       </div>
     </div>
 
@@ -578,15 +579,23 @@
       </div>
 
       <!-- Best Price CTA Box -->
-      <div style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
+      <div class="product-hero__cta-box" style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
         <div class="d-flex justify-between align-center flex-wrap gap-2 mb-4">
           <div>
             <span class="text-muted" style="font-size: var(--fs-xs);">Лучшая цена в магазинах:</span>
-            <div style="font-size: 2rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px;">
-              20 190 ₽            </div>
-            <span class="text-muted" style="font-size: var(--fs-xs);">
-              в 1 магазинах (5 предложений)
-            </span>
+                        <div class="d-flex align-baseline gap-2 flex-wrap" style="margin-top: 2px;">
+              <div class="product-hero__min-price" style="font-size: 2.1rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px; line-height: 1.1;">
+                20 190 ₽              </div>
+                              <span class="product-hero__old-price" title="Цена до скидки" style="font-size: 1.2rem; color: var(--c-ink-3); text-decoration: line-through; font-weight: 600;">
+                  25 885 ₽                </span>
+                <span class="badge badge--drop" style="font-size: 11px;">−22%</span>
+                          </div>
+            <div class="d-flex align-center gap-2 mt-1">
+              <span class="text-muted" style="font-size: var(--fs-xs);">
+                в 1 магазинах (5 предложений)
+              </span>
+                              <span class="badge badge--best" style="font-size: 11px;">Выгода до 5 695 ₽</span>
+                          </div>
           </div>
 
           <div class="d-flex gap-2">
@@ -601,13 +610,21 @@
           </div>
         </div>
 
-                  <div class="d-flex justify-between align-center" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3); border: 1px solid var(--c-line);">
-            <div>
-              <span class="badge badge--best" style="margin-bottom: 4px;">Выгоднее всего</span>
-              <div class="font-bold">Ozon &bull; 20 190 ₽</div>
+                  <div class="product-hero__best-offer" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3) var(--sp-4); border: 1px solid var(--c-line); display: flex; justify-content: space-between; align-items: center; gap: var(--sp-3);">
+            <div class="d-flex align-center gap-3">
+              <span class="offer-shop__logo offer-shop__logo--ozon" style="background-color: #005BFF; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--r-sm); color: #fff; font-weight: 800; font-size: 11px;">
+                OZON              </span>
+              <div>
+                <div class="d-flex align-center gap-2">
+                  <span class="badge badge--best">Выгоднее всего</span>
+                                      <span class="badge badge--warn" style="font-size: 11px;">Цена с Ozon Картой</span>
+                                  </div>
+                <div class="font-bold mt-1" style="font-size: var(--fs-md);">
+                  <span style="color: #005BFF;">Ozon</span> &bull; 20 190 ₽                </div>
+              </div>
             </div>
-                        <a href="https://www.ozon.ru/search/?text=Netac%20NV7000%202TB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent">
-              В магазин &rarr;
+            <a href="https://www.ozon.ru/search/?text=Netac%20NV7000%202TB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--shop">
+              <span>В магазин</span> &rarr;
             </a>
           </div>
               </div>
@@ -618,7 +635,7 @@
   <section style="margin-bottom: var(--sp-8);">
     <h2 style="font-size: var(--fs-lg); font-weight: 800;">Уведомить о снижении цены</h2>
     <form id="priceAlertForm" action="#" onsubmit="alert('Подписка успешно оформлена!'); return false;" method="POST" class="d-flex gap-2 flex-wrap mt-4">
-      <input type="hidden" name="_csrf" value="305b591fab50390ed5cfb66ad6c9b5867c145957f1ddcafc639859361aa01fc4">      <input type="hidden" name="product_id" value="3927">
+      <input type="hidden" name="_csrf" value="2fb131d7b41c306fa9d30cc02b3a9340f5c453c6c64e104c8697c0cc0dc2ceec">      <input type="hidden" name="product_id" value="3927">
       <label>E-mail <input type="email" name="email" required autocomplete="email" class="search-input"></label>
       <label>Желаемая цена, ₽ <input type="number" name="target_price" min="1" step="1" required class="search-input"></label>
       <button type="submit" class="btn btn--accent">Подписаться</button>
@@ -645,24 +662,38 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FF5000;">
-      Ситилинк    </div>
-    <span class="badge badge--marketplace">Федеральная сеть</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--citilink" style="background-color: #FF5000;" title="Ситилинк" aria-hidden="true">
+        CITI      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--citilink" style="color: #FF5000;">
+          Ситилинк        </div>
+        <span class="badge badge--shop-kind">Федеральная сеть</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Гарантия Ситилинк</span>
+          <span class="badge badge--warranty">
+        <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Гарантия Ситилинк      </span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">21 990 ₽</div>
-            </div>
+    
+          <div class="offer-price ">
+        21 990 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.citilink.ru/search/?text=Netac%20NV7000%202TB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.citilink.ru/search/?text=Netac%20NV7000%202TB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Ситилинк">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -671,24 +702,38 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #0055A5;">
-      Регард    </div>
-    <span class="badge badge--marketplace">Специализированный ПК</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--regard" style="background-color: #0055A5;" title="Регард" aria-hidden="true">
+        REG      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--regard" style="color: #0055A5;">
+          Регард        </div>
+        <span class="badge badge--shop-kind">Специализированный ПК</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Гарантия Регард</span>
+          <span class="badge badge--warranty">
+        <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Гарантия Регард      </span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">21 390 ₽</div>
-            </div>
+    
+          <div class="offer-price ">
+        21 390 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.regard.ru/catalog?search=Netac%20NV7000%202TB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.regard.ru/catalog?search=Netac%20NV7000%202TB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Регард">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -697,24 +742,39 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #1D70B8;">
-      ОнлайнТрейд    </div>
-    <span class="badge badge--marketplace">Гипермаркет</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--onlinetrade" style="background-color: #1D70B8;" title="ОнлайнТрейд" aria-hidden="true">
+        ОТ      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--onlinetrade" style="color: #1D70B8;">
+          ОнлайнТрейд        </div>
+        <span class="badge badge--shop-kind">Гипермаркет</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Клубная цена ON-бонусы</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">22 190 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">23 110 ₽</span>
+    
+          <div class="offer-price ">
+        22 190 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--bonus" title="Бонусная программа магазина">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Клубная цена ON-бонусы        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.onlinetrade.ru/sitesearch.html?query=Netac%20NV7000%202TB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.onlinetrade.ru/sitesearch.html?query=Netac%20NV7000%202TB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин ОнлайнТрейд">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -723,24 +783,39 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #E31E24;">
-      М.Видео    </div>
-    <span class="badge badge--marketplace">Федеральная сеть</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--mvideo" style="background-color: #E31E24;" title="М.Видео" aria-hidden="true">
+        М.В      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--mvideo" style="color: #E31E24;">
+          М.Видео        </div>
+        <span class="badge badge--shop-kind">Федеральная сеть</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Бонусы М.Видео до 10%</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">23 490 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">24 470 ₽</span>
+    
+          <div class="offer-price ">
+        23 490 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--bonus" title="Бонусная программа магазина">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Бонусы М.Видео до 10%        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.mvideo.ru/listing?q=Netac%20NV7000%202TB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.mvideo.ru/listing?q=Netac%20NV7000%202TB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин М.Видео">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -749,9 +824,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row offer-row--best">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #005BFF;">
-      Ozon    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--ozon" style="background-color: #005BFF;" title="Ozon" aria-hidden="true">
+        OZON      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--ozon" style="color: #005BFF;">
+          Ozon        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -763,16 +844,26 @@
                     <span class="badge badge--official">Официальный</span>
           
     
-          <span class="badge badge--warn">Цена с Ozon Картой</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">20 190 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">21 250 ₽</span>
+    
+          <div class="offer-price offer-price--best">
+        20 190 ₽      </div>
+          
+    <div class="offer-price__badges">
+              <span class="badge badge--best">Лучшая цена</span>
+      
+              <span class="badge badge--ozon-card" title="Специальная цена с Ozon Картой">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+          Цена с Ozon Картой        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.ozon.ru/search/?text=Netac%20NV7000%202TB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.ozon.ru/search/?text=Netac%20NV7000%202TB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Ozon">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -815,20 +906,20 @@
       <section style="margin-bottom: var(--sp-8);">
       <h2 style="font-size: var(--fs-xl); font-weight: 800; margin-bottom: var(--sp-4);">Похожие модели</h2>
       <div class="product-grid">
-                  <article class="product-card" data-product-id="4172" data-price="15890" data-drop="12" data-pop="120" data-brand="netac" data-seller="crossborder">
+                  <article class="product-card" data-product-id="4193" data-price="13890" data-drop="18" data-pop="120" data-brand="netac" data-seller="crossborder" data-mp="1" data-cb="1">
   <div class="product-card__badges">
-          <span class="badge badge--drop">−12%</span>
+          <span class="badge badge--drop">−18%</span>
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="4172" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="4193" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-2tb-4172/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="Фото SSD накопитель Netac NV7000 2TB NVMe M.2 (2TB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-4193/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="Фото SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
   <div class="product-card__brand">Netac</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-2tb-4172/" class="product-card__title" title="SSD накопитель Netac NV7000 2TB NVMe M.2 (2TB)">    SSD накопитель Netac NV7000 2TB NVMe M.2 (2TB)  </a>
+  <a href="/price-aggregator/p/ssd-nakopitel-netac-nv7000-2tb-nvme-m-2-1tb-4193/" class="product-card__title" title="SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB)">    SSD накопитель Netac NV7000 2TB NVMe M.2 (1TB)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -846,30 +937,76 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">15 890 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">13 890 ₽</span>
+                      <span class="product-card__old-price" title="Старая цена">16 939 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4172" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4193" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="3587" data-price="17090" data-drop="0" data-pop="119" data-brand="kingston" data-seller="marketplace">
+                  <article class="product-card" data-product-id="4259" data-price="15690" data-drop="0" data-pop="120" data-brand="kingston" data-seller="crossborder" data-mp="1" data-cb="1">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="4259" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-4tb-4259/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="Фото SSD накопитель Kingston KC3000 1TB NVMe M.2 (4TB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Kingston</div>
+  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-4tb-4259/" class="product-card__title" title="SSD накопитель Kingston KC3000 1TB NVMe M.2 (4TB)">    SSD накопитель Kingston KC3000 1TB NVMe M.2 (4TB)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>form_factor:</span>
+        <strong>M.2</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>capacity_gb:</span>
+        <strong>1000</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>interface:</span>
+        <strong>PCIe 4.0 x4</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">15 690 ₽</span>
+                  </div>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4259" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="3554" data-price="11290" data-drop="0" data-pop="120" data-brand="crucial" data-seller="marketplace" data-mp="1" data-cb="0">
   <div class="product-card__badges">
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="3587" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="3554" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-4tb-3587/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="Фото SSD накопитель Kingston KC3000 1TB NVMe M.2 (4TB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-2tb-3554/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="Фото SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (2TB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
-  <div class="product-card__brand">Kingston</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-4tb-3587/" class="product-card__title" title="SSD накопитель Kingston KC3000 1TB NVMe M.2 (4TB)">    SSD накопитель Kingston KC3000 1TB NVMe M.2 (4TB)  </a>
+  <div class="product-card__brand">Crucial</div>
+  <a href="/price-aggregator/p/ssd-nakopitel-crucial-p3-plus-1tb-nvme-m-2-2tb-3554/" class="product-card__title" title="SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (2TB)">    SSD накопитель Crucial P3 Plus 1TB NVMe M.2 (2TB)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -887,71 +1024,32 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">17 090 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">11 290 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3587" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3554" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="3380" data-price="10290" data-drop="0" data-pop="119" data-brand="adata" data-seller="crossborder">
+                  <article class="product-card" data-product-id="4469" data-price="11190" data-drop="0" data-pop="119" data-brand="kingston" data-seller="crossborder" data-mp="1" data-cb="1">
   <div class="product-card__badges">
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="3380" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="4469" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-1tb-3380/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="Фото SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (1TB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-  <div class="product-card__brand">ADATA</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-adata-legend-960-max-1tb-nvme-m-2-1tb-3380/" class="product-card__title" title="SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (1TB)">    SSD накопитель ADATA Legend 960 MAX 1TB NVMe M.2 (1TB)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>form_factor:</span>
-        <strong>M.2</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>capacity_gb:</span>
-        <strong>1000</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>interface:</span>
-        <strong>PCIe 4.0 x4</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">10 290 ₽</span>
-        <span class="product-card__shops-cnt">
-          7 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3380" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="3545" data-price="11190" data-drop="0" data-pop="119" data-brand="kingston" data-seller="crossborder">
-  <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="3545" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-1tb-3545/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="Фото SSD накопитель Kingston KC3000 1TB NVMe M.2 (1TB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-1tb-4469/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/ssd-samsung.webp" alt="Фото SSD накопитель Kingston KC3000 1TB NVMe M.2 (1TB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
   <div class="product-card__brand">Kingston</div>
-  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-1tb-3545/" class="product-card__title" title="SSD накопитель Kingston KC3000 1TB NVMe M.2 (1TB)">    SSD накопитель Kingston KC3000 1TB NVMe M.2 (1TB)  </a>
+  <a href="/price-aggregator/p/ssd-nakopitel-kingston-kc3000-1tb-nvme-m-2-1tb-4469/" class="product-card__title" title="SSD накопитель Kingston KC3000 1TB NVMe M.2 (1TB)">    SSD накопитель Kingston KC3000 1TB NVMe M.2 (1TB)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -969,13 +1067,15 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">11 190 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">11 190 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="3545" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="4469" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>

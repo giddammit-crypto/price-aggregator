@@ -114,6 +114,7 @@
     fill: currentColor;
     display: inline-block;
   }
+  .icon-xs { width: 12px; height: 12px; }
   .icon-sm { width: 16px; height: 16px; }
   .icon-lg { width: 24px; height: 24px; }
 }
@@ -190,6 +191,12 @@
   .badge--marketplace { background-color: #E4E7EB; color: var(--c-ink); }
   .badge--official { background-color: #E8F5E9; color: #006846; border: 1px solid #C8E6C9; }
   .badge--warn { background-color: #FFF8E1; color: var(--c-warn); border: 1px solid #FFE082; }
+  .badge--wb-wallet { background-color: #FDF0FA; color: #9E0085; border: 1px solid #F5B8EB; font-weight: 700; }
+  .badge--ozon-card { background-color: #EBF3FF; color: #0047C7; border: 1px solid #B8D5FF; font-weight: 700; }
+  .badge--yandex-plus { background-color: #FFF1EE; color: #D82505; border: 1px solid #FFCDC4; font-weight: 700; }
+  .badge--bonus { background-color: #FFF8E1; color: #8C5300; border: 1px solid #FFE082; font-weight: 700; }
+  .badge--warranty { background-color: #E8F5E9; color: #006846; border: 1px solid #C8E6C9; font-weight: 600; }
+  .badge--shop-kind { background-color: #F1F3F5; color: var(--c-ink-2); font-size: 11px; font-weight: 500; }
 
   /* Chips */
   .chip-group {
@@ -198,14 +205,19 @@
     gap: var(--sp-2);
   }
   .chip {
-    padding: 6px 14px;
+    padding: 7px 16px;
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 20px;
     background: var(--c-surface);
     border: 1px solid var(--c-line);
     font-size: var(--fs-sm);
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.15s ease;
+    user-select: none;
   }
   .chip.is-active, .chip:hover {
     background-color: var(--c-accent-50);
@@ -839,6 +851,12 @@
     flex-direction: column;
     min-width: 0;
   }
+  .product-card__price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
   .product-card__price-label {
     font-size: var(--fs-xs);
     color: var(--c-ink-3);
@@ -850,11 +868,78 @@
     letter-spacing: -0.5px;
     line-height: 1.1;
   }
+  .product-card__old-price {
+    font-size: var(--fs-xs);
+    color: var(--c-ink-3);
+    text-decoration: line-through;
+    font-weight: 500;
+    white-space: nowrap;
+  }
   .product-card__shops-cnt {
     font-size: var(--fs-xs);
     color: var(--c-ink-3);
     margin-top: 2px;
   }
+
+  /* Store Brand Colors and Logo Badges */
+  .offer-shop__header {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+  }
+  .offer-shop__logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: var(--r-sm);
+    font-weight: 800;
+    font-size: 10px;
+    letter-spacing: 0.3px;
+    color: #FFFFFF;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  }
+  .offer-shop__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+  .offer-shop__name {
+    font-weight: 700;
+    font-size: var(--fs-md);
+    line-height: 1.25;
+  }
+
+  /* Verified Store Accent Colors (Brand Identity) */
+  .shop-name--wildberries { color: #CB11AB !important; }
+  .shop-name--ozon { color: #005BFF !important; }
+  .shop-name--dns { color: #EC6608 !important; }
+  .shop-name--citilink { color: #FF5000 !important; }
+  .shop-name--mvideo { color: #E31E24 !important; }
+  .shop-name--yandex_market { color: #FC3F1D !important; }
+  .shop-name--megamarket { color: #7B1FA2 !important; }
+  .shop-name--regard { color: #0055A5 !important; }
+  .shop-name--onlinetrade { color: #1D70B8 !important; }
+  .shop-name--aliexpress { color: #FF4747 !important; }
+  .shop-name--joom { color: #00BFA5 !important; }
+  .shop-name--avito { color: #00AAFF !important; }
+
+  .offer-shop__logo--wildberries { background-color: #CB11AB !important; color: #FFF; }
+  .offer-shop__logo--ozon { background-color: #005BFF !important; color: #FFF; }
+  .offer-shop__logo--dns { background-color: #EC6608 !important; color: #FFF; }
+  .offer-shop__logo--citilink { background-color: #FF5000 !important; color: #FFF; }
+  .offer-shop__logo--mvideo { background-color: #E31E24 !important; color: #FFF; }
+  .offer-shop__logo--yandex_market { background-color: #FC3F1D !important; color: #FFF; }
+  .offer-shop__logo--megamarket { background-color: #7B1FA2 !important; color: #FFF; }
+  .offer-shop__logo--regard { background-color: #0055A5 !important; color: #FFF; }
+  .offer-shop__logo--onlinetrade { background-color: #1D70B8 !important; color: #FFF; }
+  .offer-shop__logo--aliexpress { background-color: #FF4747 !important; color: #FFF; }
+  .offer-shop__logo--joom { background-color: #00BFA5 !important; color: #FFF; }
+  .offer-shop__logo--avito { background-color: #00AAFF !important; color: #FFF; }
 
   /* Offer Row on Product Page */
   .offers-table {
@@ -868,24 +953,26 @@
     border-radius: var(--r-md);
     padding: var(--sp-3) var(--sp-4);
     display: grid;
-    grid-template-columns: minmax(130px, 180px) minmax(0, 1fr) minmax(130px, 180px) minmax(120px, 140px);
+    grid-template-columns: minmax(170px, 220px) minmax(0, 1.3fr) minmax(160px, 200px) minmax(130px, 150px);
     align-items: center;
     gap: var(--sp-4);
-    transition: background 0.15s ease;
+    transition: all 0.15s ease;
+  }
+  .offer-row:hover {
+    border-color: #cbd2d9;
+    box-shadow: var(--sh-1);
   }
   .offer-row--best {
-    background-color: var(--c-accent-50);
-    border-color: var(--c-accent);
+    background-color: #f7fdfa;
+    border-color: #a3e2ca;
+    border-left: 4px solid var(--c-ok);
+    box-shadow: 0 2px 8px rgba(0, 133, 91, 0.08);
   }
   .offer-shop {
     display: flex;
     flex-direction: column;
     gap: 3px;
     min-width: 0;
-  }
-  .offer-shop__name {
-    font-weight: 700;
-    font-size: var(--fs-md);
   }
   .offer-seller {
     display: flex;
@@ -907,15 +994,57 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    justify-content: center;
+    min-width: 0;
   }
   .offer-price {
-    font-size: 1.35rem;
+    font-size: 1.4rem;
     font-weight: 800;
     color: var(--c-ink);
+    letter-spacing: -0.3px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .offer-price--best {
+    color: #007a50;
+    font-weight: 900;
+  }
+  .offer-price__old {
+    font-size: var(--fs-xs);
+    color: var(--c-ink-3);
+    text-decoration: line-through;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 2px;
+    white-space: nowrap;
   }
   .offer-price-note {
     font-size: var(--fs-xs);
     color: var(--c-ink-2);
+  }
+  .offer-price__badges {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+    margin-top: 4px;
+  }
+  .offer-action-col {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .offer-action-col .btn,
+  .btn--shop {
+    min-height: 40px;
+    padding: 9px 18px;
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    white-space: nowrap;
+    border-radius: var(--r-md);
+  }
+  .btn--shop:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(196, 66, 0, 0.25);
   }
 
   /* Catalog Layout */
@@ -1107,10 +1236,11 @@
       grid-template-columns: minmax(0, 1fr) !important;
     }
     .offer-row {
-      grid-template-columns: minmax(120px, 1fr) minmax(0, 1.4fr) auto;
+      grid-template-columns: minmax(150px, 1.1fr) minmax(0, 1.3fr) minmax(140px, auto) minmax(120px, auto);
+      gap: var(--sp-3);
+      padding: var(--sp-3) var(--sp-4);
     }
-    .offer-price-col { align-items: flex-start; }
-    .offer-row > :last-child { grid-column: 3; grid-row: 1 / span 2; }
+    .offer-price-col { align-items: flex-end; }
     .catalog-layout {
       grid-template-columns: 1fr;
     }
@@ -1138,13 +1268,33 @@
     .site-main { padding-bottom: calc(70px + env(safe-area-inset-bottom)); }
     .footer-grid { grid-template-columns: 1fr; }
     .offer-row {
-      grid-template-columns: 1fr 1fr;
-      gap: var(--sp-2);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--sp-3);
+      padding: var(--sp-4);
     }
-    .offer-row > :last-child { grid-column: 1 / -1; grid-row: auto; }
-    .offer-row .btn { width: 100%; }
-    .offer-shop, .offer-seller { grid-column: 1 / -1; }
-    .offer-price-col { grid-column: 1 / -1; }
+    .offer-shop { grid-column: 1; grid-row: 1; }
+    .offer-seller { grid-column: 1; grid-row: 2; }
+    .offer-price-col {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .offer-action-col,
+    .offer-row > :last-child {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      width: 100%;
+    }
+    .offer-action-col .btn,
+    .offer-row .btn {
+      width: 100%;
+      min-height: 46px;
+      font-size: var(--fs-md);
+      font-weight: 700;
+      padding: 10px 18px;
+    }
     .header-main__inner { flex-wrap: wrap; }
     .header-search { order: 3; flex: 1 0 100%; }
     .header-actions { margin-left: auto; }
@@ -1212,6 +1362,37 @@
     .site-main [style*="padding: 48px"] { padding: var(--sp-6) !important; }
     .cookie-banner__inner .btn { width: 100%; }
     .toast-container { left: var(--sp-4); }
+    .offer-row {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+      padding: var(--sp-3) var(--sp-4);
+    }
+    .offer-shop, .offer-seller { width: 100%; }
+    .offer-price-col {
+      width: 100%;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border-top: 1px dashed var(--c-line);
+      padding-top: var(--sp-2);
+      gap: 6px;
+    }
+    .offer-price { font-size: 1.45rem; }
+    .offer-price__badges { align-items: flex-start; width: 100%; }
+    .offer-action-col { width: 100%; }
+    .offer-action-col .btn, .offer-row .btn { width: 100%; min-height: 46px; }
+    .chip-group {
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      flex-wrap: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .chip-group::-webkit-scrollbar { display: none; }
+    .chip { white-space: nowrap; flex-shrink: 0; min-height: 38px; }
   }
   @media (max-width: 360px) {
     .site-main .container > section:first-child > div[style*="repeat(12, 1fr)"] > div { padding: var(--sp-3) !important; }

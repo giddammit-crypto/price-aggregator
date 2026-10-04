@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <meta name="pricehub-static" content="1">
   <base href="/price-aggregator/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -85,7 +86,7 @@
         <a href="/price-aggregator/catalog/processors" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Процессоры</a>
         <a href="/price-aggregator/catalog/storage-ssd" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">SSD накопители</a>
         <a href="/price-aggregator/catalog/televisions" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">ТВ и Аудио</a>
-        <a href="/price-aggregator/search?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
+        <a href="/price-aggregator/search/?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
       </div>
     </div>
 
@@ -538,11 +539,11 @@
 
     <!-- Product Pager (навигация по товарам категории) -->
     <div class="product-pager d-flex align-center gap-2">
-                    <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-9539/" class="btn btn--secondary btn--sm" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB)">
+                    <a href="/price-aggregator/p/noutbuk-apple-macbook-air-13-m3-16gb-512gb-midnight-16-512gb-9544/" class="btn btn--secondary btn--sm" title="Ноутбук Apple MacBook Air 13 M3 16GB 512GB Midnight (16/512GB)">
           <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right" style="transform: rotate(180deg);"></use></svg>
           <span>Предыдущий товар</span>
         </a>
-                          <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-16-512gb-9821/" class="btn btn--secondary btn--sm" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (16/512GB)">
+                          <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-10316/" class="btn btn--secondary btn--sm" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB)">
           <span>Следующий товар</span>
           <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
         </a>
@@ -578,15 +579,23 @@
       </div>
 
       <!-- Best Price CTA Box -->
-      <div style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
+      <div class="product-hero__cta-box" style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
         <div class="d-flex justify-between align-center flex-wrap gap-2 mb-4">
           <div>
             <span class="text-muted" style="font-size: var(--fs-xs);">Лучшая цена в магазинах:</span>
-            <div style="font-size: 2rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px;">
-              51 590 ₽            </div>
-            <span class="text-muted" style="font-size: var(--fs-xs);">
-              в 1 магазинах (6 предложений)
-            </span>
+                        <div class="d-flex align-baseline gap-2 flex-wrap" style="margin-top: 2px;">
+              <div class="product-hero__min-price" style="font-size: 2.1rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px; line-height: 1.1;">
+                51 590 ₽              </div>
+                              <span class="product-hero__old-price" title="Цена до скидки" style="font-size: 1.2rem; color: var(--c-ink-3); text-decoration: line-through; font-weight: 600;">
+                  67 190 ₽                </span>
+                <span class="badge badge--drop" style="font-size: 11px;">−23%</span>
+                          </div>
+            <div class="d-flex align-center gap-2 mt-1">
+              <span class="text-muted" style="font-size: var(--fs-xs);">
+                в 1 магазинах (6 предложений)
+              </span>
+                              <span class="badge badge--best" style="font-size: 11px;">Выгода до 15 600 ₽</span>
+                          </div>
           </div>
 
           <div class="d-flex gap-2">
@@ -601,13 +610,21 @@
           </div>
         </div>
 
-                  <div class="d-flex justify-between align-center" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3); border: 1px solid var(--c-line);">
-            <div>
-              <span class="badge badge--best" style="margin-bottom: 4px;">Выгоднее всего</span>
-              <div class="font-bold">Aliexpress &bull; 51 590 ₽</div>
+                  <div class="product-hero__best-offer" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3) var(--sp-4); border: 1px solid var(--c-line); display: flex; justify-content: space-between; align-items: center; gap: var(--sp-3);">
+            <div class="d-flex align-center gap-3">
+              <span class="offer-shop__logo offer-shop__logo--aliexpress" style="background-color: #FF4747; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--r-sm); color: #fff; font-weight: 800; font-size: 11px;">
+                ALI              </span>
+              <div>
+                <div class="d-flex align-center gap-2">
+                  <span class="badge badge--best">Выгоднее всего</span>
+                                      <span class="badge badge--warn" style="font-size: 11px;">Доставка из Китая 12–18 дней</span>
+                                  </div>
+                <div class="font-bold mt-1" style="font-size: var(--fs-md);">
+                  <span style="color: #FF4747;">AliExpress</span> &bull; 51 590 ₽                </div>
+              </div>
             </div>
-                        <a href="https://aliexpress.ru/wholesale?SearchText=Huawei%20MateBook%20D%2016" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent">
-              В магазин &rarr;
+            <a href="https://aliexpress.ru/wholesale?SearchText=Huawei%20MateBook%20D%2016" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--shop">
+              <span>В магазин</span> &rarr;
             </a>
           </div>
               </div>
@@ -618,7 +635,7 @@
   <section style="margin-bottom: var(--sp-8);">
     <h2 style="font-size: var(--fs-lg); font-weight: 800;">Уведомить о снижении цены</h2>
     <form id="priceAlertForm" action="#" onsubmit="alert('Подписка успешно оформлена!'); return false;" method="POST" class="d-flex gap-2 flex-wrap mt-4">
-      <input type="hidden" name="_csrf" value="305b591fab50390ed5cfb66ad6c9b5867c145957f1ddcafc639859361aa01fc4">      <input type="hidden" name="product_id" value="10313">
+      <input type="hidden" name="_csrf" value="2fb131d7b41c306fa9d30cc02b3a9340f5c453c6c64e104c8697c0cc0dc2ceec">      <input type="hidden" name="product_id" value="10313">
       <label>E-mail <input type="email" name="email" required autocomplete="email" class="search-input"></label>
       <label>Желаемая цена, ₽ <input type="number" name="target_price" min="1" step="1" required class="search-input"></label>
       <button type="submit" class="btn btn--accent">Подписаться</button>
@@ -645,9 +662,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #7B1FA2;">
-      Мегамаркет    </div>
-    <span class="badge badge--marketplace">СберМаркет / Бонусы</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--megamarket" style="background-color: #7B1FA2;" title="Мегамаркет" aria-hidden="true">
+        ММ      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--megamarket" style="color: #7B1FA2;">
+          Мегамаркет        </div>
+        <span class="badge badge--shop-kind">СберМаркет / Бонусы</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -658,16 +681,25 @@
         </span>
                 
     
-          <span class="badge badge--warn">Кэшбэк до 15% бонусами</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">59 990 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">62 490 ₽</span>
+    
+          <div class="offer-price ">
+        59 990 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--bonus" title="Бонусная программа магазина">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Кэшбэк до 15% бонусами        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://megamarket.ru/catalog/?q=Huawei%20MateBook%20D%2016" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://megamarket.ru/catalog/?q=Huawei%20MateBook%20D%2016" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Мегамаркет">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -676,9 +708,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FC3F1D;">
-      Яндекс Маркет    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--yandex_market" style="background-color: #FC3F1D;" title="Яндекс Маркет" aria-hidden="true">
+        Я.М      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--yandex_market" style="color: #FC3F1D;">
+          Яндекс Маркет        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -690,16 +728,25 @@
                     <span class="badge badge--official">Официальный</span>
           
     
-          <span class="badge badge--warn">Баллы Яндекс Плюс</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">58 190 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">60 610 ₽</span>
+    
+          <div class="offer-price ">
+        58 190 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--yandex-plus" title="Кэшбэк или скидка баллами Яндекс Плюс">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          Баллы Яндекс Плюс        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://market.yandex.ru/search?text=Huawei%20MateBook%20D%2016" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://market.yandex.ru/search?text=Huawei%20MateBook%20D%2016" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Яндекс Маркет">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -708,9 +755,15 @@
               <div data-offer-kind="crossborder" data-offer-mode="prices">
           <div class="offer-row offer-row--best">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FF4747;">
-      AliExpress    </div>
-    <span class="badge badge--marketplace">Из Китая / Прямая доставка</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--aliexpress" style="background-color: #FF4747;" title="AliExpress" aria-hidden="true">
+        ALI      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--aliexpress" style="color: #FF4747;">
+          AliExpress        </div>
+        <span class="badge badge--shop-kind">Из Китая / Прямая доставка</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -727,12 +780,19 @@
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">51 590 ₽</div>
-            </div>
+    
+          <div class="offer-price offer-price--best">
+        51 590 ₽      </div>
+          
+    <div class="offer-price__badges">
+              <span class="badge badge--best">Лучшая цена</span>
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://aliexpress.ru/wholesale?SearchText=Huawei%20MateBook%20D%2016" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://aliexpress.ru/wholesale?SearchText=Huawei%20MateBook%20D%2016" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин AliExpress">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -741,24 +801,38 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #EC6608;">
-      DNS    </div>
-    <span class="badge badge--marketplace">Сеть магазинов</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--dns" style="background-color: #EC6608;" title="DNS" aria-hidden="true">
+        DNS      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--dns" style="color: #EC6608;">
+          DNS        </div>
+        <span class="badge badge--shop-kind">Сеть магазинов</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Гарантия DNS 12–36 мес.</span>
+          <span class="badge badge--warranty">
+        <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Гарантия DNS 12–36 мес.      </span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">67 190 ₽</div>
-            </div>
+    
+          <div class="offer-price ">
+        67 190 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.dns-shop.ru/search/?q=Huawei%20MateBook%20D%2016" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.dns-shop.ru/search/?q=Huawei%20MateBook%20D%2016" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин DNS">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -767,9 +841,15 @@
               <div data-offer-kind="classifieds" data-offer-mode="link_only">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #00AAFF;">
-      Авито    </div>
-    <span class="badge badge--marketplace">Частные / Б/у</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--avito" style="background-color: #00AAFF;" title="Авито" aria-hidden="true">
+        АВ      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--avito" style="color: #00AAFF;">
+          Авито        </div>
+        <span class="badge badge--shop-kind">Частные / Б/у</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -779,12 +859,17 @@
       </div>
 
   <div class="offer-price-col">
+    
           <span class="text-muted" style="font-size: var(--fs-xs);">Уточняйте на сайте</span>
-      </div>
+    
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.avito.ru/rossiya?q=Huawei%20MateBook%20D%2016" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.avito.ru/rossiya?q=Huawei%20MateBook%20D%2016" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Авито">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -793,24 +878,38 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FF5000;">
-      Ситилинк    </div>
-    <span class="badge badge--marketplace">Федеральная сеть</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--citilink" style="background-color: #FF5000;" title="Ситилинк" aria-hidden="true">
+        CITI      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--citilink" style="color: #FF5000;">
+          Ситилинк        </div>
+        <span class="badge badge--shop-kind">Федеральная сеть</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Гарантия Ситилинк</span>
+          <span class="badge badge--warranty">
+        <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Гарантия Ситилинк      </span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">62 390 ₽</div>
-            </div>
+    
+          <div class="offer-price ">
+        62 390 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.citilink.ru/search/?text=Huawei%20MateBook%20D%2016" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.citilink.ru/search/?text=Huawei%20MateBook%20D%2016" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Ситилинк">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -819,24 +918,38 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #0055A5;">
-      Регард    </div>
-    <span class="badge badge--marketplace">Специализированный ПК</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--regard" style="background-color: #0055A5;" title="Регард" aria-hidden="true">
+        REG      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--regard" style="color: #0055A5;">
+          Регард        </div>
+        <span class="badge badge--shop-kind">Специализированный ПК</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Гарантия Регард</span>
+          <span class="badge badge--warranty">
+        <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Гарантия Регард      </span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">61 790 ₽</div>
-            </div>
+    
+          <div class="offer-price ">
+        61 790 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.regard.ru/catalog?search=Huawei%20MateBook%20D%2016" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.regard.ru/catalog?search=Huawei%20MateBook%20D%2016" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Регард">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -882,19 +995,63 @@
       <section style="margin-bottom: var(--sp-8);">
       <h2 style="font-size: var(--fs-xl); font-weight: 800; margin-bottom: var(--sp-4);">Похожие модели</h2>
       <div class="product-grid">
-                  <article class="product-card" data-product-id="9218" data-price="147190" data-drop="0" data-pop="120" data-brand="msi" data-seller="marketplace">
+                  <article class="product-card" data-product-id="9032" data-price="277290" data-drop="0" data-pop="120" data-brand="asus" data-seller="marketplace" data-mp="1" data-cb="0">
   <div class="product-card__badges">
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="9218" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="9032" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-64-2tb-9218/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Фото Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (64/2TB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-9032/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Фото Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">ASUS</div>
+  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-9032/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>screen_size:</span>
+        <strong>16.0&quot;</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>cpu_type:</span>
+        <strong>Intel Core Ultra 9</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>ram_gb:</span>
+        <strong>32</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">277 290 ₽</span>
+                  </div>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9032" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="9065" data-price="144890" data-drop="15" data-pop="120" data-brand="msi" data-seller="marketplace" data-mp="1" data-cb="0">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−15%</span>
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="9065" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-16-512gb-9065/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Фото Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (16/512GB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-64-2tb-9218/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (64/2TB)">    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (64/2TB)  </a>
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-16-512gb-9065/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (16/512GB)">    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (16/512GB)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -912,71 +1069,76 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">147 190 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">144 890 ₽</span>
+                      <span class="product-card__old-price" title="Старая цена">170 459 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9218" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9065" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="9923" data-price="277890" data-drop="0" data-pop="120" data-brand="asus" data-seller="marketplace">
+                  <article class="product-card" data-product-id="10154" data-price="145690" data-drop="0" data-pop="120" data-brand="msi" data-seller="marketplace" data-mp="1" data-cb="0">
   <div class="product-card__badges">
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="9923" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="10154" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-9923/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Фото Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-10154/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Фото Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
-  <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-16-512gb-9923/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (16/512GB)  </a>
+  <div class="product-card__brand">MSI</div>
+  <a href="/price-aggregator/p/igrovoy-noutbuk-msi-katana-17-b13vgk-core-i7-13700h-rtx-4070-16gb-1tb-32-1tb-10154/" class="product-card__title" title="Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB)">    Игровой ноутбук MSI Katana 17 B13VGK (Core i7-13700H / RTX 4070 / 16GB / 1TB) (32/1TB)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
-        <strong>16.0&quot;</strong>
+        <strong>17.3&quot;</strong>
       </div>
           <div class="product-card__spec-item">
         <span>cpu_type:</span>
-        <strong>Intel Core Ultra 9</strong>
+        <strong>Intel Core i7</strong>
       </div>
           <div class="product-card__spec-item">
         <span>ram_gb:</span>
-        <strong>32</strong>
+        <strong>16</strong>
       </div>
       </div>
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">277 890 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">145 690 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9923" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="10154" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="9944" data-price="64090" data-drop="0" data-pop="120" data-brand="huawei" data-seller="marketplace">
+                  <article class="product-card" data-product-id="9935" data-price="56490" data-drop="0" data-pop="120" data-brand="huawei" data-seller="crossborder" data-mp="1" data-cb="1">
   <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
+              <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="9944" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="9935" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-9944/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Фото Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-32-1tb-9935/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Фото Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
   <div class="product-card__brand">Huawei</div>
-  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-64-2tb-9944/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB)">    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (64/2TB)  </a>
+  <a href="/price-aggregator/p/noutbuk-huawei-matebook-d-16-core-i5-12450h-16gb-512gb-space-gray-32-1tb-9935/" class="product-card__title" title="Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB)">    Ноутбук Huawei MateBook D 16 (Core i5-12450H / 16GB / 512GB Space Gray) (32/1TB)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
@@ -994,54 +1156,15 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">64 090 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">56 490 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9944" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="9725" data-price="282590" data-drop="0" data-pop="120" data-brand="asus" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="9725" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-9725/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/laptop-macbook.webp" alt="Фото Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-  <div class="product-card__brand">ASUS</div>
-  <a href="/price-aggregator/p/igrovoy-noutbuk-asus-rog-zephyrus-g16-core-ultra-9-rtx-4080-32gb-1tb-oled-64-2tb-9725/" class="product-card__title" title="Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB)">    Игровой ноутбук ASUS ROG Zephyrus G16 (Core Ultra 9 / RTX 4080 / 32GB / 1TB OLED) (64/2TB)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>screen_size:</span>
-        <strong>16.0&quot;</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>cpu_type:</span>
-        <strong>Intel Core Ultra 9</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>ram_gb:</span>
-        <strong>32</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">282 590 ₽</span>
-        <span class="product-card__shops-cnt">
-          7 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9725" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="9935" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>

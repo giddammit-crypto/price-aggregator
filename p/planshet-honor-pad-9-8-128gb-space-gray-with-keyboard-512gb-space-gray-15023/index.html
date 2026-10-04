@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <meta name="pricehub-static" content="1">
   <base href="/price-aggregator/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -85,7 +86,7 @@
         <a href="/price-aggregator/catalog/processors" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Процессоры</a>
         <a href="/price-aggregator/catalog/storage-ssd" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">SSD накопители</a>
         <a href="/price-aggregator/catalog/televisions" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">ТВ и Аудио</a>
-        <a href="/price-aggregator/search?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
+        <a href="/price-aggregator/search/?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
       </div>
     </div>
 
@@ -538,11 +539,11 @@
 
     <!-- Product Pager (навигация по товарам категории) -->
     <div class="product-pager d-flex align-center gap-2">
-                    <a href="/price-aggregator/p/planshet-huawei-matepad-11-5-8-128gb-space-gray-papermatte-256gb-midnight-14762/" class="btn btn--secondary btn--sm" title="Планшет HUAWEI MatePad 11.5 8/128GB Space Gray (Papermatte) (256GB, Midnight)">
+                    <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-256gb-midnight-15016/" class="btn btn--secondary btn--sm" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (256GB, Midnight)">
           <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right" style="transform: rotate(180deg);"></use></svg>
           <span>Предыдущий товар</span>
         </a>
-                          <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-white-14807/" class="btn btn--secondary btn--sm" title="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, White)">
+                          <a href="/price-aggregator/p/planshet-xiaomi-pad-6-8-256gb-gravity-gray-144hz-256gb-graphite-15034/" class="btn btn--secondary btn--sm" title="Планшет Xiaomi Pad 6 8/256GB Gravity Gray 144Hz (256GB, Graphite)">
           <span>Следующий товар</span>
           <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
         </a>
@@ -578,15 +579,23 @@
       </div>
 
       <!-- Best Price CTA Box -->
-      <div style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
+      <div class="product-hero__cta-box" style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
         <div class="d-flex justify-between align-center flex-wrap gap-2 mb-4">
           <div>
             <span class="text-muted" style="font-size: var(--fs-xs);">Лучшая цена в магазинах:</span>
-            <div style="font-size: 2rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px;">
-              23 490 ₽            </div>
-            <span class="text-muted" style="font-size: var(--fs-xs);">
-              в 1 магазинах (6 предложений)
-            </span>
+                        <div class="d-flex align-baseline gap-2 flex-wrap" style="margin-top: 2px;">
+              <div class="product-hero__min-price" style="font-size: 2.1rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px; line-height: 1.1;">
+                23 490 ₽              </div>
+                              <span class="product-hero__old-price" title="Цена до скидки" style="font-size: 1.2rem; color: var(--c-ink-3); text-decoration: line-through; font-weight: 600;">
+                  30 790 ₽                </span>
+                <span class="badge badge--drop" style="font-size: 11px;">−24%</span>
+                          </div>
+            <div class="d-flex align-center gap-2 mt-1">
+              <span class="text-muted" style="font-size: var(--fs-xs);">
+                в 1 магазинах (6 предложений)
+              </span>
+                              <span class="badge badge--best" style="font-size: 11px;">Выгода до 7 300 ₽</span>
+                          </div>
           </div>
 
           <div class="d-flex gap-2">
@@ -601,13 +610,21 @@
           </div>
         </div>
 
-                  <div class="d-flex justify-between align-center" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3); border: 1px solid var(--c-line);">
-            <div>
-              <span class="badge badge--best" style="margin-bottom: 4px;">Выгоднее всего</span>
-              <div class="font-bold">Aliexpress &bull; 23 490 ₽</div>
+                  <div class="product-hero__best-offer" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3) var(--sp-4); border: 1px solid var(--c-line); display: flex; justify-content: space-between; align-items: center; gap: var(--sp-3);">
+            <div class="d-flex align-center gap-3">
+              <span class="offer-shop__logo offer-shop__logo--aliexpress" style="background-color: #FF4747; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--r-sm); color: #fff; font-weight: 800; font-size: 11px;">
+                ALI              </span>
+              <div>
+                <div class="d-flex align-center gap-2">
+                  <span class="badge badge--best">Выгоднее всего</span>
+                                      <span class="badge badge--warn" style="font-size: 11px;">Доставка из Китая 12–18 дней</span>
+                                  </div>
+                <div class="font-bold mt-1" style="font-size: var(--fs-md);">
+                  <span style="color: #FF4747;">AliExpress</span> &bull; 23 490 ₽                </div>
+              </div>
             </div>
-                        <a href="https://aliexpress.ru/wholesale?SearchText=HONOR%20Pad%209%208%2F128GB%20Space%20Gray%20with%20Keyboard" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent">
-              В магазин &rarr;
+            <a href="https://aliexpress.ru/wholesale?SearchText=HONOR%20Pad%209%208%2F128GB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--shop">
+              <span>В магазин</span> &rarr;
             </a>
           </div>
               </div>
@@ -618,7 +635,7 @@
   <section style="margin-bottom: var(--sp-8);">
     <h2 style="font-size: var(--fs-lg); font-weight: 800;">Уведомить о снижении цены</h2>
     <form id="priceAlertForm" action="#" onsubmit="alert('Подписка успешно оформлена!'); return false;" method="POST" class="d-flex gap-2 flex-wrap mt-4">
-      <input type="hidden" name="_csrf" value="305b591fab50390ed5cfb66ad6c9b5867c145957f1ddcafc639859361aa01fc4">      <input type="hidden" name="product_id" value="15023">
+      <input type="hidden" name="_csrf" value="2fb131d7b41c306fa9d30cc02b3a9340f5c453c6c64e104c8697c0cc0dc2ceec">      <input type="hidden" name="product_id" value="15023">
       <label>E-mail <input type="email" name="email" required autocomplete="email" class="search-input"></label>
       <label>Желаемая цена, ₽ <input type="number" name="target_price" min="1" step="1" required class="search-input"></label>
       <button type="submit" class="btn btn--accent">Подписаться</button>
@@ -645,9 +662,15 @@
               <div data-offer-kind="crossborder" data-offer-mode="prices">
           <div class="offer-row offer-row--best">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FF4747;">
-      AliExpress    </div>
-    <span class="badge badge--marketplace">Из Китая / Прямая доставка</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--aliexpress" style="background-color: #FF4747;" title="AliExpress" aria-hidden="true">
+        ALI      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--aliexpress" style="color: #FF4747;">
+          AliExpress        </div>
+        <span class="badge badge--shop-kind">Из Китая / Прямая доставка</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -664,12 +687,19 @@
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">23 490 ₽</div>
-            </div>
+    
+          <div class="offer-price offer-price--best">
+        23 490 ₽      </div>
+          
+    <div class="offer-price__badges">
+              <span class="badge badge--best">Лучшая цена</span>
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://aliexpress.ru/wholesale?SearchText=HONOR%20Pad%209%208%2F128GB%20Space%20Gray%20with%20Keyboard" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://aliexpress.ru/wholesale?SearchText=HONOR%20Pad%209%208%2F128GB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин AliExpress">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -678,24 +708,38 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #EC6608;">
-      DNS    </div>
-    <span class="badge badge--marketplace">Сеть магазинов</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--dns" style="background-color: #EC6608;" title="DNS" aria-hidden="true">
+        DNS      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--dns" style="color: #EC6608;">
+          DNS        </div>
+        <span class="badge badge--shop-kind">Сеть магазинов</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Гарантия DNS 12–36 мес.</span>
+          <span class="badge badge--warranty">
+        <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Гарантия DNS 12–36 мес.      </span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">29 690 ₽</div>
-            </div>
+    
+          <div class="offer-price ">
+        29 690 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.dns-shop.ru/search/?q=HONOR%20Pad%209%208%2F128GB%20Space%20Gray%20with%20Keyboard" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.dns-shop.ru/search/?q=HONOR%20Pad%209%208%2F128GB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин DNS">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -704,9 +748,15 @@
               <div data-offer-kind="classifieds" data-offer-mode="link_only">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #00AAFF;">
-      Авито    </div>
-    <span class="badge badge--marketplace">Частные / Б/у</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--avito" style="background-color: #00AAFF;" title="Авито" aria-hidden="true">
+        АВ      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--avito" style="color: #00AAFF;">
+          Авито        </div>
+        <span class="badge badge--shop-kind">Частные / Б/у</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -716,12 +766,17 @@
       </div>
 
   <div class="offer-price-col">
+    
           <span class="text-muted" style="font-size: var(--fs-xs);">Уточняйте на сайте</span>
-      </div>
+    
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.avito.ru/rossiya?q=HONOR%20Pad%209%208%2F128GB%20Space%20Gray%20with%20Keyboard" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.avito.ru/rossiya?q=HONOR%20Pad%209%208%2F128GB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Авито">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -730,24 +785,38 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FF5000;">
-      Ситилинк    </div>
-    <span class="badge badge--marketplace">Федеральная сеть</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--citilink" style="background-color: #FF5000;" title="Ситилинк" aria-hidden="true">
+        CITI      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--citilink" style="color: #FF5000;">
+          Ситилинк        </div>
+        <span class="badge badge--shop-kind">Федеральная сеть</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Гарантия Ситилинк</span>
+          <span class="badge badge--warranty">
+        <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Гарантия Ситилинк      </span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">28 090 ₽</div>
-            </div>
+    
+          <div class="offer-price ">
+        28 090 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.citilink.ru/search/?text=HONOR%20Pad%209%208%2F128GB%20Space%20Gray%20with%20Keyboard" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.citilink.ru/search/?text=HONOR%20Pad%209%208%2F128GB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Ситилинк">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -756,24 +825,38 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #0055A5;">
-      Регард    </div>
-    <span class="badge badge--marketplace">Специализированный ПК</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--regard" style="background-color: #0055A5;" title="Регард" aria-hidden="true">
+        REG      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--regard" style="color: #0055A5;">
+          Регард        </div>
+        <span class="badge badge--shop-kind">Специализированный ПК</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Гарантия Регард</span>
+          <span class="badge badge--warranty">
+        <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Гарантия Регард      </span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">27 790 ₽</div>
-            </div>
+    
+          <div class="offer-price ">
+        27 790 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.regard.ru/catalog?search=HONOR%20Pad%209%208%2F128GB%20Space%20Gray%20with%20Keyboard" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.regard.ru/catalog?search=HONOR%20Pad%209%208%2F128GB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Регард">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -782,24 +865,39 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #1D70B8;">
-      ОнлайнТрейд    </div>
-    <span class="badge badge--marketplace">Гипермаркет</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--onlinetrade" style="background-color: #1D70B8;" title="ОнлайнТрейд" aria-hidden="true">
+        ОТ      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--onlinetrade" style="color: #1D70B8;">
+          ОнлайнТрейд        </div>
+        <span class="badge badge--shop-kind">Гипермаркет</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Клубная цена ON-бонусы</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">28 290 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">29 470 ₽</span>
+    
+          <div class="offer-price ">
+        28 290 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--bonus" title="Бонусная программа магазина">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Клубная цена ON-бонусы        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.onlinetrade.ru/sitesearch.html?query=HONOR%20Pad%209%208%2F128GB%20Space%20Gray%20with%20Keyboard" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.onlinetrade.ru/sitesearch.html?query=HONOR%20Pad%209%208%2F128GB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин ОнлайнТрейд">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -808,24 +906,39 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #E31E24;">
-      М.Видео    </div>
-    <span class="badge badge--marketplace">Федеральная сеть</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--mvideo" style="background-color: #E31E24;" title="М.Видео" aria-hidden="true">
+        М.В      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--mvideo" style="color: #E31E24;">
+          М.Видео        </div>
+        <span class="badge badge--shop-kind">Федеральная сеть</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Бонусы М.Видео до 10%</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">30 790 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">32 070 ₽</span>
+    
+          <div class="offer-price ">
+        30 790 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--bonus" title="Бонусная программа магазина">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Бонусы М.Видео до 10%        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.mvideo.ru/listing?q=HONOR%20Pad%209%208%2F128GB%20Space%20Gray%20with%20Keyboard" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.mvideo.ru/listing?q=HONOR%20Pad%209%208%2F128GB" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин М.Видео">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -871,134 +984,23 @@
       <section style="margin-bottom: var(--sp-8);">
       <h2 style="font-size: var(--fs-xl); font-weight: 800; margin-bottom: var(--sp-4);">Похожие модели</h2>
       <div class="product-grid">
-                  <article class="product-card" data-product-id="15170" data-price="30090" data-drop="0" data-pop="120" data-brand="honor" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="15170" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-gold-15170/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Фото Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-  <div class="product-card__brand">HONOR</div>
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-gold-15170/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)">    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Gold)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>screen_size:</span>
-        <strong>12.1&quot;</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>rom_gb:</span>
-        <strong>128</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">30 090 ₽</span>
-        <span class="product-card__shops-cnt">
-          7 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15170" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="14960" data-price="39890" data-drop="0" data-pop="120" data-brand="honor" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="14960" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-space-gray-14960/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Фото Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Space Gray)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-  <div class="product-card__brand">HONOR</div>
-  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-space-gray-14960/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Space Gray)">    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, Space Gray)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>screen_size:</span>
-        <strong>12.1&quot;</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>rom_gb:</span>
-        <strong>128</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">39 890 ₽</span>
-        <span class="product-card__shops-cnt">
-          7 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14960" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="15227" data-price="68790" data-drop="0" data-pop="120" data-brand="apple" data-seller="crossborder">
+                  <article class="product-card" data-product-id="14864" data-price="137590" data-drop="0" data-pop="120" data-brand="apple" data-seller="crossborder" data-mp="1" data-cb="1">
   <div class="product-card__badges">
               <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="15227" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="14864" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-gold-15227/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Фото Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-silver-14864/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Фото Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Silver)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
   <div class="product-card__brand">Apple</div>
-  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-gold-15227/" class="product-card__title" title="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, Gold)">    Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, Gold)  </a>
+  <a href="/price-aggregator/p/planshet-apple-ipad-pro-13-m4-256gb-wi-fi-silver-256gb-silver-14864/" class="product-card__title" title="Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Silver)">    Планшет Apple iPad Pro 13 M4 256GB Wi-Fi Silver (256GB, Silver)  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>screen_size:</span>
-        <strong>11.0&quot;</strong>
-      </div>
-          <div class="product-card__spec-item">
-        <span>rom_gb:</span>
-        <strong>128</strong>
-      </div>
-      </div>
-
-  <div class="product-card__footer">
-    <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">68 790 ₽</span>
-        <span class="product-card__shops-cnt">
-          7 предложений        </span>
-          </div>
-
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15227" title="Сравнить" aria-label="Сравнить товар">
-        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
-      </button>
-      </div>
-</article>
-                  <article class="product-card" data-product-id="15356" data-price="30390" data-drop="0" data-pop="120" data-brand="xiaomi" data-seller="marketplace">
-  <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
-      </div>
-
-      <button type="button" class="product-card__fav" data-fav-id="15356" title="В избранное" aria-label="Добавить в избранное">
-      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
-    </button>
-  
-  <a href="/price-aggregator/p/planshet-xiaomi-pad-6-8-256gb-gravity-gray-144hz-512gb-gold-15356/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Фото Планшет Xiaomi Pad 6 8/256GB Gravity Gray 144Hz (512GB, Gold)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
-  </a>
-  <div class="product-card__brand">Xiaomi</div>
-  <a href="/price-aggregator/p/planshet-xiaomi-pad-6-8-256gb-gravity-gray-144hz-512gb-gold-15356/" class="product-card__title" title="Планшет Xiaomi Pad 6 8/256GB Gravity Gray 144Hz (512GB, Gold)">    Планшет Xiaomi Pad 6 8/256GB Gravity Gray 144Hz (512GB, Gold)  </a>
-  <div class="product-card__specs">
-          <div class="product-card__spec-item">
-        <span>screen_size:</span>
-        <strong>11.0&quot;</strong>
+        <strong>13.0&quot;</strong>
       </div>
           <div class="product-card__spec-item">
         <span>rom_gb:</span>
@@ -1008,13 +1010,134 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">30 390 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">137 590 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="15356" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14864" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="14630" data-price="31290" data-drop="15" data-pop="118" data-brand="lenovo" data-seller="marketplace" data-mp="1" data-cb="0">
+  <div class="product-card__badges">
+          <span class="badge badge--drop">−15%</span>
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="14630" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-titanium-14630/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Фото Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Titanium)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Lenovo</div>
+  <a href="/price-aggregator/p/planshet-lenovo-tab-p12-8-128gb-storm-grey-with-pen-128gb-titanium-14630/" class="product-card__title" title="Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Titanium)">    Планшет Lenovo Tab P12 8/128GB Storm Grey with Pen (128GB, Titanium)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>screen_size:</span>
+        <strong>12.7&quot;</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>rom_gb:</span>
+        <strong>128</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">31 290 ₽</span>
+                      <span class="product-card__old-price" title="Старая цена">36 812 ₽</span>
+                  </div>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14630" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="14939" data-price="25590" data-drop="0" data-pop="118" data-brand="honor" data-seller="marketplace" data-mp="1" data-cb="0">
+  <div class="product-card__badges">
+              <span class="badge badge--marketplace">Маркетплейс</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="14939" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14939/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Фото Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">HONOR</div>
+  <a href="/price-aggregator/p/planshet-honor-pad-9-8-128gb-space-gray-with-keyboard-512gb-white-14939/" class="product-card__title" title="Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)">    Планшет HONOR Pad 9 8/128GB Space Gray with Keyboard (512GB, White)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>screen_size:</span>
+        <strong>12.1&quot;</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>rom_gb:</span>
+        <strong>128</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">25 590 ₽</span>
+                  </div>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14939" title="Сравнить" aria-label="Сравнить товар">
+        <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
+      </button>
+      </div>
+</article>
+                  <article class="product-card" data-product-id="14996" data-price="64490" data-drop="0" data-pop="118" data-brand="apple" data-seller="crossborder" data-mp="1" data-cb="1">
+  <div class="product-card__badges">
+              <span class="badge badge--crossborder">Из Китая</span>
+      </div>
+
+      <button type="button" class="product-card__fav" data-fav-id="14996" title="В избранное" aria-label="Добавить в избранное">
+      <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
+    </button>
+  
+  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-white-14996/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/tablet-ipad.webp" alt="Фото Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, White)" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  </a>
+  <div class="product-card__brand">Apple</div>
+  <a href="/price-aggregator/p/planshet-apple-ipad-air-11-m2-128gb-wi-fi-space-gray-512gb-white-14996/" class="product-card__title" title="Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, White)">    Планшет Apple iPad Air 11 M2 128GB Wi-Fi Space Gray (512GB, White)  </a>
+  <div class="product-card__specs">
+          <div class="product-card__spec-item">
+        <span>screen_size:</span>
+        <strong>11.0&quot;</strong>
+      </div>
+          <div class="product-card__spec-item">
+        <span>rom_gb:</span>
+        <strong>128</strong>
+      </div>
+      </div>
+
+  <div class="product-card__footer">
+    <div class="product-card__price-wrap">
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">64 490 ₽</span>
+                  </div>
+        <span class="product-card__shops-cnt">
+          7 предложений        </span>
+          </div>
+
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="14996" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>

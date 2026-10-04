@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <meta name="pricehub-static" content="1">
   <base href="/price-aggregator/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -85,7 +86,7 @@
         <a href="/price-aggregator/catalog/processors" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">Процессоры</a>
         <a href="/price-aggregator/catalog/storage-ssd" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">SSD накопители</a>
         <a href="/price-aggregator/catalog/televisions" style="color: var(--c-on-dark); padding: 4px 10px; border-radius: 4px;">ТВ и Аудио</a>
-        <a href="/price-aggregator/search?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
+        <a href="/price-aggregator/search/?q=rtx" style="color: var(--c-accent); padding: 4px 10px; border-radius: 4px;">🔥 Скидки дня</a>
       </div>
     </div>
 
@@ -538,11 +539,11 @@
 
     <!-- Product Pager (навигация по товарам категории) -->
     <div class="product-pager d-flex align-center gap-2">
-                    <a href="/price-aggregator/p/materinskaya-plata-msi-mag-b760-tomahawk-wifi-1766/" class="btn btn--secondary btn--sm" title="Материнская плата MSI MAG B760 TOMAHAWK WIFI">
+                    <a href="/price-aggregator/p/materinskaya-plata-biostar-b760a-silver-1787/" class="btn btn--secondary btn--sm" title="Материнская плата Biostar B760A-SILVER">
           <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right" style="transform: rotate(180deg);"></use></svg>
           <span>Предыдущий товар</span>
         </a>
-                          <a href="/price-aggregator/p/materinskaya-plata-msi-mag-b760-tomahawk-wifi-2070/" class="btn btn--secondary btn--sm" title="Материнская плата MSI MAG B760 TOMAHAWK WIFI">
+                          <a href="/price-aggregator/p/materinskaya-plata-asus-rog-strix-b650e-f-gaming-wifi-1577/" class="btn btn--secondary btn--sm" title="Материнская плата ASUS ROG STRIX B650E-F GAMING WIFI">
           <span>Следующий товар</span>
           <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#chevron-right"></use></svg>
         </a>
@@ -578,15 +579,23 @@
       </div>
 
       <!-- Best Price CTA Box -->
-      <div style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
+      <div class="product-hero__cta-box" style="background: var(--c-bg); border-radius: var(--r-md); padding: var(--sp-4); border: 1px solid var(--c-line);">
         <div class="d-flex justify-between align-center flex-wrap gap-2 mb-4">
           <div>
             <span class="text-muted" style="font-size: var(--fs-xs);">Лучшая цена в магазинах:</span>
-            <div style="font-size: 2rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px;">
-              8 090 ₽            </div>
-            <span class="text-muted" style="font-size: var(--fs-xs);">
-              в 1 магазинах (6 предложений)
-            </span>
+                        <div class="d-flex align-baseline gap-2 flex-wrap" style="margin-top: 2px;">
+              <div class="product-hero__min-price" style="font-size: 2.1rem; font-weight: 900; color: var(--c-ink); letter-spacing: -0.5px; line-height: 1.1;">
+                8 090 ₽              </div>
+                              <span class="product-hero__old-price" title="Цена до скидки" style="font-size: 1.2rem; color: var(--c-ink-3); text-decoration: line-through; font-weight: 600;">
+                  10 490 ₽                </span>
+                <span class="badge badge--drop" style="font-size: 11px;">−23%</span>
+                          </div>
+            <div class="d-flex align-center gap-2 mt-1">
+              <span class="text-muted" style="font-size: var(--fs-xs);">
+                в 1 магазинах (6 предложений)
+              </span>
+                              <span class="badge badge--best" style="font-size: 11px;">Выгода до 2 400 ₽</span>
+                          </div>
           </div>
 
           <div class="d-flex gap-2">
@@ -601,13 +610,21 @@
           </div>
         </div>
 
-                  <div class="d-flex justify-between align-center" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3); border: 1px solid var(--c-line);">
-            <div>
-              <span class="badge badge--best" style="margin-bottom: 4px;">Выгоднее всего</span>
-              <div class="font-bold">Aliexpress &bull; 8 090 ₽</div>
+                  <div class="product-hero__best-offer" style="background: #FFF; border-radius: var(--r-sm); padding: var(--sp-3) var(--sp-4); border: 1px solid var(--c-line); display: flex; justify-content: space-between; align-items: center; gap: var(--sp-3);">
+            <div class="d-flex align-center gap-3">
+              <span class="offer-shop__logo offer-shop__logo--aliexpress" style="background-color: #FF4747; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--r-sm); color: #fff; font-weight: 800; font-size: 11px;">
+                ALI              </span>
+              <div>
+                <div class="d-flex align-center gap-2">
+                  <span class="badge badge--best">Выгоднее всего</span>
+                                      <span class="badge badge--warn" style="font-size: 11px;">Доставка из Китая 12–18 дней</span>
+                                  </div>
+                <div class="font-bold mt-1" style="font-size: var(--fs-md);">
+                  <span style="color: #FF4747;">AliExpress</span> &bull; 8 090 ₽                </div>
+              </div>
             </div>
-                        <a href="https://aliexpress.ru/wholesale?SearchText=ASRock%20B550M%20PRO4" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent">
-              В магазин &rarr;
+            <a href="https://aliexpress.ru/wholesale?SearchText=ASRock%20B550M%20PRO4" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--shop">
+              <span>В магазин</span> &rarr;
             </a>
           </div>
               </div>
@@ -618,7 +635,7 @@
   <section style="margin-bottom: var(--sp-8);">
     <h2 style="font-size: var(--fs-lg); font-weight: 800;">Уведомить о снижении цены</h2>
     <form id="priceAlertForm" action="#" onsubmit="alert('Подписка успешно оформлена!'); return false;" method="POST" class="d-flex gap-2 flex-wrap mt-4">
-      <input type="hidden" name="_csrf" value="305b591fab50390ed5cfb66ad6c9b5867c145957f1ddcafc639859361aa01fc4">      <input type="hidden" name="product_id" value="1544">
+      <input type="hidden" name="_csrf" value="2fb131d7b41c306fa9d30cc02b3a9340f5c453c6c64e104c8697c0cc0dc2ceec">      <input type="hidden" name="product_id" value="1544">
       <label>E-mail <input type="email" name="email" required autocomplete="email" class="search-input"></label>
       <label>Желаемая цена, ₽ <input type="number" name="target_price" min="1" step="1" required class="search-input"></label>
       <button type="submit" class="btn btn--accent">Подписаться</button>
@@ -645,9 +662,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #005BFF;">
-      Ozon    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--ozon" style="background-color: #005BFF;" title="Ozon" aria-hidden="true">
+        OZON      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--ozon" style="color: #005BFF;">
+          Ozon        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -658,16 +681,25 @@
         </span>
                 
     
-          <span class="badge badge--warn">Цена с Ozon Картой</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">8 990 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">9 460 ₽</span>
+    
+          <div class="offer-price ">
+        8 990 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--ozon-card" title="Специальная цена с Ozon Картой">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+          Цена с Ozon Картой        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.ozon.ru/search/?text=ASRock%20B550M%20PRO4" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.ozon.ru/search/?text=ASRock%20B550M%20PRO4" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Ozon">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -676,9 +708,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #CB11AB;">
-      Wildberries    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--wildberries" style="background-color: #CB11AB;" title="Wildberries" aria-hidden="true">
+        WB      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--wildberries" style="color: #CB11AB;">
+          Wildberries        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -689,16 +727,25 @@
         </span>
                 
     
-          <span class="badge badge--warn">Скидка с WB Кошельком</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">8 990 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">9 560 ₽</span>
+    
+          <div class="offer-price ">
+        8 990 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--wb-wallet" title="Специальная цена при оплате WB Кошельком">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          Скидка с WB Кошельком        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.wildberries.ru/catalog/0/search.aspx?page=1&amp;sort=popular&amp;search=ASRock%20B550M%20PRO4" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.wildberries.ru/catalog/0/search.aspx?page=1&amp;sort=popular&amp;search=ASRock%20B550M%20PRO4" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Wildberries">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -707,9 +754,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #7B1FA2;">
-      Мегамаркет    </div>
-    <span class="badge badge--marketplace">СберМаркет / Бонусы</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--megamarket" style="background-color: #7B1FA2;" title="Мегамаркет" aria-hidden="true">
+        ММ      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--megamarket" style="color: #7B1FA2;">
+          Мегамаркет        </div>
+        <span class="badge badge--shop-kind">СберМаркет / Бонусы</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -721,16 +774,25 @@
                     <span class="badge badge--official">Официальный</span>
           
     
-          <span class="badge badge--warn">Кэшбэк до 15% бонусами</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">9 390 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">9 780 ₽</span>
+    
+          <div class="offer-price ">
+        9 390 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--bonus" title="Бонусная программа магазина">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Кэшбэк до 15% бонусами        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://megamarket.ru/catalog/?q=ASRock%20B550M%20PRO4" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://megamarket.ru/catalog/?q=ASRock%20B550M%20PRO4" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Мегамаркет">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -739,9 +801,15 @@
               <div data-offer-kind="marketplace" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FC3F1D;">
-      Яндекс Маркет    </div>
-    <span class="badge badge--marketplace">Маркетплейс</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--yandex_market" style="background-color: #FC3F1D;" title="Яндекс Маркет" aria-hidden="true">
+        Я.М      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--yandex_market" style="color: #FC3F1D;">
+          Яндекс Маркет        </div>
+        <span class="badge badge--shop-kind">Маркетплейс</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -753,16 +821,25 @@
                     <span class="badge badge--official">Официальный</span>
           
     
-          <span class="badge badge--warn">Баллы Яндекс Плюс</span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">9 290 ₽</div>
-            </div>
+          <span class="offer-price__old" title="Цена без карты или скидки">9 680 ₽</span>
+    
+          <div class="offer-price ">
+        9 290 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+              <span class="badge badge--yandex-plus" title="Кэшбэк или скидка баллами Яндекс Плюс">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          Баллы Яндекс Плюс        </span>
+          </div>
+  </div>
 
-  <div>
-    <a href="https://market.yandex.ru/search?text=ASRock%20B550M%20PRO4" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://market.yandex.ru/search?text=ASRock%20B550M%20PRO4" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Яндекс Маркет">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -771,9 +848,15 @@
               <div data-offer-kind="crossborder" data-offer-mode="prices">
           <div class="offer-row offer-row--best">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #FF4747;">
-      AliExpress    </div>
-    <span class="badge badge--marketplace">Из Китая / Прямая доставка</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--aliexpress" style="background-color: #FF4747;" title="AliExpress" aria-hidden="true">
+        ALI      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--aliexpress" style="color: #FF4747;">
+          AliExpress        </div>
+        <span class="badge badge--shop-kind">Из Китая / Прямая доставка</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -790,12 +873,19 @@
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">8 090 ₽</div>
-            </div>
+    
+          <div class="offer-price offer-price--best">
+        8 090 ₽      </div>
+          
+    <div class="offer-price__badges">
+              <span class="badge badge--best">Лучшая цена</span>
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://aliexpress.ru/wholesale?SearchText=ASRock%20B550M%20PRO4" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://aliexpress.ru/wholesale?SearchText=ASRock%20B550M%20PRO4" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин AliExpress">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -804,24 +894,38 @@
               <div data-offer-kind="retail" data-offer-mode="prices">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #EC6608;">
-      DNS    </div>
-    <span class="badge badge--marketplace">Сеть магазинов</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--dns" style="background-color: #EC6608;" title="DNS" aria-hidden="true">
+        DNS      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--dns" style="color: #EC6608;">
+          DNS        </div>
+        <span class="badge badge--shop-kind">Сеть магазинов</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
     
     
-          <span class="badge badge--warn">Гарантия DNS 12–36 мес.</span>
+          <span class="badge badge--warranty">
+        <svg class="icon icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Гарантия DNS 12–36 мес.      </span>
       </div>
 
   <div class="offer-price-col">
-          <div class="offer-price">10 490 ₽</div>
-            </div>
+    
+          <div class="offer-price ">
+        10 490 ₽      </div>
+          
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.dns-shop.ru/search/?q=ASRock%20B550M%20PRO4" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.dns-shop.ru/search/?q=ASRock%20B550M%20PRO4" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин DNS">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -830,9 +934,15 @@
               <div data-offer-kind="classifieds" data-offer-mode="link_only">
           <div class="offer-row ">
   <div class="offer-shop">
-    <div class="offer-shop__name" style="color: #00AAFF;">
-      Авито    </div>
-    <span class="badge badge--marketplace">Частные / Б/у</span>
+    <div class="offer-shop__header">
+      <span class="offer-shop__logo offer-shop__logo--avito" style="background-color: #00AAFF;" title="Авито" aria-hidden="true">
+        АВ      </span>
+      <div class="offer-shop__meta">
+        <div class="offer-shop__name shop-name--avito" style="color: #00AAFF;">
+          Авито        </div>
+        <span class="badge badge--shop-kind">Частные / Б/у</span>
+      </div>
+    </div>
   </div>
 
   <div class="offer-seller">
@@ -842,12 +952,17 @@
       </div>
 
   <div class="offer-price-col">
+    
           <span class="text-muted" style="font-size: var(--fs-xs);">Уточняйте на сайте</span>
-      </div>
+    
+    <div class="offer-price__badges">
+      
+          </div>
+  </div>
 
-  <div>
-    <a href="https://www.avito.ru/rossiya?q=ASRock%20B550M%20PRO4" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm">
-      В магазин
+  <div class="offer-action-col">
+    <a href="https://www.avito.ru/rossiya?q=ASRock%20B550M%20PRO4" target="_blank" rel="sponsored nofollow noopener" class="btn btn--accent btn--sm btn--shop" aria-label="Перейти в магазин Авито">
+      <span>В магазин</span>
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#arrow-up-right"></use></svg>
     </a>
   </div>
@@ -893,19 +1008,19 @@
       <section style="margin-bottom: var(--sp-8);">
       <h2 style="font-size: var(--fs-xl); font-weight: 800; margin-bottom: var(--sp-4);">Похожие модели</h2>
       <div class="product-grid">
-                  <article class="product-card" data-product-id="1586" data-price="14290" data-drop="0" data-pop="120" data-brand="msi" data-seller="crossborder">
+                  <article class="product-card" data-product-id="2069" data-price="20890" data-drop="0" data-pop="120" data-brand="asus" data-seller="marketplace" data-mp="1" data-cb="0">
   <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
+              <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="1586" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="2069" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/materinskaya-plata-msi-pro-b650m-a-wifi-1586/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/mobo-asus.webp" alt="Фото Материнская плата MSI PRO B650M-A WIFI" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/materinskaya-plata-asus-tuf-gaming-b650-plus-2069/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/mobo-asus.webp" alt="Фото Материнская плата ASUS TUF GAMING B650-PLUS" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
-  <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/materinskaya-plata-msi-pro-b650m-a-wifi-1586/" class="product-card__title" title="Материнская плата MSI PRO B650M-A WIFI">    Материнская плата MSI PRO B650M-A WIFI  </a>
+  <div class="product-card__brand">ASUS</div>
+  <a href="/price-aggregator/p/materinskaya-plata-asus-tuf-gaming-b650-plus-2069/" class="product-card__title" title="Материнская плата ASUS TUF GAMING B650-PLUS">    Материнская плата ASUS TUF GAMING B650-PLUS  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -917,36 +1032,38 @@
       </div>
           <div class="product-card__spec-item">
         <span>form_factor:</span>
-        <strong>Micro-ATX</strong>
+        <strong>ATX</strong>
       </div>
       </div>
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">14 290 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">20 890 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1586" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2069" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="1718" data-price="19590" data-drop="0" data-pop="118" data-brand="msi" data-seller="crossborder">
+                  <article class="product-card" data-product-id="1838" data-price="21090" data-drop="0" data-pop="120" data-brand="msi" data-seller="marketplace" data-mp="1" data-cb="0">
   <div class="product-card__badges">
-              <span class="badge badge--crossborder">Из Китая</span>
+              <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="1718" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="1838" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/materinskaya-plata-msi-mag-b760-tomahawk-wifi-1718/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/mobo-asus.webp" alt="Фото Материнская плата MSI MAG B760 TOMAHAWK WIFI" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/materinskaya-plata-msi-mag-b760-tomahawk-wifi-1838/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/mobo-asus.webp" alt="Фото Материнская плата MSI MAG B760 TOMAHAWK WIFI" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
   <div class="product-card__brand">MSI</div>
-  <a href="/price-aggregator/p/materinskaya-plata-msi-mag-b760-tomahawk-wifi-1718/" class="product-card__title" title="Материнская плата MSI MAG B760 TOMAHAWK WIFI">    Материнская плата MSI MAG B760 TOMAHAWK WIFI  </a>
+  <a href="/price-aggregator/p/materinskaya-plata-msi-mag-b760-tomahawk-wifi-1838/" class="product-card__title" title="Материнская плата MSI MAG B760 TOMAHAWK WIFI">    Материнская плата MSI MAG B760 TOMAHAWK WIFI  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -964,38 +1081,40 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">19 590 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">21 090 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1718" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1838" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="1727" data-price="22590" data-drop="0" data-pop="118" data-brand="gigabyte" data-seller="marketplace">
+                  <article class="product-card" data-product-id="2102" data-price="21090" data-drop="0" data-pop="120" data-brand="msi" data-seller="marketplace" data-mp="1" data-cb="0">
   <div class="product-card__badges">
               <span class="badge badge--marketplace">Маркетплейс</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="1727" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="2102" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/materinskaya-plata-gigabyte-b650-aorus-elite-ax-1727/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/mobo-asus.webp" alt="Фото Материнская плата GIGABYTE B650 AORUS ELITE AX" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/materinskaya-plata-msi-mag-b760-tomahawk-wifi-2102/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/mobo-asus.webp" alt="Фото Материнская плата MSI MAG B760 TOMAHAWK WIFI" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
-  <div class="product-card__brand">GIGABYTE</div>
-  <a href="/price-aggregator/p/materinskaya-plata-gigabyte-b650-aorus-elite-ax-1727/" class="product-card__title" title="Материнская плата GIGABYTE B650 AORUS ELITE AX">    Материнская плата GIGABYTE B650 AORUS ELITE AX  </a>
+  <div class="product-card__brand">MSI</div>
+  <a href="/price-aggregator/p/materinskaya-plata-msi-mag-b760-tomahawk-wifi-2102/" class="product-card__title" title="Материнская плата MSI MAG B760 TOMAHAWK WIFI">    Материнская плата MSI MAG B760 TOMAHAWK WIFI  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
-        <strong>AM5</strong>
+        <strong>LGA1700</strong>
       </div>
           <div class="product-card__spec-item">
         <span>chipset:</span>
-        <strong>AMD B650</strong>
+        <strong>Intel B760</strong>
       </div>
           <div class="product-card__spec-item">
         <span>form_factor:</span>
@@ -1005,30 +1124,32 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">22 590 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">21 090 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1727" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="2102" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
 </article>
-                  <article class="product-card" data-product-id="1496" data-price="8990" data-drop="0" data-pop="118" data-brand="asrock" data-seller="marketplace">
+                  <article class="product-card" data-product-id="1784" data-price="8290" data-drop="0" data-pop="120" data-brand="asrock" data-seller="crossborder" data-mp="1" data-cb="1">
   <div class="product-card__badges">
-              <span class="badge badge--marketplace">Маркетплейс</span>
+              <span class="badge badge--crossborder">Из Китая</span>
       </div>
 
-      <button type="button" class="product-card__fav" data-fav-id="1496" title="В избранное" aria-label="Добавить в избранное">
+      <button type="button" class="product-card__fav" data-fav-id="1784" title="В избранное" aria-label="Добавить в избранное">
       <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#heart"></use></svg>
     </button>
   
-  <a href="/price-aggregator/p/materinskaya-plata-asrock-b550m-pro4-1496/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/mobo-asus.webp" alt="Фото Материнская плата ASRock B550M PRO4" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
+  <a href="/price-aggregator/p/materinskaya-plata-asrock-b550m-pro4-1784/" class="product-card__img-wrap" tabindex="-1">    <img src="/price-aggregator/assets/img/products/mobo-asus.webp" alt="Фото Материнская плата ASRock B550M PRO4" class="product-card__img" loading="lazy" width="180" height="180" onerror="this.onerror=null; this.src='/assets/img/p/10.svg';">
   </a>
   <div class="product-card__brand">ASRock</div>
-  <a href="/price-aggregator/p/materinskaya-plata-asrock-b550m-pro4-1496/" class="product-card__title" title="Материнская плата ASRock B550M PRO4">    Материнская плата ASRock B550M PRO4  </a>
+  <a href="/price-aggregator/p/materinskaya-plata-asrock-b550m-pro4-1784/" class="product-card__title" title="Материнская плата ASRock B550M PRO4">    Материнская плата ASRock B550M PRO4  </a>
   <div class="product-card__specs">
           <div class="product-card__spec-item">
         <span>socket:</span>
@@ -1046,13 +1167,15 @@
 
   <div class="product-card__footer">
     <div class="product-card__price-wrap">
-              <span class="product-card__price-label">от</span>
-        <span class="product-card__price">8 990 ₽</span>
+              <div class="product-card__price-row">
+          <span class="product-card__price-label">от</span>
+          <span class="product-card__price">8 290 ₽</span>
+                  </div>
         <span class="product-card__shops-cnt">
           7 предложений        </span>
           </div>
 
-          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1496" title="Сравнить" aria-label="Сравнить товар">
+          <button type="button" class="btn btn--sm btn--secondary" data-compare-id="1784" title="Сравнить" aria-label="Сравнить товар">
         <svg class="icon icon-sm"><use href="/price-aggregator/assets/icons/sprite.svg#scale"></use></svg>
       </button>
       </div>
